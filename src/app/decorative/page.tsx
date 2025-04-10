@@ -17,7 +17,7 @@ const DecorativeFilms: React.FC = () => {
       </div>
 
       <TitleSection
-        title="Decorative & Security Window Films"
+        title="Decorative & Security Films"
         subtitle="Stylish Privacy & Custom Design for Any Space"
       />
 

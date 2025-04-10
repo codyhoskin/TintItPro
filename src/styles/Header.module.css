@@ -302,7 +302,7 @@
   .dropdownMenu {
     position: static;
     box-shadow: none;
-    background: transparent;
+    background: white;
     padding: 0;
     border-radius: 0;
   }
@@ -311,11 +311,19 @@
 .mobileNav .dropdownTrigger {
   font-size: 18px;        /* Increase font size */
   text-align: left;       /* Align text left */
-  padding-left: 40px;     /* Match padding with other mobile links */
+  padding-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;     /* Match padding with other mobile links */
   width: 100%;            /* Ensure it fills width for alignment */
   font-weight: bold;      /* Consistent bold text */
   background: none;
   border: none;
   color: var(--foreground);
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+}
+.mobileNav .dropdownTrigger:hover {
+  color: var(--primary); /* or use a color like red: #e63946 */
+  transform: scale(1.05); /* optional for consistency */
 }
