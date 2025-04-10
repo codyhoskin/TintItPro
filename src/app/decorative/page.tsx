@@ -16,15 +16,14 @@ const DecorativeFilms: React.FC = () => {
         <div className={`${styles.blob} ${styles.blob3}`}></div>
       </div>
 
+      {/* Section 1 - Decorative Films */}
+      <section className={styles.contentSection}>
       <TitleSection
         title="Decorative & Security Films"
         subtitle="Stylish Privacy & Custom Design for Any Space"
       />
-
-      {/* Section 1 - Decorative Films */}
-      <section className={styles.contentSection}>
         <div className={styles.textBlock}>
-          <h2>Decorative and Privacy Window Films</h2>
+          <h2>Why Choose Decorative and Privacy Window Films?</h2>
           <p>
             Decorative window films are a versatile solution that enhance the aesthetics and functionality of any space — whether residential or commercial.
             <br /><br />
