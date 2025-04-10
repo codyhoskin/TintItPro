@@ -2,7 +2,10 @@
 
 import React from "react";
 import FrequentlyAskedQuestions from "@/components/FrequentlyAskedQuestions";
+import Link from "next/link";
 import Image from "next/image";
+import styles from "./page.module.css";
+import TitleSection from "@/components/TitleSection";
 
 const generalFAQ = [
   {
@@ -47,45 +50,66 @@ const generalFAQ = [
   },
 ];
 
-const tuffSkinFeatures = [
-  {
-    title: "Etch Proof",
-    desc: "Impervious to all acids and alkalines, including lemon, coffee, toothpaste, and more.",
-    img: "/images/tuffskin1.webp",
-  },
-  {
-    title: "Stain Proof",
-    desc: "Never cry over spilled wine or turmeric stains again!",
-    img: "/images/tuffskin2.webp",
-  },
-  {
-    title: "UV Inhibitor",
-    desc: "Prevents ultraviolet rays from yellowing your countertops.",
-    img: "/images/tuffskin3.webp",
-  },
-  {
-    title: "Heat Resistant",
-    desc: "TuffSkin can take the heat and stay in the kitchen. It withstands up to 204°C.",
-    img: "/images/tuffskin4.webp",
-  },
-  {
-    title: "Replaceable",
-    desc: "Made to be removable and replaceable, available in gloss and satin finishes.",
-    img: "/images/tuffskin5.webp",
-  },
-  {
-    title: "10-Year Etch & Stain Warranty",
-    desc: "Protects against wine, oil, and lemons, hassle-free.",
-    img: "/images/tuffskin6.webp",
-  },
-];
 
 const TuffSkinPage: React.FC = () => {
   return (
-    <main style={{ padding: "100px", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.8", marginTop: "50px" }}>
-      <h1 style={{ color: "#27A7E0", marginBottom: "30px", textAlign: "center" }}>TuffSkin® Surface Protection Film</h1>
+    <main style={{ padding: "2px", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.8", marginTop: "150px" }}>
+      
+      
+      
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center", // Center horizontally
+          alignItems: "center",     // Center vertically
+          width: "100%",             // Ensure the container takes the full width of the screen
+          marginBottom: "20px",
+          overflow: "hidden",       // Hide the overflow (top and bottom parts of iframe)
+          height: "120vh",           // Adjust the height as needed (70% of the viewport height)
+          position: "relative",     // Ensure the iframe can be adjusted within the container
+        }}
+      >
+        <iframe
+          src="https://www.tuffskin.com/residential/"
+          style={{
+            border: "none",
+            width: "100%",              // Ensure iframe takes full width
+            height: "100%",             // Ensure iframe takes full height
+            objectFit: "cover",        // Ensures the content covers the iframe area
+            marginTop: "-400px",         // Adjust to crop the top part of the iframe
+          }}
+        ></iframe>
+      </div>
+      <div className={styles.ctaBlock}>
+          <TitleSection title="See Our Past Work" subtitle="Head to the Image Gallery" />
+          <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "100px" }}>
+            <Link
+              href="/tuffskin-image-gallery"
+              aria-label="Go to Image Gallery"
+              className={styles.ctaButton}
+            >
+              View Our Image Gallery
+            </Link>
+          </div>
+        </div>
 
-      {/* Responsive Grid */}
+
+        <section className={styles.ctaSection}>
+        <Link
+            href="/booking"
+            aria-label="Schedule an appointment with Estimator Pro"
+            className={styles.scheduleButton}
+          >
+            <Image
+              src="/images/schedule.png"
+              alt="Estimator Pro Schedule"
+              width={350}
+              height={130}
+              className={styles.wigglePop}
+            />
+          </Link>
+        </section>      
+
       <div
         style={{
           display: "grid",
@@ -94,32 +118,25 @@ const TuffSkinPage: React.FC = () => {
           margin: "50px 0",
         }}
       >
-        {tuffSkinFeatures.map((item, index) => (
-          <div key={index} style={{ textAlign: "center" }}>
-            <Image
-              src={item.img}
-              alt={item.title}
-              width={400}
-              height={300}
-              style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-            />
-            <h3 style={{ marginTop: "15px", color: "#27A7E0" }}>{item.title}</h3>
-            <p style={{ padding: "10px 0", fontWeight: 100, fontFamily: "Inter, sans-serif", lineHeight: "1.8"  }}>{item.desc}</p>
-          </div>
-        ))}
+       
       </div>
 
-      <h2 style={{ marginTop: "40px", color: "#27A7E0" }}>All About TuffSkin® Marble Protection Calgary</h2>
-      <p>
-        TuffSkin is a proprietary stone laminate made from high-tech polyester that is gas-permeable but liquid-impermeable. Our hard coat technology resists abrasions and provides a long product life. TuffSkin adhesive is explicitly designed to work with stone to be removable and replaceable. In doing so, stone restoration is a thing of the past.
-      </p>
+      <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '50px',
+          marginBottom: '150px',
+          alignItems: 'center',
+          height: '100vh', // Makes the div take up the full height of the screen
+          textAlign: 'center' // Ensures the text is centered within the div
+        }}>
+        <FrequentlyAskedQuestions 
+          title="Frequently Asked Questions"
+          subtitle="Have a Question?"
+          faqItems={generalFAQ}
+        />
+      </div>
 
-      {/* FAQ Section */}
-      <FrequentlyAskedQuestions 
-        title="Frequently Asked Questions"
-        subtitle="Have a Question?"
-        faqItems={generalFAQ}
-      />
     </main>
   );
 };

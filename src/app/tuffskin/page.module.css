@@ -1,0 +1,61 @@
+.scheduleButton {
+    display: block;
+    margin: 0rem auto 0 auto;
+    margin-bottom: 120px; /* top auto-bottom spacing */
+    width: fit-content;
+  }
+    
+  @keyframes wigglePop {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.05) rotate(-3deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(3deg);
+    }
+    75% {
+      transform: scale(1.05) rotate(-2deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  .wigglePop {
+    animation: wigglePop 2.5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Optional: boost it on hover too */
+  .wigglePop:hover {
+    animation: wigglePop 0.6s ease-in-out;
+  }
+  
+  .ctaButton {
+    background-color: #27A7E0;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom: 150px;
+  }
+  
+  .ctaButton:hover {
+    background-color: #1f8fc5;
+  }
+  .ctaBlock {
+    margin-bottom: 80px;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* soft shadow */
+    backdrop-filter: blur(6px); /* subtle glassy blur if supported */
+    -webkit-backdrop-filter: blur(6px);
+    background-image: url("/images/marble.png");
+    /* Safari support */
+  }

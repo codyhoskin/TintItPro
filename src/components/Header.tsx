@@ -6,21 +6,25 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import ThemeToggle from "./ThemeToggle";
-import { FaClipboard}from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
 import SocialLinks from "./SocialLinks";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
 
   const handleMenuToggle = () => setMenuOpen(!menuOpen);
-  const handleMenuClose = () => setMenuOpen(false);
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+    setMobileDropdownOpen(false);
+  };
 
   return (
     <header className={styles.header}>
       {/* Logo */}
       <div className={styles.logo}>
-        <Link href="/" 
-        aria-label="Tint it Pro Home">
+        <Link href="/" aria-label="Tint it Pro Home">
           <Image
             src="/images/logo.png"
             alt="Tint it Pro logo"
@@ -34,18 +38,33 @@ const Header: React.FC = () => {
 
       {/* Desktop Navigation */}
       <nav className={styles.nav} aria-label="Main navigation">
-      <Link href="/#home" aria-label="Navigate to the Home section">Home</Link>
-      <Link href="/#solutions" aria-label="Learn about the Solutions we offer">Solutions</Link>
-      <Link href="/#reviews" aria-label="Read what our customers are saying in Reviews">Reviews</Link>
-      <Link href="/#estimator" aria-label="Use our Estimator Pro to get a quote">Estimator Pro</Link>
-      <Link href="/#faq" aria-label="Frequently Asked Questions about our services">FAQ</Link>
-      <Link href="/blogs" aria-label="Tint it Pro Blog posts">Blog</Link>
+        <Link href="/#home">Home</Link>
 
+        <div
+          className={styles.dropdown}
+          onMouseEnter={() => setDesktopDropdownOpen(true)}
+          onMouseLeave={() => setDesktopDropdownOpen(false)}
+        >
+          <button className={styles.dropdownTrigger}>
+            Solutions <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
+          </button>
+          {desktopDropdownOpen && (
+            <div className={styles.dropdownMenu}>
+              <Link href="/tuffskin">Marble Protection</Link>
+              <Link href="/windowfilm">Residential Films</Link>
+              <Link href="/commercial-films">Commercial Films</Link>
+              <Link href="/decorative">Decorative Films</Link>
+            </div>
+          )}
+        </div>
+
+        <Link href="/#reviews">Reviews</Link>
+        <Link href="/#estimator">Estimator Pro</Link>
+        <Link href="/#faq">FAQ</Link>
+        <Link href="/blogs">Blog</Link>
       </nav>
 
-
-
-      {/* Desktop Call to Action & Theme Toggle */}
+      {/* Desktop Call to Action */}
       <div className={styles.desktopActions}>
         <ThemeToggle />
         <Link
@@ -81,19 +100,38 @@ const Header: React.FC = () => {
         </button>
 
         <nav className={styles.mobileNav} aria-label="Mobile navigation">
-        <Link href="/#home" aria-label="Navigate to the Home section">Home</Link>
-        <Link href="/#solutions" aria-label="Learn about the Solutions we offer">Solutions</Link>
-        <Link href="/#reviews" aria-label="Read what our customers are saying in Reviews">Reviews</Link>
-        <Link href="/#estimator" aria-label="Use our Estimator Pro to get a quote">Estimator Pro</Link>
-        <Link href="/#faq" aria-label="Frequently Asked Questions about our services">FAQ</Link>
-        <Link href="/blogs" aria-label="Tint it Pro Blog posts">Blog</Link>
-      </nav>
+          <Link href="/#home" onClick={handleMenuClose}>Home</Link>
+
+          {/* Mobile Dropdown for Solutions */}
+          <div className={styles.dropdown}>
+            <button
+              className={styles.dropdownTrigger}
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+            >
+              Solutions <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
+            </button>
+            {mobileDropdownOpen && (
+              <div className={styles.dropdownMenu}>
+                <Link href="/tuffskin" onClick={handleMenuClose}>Marble Protection</Link>
+                <Link href="/windowfilm" onClick={handleMenuClose}>Residential Films</Link>
+                <Link href="/commercial-films" onClick={handleMenuClose}>Commercial Films</Link>
+                <Link href="/decorative" onClick={handleMenuClose}>Decorative Films</Link>
+              </div>
+            )}
+          </div>
+
+          <Link href="/#reviews" onClick={handleMenuClose}>Reviews</Link>
+          <Link href="/#estimator" onClick={handleMenuClose}>Estimator Pro</Link>
+          <Link href="/#faq" onClick={handleMenuClose}>FAQ</Link>
+          <Link href="/blogs" onClick={handleMenuClose}>Blog</Link>
+        </nav>
 
         {/* Mobile CTA */}
         <Link
           href="/#estimator"
           className={styles.mobileCtaButton}
           aria-label="Schedule a visit"
+          onClick={handleMenuClose}
         >
           <FaClipboard style={{ marginRight: "8px" }} />
           Get Your Free Quote Today!
@@ -101,7 +139,7 @@ const Header: React.FC = () => {
 
         {/* Social Icons & Footer */}
         <div className={styles.mobileExtras}>
-         <SocialLinks />
+          <SocialLinks />
           <p style={{ fontSize: "15px", marginTop: "auto", textAlign: "center", paddingBottom: "25px" }}>
             Tint It Pro ©2025
           </p>

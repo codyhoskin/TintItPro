@@ -20,7 +20,7 @@ const Footer = () => {
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
         <iframe
           width="100%"
-          height="550px"
+          height="500px"
           src="https://app.tintwiz.com/web/ce/q2qhvszp8cxjukdexllsugfkhh5dvi3h"
           frameBorder="0"
           style={{ border: "none" }}

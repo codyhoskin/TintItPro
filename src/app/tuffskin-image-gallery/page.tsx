@@ -1,0 +1,57 @@
+import React from "react";
+import ImageGallery from "@/components/ImageGallery";
+
+const images = [
+    { src: "/images/tuffskin/DJI_20250228131733_0121_D.JPG", alt: "TuffSkin image 1" },
+    { src: "/images/tuffskin/DJI_20250228131739_0122_D.JPG", alt: "TuffSkin image 2" },
+    { src: "/images/tuffskin/DJI_20250228131952_0134_D.JPG", alt: "TuffSkin image 3" },
+    { src: "/images/tuffskin/IMG_0279.JPG", alt: "TuffSkin image 4" },
+    { src: "/images/tuffskin/IMG_0412 copy.JPG", alt: "TuffSkin image 5" },
+    { src: "/images/tuffskin/IMG_0412.JPG", alt: "TuffSkin image 6" },
+    { src: "/images/tuffskin/IMG_0413 copy.JPG", alt: "TuffSkin image 7" },
+    { src: "/images/tuffskin/IMG_0413.JPG", alt: "TuffSkin image 8" },
+    { src: "/images/tuffskin/IMG_0565.JPG", alt: "TuffSkin image 9" },
+    { src: "/images/tuffskin/IMG_0818.JPG", alt: "TuffSkin image 10" },
+    { src: "/images/tuffskin/IMG_0820.JPG", alt: "TuffSkin image 11" },
+    { src: "/images/tuffskin/IMG_0838.JPG", alt: "TuffSkin image 12" },
+    { src: "/images/tuffskin/IMG_0961.JPG", alt: "TuffSkin image 13" },
+    { src: "/images/tuffskin/IMG_1429.JPG", alt: "TuffSkin image 14" },
+    { src: "/images/tuffskin/IMG_1588.JPG", alt: "TuffSkin image 15" },
+    { src: "/images/tuffskin/IMG_2177.JPG", alt: "TuffSkin image 16" },
+    { src: "/images/tuffskin/IMG_2178.JPG", alt: "TuffSkin image 17" },
+    { src: "/images/tuffskin/IMG_2180.JPG", alt: "TuffSkin image 18" },
+    { src: "/images/tuffskin/TuffSkin3.jpeg", alt: "TuffSkin image 29" },
+    { src: "/images/tuffskin/TuffSkin4.jpg", alt: "TuffSkin image 30" },
+    { src: "/images/tuffskin/TuffSkin8.jpg", alt: "TuffSkin image 31" },
+    { src: "/images/tuffskin/TuffSkin9.jpg", alt: "TuffSkin image 32" },
+    { src: "/images/tuffskin/TuffSkin10.jpg", alt: "TuffSkin image 33" },
+    { src: "/images/tuffskin/TuffSkin11.jpg", alt: "TuffSkin image 34" },
+    { src: "/images/tuffskin/TuffSkin12.jpeg", alt: "TuffSkin image 35" },
+    { src: "/images/tuffskin/TuffSkin21.jpeg", alt: "TuffSkin image 36" },
+    { src: "/images/tuffskin/TuffSkin24.jpeg", alt: "TuffSkin image 37" },
+    { src: "/images/tuffskin/TuffSkin27.jpg", alt: "TuffSkin image 38" },
+    { src: "/images/tuffskin/TuffSkin28.JPEG", alt: "TuffSkin image 39" },
+    { src: "/images/tuffskin/TuffSkin39.JPG", alt: "TuffSkin image 40" },
+    { src: "/images/tuffskin/TuffSkin40.JPG", alt: "TuffSkin image 41" },
+    { src: "/images/tuffskin/TuffSkin41.JPG", alt: "TuffSkin image 42" },
+    { src: "/images/tuffskin/TuffSkin42.JPG", alt: "TuffSkin image 43" },
+    { src: "/images/tuffskin/TuffSkin46.JPG", alt: "TuffSkin image 44" },
+    { src: "/images/tuffskin/TuffSkin47.JPG", alt: "TuffSkin image 45" },
+    { src: "/images/tuffskin/TuffSkin52.JPG", alt: "TuffSkin image 46" },
+    { src: "/images/tuffskin/TuffSkin54.JPG", alt: "TuffSkin image 47" },
+    { src: "/images/tuffskin/TuffSkin55.JPG", alt: "TuffSkin image 48" },
+    { src: "/images/tuffskin/TuffSkin56.JPG", alt: "TuffSkin image 49" },
+    { src: "/images/tuffskin/TuffSkin67.jpeg", alt: "TuffSkin image 50" },
+    { src: "/images/tuffskin/TuffSkin71.jpeg", alt: "TuffSkin image 51" },
+    { src: "/images/tuffskin/TuffSkinFrank7.jpg", alt: "TuffSkin image 52" },
+    { src: "/images/tuffskin/TuffSkinFrank9.jpg", alt: "TuffSkin image 53" },
+    { src: "/images/tuffskin/TuffSkinFrank40.jpg", alt: "TuffSkin image 54" },
+    { src: "/images/tuffskin/TuffSkinFrank64.jpg", alt: "TuffSkin image 55" },
+    { src: "/images/tuffskin/TuffSkinFrank67.jpg", alt: "TuffSkin image 56" },
+    { src: "/images/tuffskin/TuffSkinFrank82.jpg", alt: "TuffSkin image 57" },
+  ];
+  
+
+export default function GalleryPage() {
+  return <ImageGallery images={images} />;
+}

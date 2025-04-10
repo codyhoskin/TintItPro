@@ -12,7 +12,7 @@ const partnerLogos = [
 const LogoCarousel = () => {
   return (
     <div className={styles.carouselWrapper}>
-      <TitleSection title="Certified by the Best"/><br></br>
+      <TitleSection title="Certified by the Best" subtitle="We create happy customers."/><br></br>
       <div className={styles.carouselTrack}>
         {partnerLogos.concat(partnerLogos).map((logo, index) => {
           const isTuffskin = logo.includes("tuffskin");

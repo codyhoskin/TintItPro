@@ -104,14 +104,14 @@ const ServicesSection: React.FC = () => {
                   <FaLightbulb style={{ marginRight: "8px" }} />
                   Learn More
                 </Link>
-                <Link
+                <a
                   href={"/booking"}
                   className={styles.learnMore2}
                   aria-label={`Schedule a consult about ${card.title}`}
                 >
                   <FaClipboard style={{ marginRight: "8px" }} />
                   Schedule a Free Consult
-                </Link>
+                </a>
               </div>
             </m.div>
           ))}

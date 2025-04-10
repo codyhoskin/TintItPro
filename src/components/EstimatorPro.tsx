@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import InfoTooltip from "./InfoTool";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "../styles/EstimatorPro.module.css";
 
@@ -179,7 +178,7 @@ const EstimatorPro: React.FC = () => {
           </div>
         </div>
 
-        <Link
+        <a
           href="/booking"
           aria-label="Schedule an appointment with Estimator Pro"
           onClick={handleBookingClick}
@@ -188,18 +187,18 @@ const EstimatorPro: React.FC = () => {
           <Image
             src="/images/schedule.png"
             alt="Estimator Pro Schedule"
-            width={350}
-            height={130}
+            width={300}
+            height={110}
             className={styles.wigglePop}
           />
-        </Link>
+        </a>
 
         
       </section>
 
         </div>
           <h3 className={styles.ctaHeadline}>
-            Know the Cost Before You Commit – <br></br>Get a Fast & Accurate Estimate!<br />
+            Know the Cost Before You Book! – <br></br>Get a Fast & Easy Online Estimate!<br />
             <span>(Fill out our quick estimator pro tool & get pricing instantly!)</span>
           </h3>
 

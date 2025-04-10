@@ -1,0 +1,43 @@
+.pageWrapper {
+    padding: 170px 20px 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #27A7E0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 30px auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .reloadButton {
+    background-color: #27A7E0;
+    color: white;
+    padding: 18px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .reloadButton:hover {
+    background-color: #1f8fc5;
+  }
+  
+  .loadingState,
+  .errorState {
+    margin-bottom: 40px;
+  }
+  

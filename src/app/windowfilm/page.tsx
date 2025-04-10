@@ -2,28 +2,136 @@
 
 import React from "react";
 import Image from "next/image";
-
+import ElfsightWidget from "@/components/ElfSightGoogle";
+import TitleSection from "@/components/TitleSection";
+import Link from "next/link";
+import styles from "./page.module.css";
+import { FaShieldAlt } from "react-icons/fa";
 
 const WindowFilms: React.FC = () => {
   return (
-    <main style={{ padding: "100px", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.8", marginTop: "50px" }}>
-      <h1 style={{ color: "#27A7E0", marginBottom: "30px", textAlign: "center" }}>Residential & Commercial Window Tinting</h1>
+    <main className={styles.pageWrapper}>
+    <div className={styles.blobContainer}>
+      <div className={`${styles.blob} ${styles.blob1}`}></div>
+      <div className={`${styles.blob} ${styles.blob2}`}></div>
+      <div className={`${styles.blob} ${styles.blob3}`}></div>
+    </div>
 
-    <Image
-        src={"/images/window-tinting.webp"}
-        alt={"Window Tinting"}
-        width={400}
-        height={300}
-        style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-      />
-      <p style={{ fontWeight: 100, fontFamily: "Inter, sans-serif", lineHeight: "1.8" }}>
-        Welcome to our window film service. We specialize in residential and commercial solutions that enhance comfort, style, and energy efficiency.<br /><br />
-        Our solar privacy window film provides increased daytime privacy and security while blocking 99% of harmful UV rays. This helps protect your loved ones and furnishings from sun damage.<br /><br />
-        Our architectural window films allow you to maintain a much cooler, more comfortable indoor environment year-round. Our films can reduce heat transmission by up to 82% and minimize glare by 90%, eliminating the need to adjust blinds constantly.<br /><br />
-        In addition to improving your space, our window films contribute to energy efficiency, lowering cooling costs in summer and helping retain warmth in winter.<br /><br />
-        Trust our certified professionals for precise application and long-lasting performance.<br /><br />
-        Schedule a consultation and experience the benefits of window films!<br /><br />
-      </p>
+      <TitleSection title="Residential Window Films" subtitle="Comfort, Protection, and Privacy for Your Home" />
+
+      {/* Section 1 - Text Left, Image Right */}
+      <section className={styles.contentSection}>
+        <div className={styles.textBlock}>
+          <h2>Why Choose Window Films?</h2>
+          <p>
+            Our residential window films offer increased daytime privacy, UV protection, and improved energy efficiency. They block up to 99% of harmful UV rays, preserving your furniture, flooring, and peace of mind — all while letting natural light in.
+          </p>
+        </div>
+        <div className={styles.imageBlock}>
+          <Image
+            src="/images/service2.png"
+            alt="Residential Window Tinting"
+            width={600}
+            height={400}
+            style={{ borderRadius: "10px", width: "100%", height: "auto" }}
+          />
+        </div>
+      </section>
+
+      {/* Section 2 - Text Left, Image Right (reversed) */}
+      <section className={styles.contentSection}>
+        
+        
+        <div className={styles.imageBlock}>
+          <Image
+            src="/images/home-residential.png"
+            alt="Sunlight blocked by window film"
+            width={600}
+            height={400}
+            style={{ borderRadius: "10px", width: "100%", height: "auto" }}
+          />
+        </div>
+        <div className={styles.textBlock}>
+          <h2>Cooler, More Comfortable Interiors</h2>
+          <p>
+            With our solar control films, reduce indoor heat by up to 82% and glare by 90%. Enjoy consistent temperatures year-round, lower energy bills, and a more relaxing home environment without sacrificing your view.
+          </p>
+        </div>
+      </section>
+
+      {/* Icon/Highlight Block */}
+      <section className={styles.highlightSection}>
+        <div className={styles.iconCard}>
+          <div className={styles.iconCircle}>
+          <FaShieldAlt size={40} color="#fff" />          </div>
+          <div>
+            <h3>UV Shield</h3>
+            <p>
+              Defend your interior from UV damage while keeping rooms bright and welcoming.
+            </p>
+          </div>
+        </div>
+      </section>
+    
+      {/* Local MP4 Video Section */}
+      <section className={styles.videoSection}>
+        <TitleSection title="Watch Us Install Window Films" subtitle="We can help protect your home." />
+        <div className={styles.videoWrapper}>
+          <video
+            width="100%"
+            height="auto"
+            controls
+            playsInline
+            poster="/images/service2.png"
+            style={{ borderRadius: "12px", maxHeight: "600px", objectFit: "cover" }}
+          >
+            <source src="/images/tint-job/8a5eb925fb574c7aba9c313676837868.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+   
+      <ElfsightWidget />
+
+    
+
+      {/* Call to Action */}
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaBlock}>
+          <TitleSection title="See Our Work" subtitle="Head to the Image Gallery" />
+          <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "50px" }}>
+            <Link
+              href="/image-gallery"
+              aria-label="Go to Image Gallery"
+              className={styles.ctaButton}
+            >
+              View Our Image Gallery
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.ctaBlock1}>
+          <TitleSection title="Book with Us Today!" subtitle="Schedule a Free Consultation" />
+          <div style={{ textAlign: "center", marginTop: "30px" }}>
+            <Link
+              href="/booking"
+              aria-label="Schedule an appointment with Estimator Pro"
+              className={styles.scheduleButton}
+            >
+              <Image
+                src="/images/schedule.png"
+                alt="Estimator Pro Schedule"
+                width={250}
+                height={90}
+                className={styles.wigglePop}
+              />
+            </Link>
+
+           
+          </div>
+        </div>
+      </section>
+  
     </main>
   );
 };

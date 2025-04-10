@@ -18,7 +18,7 @@ const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> = ({
   faqItems,
 }) => {
   return (
-    <section style={{ maxWidth: "800px", margin: "50px auto", padding: "80px" }}>
+    <section style={{ maxWidth: "800px", minWidth: "560px", margin: "0px auto", padding: "40px", marginBottom: "80px" }}>
       <TitleSection title={title} subtitle={subtitle} />
 
       {faqItems.map((item, index) => (
