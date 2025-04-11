@@ -35,13 +35,7 @@ const serviceCards = [
       "Enhance your safety by adding protection to your windows with anti-shatter films.",
     link: "/decorative",
   },
-  {
-    img: "/images/service5.png",
-    title: "Safety & Security Window Films",
-    subtitle:
-      "Protect your home or business with security window film that resists impact and shattering.",
-    link: "/decorative",
-  },
+
 ];
 
 const ServicesSection: React.FC = () => {

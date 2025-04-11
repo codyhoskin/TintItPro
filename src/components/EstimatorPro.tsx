@@ -93,7 +93,7 @@ const EstimatorPro: React.FC = () => {
         <InfoTooltip />
 
         <Image
-          src="/images/estimator-pro.png"
+          src="/images/estimatorpro2.png"
           alt="Window Tinting Estimator Pro Application"
           fill
           className={styles.bgImage}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css";
 import TitleSection from "@/components/TitleSection";
+import MovieViewingComponent from "@/components/MovieComponent2";
 
 const generalFAQ = [
   {
@@ -53,63 +54,143 @@ const generalFAQ = [
 
 const TuffSkinPage: React.FC = () => {
   return (
-    <main style={{ padding: "2px", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.8", marginTop: "150px" }}>
-      
-      
-      
+    <main
+      style={{
+        padding: "2px",
+        maxWidth: "1200px",
+        margin: "0 auto",
+        lineHeight: "1.8",
+        marginTop: "150px",
+      }}
+    >
+      {/* IMAGE COLUMN ABOVE VIDEO */}
       <div
         style={{
           display: "flex",
-          justifyContent: "center", // Center horizontally
-          alignItems: "center",     // Center vertically
-          width: "100%",             // Ensure the container takes the full width of the screen
-          marginBottom: "20px",
-          overflow: "hidden",       // Hide the overflow (top and bottom parts of iframe)
-          height: "120vh",           // Adjust the height as needed (70% of the viewport height)
-          position: "relative",     // Ensure the iframe can be adjusted within the container
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+          marginBottom: "50px",
         }}
       >
-        <iframe
-          src="https://www.tuffskin.com/residential/"
+          <Image
+          src="/images/tuffskin-web.jpg"
+          alt="TuffSkin Sample 1"
+          width={600}
+          height={400}
           style={{
-            border: "none",
-            width: "100%",              // Ensure iframe takes full width
-            height: "100%",             // Ensure iframe takes full height
-            objectFit: "cover",        // Ensures the content covers the iframe area
-            marginTop: "-400px",         // Adjust to crop the top part of the iframe
+            width: "90%",
+            maxWidth: "800px",
+            height: "auto",
+            borderRadius: "12px",
+            transition: "width 0.3s ease",
           }}
-        ></iframe>
+                  />
+        <Image
+          src="/images/tuffskin-header2.png"
+          alt="TuffSkin Sample 1"
+          width={600}
+          height={400}
+          style={{
+            width: "90%",
+            maxWidth: "800px",
+            height: "auto",
+            borderRadius: "12px",
+            transition: "width 0.3s ease",
+          }}
+                  />
+                 
+        
+        <Image
+          src="/images/tuffskin-info2.png"
+          alt="TuffSkin Sample 2"
+          width={600}
+          height={400}
+          style={{
+            width: "90%",
+            maxWidth: "800px",
+            height: "auto",
+            borderRadius: "12px",
+            transition: "width 0.3s ease",
+          }}
+                  />
+                     
+       
+      
       </div>
-      <div className={styles.ctaBlock}>
-          <TitleSection title="See Our Past Work" subtitle="Head to the Image Gallery" />
-          <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "100px" }}>
-            <Link
-              href="/tuffskin-image-gallery"
-              aria-label="Go to Image Gallery"
-              className={styles.ctaButton}
-            >
-              View Our Image Gallery
-            </Link>
-          </div>
+
+      {/* VIDEO */}
+      <MovieViewingComponent />
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+          marginBottom: "50px",
+        }}
+      >
+          <Image
+          src="/images/tuffskin-banner.png"
+          alt="TuffSkin Sample 1"
+          width={600}
+          height={400}
+          style={{
+            width: "90%",
+            maxWidth: "800px",
+            height: "auto",
+            borderRadius: "12px",
+            transition: "width 0.3s ease",
+          }}
+                  />
+                  <Image
+          src="/images/tuffskin-trusted.png"
+          alt="TuffSkin Sample 4"
+          width={600}
+          height={400}
+          style={{
+            width: "90%",
+            maxWidth: "800px",
+            height: "auto",
+            borderRadius: "12px",
+            transition: "width 0.3s ease",
+          }}
+                  />
+    
         </div>
-
-
-        <section className={styles.ctaSection}>
-        <Link
-            href="/booking"
-            aria-label="Schedule an appointment with Estimator Pro"
-            className={styles.scheduleButton}
+      {/* CTA Block */}
+      <div className={styles.ctaBlock}>
+        <TitleSection title="See Our Past Work" subtitle="Head to the Image Gallery" />
+        <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "100px" }}>
+          <Link
+            href="/tuffskin-image-gallery"
+            aria-label="Go to Image Gallery"
+            className={styles.ctaButton}
           >
-            <Image
-              src="/images/schedule.png"
-              alt="Estimator Pro Schedule"
-              width={350}
-              height={130}
-              className={styles.wigglePop}
-            />
+            View Our Image Gallery
           </Link>
-        </section>      
+        </div>
+      </div>
 
+      {/* Booking Section */}
+      <section className={styles.ctaSection}>
+        <Link
+          href="/booking"
+          aria-label="Schedule an appointment with Estimator Pro"
+          className={styles.scheduleButton}
+        >
+          <Image
+            src="/images/schedule.png"
+            alt="Estimator Pro Schedule"
+            width={350}
+            height={130}
+            className={styles.wigglePop}
+          />
+        </Link>
+      </section>
+
+      {/* Empty Image Grid (keep or remove?) */}
       <div
         style={{
           display: "grid",
@@ -117,26 +198,26 @@ const TuffSkinPage: React.FC = () => {
           gap: "30px",
           margin: "50px 0",
         }}
-      >
-       
-      </div>
+      ></div>
 
-      <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '50px',
-          marginBottom: '150px',
-          alignItems: 'center',
-          height: '100vh', // Makes the div take up the full height of the screen
-          textAlign: 'center' // Ensures the text is centered within the div
-        }}>
-        <FrequentlyAskedQuestions 
+      {/* FAQ */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "50px",
+          marginBottom: "150px",
+          alignItems: "center",
+          height: "100vh",
+          textAlign: "center",
+        }}
+      >
+        <FrequentlyAskedQuestions
           title="Frequently Asked Questions"
           subtitle="Have a Question?"
           faqItems={generalFAQ}
         />
       </div>
-
     </main>
   );
 };

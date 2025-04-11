@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import ThemeToggle from "./ThemeToggle";
-import { FaClipboard } from "react-icons/fa";
+import { FaCalculator, FaClipboard } from "react-icons/fa";
 import SocialLinks from "./SocialLinks";
 
 const Header: React.FC = () => {
@@ -59,21 +59,30 @@ const Header: React.FC = () => {
         </div>
 
         <Link href="/#reviews">Reviews</Link>
-        <Link href="/#estimator">Estimator Pro</Link>
         <Link href="/#faq">FAQ</Link>
-        <Link href="/blogs">Blog</Link>
       </nav>
+
+
+
 
       {/* Desktop Call to Action */}
       <div className={styles.desktopActions}>
         <ThemeToggle />
+        <Link
+          href="/#estimator"
+          className={styles.ctaButton1}
+          aria-label="Get your free quote today"
+        >
+          <FaCalculator style={{ marginRight: "8px" }} />
+          Estimator Pro
+        </Link>
         <a
           href="/booking"
           className={styles.ctaButton}
           aria-label="Get your free quote today"
         >
           <FaClipboard style={{ marginRight: "8px" }} />
-          Get Your Free Quote Today!
+          Schedule a Visit!
         </a>
       </div>
 
@@ -121,21 +130,50 @@ const Header: React.FC = () => {
           </div>
 
           <Link href="/#reviews" onClick={handleMenuClose}>Reviews</Link>
-          <Link href="/#estimator" onClick={handleMenuClose}>Estimator Pro</Link>
           <Link href="/#faq" onClick={handleMenuClose}>FAQ</Link>
-          <Link href="/blogs" onClick={handleMenuClose}>Blog</Link>
         </nav>
 
         {/* Mobile CTA */}
+        <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "16px", // space between buttons
+          marginTop: "50px",
+          marginBottom: "auto",
+        }}
+      >
         <Link
           href="/#estimator"
-          className={styles.mobileCtaButton}
-          aria-label="Schedule a visit"
-          onClick={handleMenuClose}
+          className={styles.ctaButton1}
+          aria-label="Get your free quote today"
+          style={{
+            width: "100%",
+            maxWidth: "250px",
+            textAlign: "center",
+          }}
+        >
+          <FaCalculator style={{ marginRight: "8px" }} />
+          Estimator Pro
+        </Link>
+
+        <a
+          href="/booking"
+          className={styles.ctaButton}
+          aria-label="Get your free quote today"
+          style={{
+            width: "100%",
+            maxWidth: "250px",
+            textAlign: "center",
+          }}
         >
           <FaClipboard style={{ marginRight: "8px" }} />
-          Get Your Free Quote Today!
-        </Link>
+          Schedule a Visit!
+        </a>
+      </div>
+
+
 
         {/* Social Icons & Footer */}
         <div className={styles.mobileExtras}>

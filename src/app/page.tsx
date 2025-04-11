@@ -32,6 +32,12 @@ export default function Home() {
         <LogoCarousel />
         <MovieViewingComponent videoId="ZsGwmoubqqE" title="Tuffskin marble protection" />
 
+       
+
+        <section id="solutions">
+        <ServicesSection />
+        </section>
+
         <div className={styles.cardContainer}>
           <InfoCard
             icon={<FaShieldAlt size={40} color="var(--secondary)" />}
@@ -49,10 +55,6 @@ export default function Home() {
             subtitle="Solar Gard® window films ensure superior quality and offer up to 82% heat rejection, 99% UV ray blocking, 90% glare reduction, interior fade control, and up to 30% energy cost savings."
           />
         </div>
-
-        <section id="solutions">
-        <ServicesSection />
-        </section>
 
         <section id="reviews">
         <ElfsightLazy />
