@@ -56,7 +56,7 @@ const Hero = () => {
             style={{
               color: "var(--secondary)",
               fontWeight: "bold",
-              fontSize: "1.2rem",
+              fontSize: "clamp(1.4rem, 1.9vw, 3rem)",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
             }}
@@ -70,7 +70,7 @@ const Hero = () => {
               fontWeight: "bold",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
-              fontSize: "1.2rem",
+              fontSize: "clamp(1.4rem, 1.9vw, 3rem)",
 
             }}
           >
