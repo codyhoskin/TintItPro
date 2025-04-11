@@ -46,7 +46,7 @@ const Hero = () => {
         <h1 className={styles.title}>
         Protect Your Home or Office
           <span className={styles.secondary}>
-             – Stop Heat, UV & Marble Damage with Window Tinting & Marble Protection.
+             – Stop Heat, UV & Marble Damage.
             </span>
         </h1>
 
@@ -56,6 +56,7 @@ const Hero = () => {
             style={{
               color: "var(--secondary)",
               fontWeight: "bold",
+              fontSize: "1.2rem",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
             }}
@@ -69,6 +70,8 @@ const Hero = () => {
               fontWeight: "bold",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
+              fontSize: "1.2rem",
+
             }}
           >
             <Link href="https://www.tuffskin.com/">Tuffskin</Link>

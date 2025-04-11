@@ -67,14 +67,14 @@ const Header: React.FC = () => {
       {/* Desktop Call to Action */}
       <div className={styles.desktopActions}>
         <ThemeToggle />
-        <Link
-          href="/#estimator"
+        <a
+          href="/booking"
           className={styles.ctaButton}
           aria-label="Get your free quote today"
         >
           <FaClipboard style={{ marginRight: "8px" }} />
           Get Your Free Quote Today!
-        </Link>
+        </a>
       </div>
 
       {/* Mobile Menu Toggle */}
