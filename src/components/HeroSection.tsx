@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import styles from "../styles/Hero.module.css";
 import Link from "next/link";
 import GoogleReviews from "../components/GoogleReviews";
-import { FaClipboard } from "react-icons/fa";
+import { FaCalculator, FaClipboard } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import WhatsAppButton from "./WhatsApp";
 
@@ -85,12 +85,20 @@ const Hero = () => {
           <a
             href="/booking"
             className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
-            aria-label="Get a Quick Quote"
+            aria-label="Schedule Your Appointment"
           >
             <FaClipboard style={{ marginRight: "8px" }} />
             Schedule Your Appointment
           </a>
           <WhatsAppButton />
+          <Link
+          href="/#estimator"
+          className={styles.ctaButton1}
+          aria-label="Get your free quote today"
+        >
+          <FaCalculator style={{ marginRight: "8px" }}/>
+          Get an Instant Estimation!
+        </Link>
         </div>
       </div>
     </section>

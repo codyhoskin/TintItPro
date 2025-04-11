@@ -26,7 +26,7 @@ const WhatsAppButton = () => {
           backgroundColor: hovered ? '#25d366' : 'transparent',
           border: '2px solid #25d366',
           color: hovered ? 'white' : '#25d366',
-          padding: '18px 20px',
+          padding: '22px 20px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center', // Center content
@@ -38,7 +38,8 @@ const WhatsAppButton = () => {
           textDecoration: 'none',
           fontWeight: '900',
           fontFamily: 'var(--font-inter-bold)',
-          minWidth: '290px',
+          minWidth: '300px',
+          minHeight: '70px',
           fontSize: '1rem',
         }}
       >

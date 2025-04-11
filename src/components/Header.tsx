@@ -68,20 +68,14 @@ const Header: React.FC = () => {
       {/* Desktop Call to Action */}
       <div className={styles.desktopActions}>
         <ThemeToggle />
-        <Link
-          href="/#estimator"
-          className={styles.ctaButton1}
-          aria-label="Get your free quote today"
-        >
-          <FaCalculator />
-        </Link>
+       
         <a
           href="/booking"
           className={styles.ctaButton}
           aria-label="Get your free quote today"
         >
           <FaClipboard style={{ marginRight: "8px" }} />
-          Schedule a Visit!
+          Book Your Free Consultation!
         </a>
       </div>
 
@@ -168,7 +162,7 @@ const Header: React.FC = () => {
           }}
         >
           <FaClipboard style={{ marginRight: "8px" }} />
-          Schedule a Visit!
+          Book Your Free Consultation!
         </a>
       </div>
 
