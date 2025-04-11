@@ -73,8 +73,7 @@ const Header: React.FC = () => {
           className={styles.ctaButton1}
           aria-label="Get your free quote today"
         >
-          <FaCalculator style={{ marginRight: "8px" }} />
-          Estimator Pro
+          <FaCalculator />
         </Link>
         <a
           href="/booking"
