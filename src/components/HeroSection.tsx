@@ -44,9 +44,9 @@ const Hero = () => {
         </div>
 
         <h1 className={styles.title}>
-        Protect Your Home or Office
+        Protect Your Home or Office <br></br>
           <span className={styles.secondary}>
-             – Stop Heat, UV & Marble Damage.
+             Stop Heat, UV & Marble Damage and More.
             </span>
         </h1>
 

@@ -12,6 +12,7 @@
   .secondary {
     color: var(--secondary); /* your secondary color */
     margin-left: 8px;
+    font-size: 2rem;
   }
   
   .checkIcon {
