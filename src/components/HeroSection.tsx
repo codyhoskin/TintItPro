@@ -85,10 +85,10 @@ const Hero = () => {
           <a
             href="/booking"
             className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
-            aria-label="Schedule Your Appointment"
+            aria-label="Book Your Free Consultation!"
           >
             <FaClipboard style={{ marginRight: "8px" }} />
-            Schedule Your Appointment
+            Book Your Free Consultation!
           </a>
           <WhatsAppButton />
           <Link
