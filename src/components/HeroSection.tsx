@@ -46,7 +46,7 @@ const Hero = () => {
         <h1 className={styles.title}>
         Protect Your Home or Office <br></br>
           <span className={styles.secondary}>
-             Stop Heat, UV, Marble Damage.
+             Stop Heat, UV, & Marble Damage.
             </span>
         </h1>
 
@@ -56,7 +56,6 @@ const Hero = () => {
             style={{
               color: "var(--secondary)",
               fontWeight: "bold",
-              fontSize: "clamp(1.4rem, 1.9vw, 3rem)",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
             }}
@@ -70,7 +69,6 @@ const Hero = () => {
               fontWeight: "bold",
               textDecoration: "underline",
               textUnderlineOffset: "4px",
-              fontSize: "clamp(1.4rem, 1.9vw, 3rem)",
 
             }}
           >
@@ -86,6 +84,7 @@ const Hero = () => {
             href="/booking"
             className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
             aria-label="Book Your Free Consultation!"
+            
           >
             <FaClipboard style={{ marginRight: "8px" }} />
             Book Your Free Consultation!
