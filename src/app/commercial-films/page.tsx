@@ -127,7 +127,7 @@ const WindowFilms: React.FC = () => {
           />
           <div style={{ textAlign: "center", marginTop: "30px" }}>
             <Link
-              href="/booking"
+              href="/route"
               aria-label="Schedule an appointment with Estimator Pro"
               className={styles.scheduleButton}
             >

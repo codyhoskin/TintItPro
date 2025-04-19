@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Script from "next/script";
-import { useSearchParams } from "next/navigation";
 
 declare global {
   interface Window {
@@ -15,33 +14,24 @@ declare global {
   }
 }
 
-const CalendlyInlineWidget: React.FC = () => {
+const RoutingForm: React.FC = () => {
   const widgetRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  const queryString = searchParams.toString();
+  const routingFormUrl = "https://calendly.com/d/crzw-7ty-whv"; // <-- your routing form link
 
   useEffect(() => {
     if (!scriptLoaded) return;
 
-    const a1 = searchParams.get("a1") || "";
-    const a2 = searchParams.get("a2") || "";
-
-    const calendlyUrl = `https://calendly.com/tintitpro-info?a1=${encodeURIComponent(
-      a1
-    )}&a2=${encodeURIComponent(a2)}`;
-
     if (widgetRef.current && window.Calendly) {
-      // Clear previous iframe if any (important!)
       widgetRef.current.innerHTML = "";
 
       window.Calendly.initInlineWidget({
-        url: calendlyUrl,
+        url: routingFormUrl,
         parentElement: widgetRef.current,
       });
     }
-  }, [scriptLoaded, queryString, searchParams]);
+  }, [scriptLoaded]);
 
   return (
     <div
@@ -58,8 +48,8 @@ const CalendlyInlineWidget: React.FC = () => {
         style={{
           width: "100%",
           maxWidth: "900px",
-          height: "150vh", // 👈 Make sure height is defined
-          minHeight: "700px", // 👈 Important fallback
+          height: "150vh",
+          minHeight: "700px",
         }}
       ></div>
 
@@ -72,4 +62,4 @@ const CalendlyInlineWidget: React.FC = () => {
   );
 };
 
-export default CalendlyInlineWidget;
+export default RoutingForm;

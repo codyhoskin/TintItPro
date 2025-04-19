@@ -1,24 +1,24 @@
 "use client";
 
 import React, { Suspense, useEffect, useRef, useState } from "react";
-import CalendlyInlineWidget from "@/components/Calendly";
+import RoutingForm from "@/components/RoutingForm";
 import styles from "./page.module.css";
 
-const BookingPage: React.FC = () => {
+const RoutingPage: React.FC = () => {
   const [countdown, setCountdown] = useState(10);
-  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+  const [formLoaded, setFormLoaded] = useState(false);
   const [timeoutReached, setTimeoutReached] = useState(false);
-  const [hydrated, setHydrated] = useState(false); // 🆕 Track if we are fully hydrated yet
-  const calendlyWrapperRef = useRef<HTMLDivElement>(null);
+  const [hydrated, setHydrated] = useState(false); // 🆕 Track hydration
+  const formWrapperRef = useRef<HTMLDivElement>(null);
 
-  // Mark hydrated once on client
+  // Mark hydrated once we hit client
   useEffect(() => {
     setHydrated(true);
   }, []);
 
-  // Countdown logic
+  // Countdown logic AFTER hydration
   useEffect(() => {
-    if (!hydrated || calendlyLoaded) return; // 🆕 Only start after hydration complete
+    if (!hydrated || formLoaded) return; // Only start countdown after hydrated
 
     const timer = setInterval(() => {
       setCountdown((prev) => {
@@ -32,19 +32,19 @@ const BookingPage: React.FC = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [hydrated, calendlyLoaded]);
+  }, [hydrated, formLoaded]);
 
-  // Detect Calendly iframe load
+  // Detect Calendly routing form iframe load
   useEffect(() => {
     const observer = new MutationObserver(() => {
-      const iframe = calendlyWrapperRef.current?.querySelector("iframe");
+      const iframe = formWrapperRef.current?.querySelector("iframe");
       if (iframe) {
-        iframe.addEventListener("load", () => setCalendlyLoaded(true));
+        iframe.addEventListener("load", () => setFormLoaded(true));
       }
     });
 
-    if (calendlyWrapperRef.current) {
-      observer.observe(calendlyWrapperRef.current, {
+    if (formWrapperRef.current) {
+      observer.observe(formWrapperRef.current, {
         childList: true,
         subtree: true,
       });
@@ -55,16 +55,16 @@ const BookingPage: React.FC = () => {
 
   return (
     <main className={styles.pageWrapper}>
-      {!calendlyLoaded && !timeoutReached && (
+      {!formLoaded && !timeoutReached && (
         <div className={styles.loadingState}>
           <div className={styles.spinner}></div>
-          <p>Loading calendar... please wait ({countdown}s)</p>
+          <p>Loading form... please wait ({countdown}s)</p>
         </div>
       )}
 
-      {timeoutReached && !calendlyLoaded && (
+      {timeoutReached && !formLoaded && (
         <div className={styles.errorState}>
-          <p>Looks like the calendar didnt load.</p>
+          <p>Looks like the form didn’t load.</p>
           <button
             onClick={() => window.location.reload()}
             className={styles.reloadButton}
@@ -75,15 +75,15 @@ const BookingPage: React.FC = () => {
       )}
 
       <div
-        ref={calendlyWrapperRef}
-        style={{ display: calendlyLoaded ? "block" : "none" }}
+        ref={formWrapperRef}
+        style={{ display: formLoaded ? "block" : "none" }}
       >
         <Suspense fallback={null}>
-          <CalendlyInlineWidget />
+          <RoutingForm />
         </Suspense>
       </div>
     </main>
   );
 };
 
-export default BookingPage;
+export default RoutingPage;

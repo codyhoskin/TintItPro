@@ -70,7 +70,7 @@ const Header: React.FC = () => {
         <ThemeToggle />
        
         <a
-          href="/booking"
+          href="/route"
           className={styles.ctaButton}
           aria-label="Get your free quote today"
         >
@@ -152,7 +152,7 @@ const Header: React.FC = () => {
         </Link>
 
         <a
-          href="/booking"
+          href="/route"
           className={styles.ctaButton}
           aria-label="Get your free quote today"
           style={{

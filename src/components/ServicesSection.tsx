@@ -99,7 +99,7 @@ const ServicesSection: React.FC = () => {
                   Learn More
                 </Link>
                 <a
-                  href={"/booking"}
+                  href={"/route"}
                   className={styles.learnMore2}
                   aria-label={`Schedule a consult about ${card.title}`}
                 >
