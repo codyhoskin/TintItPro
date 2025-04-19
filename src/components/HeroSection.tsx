@@ -60,7 +60,7 @@ const Hero = () => {
               textUnderlineOffset: "4px",
             }}
           >
-            <Link href="https://www.solargard.com/">SolarGard</Link>
+            <Link aria-label="Navigate to solar guard page" href="https://www.solargard.com/">SolarGard</Link>
           </span>
           <span style={{ color: "var(--secondary)" }}>®</span> Window Films &{" "}
           <span
@@ -72,7 +72,7 @@ const Hero = () => {
 
             }}
           >
-            <Link href="https://www.tuffskin.com/">Tuffskin</Link>
+            <Link aria-label="Navigate to tuffskin page" href="https://www.tuffskin.com/">Tuffskin</Link>
           </span>
           <span style={{ color: "var(--secondary)" }}>®</span> Marble Protection.
         </p>

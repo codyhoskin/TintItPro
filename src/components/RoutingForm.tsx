@@ -18,7 +18,7 @@ const RoutingForm: React.FC = () => {
   const widgetRef = useRef<HTMLDivElement>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  const routingFormUrl = "https://calendly.com/d/crzw-7ty-whv"; // <-- your routing form link
+  const routingFormUrl = "https://calendly.com/d/crzw-7ty-whv";
 
   useEffect(() => {
     if (!scriptLoaded) return;

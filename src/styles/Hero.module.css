@@ -70,20 +70,7 @@
     padding: 20px;
   }
   
-  .secondaryButton {
-    background-color: transparent;
-    border: 2px solid var(--text-button);
-    color: var(--text-button);
-  }
-  
-  .ctaButton1 {
-    background-color: var(--secondary);
-    color: white;
-    font-family: var(--font-inter-bold), sans-serif;
-    font-size: 16px;
-    border-radius: 8px;
-  }
-  
+ 
   
   .primaryButton:hover {
     background-color: var(--tertiary);
@@ -103,7 +90,7 @@
     border: 2px solid var(--text-button);
     color: var(--text-button);
     font-family: var(--font-inter-bold), sans-serif;
-  font-weight: bold;
+    font-weight: bold;
   }
   
   .secondaryButton:hover {
@@ -133,7 +120,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/images/marble-texture.png");
+    background-image: url("/images/marble-texture.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -24,6 +24,7 @@ const Footer = () => {
           src="https://app.tintwiz.com/web/ce/q2qhvszp8cxjukdexllsugfkhh5dvi3h"
           frameBorder="0"
           style={{ border: "none" }}
+          title="tint wiz sign up"
         ></iframe>
       </div>
       <div className={styles.upperFooter}>

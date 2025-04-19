@@ -35,7 +35,6 @@ const serviceCards = [
       "Enhance your safety by adding protection to your windows with anti-shatter films.",
     link: "/decorative",
   },
-
 ];
 
 const ServicesSection: React.FC = () => {
@@ -46,7 +45,7 @@ const ServicesSection: React.FC = () => {
         alt="Tint It Pro house logo"
         width={200}
         height={80}
-        priority // 👈 important for LCP if it's above the fold
+        priority
         quality={90}
         style={{
           maxWidth: "100%",
@@ -59,20 +58,33 @@ const ServicesSection: React.FC = () => {
         subtitle="Cooler Homes. Protected Marble. No More Stress."
       />
 
-      <div className={styles.cardContainer}>
-        <LazyMotion features={domAnimation}>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          className={styles.cardContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }} // smoother viewport trigger
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+        >
           {serviceCards.map((card, index) => (
             <m.div
               className={styles.card}
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.15,
-                ease: "easeOut",
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
               }}
-              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.25, 0.46, 0.45, 0.94], // easeOutBack - smoother
+              }}
             >
               <div className={styles.imageWrapper}>
                 <Image
@@ -109,8 +121,8 @@ const ServicesSection: React.FC = () => {
               </div>
             </m.div>
           ))}
-        </LazyMotion>
-      </div>
+        </m.div>
+      </LazyMotion>
     </section>
   );
 };

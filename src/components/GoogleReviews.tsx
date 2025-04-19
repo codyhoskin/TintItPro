@@ -10,6 +10,7 @@ const GoogleReviewsSimple = () => {
         target="_blank"
         rel="noopener noreferrer"
         className={styles.reviewLink}
+        aria-label="Read customer reviews for Tint it Pro on Google"
       >
         <div className={styles.reviewsRow}>
           <Image
@@ -23,7 +24,7 @@ const GoogleReviewsSimple = () => {
 
           <div className={styles.starsRow}>
             {[...Array(5)].map((_, i) => (
-              <FaStar key={i} color="gold" size={18} />
+              <FaStar key={i} color="gold" size={18} aria-hidden="true"/>
             ))}
             <span className={styles.ratingText}>5.0 Rating by 65+ Happy Customers</span>
           </div>

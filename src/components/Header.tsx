@@ -38,7 +38,9 @@ const Header: React.FC = () => {
 
       {/* Desktop Navigation */}
       <nav className={styles.nav} aria-label="Main navigation">
-        <Link href="/#home">Home</Link>
+        <Link href="/#home"   
+        aria-label="Navigate to Home page."
+        >Home</Link>
 
         <div
           className={styles.dropdown}
@@ -50,16 +52,16 @@ const Header: React.FC = () => {
           </button>
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <Link href="/tuffskin">Marble Protection</Link>
-              <Link href="/windowfilm">Residential Films</Link>
-              <Link href="/commercial-films">Commercial Films</Link>
-              <Link href="/decorative">Decorative Films</Link>
+              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Marble Protection</Link>
+              <Link href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</Link>
+              <Link href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</Link>
+              <Link href="/decorative" aria-label="Navigate to decorative page.">Decorative Films</Link>
             </div>
           )}
         </div>
 
-        <Link href="/#reviews">Reviews</Link>
-        <Link href="/#faq">FAQ</Link>
+        <Link href="/#reviews" aria-label="Navigate to reviews section.">Reviews</Link>
+        <Link href="/#faq" aria-label="Navigate to FAQ section.">FAQ</Link>
       </nav>
 
 
@@ -114,16 +116,16 @@ const Header: React.FC = () => {
             </button>
             {mobileDropdownOpen && (
               <div className={styles.dropdownMenu}>
-                <Link href="/tuffskin" onClick={handleMenuClose}>Marble Protection</Link>
-                <Link href="/windowfilm" onClick={handleMenuClose}>Residential Films</Link>
-                <Link href="/commercial-films" onClick={handleMenuClose}>Commercial Films</Link>
-                <Link href="/decorative" onClick={handleMenuClose}>Decorative Films</Link>
+                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Marble Protection</Link>
+                <Link href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</Link>
+                <Link href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</Link>
+                <Link href="/decorative" aria-label="Navigate to decorative films section." onClick={handleMenuClose}>Decorative Films</Link>
               </div>
             )}
           </div>
 
-          <Link href="/#reviews" onClick={handleMenuClose}>Reviews</Link>
-          <Link href="/#faq" onClick={handleMenuClose}>FAQ</Link>
+          <Link href="/#reviews" aria-label="Navigate to reviews section." onClick={handleMenuClose}>Reviews</Link>
+          <Link href="/#faq" aria-label="Navigate to FAQ section." onClick={handleMenuClose}>FAQ</Link>
         </nav>
 
         {/* Mobile CTA */}
@@ -147,7 +149,7 @@ const Header: React.FC = () => {
             textAlign: "center",
           }}
         >
-          <FaCalculator style={{ marginRight: "8px" }} />
+          <FaCalculator style={{ marginRight: "8px" }} aria-hidden="true"/>
           Estimator Pro
         </Link>
 

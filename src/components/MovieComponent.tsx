@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 interface MovieViewingComponentProps {
   videoId: string;
   title?: string;
   description?: string;
-  uploadDate?: string; // Format: "YYYY-MM-DD"
+  uploadDate?: string;
   thumbnailUrl?: string;
   showCaption?: boolean;
 }
@@ -18,12 +18,12 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
   description = "Watch how Tint It Pro protects marble surfaces using TuffSkin film.",
   uploadDate = "2024-03-10",
   thumbnailUrl,
-  showCaption = true,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const videoRef = useRef<HTMLDivElement | null>(null);
 
   const thumbUrl = thumbnailUrl || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1`;
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   const structuredData = {
@@ -45,9 +45,24 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
     },
   };
 
-  const handlePlay = () => {
-    if (!isPlaying) setIsPlaying(true);
-  };
+  useEffect(() => {
+    const node = videoRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -68,6 +83,7 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
       />
 
       <figure
+        ref={videoRef}
         style={{
           width: "90%",
           maxWidth: "1200px",
@@ -79,14 +95,14 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
           overflow: "hidden",
         }}
       >
-        {isPlaying ? (
+        {isInView ? (
           <iframe
             src={embedUrl}
             title={title}
             frameBorder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            loading="lazy"
+            loading="eager" // Immediate since it's in view
             style={{
               position: "absolute",
               top: 0,
@@ -96,55 +112,14 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
             }}
           />
         ) : (
-          <div
-            onClick={handlePlay}
-            onMouseEnter={handlePlay}
-            role="button"
-            aria-label={`Play video: ${title}`}
-            style={{
-              cursor: "pointer",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <Image
-              src={thumbUrl}
-              alt={`Thumbnail for ${title}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 1200px"
-              style={{ objectFit: "cover" }}
-              priority
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "70px",
-                height: "70px",
-                background: "url('/images/play.svg') no-repeat center center",
-                backgroundSize: "contain",
-              }}
-            />
-          </div>
-        )}
-        {showCaption && (
-          <figcaption
-            id="video-title"
-            style={{
-              textAlign: "center",
-              marginTop: "20px",
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "1.1rem",
-            }}
-          >
-            {title}
-          </figcaption>
+          <Image
+            src={thumbUrl}
+            alt={`Thumbnail for ${title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            style={{ objectFit: "cover" }}
+            loading="lazy"
+          />
         )}
       </figure>
     </section>

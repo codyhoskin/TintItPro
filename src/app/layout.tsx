@@ -68,6 +68,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/images/marble-texture.webp" />
+      </head>
       <body>
         <ThemeProviderWrapper>  
           <Header />        
