@@ -30,7 +30,7 @@ export default function Home() {
         <LogoCarousel />
 
         {/* Movie Viewing Component - Lazy Loaded */}
-        <MovieViewingComponent videoId="ZsGwmoubqqE" title="Tuffskin marble protection" />
+        <MovieViewingComponent videoId="UrYT7casVJM" title="Tuffskin marble protection" />
 
         {/* Services Section - Lazy Loaded */}
         <section id="solutions">

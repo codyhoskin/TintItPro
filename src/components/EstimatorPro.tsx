@@ -34,7 +34,7 @@ const EstimatorPro: React.FC = () => {
   const router = useRouter();
 
   const [windowData, setWindowData] = useState<WindowData[]>([
-    { numWindows: 1, length: 100, width: 55, film: filmTypes[1] },
+    { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
   ]);
