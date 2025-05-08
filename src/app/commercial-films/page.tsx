@@ -35,7 +35,7 @@ const WindowFilms: React.FC = () => {
         <div className={styles.imageBlock}>
           <Image
             src="/images/service3.png"
-            alt="Commercial Window Tinting"
+            alt="Calgarys Experts in Commercial Window Tinting"
             width={600}
             height={400}
             style={{ borderRadius: "10px", width: "100%", height: "auto" }}
@@ -49,7 +49,7 @@ const WindowFilms: React.FC = () => {
         <div className={styles.imageBlock}>
           <Image
             src="/images/window-tinting.png"
-            alt="Office Sun Protection"
+            alt="Protect your Office from the Sun."
             width={600}
             height={400}
             style={{ borderRadius: "10px", width: "100%", height: "auto" }}
@@ -82,7 +82,7 @@ const WindowFilms: React.FC = () => {
       <section className={styles.videoSection}>
         <TitleSection
           title="Watch Commercial Film Installation"
-          subtitle="See how we transform workspaces across Nevada"
+          subtitle="See how we transform workspaces throughout Alberta."
         />
         <div className={styles.videoWrapper}>
           <video
@@ -127,7 +127,7 @@ const WindowFilms: React.FC = () => {
           />
           <div style={{ textAlign: "center", marginTop: "30px" }}>
             <Link
-              href="/route"
+              href="/booking"
               aria-label="Schedule an appointment with Estimator Pro"
               className={styles.scheduleButton}
             >

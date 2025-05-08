@@ -24,15 +24,15 @@ const interFontThin = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tintitpro.netlify.app"),
   title: {
-    default: "Tint it Pro",
+    default: "Calgary Window Tinting & Marble Protection | Tint it Pro",
     template: "%s | Tint it Pro",
   },
-  description: "We are the best at installing residential and commercial window tint and marble protection films in Calgary and area.",
+  description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
   keywords: ["window tint", "marble protection", "tuffskin", "decorative film", "car tint", "Tint it Pro", "Calgary"],
   authors: [{ name: "Tint it Pro", url: "https://tintitpro.netlify.app" }],
   openGraph: {
-    title: "Tint it Pro",
-    description: "We are the best at installing window tint and marble protection films.",
+    title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
+    description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     url: "https://tintitpro.netlify.app",
     siteName: "Tint it Pro",
     locale: "en_US",
@@ -42,14 +42,14 @@ export const metadata: Metadata = {
         url: "https://tintitpro.netlify.app/images/logo.png", // Make sure this image exists and is optimized
         width: 1200,
         height: 630,
-        alt: "Tint it Pro - Window Tint & Protection",
+        alt: "Calgarys Experts in Window Films & Marble Surface Protection",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tint it Pro",
-    description: "We are the best at installing window tint and marble protection films.",
+    title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
+    description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     images: ["https://tintitpro.netlify.app/images/logo.png"],
     creator: "@tintitpro", // Optional if you have a Twitter handle
   },

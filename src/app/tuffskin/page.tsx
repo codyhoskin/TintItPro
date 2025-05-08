@@ -176,7 +176,7 @@ const TuffSkinPage: React.FC = () => {
       {/* Booking Section */}
       <section className={styles.ctaSection}>
         <Link
-          href="/route"
+          href="/booking"
           aria-label="Schedule an appointment with Estimator Pro"
           className={styles.scheduleButton}
         >

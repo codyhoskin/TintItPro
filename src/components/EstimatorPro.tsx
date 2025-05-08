@@ -179,7 +179,7 @@ const EstimatorPro: React.FC = () => {
         </div>
 
         <a
-          href="/route"
+          href="/booking"
           aria-label="Schedule an appointment with Estimator Pro"
           onClick={handleBookingClick}
           className={styles.scheduleButton}

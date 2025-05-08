@@ -81,7 +81,7 @@ const Hero = () => {
 
         <div className={styles.ctaButtons}>
           <a
-            href="/route"
+            href="/booking"
             className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
             aria-label="Book Your Free Consultation!"
             

@@ -130,6 +130,26 @@
     filter: invert(100%);
 
   }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    /* make it big enough to cover the center */
+    width: 120%;
+    height: 120%;
+    /* plain white core that fades out */
+    background: radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.8) 0%,      /* nearly solid white in center */
+      rgba(255,255,255,0) 70%        /* fully transparent at edges */
+    );
+    /* heavy blur so it feels like a soft glow */
+    filter: blur(60px);
+    /* dial the intensity down or up */
+    opacity: 0.6;
+    z-index: -1;
+  }
   
   
   .heroContent {

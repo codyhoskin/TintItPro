@@ -1,0 +1,81 @@
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: transparent; /* Ensure container has no background */
+  }
+  
+  .card {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: transparent; /* Ensure card background is transparent */
+    padding: 30px;
+    gap: 40px;
+    flex-direction: row;
+  }
+  
+  /* On smaller screens, change flex direction */
+  @media (max-width: 768px) {
+    .card {
+      flex-direction: column; /* Stack image on top of text */
+      gap: 20px;
+    }
+  }
+  
+  .cardLeft {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .cardImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .cardRight {
+    flex: 1.5;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .cardTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .cardSubtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .cardSocials {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .socialIcon {
+    font-size: 2rem;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .socialIcon:hover {
+    color: #007bff;
+  }
+  

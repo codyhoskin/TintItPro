@@ -6,6 +6,8 @@ import Hero from "@/components/HeroSection";
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import InfoCard from "@/components/InfoCard";
+import SocialCard from "@/components/SocialComponent";
+
 
 // Dynamically import all heavy components
 const LogoCarousel = dynamic(() => import("@/components/LogoCarousel"), { ssr: false });
@@ -30,7 +32,7 @@ export default function Home() {
         <LogoCarousel />
 
         {/* Movie Viewing Component - Lazy Loaded */}
-        <MovieViewingComponent videoId="ZsGwmoubqqE" title="Tuffskin marble protection" />
+        <MovieViewingComponent videoId="ZsGwmoubqqE" title="Tuffskin marble protection | Tint it Pro" />
 
         {/* Services Section - Lazy Loaded */}
         <section id="solutions">
@@ -56,10 +58,17 @@ export default function Home() {
           />
         </div>
 
+      
+
+
+
         {/* Reviews Section - Lazy Loaded */}
         <section id="reviews">
           <ElfsightLazy />
         </section>
+
+       
+
 
         {/* Estimator Section */}
         <section
@@ -73,6 +82,10 @@ export default function Home() {
           <EstimatorPro />
         </section>
 
+    
+
+
+
         {/* FAQ Section */}
         <section
           id="faq"
@@ -85,7 +98,17 @@ export default function Home() {
           <StreamBackground position="top" height="100px" variant="dramatic" />
           <FAQSection />
         </section>
-        
+        <SocialCard
+        title="Connect with Us."
+        subtitle="Follow us on social media"
+        imageUrl="/images/socialBanner.png"
+        socialLinks={{
+          facebook: "https://www.facebook.com",
+          instagram: "https://www.instagram.com",
+          twitter: "https://www.twitter.com",
+          youtube: "https://www.youtube.com",
+        }}
+      />
       </main>
     </div>
   );

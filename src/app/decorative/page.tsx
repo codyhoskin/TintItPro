@@ -86,7 +86,7 @@ const DecorativeFilms: React.FC = () => {
           <TitleSection title="Schedule Your Consultation" subtitle="Book a Free Design Assessment" />
           <div style={{ textAlign: "center", marginTop: "30px" }}>
             <Link
-              href="/route"
+              href="/booking"
               aria-label="Book a consultation for decorative films"
               className={styles.scheduleButton}
             >

@@ -26,7 +26,7 @@ const GoogleReviewsSimple = () => {
             {[...Array(5)].map((_, i) => (
               <FaStar key={i} color="gold" size={18} aria-hidden="true"/>
             ))}
-            <span className={styles.ratingText}>5.0 Rating by 65+ Happy Customers</span>
+            <span className={styles.ratingText}>5.0 Rating by 70+ Happy Customers</span>
           </div>
         </div>
         <div className={styles.ratingText2}>See Why They Trust Us!</div>

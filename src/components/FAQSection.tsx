@@ -22,6 +22,18 @@ const faqItems = [
     question: "What is the cost for an estimate?",
     answer: "Price estimates are quick and FREE with our built-in Estimator Pro app!",
   },
+  {
+    question: "Do your films provide privacy at night?",
+    answer: "Window films offer privacy during the day. For nighttime privacy, consider combining with blinds or curtains.",
+  },
+  {
+    question: "Can window film be installed on any type of window?",
+    answer: "Most standard residential glass types are compatible. Well assess during your estimate.",
+  },
+  {
+    question: "Is window film safe for dual-pane windows?",
+    answer: "Yes — we use films specifically rated for dual-pane and energy-efficient windows.",
+  },
 ];
 
 export default function FAQSection() {
