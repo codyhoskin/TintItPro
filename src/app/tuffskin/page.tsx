@@ -175,8 +175,8 @@ const TuffSkinPage: React.FC = () => {
 
       {/* Booking Section */}
       <section className={styles.ctaSection}>
-        <Link
-          href="/booking"
+        <a
+          href="https://tintitpro.setmore.com/"
           aria-label="Schedule an appointment with Estimator Pro"
           className={styles.scheduleButton}
         >
@@ -187,7 +187,7 @@ const TuffSkinPage: React.FC = () => {
             height={130}
             className={styles.wigglePop}
           />
-        </Link>
+        </a>
       </section>
 
       {/* Empty Image Grid (keep or remove?) */}

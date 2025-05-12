@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import InfoTooltip from "./InfoTool";
-import { useRouter } from "next/navigation";
 import styles from "../styles/EstimatorPro.module.css";
 
 const filmTypes = [
@@ -31,7 +30,6 @@ interface WindowData {
 }
 
 const EstimatorPro: React.FC = () => {
-  const router = useRouter();
 
   const [windowData, setWindowData] = useState<WindowData[]>([
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
@@ -39,24 +37,6 @@ const EstimatorPro: React.FC = () => {
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
   ]);
   const [selectedEquipment, setSelectedEquipment] = useState(equipmentOptions[0]);
-
-  const handleBookingClick = () => {
-    const estimatorData = windowData
-      .map((row, index) => {
-        const label = String.fromCharCode(65 + index);
-        return `${label}: ${row.numWindows} ${row.film.type} - ${row.length}in x ${row.width}in`;
-      })
-      .join(" || ");
-
-    const equipment = ` || ${selectedEquipment.type} ||`;
-
-    const queryParams = new URLSearchParams({
-      a1: estimatorData,
-      a2: equipment,
-    });
-
-    router.push(`/booking?${queryParams.toString()}`);
-  };
 
   const handleInputChange = (index: number, field: keyof WindowData, value: string) => {
     const updated = [...windowData];
@@ -179,9 +159,8 @@ const EstimatorPro: React.FC = () => {
         </div>
 
         <a
-          href="/booking"
+          href="https://tintitpro.setmore.com/"
           aria-label="Schedule an appointment with Estimator Pro"
-          onClick={handleBookingClick}
           className={styles.scheduleButton}
         >
           <Image

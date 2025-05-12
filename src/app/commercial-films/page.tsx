@@ -126,8 +126,8 @@ const WindowFilms: React.FC = () => {
             subtitle="Book Your Free Consultation"
           />
           <div style={{ textAlign: "center", marginTop: "30px" }}>
-            <Link
-              href="/booking"
+            <a
+              href="https://tintitpro.setmore.com/"
               aria-label="Schedule an appointment with Estimator Pro"
               className={styles.scheduleButton}
             >
@@ -138,7 +138,7 @@ const WindowFilms: React.FC = () => {
                 height={90}
                 className={styles.wigglePop}
               />
-            </Link>
+            </a>
           </div>
         </div>
       </section>

@@ -85,8 +85,8 @@ const DecorativeFilms: React.FC = () => {
         <div className={styles.ctaBlock1}>
           <TitleSection title="Schedule Your Consultation" subtitle="Book a Free Design Assessment" />
           <div style={{ textAlign: "center", marginTop: "30px" }}>
-            <Link
-              href="/booking"
+            <a
+              href="https://tintitpro.setmore.com/"
               aria-label="Book a consultation for decorative films"
               className={styles.scheduleButton}
             >
@@ -97,7 +97,7 @@ const DecorativeFilms: React.FC = () => {
                 height={90}
                 className={styles.wigglePop}
               />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
