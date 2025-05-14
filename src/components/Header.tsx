@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             </div>
           )}
         </div>
-
+        <Link href="/#estimator" aria-label="Navigate to estimator section.">Online Estimator</Link>
         <Link href="/#reviews" aria-label="Navigate to reviews section.">Reviews</Link>
         <Link href="/#faq" aria-label="Navigate to FAQ section.">FAQ</Link>
       </nav>
