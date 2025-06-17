@@ -1,48 +1,48 @@
-/* styles/GoogleReviews.module.css */
-
 .googleReviews {
-    margin: 8px 0;
-    text-align: center;
-    padding: 4px;
-  }
-  .googleLogo {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .reviewLink {
-    text-decoration: none;
-    color: var(--foreground);
-    display: inline-block;
-  }
-  
-  .reviewsRow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
-    margin-bottom: 20px;
-  }
-  
-  .starsRow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 8px;
-  }
-  
-  .ratingText {
-    font-family: var(--font-inter-bold), sans-serif;
-    color: var(--foreground);
-    font-size: clamp(0.8rem, 1.6vw, 1.6rem);
-    margin-left: 2px;
-  }
-  .ratingText2 {
-    font-family: var(--font-inter), sans-serif;
-    color: var(--foreground);
-    font-size: clamp(0.8rem, 1.6vw, 1.6rem);
-    margin-left: 2px;
-    margin-top: -20px;
-    margin-bottom: 25px;
-  }
+  margin: 16px 0;
+  text-align: center;
+  padding: 8px;
+  max-width: 100%;
+}
+
+.reviewLink {
+  text-decoration: none;
+  color: var(--foreground);
+  display: inline-block;
+}
+
+.reviewsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(6px, 1vw, 16px);
+  flex-wrap: nowrap; /* ✅ Keeps everything in one line */
+  margin-bottom: clamp(12px, 2vw, 24px);
+}
+
+.googleLogo {
+  width: clamp(36px, 5vw, 48px);
+  height: clamp(36px, 5vw, 48px);
+  flex-shrink: 0; /* ✅ Prevent logo from shrinking on small screens */
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 10px);
+}
+
+.ratingText {
+  font-family: var(--font-inter-bold), sans-serif;
+  color: var(--foreground);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  margin-left: 4px;
+}
+
+.ratingText2 {
+  font-family: var(--font-inter), sans-serif;
+  color: var(--foreground);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  margin-top: -4px;
+  margin-bottom: 20px;
+}

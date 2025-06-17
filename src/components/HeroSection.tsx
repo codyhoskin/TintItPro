@@ -7,98 +7,170 @@ import GoogleReviews from "../components/GoogleReviews";
 import { FaCalculator, FaClipboard } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import WhatsAppButton from "./WhatsApp";
+import Image from "next/image";
+import { FaHome } from "react-icons/fa";
+import { MdLocationCity } from "react-icons/md";
 
 const Hero = () => {
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const node = buttonRef.current; // ✅ Store stable reference
-  
+    const node = buttonRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // optional: remove this line to allow repeat animation
+          observer.disconnect();
         }
       },
       { threshold: 0.5 }
     );
-  
+
     if (node) observer.observe(node);
-  
+
     return () => {
-      if (node) observer.unobserve(node); // ✅ Use the saved node here
+      if (node) observer.unobserve(node);
     };
   }, []);
-  
 
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroContent}>
-        <div className={styles.locationWrapper}>
-          <div className={styles.locationTag}>
-            <MdLocationOn size={18} />
-            <span>Calgary, AB</span>
-          </div>
-        </div>
+    <section className={styles.hero} style={{ padding: "130px 20px" }}>
+  <div
+    style={{
+      maxWidth: "1100px",          // Controls how wide your section is
+      margin: "0 auto",            // ✅ This centers it
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
+      gap: "10px",
+    }}
+  >
+    <div
+      style={{
+        maxWidth: "680px",
+        paddingLeft: "40px",       // Creates spacing from the left inside the container
+        paddingRight: "20px",
+        textAlign: "left",         // ✅ Keeps your text left-aligned
+      }}
+    >
+      <div
+        className={styles.locationTag}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+        }}
+      >
+        <MdLocationOn size={20} />
+        <p style={{ fontSize: "16px", margin: 0 }}>Calgary, AB</p>
+      </div>
 
-        <h1 className={styles.title}>
-        Protect Your Home or Office <br></br>
-          <span className={styles.secondary}>
-             Stop Heat, UV, & Marble Damage.
+
+
+
+          <h1 className={styles.title} style={{ textAlign: "left" }}>
+            Protect Your Home or Office{" "}
+            <span>
+              <FaHome size={50} style={{ position: "relative", top: "5px" }} />
+              <MdLocationCity size={50} style={{ position: "relative", top: "5px" }} />
             </span>
-        </h1>
+            <br />
+            <span className={styles.secondary}>
+              Stop Heat, UV, & Marble Damage.
+            </span>
+          </h1>
 
-        <p className={styles.subtitle}>
-        Experience premium comfort and lasting beauty with {" "}
-          <span
-            style={{
-              color: "var(--secondary)",
-              fontWeight: "bold",
-              textDecoration: "underline",
-              textUnderlineOffset: "4px",
-            }}
-          >
-            <Link aria-label="Navigate to solar guard page" href="https://www.solargard.com/">SolarGard</Link>
-          </span>
-          <span style={{ color: "var(--secondary)" }}>®</span> Window Films &{" "}
-          <span
-            style={{
-              color: "var(--secondary)",
-              fontWeight: "bold",
-              textDecoration: "underline",
-              textUnderlineOffset: "4px",
 
-            }}
-          >
-            <Link aria-label="Navigate to tuffskin page" href="https://www.tuffskin.com/">Tuffskin</Link>
-          </span>
-          <span style={{ color: "var(--secondary)" }}>®</span> Marble Protection.
-        </p>
+          <p className={styles.subtitle}>
+            Experience premium comfort and lasting beauty with {" "}
+            <span style={{ color: "var(--secondary)", fontWeight: "bold", textDecoration: "underline", textUnderlineOffset: "4px" }}>
+              <Link href="https://www.solargard.com/">SolarGard</Link>
+            </span>
+            <span style={{ color: "var(--secondary)" }}>®</span> Window Films & {" "}
+            <span style={{ color: "var(--secondary)", fontWeight: "bold", textDecoration: "underline", textUnderlineOffset: "4px" }}>
+              <Link href="https://www.tuffskin.com/">Tuffskin</Link>
+            </span>
+            <span style={{ color: "var(--secondary)" }}>®</span> Marble Protection.
+          </p>
 
-        <GoogleReviews />
+        
 
-        <div className={styles.ctaButtons}>
-          <a
-            href="https://tintitpro.setmore.com/"
-            className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
-            aria-label="Book Your Free Consultation!"
+          <div className={styles.ctaButtons} style={{ justifyContent: "flex-start" }}>
+            <a
+              href="https://tintitpro.setmore.com/"
+              className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
+              aria-label="Book Your Free Consultation!"
+              ref={buttonRef}
+            >
+              <FaClipboard style={{ marginRight: "8px" }} />
+              Book Your Free Consultation!
+            </a>
+            <WhatsAppButton />
+            <Link
+              href="/#estimator"
+              className={styles.ctaButton1}
+              aria-label="Get your free quote today"
+            >
+              <FaCalculator style={{ marginRight: "8px" }} />
+              Get an Instant Estimation!
+            </Link>
+          </div>
             
-          >
-            <FaClipboard style={{ marginRight: "8px" }} />
-            Book Your Free Consultation!
-          </a>
-          <WhatsAppButton />
-          <Link
-          href="/#estimator"
-          className={styles.ctaButton1}
-          aria-label="Get your free quote today"
-        >
-          <FaCalculator style={{ marginRight: "8px" }}/>
-          Get an Instant Estimation!
-        </Link>
         </div>
+
+       <div
+        style={{
+          flex: "1 1 300px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0 auto",
+          marginTop: "25px",
+        }}
+      >
+        <div
+          style={{
+            position: "relative",
+            width: "280px",
+            height: "280px",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#f2f2f2",
+              borderRadius: "50%",
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+            }}
+          />
+          <Image
+            src="/images/brand-character.png"
+            alt="Brand character"
+            fill
+            style={{ zIndex: 2, objectFit: "contain" }}
+          />
+        </div>
+      </div>
+
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",     // vertically center if inside a fixed height
+        margin: "10px auto",      // auto handles horizontal centering
+        width: "100%",
+        maxWidth: "600px",        // optional: to avoid stretching too wide
+        textAlign: "center"       // useful if the component includes text
+      }}
+    >
+      <GoogleReviews />
+    </div>
+
       </div>
     </section>
   );

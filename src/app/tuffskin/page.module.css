@@ -34,28 +34,79 @@
     animation: wigglePop 0.6s ease-in-out;
   }
   
-  .ctaButton {
-    background-color: #27A7E0;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    margin-bottom: 150px;
-  }
   
   .ctaButton:hover {
     background-color: #1f8fc5;
+      transform: scale(1.05);
   }
-  .ctaBlock {
-    margin-bottom: 80px;
-    border-radius: 20px;
-    padding: 40px 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* soft shadow */
-    backdrop-filter: blur(6px); /* subtle glassy blur if supported */
-    -webkit-backdrop-filter: blur(6px);
-    background-image: url("/images/marble.png");
-    /* Safari support */
-  }
+
+.ctaBlock {
+  margin: 0 auto 80px auto;
+  border-radius: 20px;
+  max-width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0) 100%),
+    url("/images/marble.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 380px;
+  overflow: hidden;
+}
+
+
+
+
+  .mainContent {
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+.imageGallery,
+.bannerSection,
+.ctaBlock,
+.bookingSection,
+.faqSection {
+  margin-bottom: 100px;
+}
+
+.imageGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.videoSection {
+  margin: 20px 0;
+}
+
+.ctaButton {
+  display: inline-block;
+  margin: 2px 25px;
+  padding: 20px 24px;
+  background-color: #1f2937;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+    transition: all 0.3s ease;
+
+}
+
+.scheduleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.faqSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+}

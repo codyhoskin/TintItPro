@@ -7,6 +7,7 @@ import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import InfoCard from "@/components/InfoCard";
 import SocialCard from "@/components/SocialComponent";
+import TitleSection from "@/components/TitleSection";
 
 
 // Dynamically import all heavy components
@@ -32,15 +33,21 @@ export default function Home() {
         <LogoCarousel />
 
         {/* Movie Viewing Component - Lazy Loaded */}
-        <MovieViewingComponent videoId="ZsGwmoubqqE" title="Tuffskin marble protection | Tint it Pro" />
+        <MovieViewingComponent videoId="ZsGwmoubqqE" />
 
         {/* Services Section - Lazy Loaded */}
         <section id="solutions">
           <ServicesSection />
         </section>
 
+
+ <TitleSection
+            title="Lasting Benefits"
+            subtitle="No stress warranty coverage."
+          />
         {/* Info Cards */}
         <div className={styles.cardContainer}>
+            
           <InfoCard
             icon={<FaShieldAlt size={40} color="var(--secondary)" aria-hidden="true" />}
             title="Solar Guard® 10 Year Warranty"
@@ -92,23 +99,27 @@ export default function Home() {
           style={{
             position: "relative",
             marginTop: "-5px",
-            minHeight: "500px", // Reserve space to avoid layout shift
+            marginBottom: "-180px"
           }}
         >
           <StreamBackground position="top" height="100px" variant="dramatic" />
           <FAQSection />
+
+
+         
         </section>
-        <SocialCard
-        title="Connect with Us."
-        subtitle="Follow us on social media"
-        imageUrl="/images/socialBanner.png"
-        socialLinks={{
-          facebook: "https://www.facebook.com",
-          instagram: "https://www.instagram.com",
-          twitter: "https://www.twitter.com",
-          youtube: "https://www.youtube.com",
-        }}
-      />
+      <SocialCard
+            title="Connect with Us."
+            subtitle="Follow us on social media"
+            imageUrl="/images/socialBanner.png"
+            socialLinks={{
+              facebook: "https://www.facebook.com",
+              instagram: "https://www.instagram.com",
+              twitter: "https://www.twitter.com",
+              youtube: "https://www.youtube.com",
+            }}
+          />
+       
       </main>
     </div>
   );

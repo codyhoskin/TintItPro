@@ -6,13 +6,14 @@ import Image from "next/image";
 const MovieViewingComponent: React.FC = () => {
   const videoId = "UrYT7casVJM";
   const title = "Tint It Pro Marble Protection Video";
-  const description =
-    "Watch how Tint It Pro protects marble surfaces using TuffSkin film.";
+  const description = "Watch how we protect marble surfaces using TuffSkin film.";
   const uploadDate = "2024-03-10";
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [thumbnailSrc, setThumbnailSrc] = useState(
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+  );
 
-  const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
@@ -21,7 +22,7 @@ const MovieViewingComponent: React.FC = () => {
     "@type": "VideoObject",
     name: title,
     description,
-    thumbnailUrl: [thumbUrl],
+    thumbnailUrl: [thumbnailSrc],
     uploadDate,
     contentUrl: videoUrl,
     embedUrl,
@@ -46,6 +47,7 @@ const MovieViewingComponent: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         marginBottom: "80px",
+        borderRadius: "20px",
       }}
     >
       <script
@@ -57,6 +59,7 @@ const MovieViewingComponent: React.FC = () => {
         style={{
           width: "90%",
           maxWidth: "1200px",
+          margin: "0 auto",
           position: "relative",
           paddingBottom: "56.25%",
           height: 0,
@@ -96,13 +99,16 @@ const MovieViewingComponent: React.FC = () => {
             }}
           >
             <Image
-              src={thumbUrl}
+              src={thumbnailSrc}
               alt={`Thumbnail for ${title}`}
               fill
+              quality={100}
               sizes="(max-width: 768px) 100vw, 1200px"
               style={{ objectFit: "cover" }}
               priority
+              onError={() => setThumbnailSrc("/images/video-fallback.jpg")}
             />
+
             <div
               style={{
                 position: "absolute",
@@ -117,6 +123,7 @@ const MovieViewingComponent: React.FC = () => {
             />
           </div>
         )}
+
         <figcaption
           id="video-title"
           style={{

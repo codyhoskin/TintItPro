@@ -21,6 +21,8 @@ const Header: React.FC = () => {
   };
 
   return (
+  <div className={styles.headerWrapper}>
+
     <header className={styles.header}>
       {/* Logo */}
       <div className={styles.logo}>
@@ -179,6 +181,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+    </div>
   );
 };
 

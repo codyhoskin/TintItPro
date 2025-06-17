@@ -21,7 +21,7 @@ interface SocialCardProps {
 
 const SocialCard: React.FC<SocialCardProps> = ({ imageUrl }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true});
 
   return (
     <div className={styles.cardContainer}>

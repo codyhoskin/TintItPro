@@ -12,6 +12,7 @@ interface InfoCardProps {
 const InfoCard: React.FC<InfoCardProps> = ({ icon, title, subtitle }) => {
   return (
     <LazyMotion features={domAnimation}>
+    
       <m.div
         className={styles.card}
         initial={{ opacity: 0, y: 50 }}

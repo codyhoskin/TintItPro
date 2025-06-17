@@ -39,3 +39,44 @@
     z-index: 10;
   }
   
+  .skeleton {
+  width: 100%;
+  min-height: 250px;
+  border-radius: 12px;
+  background: #f3f3f3;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonLine {
+  height: 20px;
+  background: #ddd;
+  border-radius: 6px;
+}
+
+.skeletonLine:nth-child(1) {
+  width: 80%;
+}
+.skeletonLine:nth-child(2) {
+  width: 60%;
+}
+.skeletonLine:nth-child(3) {
+  width: 40%;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e2e2e2;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
+}

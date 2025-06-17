@@ -3,7 +3,7 @@ import TitleSection from "./TitleSection";
 
 interface FAQItemProps {
   question: string;
-  answer: string;
+  answer: React.ReactNode; // ← Allow JSX, not just string
 }
 
 interface FrequentlyAskedQuestionsProps {
@@ -18,15 +18,19 @@ const FrequentlyAskedQuestions: React.FC<FrequentlyAskedQuestionsProps> = ({
   faqItems,
 }) => {
   return (
-    <section style={{ maxWidth: "800px", minWidth: "560px", margin: "0px auto", padding: "40px", marginBottom: "80px" }}>
+    <section
+      style={{
+        maxWidth: "90%",
+        margin: "0px auto",
+        padding: "40px",
+        marginBottom: "80px",
+      }}
+    >
       <TitleSection title={title} subtitle={subtitle} />
 
       {faqItems.map((item, index) => (
-        <FAQItem
-          key={index}
-          question={item.question}
-          answer={item.answer}
-        />
+        <FAQItem key={index} question={item.question} 
+        answer={item.answer} />
       ))}
     </section>
   );

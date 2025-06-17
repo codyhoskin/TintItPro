@@ -10,37 +10,43 @@ const ElfsightWidget = () => {
   const [elfsightReady, setElfsightReady] = useState(false);
 
   return (
-    <section
-      className={styles.wrapper}
-      aria-label="Customer Reviews Section"
-    >
+    <section className={styles.wrapper} aria-label="Customer Testimonials Section">
       <div className={styles.inner}>
         <TitleSection
-          title="What Our Customers Say"
-          subtitle="Check out the word on the street."
+          title="Customer Testimonials"
+          subtitle="Real feedback from real people."
         />
 
-        {/* Load Elfsight widget script */}
+        {/* Script loader */}
         <Script
           src="https://static.elfsight.com/platform/platform.js"
           strategy="lazyOnload"
           onLoad={() => {
             console.log("Elfsight script loaded");
-            setElfsightReady(true);
+            setTimeout(() => {
+              setElfsightReady(true);
+            }, 500); // Optional delay to simulate loading
           }}
         />
 
-        {/* Animate widget only when Elfsight is ready */}
+        {/* Skeleton shown while loading */}
+        {!elfsightReady && (
+          <div className={styles.skeleton}>
+            <div className={styles.skeletonLine}></div>
+            <div className={styles.skeletonLine}></div>
+            <div className={styles.skeletonLine}></div>
+          </div>
+        )}
+
+        {/* Widget container is always in the DOM */}
         <motion.div
           className="elfsight-app-9a739ce6-aa6d-47ac-83b9-4952558ec03e"
           data-elfsight-app-lazy
-          initial={{ opacity: 0, y: 50 }}
-          animate={elfsightReady ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0 }}
+          animate={elfsightReady ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ visibility: elfsightReady ? "visible" : "hidden", height: elfsightReady ? "auto" : "0px" }}
         />
-
-        {/* Optional overlay if needed */}
-        <div className={styles.overlay}></div>
       </div>
     </section>
   );

@@ -38,7 +38,7 @@ const faqItems = [
 
 export default function FAQSection() {
   return (
-    <section style={{ maxWidth: "800px", margin: "50px auto", padding: "80px" }}>
+    <section style={{ maxWidth: "800px", margin: "30px auto", padding: "80px" }}>
       <TitleSection title="Frequently Asked Questions" subtitle="Have a Question?" />
 
       <LazyMotion features={domAnimation}>

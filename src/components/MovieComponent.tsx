@@ -14,8 +14,8 @@ interface MovieViewingComponentProps {
 
 const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
   videoId,
-  title = "Tint It Pro Marble Protection Video",
-  description = "Watch how Tint It Pro protects marble surfaces using TuffSkin film.",
+  title = "",
+  description = "",
   uploadDate = "2024-03-10",
   thumbnailUrl,
 }) => {
@@ -60,7 +60,6 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
     );
 
     observer.observe(node);
-
     return () => observer.disconnect();
   }, []);
 
@@ -68,13 +67,16 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
     <section
       aria-labelledby="video-title"
       style={{
-        width: "100%",
-        backgroundColor: "var(--primary)",
-        padding: "50px 0",
+        width: "95%",
+        background: "linear-gradient(135deg, #b80000, #ff4d4d)",
+        borderRadius: "20px",
+        padding: "60px 20px",
+        margin: "80px auto",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginBottom: "80px",
+        color: "#fff",
+        boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
       }}
     >
       <script
@@ -82,16 +84,16 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
+
       <figure
         ref={videoRef}
         style={{
-          width: "90%",
-          maxWidth: "1200px",
+          width: "95%",
           position: "relative",
           paddingBottom: "56.25%",
-          height: 0,
+          height: "95%",
           border: "5px solid #fff",
-          borderRadius: "12px",
+          borderRadius: "14px",
           overflow: "hidden",
         }}
       >
@@ -102,7 +104,7 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
             frameBorder="0"
             allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            loading="eager" // Immediate since it's in view
+            loading="eager"
             style={{
               position: "absolute",
               top: 0,
@@ -116,7 +118,7 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
             src={thumbUrl}
             alt={`Thumbnail for ${title}`}
             fill
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="(max-width: 768px) 100vw, 1000px"
             style={{ objectFit: "cover" }}
             loading="lazy"
           />

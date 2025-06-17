@@ -9,7 +9,7 @@ import localFont from "next/font/local";
 const interFontBold = localFont({
   src: "./fonts/inter.ttf",
   variable: "--font-inter-bold",
-  weight: "900",
+  weight: "800",
   display: "swap",
 });
 

@@ -6,14 +6,16 @@ import styles from "../styles/TitleSection.module.css";
 interface TitleSectionProps {
   title: string;
   subtitle?: string;
+  align?: "left" | "center" | "right";
 }
 
-const TitleSection: React.FC<TitleSectionProps> = ({ title, subtitle }) => {
+const TitleSection: React.FC<TitleSectionProps> = ({ title, subtitle, align = "center" }) => {
   const [inView, setInView] = useState(false);
 
   return (
     <motion.div
       className={styles.container}
+      style={{ textAlign: align }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

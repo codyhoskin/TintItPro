@@ -29,7 +29,7 @@ const GoogleReviewsSimple = () => {
             <span className={styles.ratingText}>5.0 Rating by 70+ Happy Customers</span>
           </div>
         </div>
-        <div className={styles.ratingText2}>See Why They Trust Us!</div>
+        <div className={styles.ratingText2}>See Why Our Customers Choose Us!</div>
       </a>
     </div>
   );

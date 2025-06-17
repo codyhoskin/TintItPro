@@ -52,6 +52,13 @@
   transition: opacity 0.6s ease;
   opacity: 0;
   animation: fadeIn 0.8s forwards; /* Fade-in animation */
+  transition: transform 0.3s ease, filter 0.3s ease;
+
+}
+.image:hover {
+  transform: scale(1.1);
+  filter: brightness(1.15);
+  cursor: pointer;
 }
 
 @keyframes fadeIn {

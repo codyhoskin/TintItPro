@@ -4,8 +4,9 @@ import styles from "../styles/FAQ.module.css";
 
 interface FAQItemProps {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 }
+
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
