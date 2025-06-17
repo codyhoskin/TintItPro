@@ -12,6 +12,9 @@
   .secondary {
     color: var(--secondary); /* your secondary color */
     font-size: clamp(1.8rem, 4vw, 2.2rem);
+    margin-top: 10px;
+     line-height: 1.2; /* try 1.1 to 1.4 depending on desired tightness */
+    display: inline-block;
   }
   
   .checkIcon {

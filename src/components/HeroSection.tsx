@@ -35,7 +35,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className={styles.hero} style={{ padding: "130px 20px" }}>
+    <section className={styles.hero} style={{ padding: "160px 20px" }}>
   <div
     style={{
       maxWidth: "1100px",          // Controls how wide your section is
@@ -127,13 +127,14 @@ const Hero = () => {
           alignItems: "center",
           margin: "0 auto",
           marginTop: "25px",
+          marginBottom: "25px"
         }}
       >
         <div
           style={{
             position: "relative",
-            width: "280px",
-            height: "280px",
+            width: "300px",
+            height: "300px",
           }}
         >
           <div
