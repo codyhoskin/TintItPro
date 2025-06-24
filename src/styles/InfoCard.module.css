@@ -11,18 +11,22 @@
   overflow: hidden;
   z-index: 1;
 
-  background: url("/images/hero/whiteGranitehero.PNG") center/cover no-repeat;
-  background-attachment: fixed;
+  background-image: url("/images/hero/whiteGranitehero.PNG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* ✅ Parallax on desktop */
 }
 
-
-/* Stack on mobile */
+/* Stack and scroll on mobile */
 @media (max-width: 768px) {
   .cards {
     flex-direction: column;
     align-items: center;
+    background-attachment: scroll; /* ✅ Prevents mobile jank */
   }
 }
+
 
 .card {
   flex: 1 1 300px;
