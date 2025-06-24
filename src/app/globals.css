@@ -9,6 +9,7 @@
   --text-muted: #434343;
   --text-button: #E3000A;
   --text-button2: #ffffff;
+  --hero-bg: url("/images/hero/whiteGranitehero.PNG");
 
 }
 
@@ -23,6 +24,7 @@
   --text-muted: #ebebeb;
   --text-button: #ffffff;
   --text-button2: #E3000A;
+  --hero-bg: url("/images/hero/blackGranitehero.PNG");
 
 
 }

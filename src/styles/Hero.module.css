@@ -1,20 +1,21 @@
 .title {
-  font-size: clamp(2.8rem, 4vw, 3.8rem);
-  padding: 25px;
+  margin-top: 15px;
+  font-size: clamp(4.4rem, 5vw, 4.5rem);
+  padding: 15px 10px;
   font-weight: bold;
   line-height: 1.2;
   word-break: break-word;
   text-align: center; /* optional if you want it centered */
-  color: var(--foreground);
+  color: var(--secondary);
 }
 
   
   .secondary {
-    color: var(--secondary); /* your secondary color */
-    font-size: clamp(1.8rem, 4vw, 2.2rem);
-    margin-top: 10px;
-     line-height: 1.2; /* try 1.1 to 1.4 depending on desired tightness */
+    color: var(--text-muted); /* your secondary color */
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    line-height: 1; /* try 1.1 to 1.4 depending on desired tightness */
     display: inline-block;
+    padding: 10px;
   }
   
   .checkIcon {
@@ -24,31 +25,38 @@
   }
   
   .subtitle {
-    max-width: 80%;
-    margin-left: 25px;
-    margin-bottom: 50px;
+    max-width: 90%;
+    padding: 10px;
     font-size: clamp(1.1rem, 2.4vw, 1.1rem);
     line-height: 1.6;
     text-align: left;
   }
   
   
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 35px 10px;
+  font-family: var(--font-inter-bold), sans-serif;
+}
+
+@media (max-width: 768px) {
   .ctaButtons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-    margin-left: 20px;
-    font-family: var(--font-inter-bold), sans-serif;
-    font-weight: bold;
+    flex-direction: column;
+    align-items: center;        /* ✅ centers items */
+    justify-content: center;    /* ✅ centers layout */
+    text-align: center;         /* ✅ centers text inside children */
   }
-  
-  @media (max-width: 768px) {
-    .ctaButtons {
-      flex-direction: column;
-      align-items: center; /* Centers them */
-    }
+
+  .ctaButtons > * {
+    width: 100%;                /* ✅ ensures full-width buttons inside */
+    max-width: 320px;           /* ✅ keep buttons from stretching too far */
   }
+}
+
 
 
   .primaryButton,
@@ -57,7 +65,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 20px;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
@@ -79,19 +86,21 @@
 }
 
 
-  .primaryButton {
-    background-color: var(--primary);
-    color: white;
-    font-weight: 900;
-    padding: 20px;
-  }
-  
- 
-  
-  .primaryButton:hover {
-    background-color: var(--tertiary);
-    transform: scale(1.1);
-  }
+ .primaryButton {
+  background-color: var(--secondary);
+  color: white;
+  padding: 22px;
+  border-radius: 22px; /* optional for rounded look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle initial shadow */
+  transition: all 0.25s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); /* deeper shadow on hover */
+}
+
   
   .animate {
     animation: wigglePop 1.5s ease-in-out;
@@ -115,83 +124,90 @@
     transform: scale(1.1); /* Increase size */
   }
 
- .hero {
+.hero {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
   display: flex;
-  align-items: flex-start; /* Move content toward top */
   justify-content: center;
+  padding: 0 20px;
+  margin-top: 60px;
 }
 
-  
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("/images/marble-texture.webp");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    opacity: 0.1; /* ✨ control image opacity here */
-    z-index: -1;
-    filter: invert(100%);
+.heroInner {
+  width: 100%;
+  max-width: 680px;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    justify-content: flex-start;
+    padding-left: 14vw;
+    padding-right: 20px;
   }
 
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    /* make it big enough to cover the center */
-    width: 120%;
-    height: 120%;
-    /* plain white core that fades out */
-    background: radial-gradient(
-      circle at center,
-      rgba(255,255,255,0.8) 0%,      /* nearly solid white in center */
-      rgba(255,255,255,0) 70%        /* fully transparent at edges */
-    );
-    /* heavy blur so it feels like a soft glow */
-    filter: blur(60px);
-    /* dial the intensity down or up */
-    opacity: 0.6;
-    z-index: -1;
+  .heroInner {
+    padding-left: 0px;
+    padding-right: 0;
   }
-  
-  
-  .heroContent {
-    max-width: 900px;
-    text-align: center;
-    z-index: 2;
-  }
+}
+
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  margin-top: -210px;
+  z-index: -1;
+
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  /* Opacity gradient mask from left (transparent) to right (opaque) */
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.6) 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.6) 100%);
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+
+
+
 
 .locationWrapper {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: -70px;
-  margin-top: 80px;
 }
 
 .locationTag {
   display: inline-flex;
   align-items: left;
   justify-content: left;
-  background-color: var(--secondary);
+  border: 2px solid white;
   color: white;
   padding: 6px 15px;
   border-radius: 20px;
   font-weight: bold;
   gap: 6px;
   margin-left: 25px;
-  margin-top: 25px;
+  margin-top: 185px;
 }
+
 .ctaButton1 {
   padding: 20px;
   background-color: var(--secondary);
@@ -221,3 +237,17 @@
   85%  { transform: scale(1.05) rotate(0deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
+.highlight-link {
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.highlight-link:hover {
+  transform: scale(1.05);
+  color: var(--primary);
+}
+

@@ -38,7 +38,7 @@ const DecorativeFilms: React.FC = () => {
             alt="Decorative Window Film"
             width={600}
             height={400}
-            style={{ borderRadius: "10px", width: "100%", height: "auto" }}
+            style={{ borderRadius: "10px"}}
           />
         </div>
       </section>

@@ -45,7 +45,6 @@ const ServicesSection: React.FC = () => {
       height={80}
       priority
       quality={90}
-      style={{ maxWidth: "100%", height: "auto" }}
     />
 
     <TitleSection

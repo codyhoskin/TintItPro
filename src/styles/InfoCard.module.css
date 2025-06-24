@@ -1,39 +1,70 @@
-.card {
-    display: flex;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 4rem 1rem;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  background: url("/images/hero/whiteGranitehero.PNG") center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* Stack on mobile */
+@media (max-width: 768px) {
+  .cards {
     flex-direction: column;
     align-items: center;
-    width: 380px;
-    padding: 40px 20px;
-    border-radius: 2px;
-    background-color: var(--border-color);
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin-bottom: 15px;
-    margin-top: 30px;
   }
-  
-  .card:hover {
-    transform: translateY(-10px);
-  }
-  
-  .iconWrapper {
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--secondary);
-  }
-  
-  .subtitle {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.4;
-    max-width: 250px;
-    font-weight: 100;
-    font-family: 'Inter', sans-serif;
-  }
-  
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 360px;
+  min-width: 280px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25); /* Transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Thin frosty border */
+  backdrop-filter: blur(20px); /* Glass blur effect */
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+  color: var(--foreground);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+
+.iconWrapper {
+  margin-bottom: 20px;
+  color: var(--secondary);
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--foreground);
+  font-family: var(--font-inter-bold), sans-serif;
+}
+
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 280px;
+  font-weight: 300;
+  font-family: var(--font-inter-thin), sans-serif;
+}

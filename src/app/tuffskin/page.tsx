@@ -92,19 +92,20 @@ const TuffSkinPage: React.FC = () => {
           marginBottom: "50px",
         }}
       >
-        <Image src="/images/tuffskin-web.jpg" alt="TuffSkin Sample 1" width={400} height={100} />
+        <Image src="/images/TuffSkin-logo-whtpurp.png" alt="TuffSkin Sample 1" width={300} height={90} />
 
-        <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px" }}>
-          <p style={{ marginBottom: 0, textAlign: "center" }}>
+        <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
+          <p style={{ marginBottom: 0, textAlign: "center", color: "var(--quad)" }}>
             We are a professional certified TuffSkin© installer. <br></br>TuffSkin© provides professional-grade protection for natural stone surfaces, helping prevent etching,
             staining, and damage from heat or moisture. Ideal for kitchens, bathrooms, restaurants, and hotels, it
             maintains the look and feel of luxury countertops without the usual wear and tear.
           </p>
         </div>
+        <Image src="/images/tuffskin-header2.png" alt="TuffSkin Sample" width={700} height={180}     className={styles.roundedImage}/>
 
         <MovieViewingComponent />
 
-        {["/images/tuffskin-info.png", "/images/tuffskin-header2.png", "/images/tuffskin-banner.png", "/images/tuffskin-trusted.png"].map((src, idx) => (
+        {["/images/tuffskin-banner.png", "/images/tuffskin-info.png",  "/images/tuffskin-trusted.png"].map((src, idx) => (
           <Image
             key={idx}
             src={src}
@@ -122,23 +123,13 @@ const TuffSkinPage: React.FC = () => {
         ))}
       </div>
 
-      {/* CTA Section */}
-      <div
-      className={styles.ctaBlock}
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        padding: "10px",
-      }}
-    >
-  <div style={{marginLeft: "40px"}}>
-    <div style={{marginLeft: "20px", marginBottom: "-20px"}}>
-      <MdPhotoLibrary size={55} color="#2cc0ff" />
+    <div className={styles.ctaBlock}>
+  <div className={styles.ctaContent}>
+    <div className={styles.iconWrapper}>
+      <MdPhotoLibrary size={85} color="#2cc0ff" />
     </div>
 
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "1px" }}>
+    <div className={styles.textWrapper}>
       <TitleSection
         title="Project Showcase"
         subtitle="Explore our recent installations and craftsmanship."
@@ -161,30 +152,31 @@ const TuffSkinPage: React.FC = () => {
 
 
 
-      {/* Sticky CTA Button */}
-      <div
-        style={{
-          position: "sticky",
-          bottom: "20px",
-          zIndex: 999,
-          display: "flex",
-          justifyContent: "center",
-          padding: "10px",
-        }}
-      >
-        <a
-          href="https://tintitpro.setmore.com/"
-          className={styles.scheduleButton}
-        >
-        <Image
-            src="/images/schedule.png"
-            alt="Estimator Pro Schedule"
-            width={270}
-            height={100}
-            className={styles.wigglePop}
-          />        
-          </a>
-        </div>
+    {/* Sticky CTA Button */}
+<div
+  style={{
+    position: "relative",
+    bottom: "20px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    zIndex: 999,
+    padding: "10px",
+  }}
+>
+  <a
+    href="https://tintitpro.setmore.com/"
+    className={styles.scheduleButton}
+  >
+    <Image
+      src="/images/schedule.png"
+      alt="Estimator Pro Schedule"
+      width={270}
+      height={100}
+      className={styles.wigglePop}
+    />
+  </a>
+</div>
+
 
 
 

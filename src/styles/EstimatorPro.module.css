@@ -23,6 +23,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
+    
   }
   
   .bgImage {
@@ -168,4 +169,66 @@
     animation: wigglePop 0.6s ease-in-out;
   }
   
-  
+  /* EstimatorPro.module.css */
+
+.ctaStepsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .ctaStepsWrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.ctaStepsCard {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 30px;
+  margin: 40px auto;
+  background-color: var(--tertiary);
+  border-radius: 16px;
+  max-width: 1000px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
+
+.ctaStep {
+  flex: 1 1 30%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  min-width: 240px;
+  color: black; 
+}
+
+.ctaIcon {
+  font-size: 24px;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+
+.ctaStep:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ctaStep strong {
+  color: var(--primary);
+  margin-right: 6px;
+  font-weight: 700;
+}

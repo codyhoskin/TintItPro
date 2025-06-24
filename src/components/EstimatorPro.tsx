@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import InfoTooltip from "./InfoTool";
 import styles from "../styles/EstimatorPro.module.css";
+import { FaRegEdit, FaCalculator, FaRegCheckCircle } from "react-icons/fa";
 
 const filmTypes = [
   { type: "None", pricePerSqFt: 0 },
@@ -30,7 +31,6 @@ interface WindowData {
 }
 
 const EstimatorPro: React.FC = () => {
-
   const [windowData, setWindowData] = useState<WindowData[]>([
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
@@ -68,120 +68,139 @@ const EstimatorPro: React.FC = () => {
 
   return (
     <>
-    <div className={styles.estimatorWrapper}>
-      <section className={styles.section}>
-        <InfoTooltip />
 
-        <Image
-          src="/images/estimatorpro2.png"
-          alt="Window Tinting Estimator Pro Application"
-          fill
-          className={styles.bgImage}
-        />
+      <div className={styles.estimatorWrapper}>
+        <section className={styles.section}>
+          <InfoTooltip />
 
-        <div className={styles.formWrapper}>
-          <h2 className={styles.totalHeading}>Estimated Cost: ${totalCost}</h2>
+          <Image
+            src="/images/estimatorpro2.png"
+            alt="Window Tinting Estimator Pro Application"
+            fill
+            className={styles.bgImage}
+          />
 
-          {windowData.map((row, index) => (
-            <div key={index} className={styles.row}>
-              <label htmlFor={`numWindows-${index}`} className={styles.srOnly}>Number of Windows</label>
-              <input
-                id={`numWindows-${index}`}
-                type="number"
-                min={1}
-                value={row.numWindows}
-                onChange={(e) => handleInputChange(index, "numWindows", e.target.value)}
-                onBlur={(e) => {
-                  if (e.target.value === "") handleInputChange(index, "numWindows", "1");
-                }}
-                className={`${styles.input} ${styles.smallInput}`}
-              />
+          <div className={styles.formWrapper}>
+            <h2 className={styles.totalHeading}>Estimated Cost: ${totalCost}</h2>
 
-              <label htmlFor={`length-${index}`} className={styles.srOnly}>Length in inches</label>
-              <input
-                id={`length-${index}`}
-                type="number"
-                value={row.length}
-                onChange={(e) => handleInputChange(index, "length", e.target.value)}
-                onBlur={(e) => {
-                  if (e.target.value === "") handleInputChange(index, "length", "0");
-                }}
-                className={styles.input}
-              />
+            {windowData.map((row, index) => (
+              <div key={index} className={styles.row}>
+                <label htmlFor={`numWindows-${index}`} className={styles.srOnly}>Number of Windows</label>
+                <input
+                  id={`numWindows-${index}`}
+                  type="number"
+                  min={1}
+                  value={row.numWindows}
+                  onChange={(e) => handleInputChange(index, "numWindows", e.target.value)}
+                  onBlur={(e) => {
+                    if (e.target.value === "") handleInputChange(index, "numWindows", "1");
+                  }}
+                  className={`${styles.input} ${styles.smallInput}`}
+                />
 
-              <label htmlFor={`width-${index}`} className={styles.srOnly}>Width in inches</label>
-              <input
-                id={`width-${index}`}
-                type="number"
-                value={row.width}
-                onChange={(e) => handleInputChange(index, "width", e.target.value)}
-                onBlur={(e) => {
-                  if (e.target.value === "") handleInputChange(index, "width", "0");
-                }}
-                className={styles.input}
-              />
+                <label htmlFor={`length-${index}`} className={styles.srOnly}>Length in inches</label>
+                <input
+                  id={`length-${index}`}
+                  type="number"
+                  value={row.length}
+                  onChange={(e) => handleInputChange(index, "length", e.target.value)}
+                  onBlur={(e) => {
+                    if (e.target.value === "") handleInputChange(index, "length", "0");
+                  }}
+                  className={styles.input}
+                />
 
-              <label htmlFor={`film-${index}`} className={styles.srOnly}>Film Type</label>
+                <label htmlFor={`width-${index}`} className={styles.srOnly}>Width in inches</label>
+                <input
+                  id={`width-${index}`}
+                  type="number"
+                  value={row.width}
+                  onChange={(e) => handleInputChange(index, "width", e.target.value)}
+                  onBlur={(e) => {
+                    if (e.target.value === "") handleInputChange(index, "width", "0");
+                  }}
+                  className={styles.input}
+                />
+
+                <label htmlFor={`film-${index}`} className={styles.srOnly}>Film Type</label>
+                <select
+                  id={`film-${index}`}
+                  value={row.film.type}
+                  onChange={(e) => handleInputChange(index, "film", e.target.value)}
+                  className={`${styles.select} ${styles.filmSelect}`}
+                >
+                  {filmTypes.map((f) => (
+                    <option key={f.type} value={f.type}>
+                      {f.type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            ))}
+
+            <div className={styles.equipmentWrapper}>
+              <label htmlFor="equipment" className={styles.srOnly}>Equipment</label>
               <select
-                id={`film-${index}`}
-                value={row.film.type}
-                onChange={(e) => handleInputChange(index, "film", e.target.value)}
-                className={`${styles.select} ${styles.filmSelect}`}
+                id="equipment"
+                value={selectedEquipment.type}
+                onChange={(e) =>
+                  setSelectedEquipment(
+                    equipmentOptions.find((eq) => eq.type === e.target.value)!
+                  )
+                }
+                className={styles.equipmentSelect}
               >
-                {filmTypes.map((f) => (
-                  <option key={f.type} value={f.type}>
-                    {f.type}
+                {equipmentOptions.map((eq) => (
+                  <option key={eq.type} value={eq.type}>
+                    {eq.type}
                   </option>
                 ))}
               </select>
             </div>
-          ))}
-
-          <div className={styles.equipmentWrapper}>
-            <label htmlFor="equipment" className={styles.srOnly}>Equipment</label>
-            <select
-              id="equipment"
-              value={selectedEquipment.type}
-              onChange={(e) =>
-                setSelectedEquipment(
-                  equipmentOptions.find((eq) => eq.type === e.target.value)!
-                )
-              }
-              className={styles.equipmentSelect}
-            >
-              {equipmentOptions.map((eq) => (
-                <option key={eq.type} value={eq.type}>
-                  {eq.type}
-                </option>
-              ))}
-            </select>
           </div>
-        </div>
 
-        <a
-          href="https://tintitpro.setmore.com/"
-          aria-label="Schedule an appointment with Estimator Pro"
-          className={styles.scheduleButton}
-        >
-          <Image
-            src="/images/schedule.png"
-            alt="Estimator Pro Schedule"
-            width={300}
-            height={110}
-            className={styles.wigglePop}
-          />
-        </a>
-
+          <a
+            href="https://tintitpro.setmore.com/"
+            aria-label="Schedule an appointment with Estimator Pro"
+            className={styles.scheduleButton}
+          >
+            <Image
+              src="/images/schedule.png"
+              alt="Estimator Pro Schedule"
+              width={300}
+              height={110}
+              className={styles.wigglePop}
+            />
+          </a>
+          
+        </section>
         
-      </section>
+      </div>
 
-        </div>
-          <h3 className={styles.ctaHeadline}>
-            Know the Cost Before You Book! – <br></br>Get a Fast & Easy Online Estimate!<br />
-            <span>(Fill out our quick estimator pro tool & get pricing instantly!)</span>
-          </h3>
+    <div className={styles.ctaStepsCard}>
+  <div className={styles.ctaStep}>
+    <FaRegEdit className={styles.ctaIcon} />
+    <div>
+      <strong>1:</strong> Fill out the Estimator Pro app above.
+    </div>
+  </div>
 
-          </>
+  <div className={styles.ctaStep}>
+    <FaCalculator className={styles.ctaIcon} />
+    <div>
+      <strong>2:</strong> Get a fast and easy online quote.
+    </div>
+  </div>
+
+  <div className={styles.ctaStep}>
+    <FaRegCheckCircle className={styles.ctaIcon} />
+    <div>
+      <strong>3:</strong> Know the cost before booking an appointment!
+    </div>
+  </div>
+</div>
+
+    </>
   );
 };
 

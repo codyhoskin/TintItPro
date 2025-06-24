@@ -19,22 +19,40 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={() => setTheme(currentTheme === "light" ? "dark" : "light")}
-      aria-label={"Light and Dark Theme Toggle"}
+      aria-label="Light and Dark Theme Toggle"
       style={{
-        background: "transparent", // No background
+        background: "transparent",
         border: "none",
         cursor: "pointer",
-        padding: "10px", // Adjust if needed
+        padding: "10px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      {currentTheme === "dark" ? (
-        <Sun size={30} color="white" />
-      ) : (
-        <Moon size={30} color="black" />
-      )}
+      <span
+  style={{
+    display: "inline-flex",
+    transition: "transform 0.25s ease, color 0.25s ease",
+    color: "white", // Default icon color
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "scale(1.2)";
+    e.currentTarget.style.color = "var(--secondary)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "scale(1)";
+    e.currentTarget.style.color = "white";
+  }}
+>
+  {/* Icon will inherit the color from the span */}
+  {currentTheme === "dark" ? (
+    <Sun size={30} style={{ color: "inherit" }} />
+  ) : (
+    <Moon size={30} style={{ color: "inherit" }} />
+  )}
+</span>
+
     </button>
   );
 };

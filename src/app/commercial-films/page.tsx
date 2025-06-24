@@ -38,7 +38,6 @@ const WindowFilms: React.FC = () => {
             alt="Calgarys Experts in Commercial Window Tinting"
             width={600}
             height={400}
-            style={{ borderRadius: "10px", width: "100%", height: "auto" }}
           />
         </div>
       </section>
@@ -52,7 +51,6 @@ const WindowFilms: React.FC = () => {
             alt="Protect your Office from the Sun."
             width={600}
             height={400}
-            style={{ borderRadius: "10px", width: "100%", height: "auto" }}
           />
         </div>
         <div className={styles.textBlock}>

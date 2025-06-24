@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import TitleSection from "./TitleSection";
 
 interface MovieViewingComponentProps {
   videoId: string;
@@ -14,8 +15,6 @@ interface MovieViewingComponentProps {
 
 const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
   videoId,
-  title = "",
-  description = "",
   uploadDate = "2024-03-10",
   thumbnailUrl,
 }) => {
@@ -29,8 +28,6 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: title,
-    description,
     thumbnailUrl: [thumbUrl],
     uploadDate,
     contentUrl: videoUrl,
@@ -67,40 +64,39 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
     <section
       aria-labelledby="video-title"
       style={{
-        width: "95%",
-        background: "linear-gradient(135deg, #b80000, #ff4d4d)",
+        width: "100%",
+        maxWidth: "1200px",
+        margin: "100px auto",
+        padding: "40px 20px",
         borderRadius: "20px",
-        padding: "60px 20px",
-        margin: "80px auto",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        color: "#fff",
-        boxShadow: "0 12px 24px rgba(0,0,0,0.15)",
+        background: "var(--background)",
+        color: "var(--foreground)",
+        textAlign: "center",
       }}
     >
+      <TitleSection title="Watch Our Work in Action" subtitle="See how Tint It Pro transforms your space with professional film installation. This short video showcases the clarity, protection, and style our services deliver."/>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
+  
 
-      <figure
+      <div
         ref={videoRef}
         style={{
-          width: "95%",
+          width: "100%",
           position: "relative",
           paddingBottom: "56.25%",
-          height: "95%",
-          border: "5px solid #fff",
-          borderRadius: "14px",
+          borderRadius: "16px",
           overflow: "hidden",
+          boxShadow: "0 12px 30px rgba(0, 0, 0, 0.2)",
+          border: "4px solid var(--border-color)",
         }}
       >
         {isInView ? (
           <iframe
             src={embedUrl}
-            title={title}
             frameBorder="0"
             allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -116,14 +112,14 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
         ) : (
           <Image
             src={thumbUrl}
-            alt={`Thumbnail for ${title}`}
+            alt={`Thumbnail for Tint it Pro`}
             fill
             sizes="(max-width: 768px) 100vw, 1000px"
             style={{ objectFit: "cover" }}
             loading="lazy"
           />
         )}
-      </figure>
+      </div>
     </section>
   );
 };

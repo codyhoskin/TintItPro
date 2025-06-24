@@ -78,7 +78,7 @@ const Header: React.FC = () => {
           className={styles.ctaButton}
           aria-label="Get your free quote today"
         >
-          <FaClipboard style={{ marginRight: "8px" }} />
+          <FaClipboard size={20} style={{ marginRight: "8px", marginBottom: "-4px" }} />
           Book Your Free Consultation!
         </a>
       </div>
@@ -136,39 +136,55 @@ const Header: React.FC = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "16px", // space between buttons
+          gap: "25px",
           marginTop: "50px",
-          marginBottom: "auto",
+          marginBottom: "50px",
         }}
       >
-        <Link
-          href="/#estimator"
-          className={styles.ctaButton1}
-          aria-label="Get your free quote today"
-          style={{
-            width: "100%",
-            maxWidth: "250px",
-            textAlign: "center",
-          }}
-        >
-          <FaCalculator style={{ marginRight: "8px" }} aria-hidden="true"/>
-          Estimator Pro
-        </Link>
+  <Link
+    href="/#estimator"
+    className={styles.ctaButton1}
+    aria-label="Get your free quote today"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      maxWidth: "350px",
+      padding: "25px 20px",
+      fontSize: "16px",
+      fontWeight: "bold",
+      borderRadius: "8px",
+      textAlign: "center",
+      textDecoration: "none",
+    }}
+  >
+    <FaCalculator style={{ marginRight: "8px" }} aria-hidden="true" />
+    Estimator Pro
+  </Link>
 
-        <a
-          href="https://tintitpro.setmore.com/"
-          className={styles.ctaButton}
-          aria-label="Get your free quote today"
-          style={{
-            width: "100%",
-            maxWidth: "250px",
-            textAlign: "center",
-          }}
-        >
-          <FaClipboard style={{ marginRight: "8px" }} />
-          Book Your Free Consultation!
-        </a>
-      </div>
+  <a
+    href="https://tintitpro.setmore.com/"
+    className={styles.ctaButton}
+    aria-label="Get your free quote today"
+    style={{
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      maxWidth: "350px",
+      padding: "25px 20px",
+      fontSize: "16px",
+      fontWeight: "bold",
+      borderRadius: "8px",
+      textAlign: "center",
+      textDecoration: "none",
+    }}
+  >
+    <FaClipboard style={{ marginRight: "8px" }} />
+    Book Your Free Consultation!
+  </a>
+</div>
 
 
 

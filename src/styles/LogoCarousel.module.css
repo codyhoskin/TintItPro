@@ -1,34 +1,84 @@
 .carouselWrapper {
-    overflow: hidden;
-    padding: 40px 0;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+
+/* Side shadows */
+.carouselShadowLeft,
+.carouselShadowRight {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carouselShadowLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--background) 0%, transparent 100%);
+}
+
+.carouselShadowRight {
+  right: 0;
+  background: linear-gradient(to left, var(--background) 0%, transparent 100%);
+}
+
+
+
+.carouselTrack {
+  display: flex;
+  gap: 40px;
+  animation: scrollLeft 40s linear infinite;
+  white-space: nowrap;
+  will-change: transform;
+  width: max-content;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+
+.carouselContainer {
+  overflow: hidden;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  background-color: transparent;
+}
+
+.logoItem {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Dark mode logo filter */
+:global(html.dark) .logoItem img {
+  filter: brightness(0) invert(1);
+}
+
+/* Light mode: restore original */
+:global(html.light) .logoItem img {
+  filter: none;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
   }
-  
-  .carouselTrack {
-    display: flex;
-    width: max-content;
-    animation: scrollLeft 25s linear infinite;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .logoItem {
-    flex: 0 0 auto;
-    margin: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .logoItem {
-      margin: 0 20px;
-    }
-  }
-  
+}

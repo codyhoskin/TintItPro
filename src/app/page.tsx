@@ -1,126 +1,114 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import styles from "./page.module.css";
-import Hero from "@/components/HeroSection";
+import { Suspense } from "react";
+import Hero           from "@/components/HeroSection";
+import InfoCard       from "@/components/InfoCard";
+import SocialCard     from "@/components/SocialComponent";
+import TitleSection   from "@/components/TitleSection";
+import { MovieViewing, ServicesSection, FAQSection, ElfsightLazy, EstimatorPro,
+} from "@/components/Heavy";
+import { VideoSkeleton } from "@/components/Skeletons";
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
-import InfoCard from "@/components/InfoCard";
-import SocialCard from "@/components/SocialComponent";
-import TitleSection from "@/components/TitleSection";
 
 
-// Dynamically import all heavy components
-const LogoCarousel = dynamic(() => import("@/components/LogoCarousel"), { ssr: false });
-const MovieViewingComponent = dynamic(() => import("@/components/MovieComponent"), { ssr: false });
-const ServicesSection = dynamic(() => import("@/components/ServicesSection"), { ssr: false });
-const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: false });
-const StreamBackground = dynamic(() => import("@/components/BackgroundDesign"), { ssr: false });
-const ElfsightLazy = dynamic(() => import("../components/ElfSlightLazy"), { ssr: false });
-const EstimatorPro = dynamic(() => import("@/components/EstimatorPro"), { ssr: false });
-
-export default function Home() {
+// Tailwind container keeps a max-width and side padding.
+export default function Landing() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        
-        {/* Hero Section - Loads immediately */}
-        <section id="home">
-          <Hero />
-        </section>
+    <main id="main">
 
-        {/* Logo Carousel - Lazy Loaded */}
-        <LogoCarousel />
-
-        {/* Movie Viewing Component - Lazy Loaded */}
-        <MovieViewingComponent videoId="ZsGwmoubqqE" />
-
-        {/* Services Section - Lazy Loaded */}
-        <section id="solutions">
-          <ServicesSection />
-        </section>
+      {/* 1️⃣ Hero (always server-rendered, no shift) */}
+      <Hero />
 
 
- <TitleSection
-            title="Lasting Benefits"
-            subtitle="No stress warranty coverage."
-          />
-        {/* Info Cards */}
-        <div className={styles.cardContainer}>
-            
-          <InfoCard
-            icon={<FaShieldAlt size={40} color="var(--secondary)" aria-hidden="true" />}
-            title="Solar Guard® 10 Year Warranty"
-            subtitle="Our interior Solar Guard® window films are backed by a 10-Year Warranty on the film and installation."
-          />
-          <InfoCard
-            icon={<FaAward size={40} color="var(--secondary)" aria-hidden="true" />}
-            title="100% Etch-Proof & Stain-Proof Marble—Guaranteed."
-            subtitle="Protect your high-end stone surfaces from damage & costly repairs."
-          />
-          <InfoCard
-            icon={<MdWbSunny size={40} color="var(--secondary)" aria-hidden="true" />}
-            title="Why Solar Film is Best"
-            subtitle="Solar Gard® window films ensure superior quality and offer up to 82% heat rejection, 99% UV ray blocking, 90% glare reduction, interior fade control, and up to 30% energy cost savings."
-          />
+        <div style={{
+          width: "100%",
+          height: "200px",
+          backgroundImage: 'url("/images/hero/lightWindow.PNG")',
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed", // Parallax
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}>
         </div>
 
-      
+
+
+      {/* 3️⃣ Video – reserve 16/9 box so no shift */}
+      <section id="showreel" className="relative">
+        <Suspense fallback={<VideoSkeleton />}>
+          <MovieViewing videoId="ZsGwmoubqqE" />
+        </Suspense>
+      </section>
+
+      {/* 4️⃣ Solutions */}
+      <section id="solutions">
+        <Suspense><ServicesSection /></Suspense>
+      </section>
+
+      {/* 5️⃣ Benefits strip */}
+      <TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
+
+     <InfoCard.Wrapper>
+      <InfoCard
+        icon={<FaShieldAlt size={40} className="text-secondary" />}
+        title="Solar Guard® 10 yr Warranty"
+        subtitle="Interior film + install fully covered."
+      />
+      <InfoCard
+        icon={<FaAward size={40} className="text-secondary" />}
+        title="100 % Etch- & Stain-Proof Marble"
+        subtitle="Protect high-end stone from damage & costly repairs."
+      />
+      <InfoCard
+        icon={<MdWbSunny size={40} className="text-secondary" />}
+        title="Why Solar Film Wins"
+        subtitle="Up to 82 % heat rejection & 30 % energy savings."
+      />
+    </InfoCard.Wrapper>
+
+      {/* 6️⃣ Reviews */}
+      <section id="reviews" className="relative">
+        <Suspense><ElfsightLazy height={800}/></Suspense>
+      </section>
 
 
 
-        {/* Reviews Section - Lazy Loaded */}
-        <section id="reviews">
-          <ElfsightLazy />
-        </section>
-
+      {/* 7️⃣ Estimator – decorative background locked with aspect-ratio */}
+      <section id="estimator" className="relative isolate overflow-hidden">
+        <Suspense>
+          
+          <div style={{ minHeight: "100px" }}>
+           
+            <EstimatorPro />
+              
+          </div>
        
+        </Suspense>
+      </section>
 
-
-        {/* Estimator Section */}
-        <section
-          id="estimator"
-          style={{
-            position: "relative",
-            minHeight: "1000px", // Reserve space to avoid layout shift
-          }}
-        >
-          <StreamBackground position="bottom" height="1000px" variant="dramatic" />
-          <EstimatorPro />
-        </section>
-
-    
-
-
-
-        {/* FAQ Section */}
-        <section
-          id="faq"
-          style={{
-            position: "relative",
-            marginTop: "-5px",
-            marginBottom: "-180px"
-          }}
-        >
-          <StreamBackground position="top" height="100px" variant="dramatic" />
+      {/* 8️⃣ FAQ */}
+      <section id="faq" className="relative isolate">
+        <Suspense>
           <FAQSection />
+        </Suspense>
+      </section>
 
-
-         
-        </section>
+      {/* 9️⃣ Social footer */}
       <SocialCard
-            title="Connect with Us."
-            subtitle="Follow us on social media"
-            imageUrl="/images/socialBanner.png"
-            socialLinks={{
-              facebook: "https://www.facebook.com",
-              instagram: "https://www.instagram.com",
-              twitter: "https://www.twitter.com",
-              youtube: "https://www.youtube.com",
-            }}
-          />
-       
-      </main>
-    </div>
+        title="Connect with Us."
+        subtitle="Follow us on social media"
+        imageUrl="/images/hero/tinterguy.png"
+        socialLinks={{
+          facebook:  "https://facebook.com/tintitpro",
+          instagram: "https://instagram.com/tintitpro",
+          twitter:   "https://twitter.com/tintitpro",
+          youtube:   "https://youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
+        }}
+      />
+    </main>
   );
 }

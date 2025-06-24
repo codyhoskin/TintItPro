@@ -80,3 +80,23 @@
     background-color: #f0f0f0;
   }
 }
+
+
+.floatingBox {
+  position: absolute;
+  top: 560px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 50px;
+  border-radius: 4px;
+  background-color: var(--background);
+  z-index: 20;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .floatingBox {
+    top: 670px;
+  }
+}

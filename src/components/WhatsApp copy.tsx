@@ -16,60 +16,56 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div style={{ position: 'relative', display: 'inline-block', padding: '10px'}}>
+    <div style={{ position: 'relative', display: 'inline-block', textAlign: 'center' }}>
       <button
         onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        aria-label="Text us on WhatsApp"
+        aria-label="Contact us on WhatsApp"
         style={{
-          display: 'inline-flex',
+          display: 'flex',
           alignItems: 'center',
-          gap: '10px',
-          padding: '8px 12px',
-          borderRadius: '25px',
-          fontSize: '14px',
-          fontWeight: 'bold',
+          justifyContent: 'center',
+          gap: '8px',
+          padding: '18px 20px',
+          borderRadius: '6px',
+          minWidth: '300px',
+          fontSize: '1rem',
+          fontWeight: '900',
+          fontFamily: 'var(--font-inter-bold)',
           backgroundColor: hovered ? '#25d366' : 'transparent',
           color: hovered ? 'white' : '#25d366',
-          border: '1px solid #25d366',
+          border: '2px solid #25d366',
+          textDecoration: 'none',
           cursor: 'pointer',
-          transition: 'all 0.3s ease',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
+          textAlign: 'center',
+          transition: 'background 0.3s ease, transform 0.3s ease, color 0.3s ease',
+          transform: hovered ? 'scale(1.1)' : 'scale(1)',
         }}
       >
-        <FaWhatsapp size={18} />
-        <span
-          style={{
-            display: 'inline-block',
-            maxWidth: hovered ? '500px' : '200px',
-            overflow: 'hidden',
-            transition: 'max-width 0.3s ease',
-          }}
-        >
-          {hovered ? 'Click to text us on WhatsApp!' : 'Have a quick question?'}
-        </span>
+        <FaWhatsapp size={20} />
+        Contact us on WhatsApp
       </button>
 
       {showPopup && (
         <div
           style={{
             position: 'absolute',
-            top: '-50px',
+            top: '-60px',
             left: '50%',
             transform: 'translateX(-50%)',
             background: '#25d366',
             color: 'white',
-            padding: '2px 14px',
+            padding: '10px 20px',
             borderRadius: '8px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            fontSize: '13px',
-            fontWeight: 600,
+            boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
             whiteSpace: 'nowrap',
+            opacity: 1,
+            transition: 'opacity 0.3s ease',
+            fontWeight: 'bold',
           }}
         >
-          Message sent!
+          Message us on WhatsApp 😉
         </div>
       )}
     </div>

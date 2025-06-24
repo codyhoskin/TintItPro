@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import React, { PropsWithChildren } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import styles from "../styles/InfoCard.module.css";
 
@@ -9,10 +10,17 @@ interface InfoCardProps {
   subtitle: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ icon, title, subtitle }) => {
+export const InfoCardWrapper: React.FC<PropsWithChildren> = ({ children }) => {
+  return <div className={styles.cards}>{children}</div>;
+};
+
+const InfoCard: React.FC<InfoCardProps> & { Wrapper: typeof InfoCardWrapper } = ({
+  icon,
+  title,
+  subtitle,
+}) => {
   return (
     <LazyMotion features={domAnimation}>
-    
       <m.div
         className={styles.card}
         initial={{ opacity: 0, y: 50 }}
@@ -27,5 +35,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, subtitle }) => {
     </LazyMotion>
   );
 };
+
+InfoCard.Wrapper = InfoCardWrapper;
 
 export default InfoCard;

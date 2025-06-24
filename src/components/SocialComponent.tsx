@@ -21,7 +21,7 @@ interface SocialCardProps {
 
 const SocialCard: React.FC<SocialCardProps> = ({ imageUrl }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true});
+  const isInView = useInView(ref, { once: true });
 
   return (
     <div className={styles.cardContainer}>
@@ -33,13 +33,16 @@ const SocialCard: React.FC<SocialCardProps> = ({ imageUrl }) => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className={styles.cardLeft}>
-          <Image
-            src={imageUrl}
-            height={600}
-            width={600}
-            alt="Socials"
-            className={styles.cardImage}
-          />
+          <div className={styles.imageWrapper}>
+            <Image
+              src={imageUrl}
+              alt="Socials"
+              fill
+              className={styles.cardImage}
+              priority
+            />
+            <div className={styles.imageOverlay} />
+          </div>
         </div>
         <div className={styles.cardRight}>
           <TitleSection title="Connect with Us" subtitle="Follow us on social media." />

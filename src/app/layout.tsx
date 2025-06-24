@@ -7,14 +7,14 @@ import localFont from "next/font/local";
 
 
 const interFontBold = localFont({
-  src: "./fonts/inter.ttf",
+  src: "./fonts/Satoshi-Black.otf",
   variable: "--font-inter-bold",
-  weight: "800",
+  weight: "1000",
   display: "swap",
 });
 
 const interFontThin = localFont({
-  src: "./fonts/inter.ttf",
+  src: "./fonts/Satoshi-Medium.otf",
   variable: "--font-inter-thin",
   weight: "600",
   display: "swap",
@@ -68,9 +68,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
-      <head>
-        <link rel="preload" as="image" href="/images/marble-texture.webp" />
-      </head>
       <body>
         <ThemeProviderWrapper>  
           <Header />        

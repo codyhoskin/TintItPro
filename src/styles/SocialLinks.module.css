@@ -1,17 +1,28 @@
 .socialIcons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .iconLink {
-    color: inherit;
-    transition: transform 0.3s ease;
-  }
-  
-  .iconLink:hover {
-    transform: scale(1.2);
-    color: var(--secondary); /* Or your accent color */
-  }
-  
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: var(--foreground); /* default text/icon color */
+}
+
+.iconLink:hover {
+  transform: scale(1.2);
+  color: var(--secondary); /* highlight on hover */
+}
+
+html.dark .iconLink {
+  color: #fff; /* white icons in dark mode */
+}
+
+html.dark .iconLink:hover {
+  color: var(--secondary);
+}
