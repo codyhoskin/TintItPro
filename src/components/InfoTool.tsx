@@ -10,31 +10,34 @@ const InfoTooltip: React.FC = () => {
     <div
       style={{
         position: "absolute", // keeps it static on screen
-        right: "12%",
-        bottom: "-75px",
+        right: "40%",
+        bottom: "-225px",
         zIndex: 1000,
         padding: "10px",
         boxSizing: "border-box",
+        color: "red",
+        fontSize: "20px"
       }}
     >
       {/* Info Icon */}
       <FaInfoCircle
         style={{
           color: "#E3000A",
-          fontSize: "45px",
+          fontSize: "35px",
           cursor: "pointer",
+          marginBottom: "-8px"
         }}
         onMouseEnter={() => setShowInfo(true)}
         onMouseLeave={() => setShowInfo(false)}
         onClick={() => setShowInfo(!showInfo)}
-      />
+      /> More Info
 
       {/* Tooltip Bubble */}
       <div
         style={{
           position: "absolute",
-          top: "-600px",
-          right: "-20px", // slight tweak for spacing
+          top: "-700px",
+          left: "-180px", // slight tweak for spacing
           backgroundColor: "#E3000A",
           color: "#fff",
           padding: "30px",
