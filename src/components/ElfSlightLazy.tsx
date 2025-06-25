@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import styles from "../styles/ElfSightGoogle.module.css";
 
 /* —— heavy widget —— */
 const ElfsightWidget = dynamic(() => import("./ElfSightGoogle"), { ssr: false });
@@ -61,7 +60,6 @@ export default function ElfsightLazy({
   >
     {!ready && <ReviewsSkeleton height={height} />}
     {activate && <ElfsightWidget />}
-    <div className={styles.floatingBox}/>
 
   </div>
 );

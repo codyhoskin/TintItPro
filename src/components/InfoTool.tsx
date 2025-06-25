@@ -11,7 +11,7 @@ const InfoTooltip: React.FC = () => {
       style={{
         position: "absolute", // keeps it static on screen
         right: "40%",
-        bottom: "-225px",
+        top: "140px",
         zIndex: 1000,
         padding: "10px",
         boxSizing: "border-box",
@@ -36,7 +36,7 @@ const InfoTooltip: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: "-700px",
+          bottom: "-500px",
           left: "-180px", // slight tweak for spacing
           backgroundColor: "#E3000A",
           color: "#fff",

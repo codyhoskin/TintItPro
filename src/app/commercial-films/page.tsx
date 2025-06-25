@@ -1,147 +1,186 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import ElfsightWidget from "@/components/ElfSightGoogle";
-import TitleSection from "@/components/TitleSection";
-import Link from "next/link";
 import styles from "./page.module.css";
-import { FaShieldAlt } from "react-icons/fa";
+import { FaSun, FaShieldAlt, FaSprayCan, FaEyeSlash } from "react-icons/fa";
+import Image from "next/image";
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+import {ElfsightLazy} from "@/components/Heavy";
 
-const WindowFilms: React.FC = () => {
+
+const CommercialWindowTinting: React.FC = () => {
+
+    const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+   const images = [
+    "/images/tint-job/C86168FC-19D8-4BC5-BD02-6C6797DC84FD.JPG",
+    "/images/tint-job/IMG_1517.JPG",
+    "/images/tint-job/IMG_1738.JPG",
+    "/images/tint-job/IMG_6056 2.JPG",
+    "/images/tint-job/IMG_7848.JPG",
+    "/images/tint-job/IMG_8784.JPG",
+  ];
+
+
   return (
     <main className={styles.pageWrapper}>
-      {/* Floating Blue Blobs */}
-      <div className={styles.blobContainer}>
-        <div className={`${styles.blob} ${styles.blob1}`}></div>
-        <div className={`${styles.blob} ${styles.blob2}`}></div>
-        <div className={`${styles.blob} ${styles.blob3}`}></div>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroText}>
+          <h1>Professional Window Tinting for Calgary Businesses</h1>
+          <p>
+            Improve energy efficiency, increase security, and reduce glare with
+            industry-leading commercial films.
+          </p>
+          <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
+            Request a Free On-Site Quote
+          </a>
+        </div>
+        <div className={styles.heroImageCommercial}></div>
+      </section>
+
+      {/* Overview */}
+      <section className={styles.serviceOverview}>
+        <h2 style={{padding: "10px"}}>Smart Solutions for Modern Buildings</h2>
+        <p>
+          We install high-performance window film for businesses, retail spaces,
+          hotels, and office towers. From energy savings to safety compliance,
+          our commercial film solutions are tailored to your property.
+        </p>
+      </section>
+
+      {/* Types of Film */}
+      <section className={styles.filmTypes}>
+        <h2 style={{padding: "20px"}}>Commercial Film Options</h2>
+        <div className={styles.cardGrid}>
+          <div className={styles.card}>
+            <FaSun size={36} />
+            <h3>Solar Control Film</h3>
+            <p>Reduces heat and cooling costs while improving comfort.</p>
+          </div>
+          <div className={styles.card}>
+            <FaEyeSlash size={36} />
+            <h3>Decorative Film</h3>
+            <p>Stylish frosted or branded films for interior and exterior glass.</p>
+          </div>
+          <div className={styles.card}>
+            <FaSprayCan size={36} />
+            <h3>Anti-Graffiti Film</h3>
+            <p>Protects glass against tagging, scratching, and vandalism.</p>
+          </div>
+          <div className={styles.card}>
+            <FaShieldAlt size={36} />
+            <h3>Security Film</h3>
+            <p>Strengthens glass to help prevent break-ins and injuries.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section className={styles.industriesSection}>
+        <h2>Industries We Serve</h2>
+        <ul className={styles.industriesList}>
+          <li>Office Buildings</li>
+          <li>Retail Stores</li>
+          <li>Hotels & Spas</li>
+          <li>Government Facilities</li>
+          <li>Schools & Universities</li>
+          <li>Condominiums & Multi-Unit</li>
+        </ul>
+      </section>
+
+      {/* Benefits Section */}
+      <section className={styles.benefitsSection}>
+        <h2>Why Leading Businesses Choose Tint It Pro</h2>
+        <ul className={styles.benefitsList}>
+          <li>Reduces HVAC costs</li>
+          <li>Adds privacy and branding</li>
+          <li>Protects glass from damage</li>
+          <li>Extends window lifespan</li>
+          <li>Fast, clean installation</li>
+          <li>Certified, insured team</li>
+        </ul>
+      </section>
+
+      <section className={styles.gallerySection}>
+      <h2>A Few Commerical Projects</h2>
+      <a href="/image-gallery" className={styles.imageGallery}>
+        Checkout the Image Gallery
+      </a>
+
+      <div className={styles.galleryGrid}>
+        {images.map((src, i) => (
+          <div key={i} className={styles.imageWrapper}>
+            <Image
+              src={src}
+              alt={`Project ${i + 1}`}
+              width={400}
+              height={250}
+              className={styles.galleryImage}
+              onClick={() => {
+                setIndex(i);
+                setOpen(true);
+              }}
+              style={{ cursor: "zoom-in", borderRadius: "12px" }}
+            />
+          </div>
+        ))}
       </div>
 
-      {/* Page Title */}
-      <TitleSection
-        title="Commercial Window Films"
-        subtitle="Energy Efficiency, Privacy & UV Protection for Your Business"
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={index}
+        slides={images.map((src) => ({ src }))}
       />
+    </section>
 
-      {/* Section 1 - Text Left, Image Right */}
-      <section className={styles.contentSection}>
-        <div className={styles.textBlock}>
-          <h2>Why Commercial Window Tinting?</h2>
-          <p>
-            Our commercial window films enhance productivity, privacy, and comfort across office spaces, retail locations, and large-scale buildings. They reduce glare on monitors, shield interiors from UV damage, and project a sleek, modern look to clients and customers.
-          </p>
-        </div>
-        <div className={styles.imageBlock}>
-          <Image
-            src="/images/service3.png"
-            alt="Calgarys Experts in Commercial Window Tinting"
-            width={600}
-            height={400}
-          />
-        </div>
+
+
+
+
+
+      {/* Testimonials */}
+       <section className={styles.testimonialsSection}>
+        <ElfsightLazy />
       </section>
 
-      {/* Section 2 - Text Left, Image Right (reversed) */}
-      <section className={styles.contentSection}>
-      
-        <div className={styles.imageBlock}>
-          <Image
-            src="/images/window-tinting.png"
-            alt="Protect your Office from the Sun."
-            width={600}
-            height={400}
-          />
-        </div>
-        <div className={styles.textBlock}>
-          <h2>Maintain a Comfortable Work Environment</h2>
-          <p>
-            Our solar control window films can reduce indoor heat by up to 82% and glare by 90%. Employees stay focused without constantly adjusting blinds, while your HVAC system works more efficiently — lowering operational costs.
-          </p>
-        </div>
-      </section>
-
-      {/* Icon/Highlight Block */}
-      <section className={styles.highlightSection}>
-        <div className={styles.iconCard}>
-          <div className={styles.iconCircle}>
-            <FaShieldAlt size={40} color="#fff" />
+      {/* Process */}
+      <section className={styles.processSection}>
+        <h2>From Quote to Installation</h2>
+        <div className={styles.processFlow}>
+          <div className={styles.stepCard}>
+            <h3>1. Site Visit & Assessment</h3>
+            <p>We evaluate your property needs and recommend solutions.</p>
           </div>
-          <div>
-            <h3>Office Shield</h3>
-            <p>
-              Defend your business interior from fading, overheating, and privacy risks while presenting a clean, professional aesthetic to clients.
-            </p>
+          <div className={styles.arrow}>&rarr;</div>
+          <div className={`${styles.stepCard} ${styles.staggered}`}>
+            <h3>2. Product Selection & Quote</h3>
+            <p>Choose from top commercial films tailored to your goals.</p>
+          </div>
+          <div className={styles.arrow}>&rarr;</div>
+          <div className={styles.stepCard}>
+            <h3>3. Professional Installation</h3>
+            <p>Fast, clean install with minimal disruption to your business.</p>
           </div>
         </div>
       </section>
 
-      {/* Local MP4 Video Section */}
-      <section className={styles.videoSection}>
-        <TitleSection
-          title="Watch Commercial Film Installation"
-          subtitle="See how we transform workspaces throughout Alberta."
-        />
-        <div className={styles.videoWrapper}>
-          <video
-            width="100%"
-            height="auto"
-            controls
-            playsInline
-            poster="/images/service3.png"
-            style={{ borderRadius: "12px", maxHeight: "600px", objectFit: "cover" }}
-          >
-            <source
-              src="/images/tint-job/8a5eb925fb574c7aba9c313676837868.MP4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
-
-      {/* Widget Integration */}
-      <ElfsightWidget />
-
-      {/* Call to Action */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaBlock}>
-          <TitleSection title="See Our Work" subtitle="Head to the Image Gallery" />
-          <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "50px" }}>
-            <Link
-              href="/image-gallery"
-              aria-label="Go to Image Gallery"
-              className={styles.ctaButton}
-            >
-              View Our Image Gallery
-            </Link>
-          </div>
-        </div>
-
-        <div className={styles.ctaBlock1}>
-          <TitleSection
-            title="Schedule a Commercial Assessment"
-            subtitle="Book Your Free Consultation"
-          />
-          <div style={{ textAlign: "center", marginTop: "30px" }}>
-            <a
-              href="https://tintitpro.setmore.com/"
-              aria-label="Schedule an appointment with Estimator Pro"
-              className={styles.scheduleButton}
-            >
-              <Image
-                src="/images/schedule.png"
-                alt="Estimator Pro Schedule"
-                width={250}
-                height={90}
-                className={styles.wigglePop}
-              />
-            </a>
-          </div>
-        </div>
+      {/* Final CTA */}
+      <section className={styles.finalCTA}>
+        <h2>Get a Free Commercial Tinting Quote</h2>
+        <p>
+          Our team will visit your site, assess your needs, and provide a tailored proposal.
+        </p>
+        <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
+          Book a Free Consultation
+        </a>
       </section>
     </main>
   );
 };
 
-export default WindowFilms;
+export default CommercialWindowTinting;

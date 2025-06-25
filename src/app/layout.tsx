@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 
-
 const interFontBold = localFont({
   src: "./fonts/Satoshi-Black.otf",
   variable: "--font-inter-bold",
@@ -68,6 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
+
       <body>
         <ThemeProviderWrapper>  
           <Header />        
