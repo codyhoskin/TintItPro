@@ -10,32 +10,19 @@ import { MovieViewing, ServicesSection, FAQSection, ElfsightLazy, EstimatorPro,
 import { VideoSkeleton } from "@/components/Skeletons";
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
-
+import styles from "./page.module.css";
 
 // Tailwind container keeps a max-width and side padding.
 export default function Landing() {
   return (
-    <main id="main">
+    <main id="main" >
+    <section id="home" className="relative" style={{ scrollMarginTop: "150px" }}>
 
-      {/* 1️⃣ Hero (always server-rendered, no shift) */}
       <Hero />
+    </section>
 
 
-        <div style={{
-          width: "100%",
-          height: "200px",
-          backgroundImage: 'url("/images/hero/lightWindow.PNG")',
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed", // Parallax
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}>
-        </div>
-
-
+      <div className={styles.parallaxBanner}></div>
 
       {/* 3️⃣ Video – reserve 16/9 box so no shift */}
       <section id="showreel" className="relative">
@@ -72,7 +59,7 @@ export default function Landing() {
 
       {/* 6️⃣ Reviews */}
       <section id="reviews" className="relative">
-        <Suspense><ElfsightLazy height={800}/></Suspense>
+        <Suspense><ElfsightLazy height={700}/></Suspense>
       </section>
 
 

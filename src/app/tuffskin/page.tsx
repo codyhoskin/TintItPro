@@ -8,6 +8,7 @@ import styles from "./page.module.css";
 import TitleSection from "@/components/TitleSection";
 import MovieViewingComponent from "@/components/MovieComponent2";
 import { MdPhotoLibrary } from "react-icons/md";
+import { useTheme } from "next-themes";
 
 const generalFAQ = [
   {
@@ -71,6 +72,14 @@ const generalFAQ = [
 ];
 
 const TuffSkinPage: React.FC = () => {
+    const { theme } = useTheme();
+
+const imageSrc =
+    theme === "light"
+      ? "/images/tuffskin-web.jpg" // black logo for light mode
+      : "/images/TuffSkin-logo-whtpurp.png";
+
+    
   return (
     <main
       style={{
@@ -92,7 +101,7 @@ const TuffSkinPage: React.FC = () => {
           marginBottom: "50px",
         }}
       >
-        <Image src="/images/TuffSkin-logo-whtpurp.png" alt="TuffSkin Sample 1" width={300} height={90} />
+        <Image src={imageSrc} alt="TuffSkin Sample 1" width={300} height={90}   className={styles.themedLogo}/>
 
         <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
           <p style={{ marginBottom: 0, textAlign: "center", color: "var(--quad)" }}>

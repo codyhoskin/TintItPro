@@ -21,7 +21,7 @@
 
   /* ✅ Background image adjustments */
   background-image: url("/images/hero/colors.PNG");
-  background-attachment: fixed;        /* Enables parallax effect */
+  background-attachment: scroll;        /* Enables parallax effect */
   background-size: 900px;             /* Smaller visual size */
   background-position: center;
   background-repeat: no-repeat;

@@ -10,8 +10,8 @@ const InfoTooltip: React.FC = () => {
     <div
       style={{
         position: "absolute", // keeps it static on screen
-        right: "2%",
-        top: "1px",
+        right: "12%",
+        bottom: "-75px",
         zIndex: 1000,
         padding: "10px",
         boxSizing: "border-box",
@@ -21,7 +21,7 @@ const InfoTooltip: React.FC = () => {
       <FaInfoCircle
         style={{
           color: "#E3000A",
-          fontSize: "35px",
+          fontSize: "45px",
           cursor: "pointer",
         }}
         onMouseEnter={() => setShowInfo(true)}
@@ -33,11 +33,11 @@ const InfoTooltip: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: "90px",
-          right: "30px", // slight tweak for spacing
+          top: "-455px",
+          right: "70px", // slight tweak for spacing
           backgroundColor: "#E3000A",
           color: "#fff",
-          padding: "25px",
+          padding: "40px",
           borderRadius: "8px",
           maxWidth: "680px",
           width: "550px",

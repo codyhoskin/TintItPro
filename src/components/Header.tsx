@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       {/* Logo */}
       <div className={styles.logo}>
-        <Link href="/" aria-label="Tint it Pro Home">
+        <Link href="/#home" aria-label="Navigate to Home">
           <Image
             src="/images/logo.png"
             alt="Tint it Pro logo"
@@ -36,13 +36,16 @@ const Header: React.FC = () => {
             className={styles.logoImg}
           />
         </Link>
+
       </div>
 
       {/* Desktop Navigation */}
       <nav className={styles.nav} aria-label="Main navigation">
-        <Link href="/#home"   
-        aria-label="Navigate to Home page."
-        >Home</Link>
+       <Link href="/#home" aria-label="Navigate to Home">Home</Link>
+
+
+
+
 
         <div
           className={styles.dropdown}
@@ -57,7 +60,6 @@ const Header: React.FC = () => {
               <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Marble Protection</Link>
               <Link href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</Link>
               <Link href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</Link>
-              <Link href="/decorative" aria-label="Navigate to decorative page.">Decorative Films</Link>
             </div>
           )}
         </div>
@@ -106,7 +108,13 @@ const Header: React.FC = () => {
         </button>
 
         <nav className={styles.mobileNav} aria-label="Mobile navigation">
-          <Link href="/#home" onClick={handleMenuClose}>Home</Link>
+        
+
+          <Link href="/#home" aria-label="Navigate to Home" onClick={handleMenuClose}>
+            Home
+          </Link>
+
+
 
           {/* Mobile Dropdown for Solutions */}
           <div className={styles.dropdown}>
@@ -121,7 +129,6 @@ const Header: React.FC = () => {
                 <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Marble Protection</Link>
                 <Link href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</Link>
                 <Link href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</Link>
-                <Link href="/decorative" aria-label="Navigate to decorative films section." onClick={handleMenuClose}>Decorative Films</Link>
               </div>
             )}
           </div>

@@ -26,7 +26,7 @@ const Footer = () => {
           padding: "40px 0",
         }}
       >
-        <div style={{ width: "82%", maxWidth: "1000px"}}>
+        <div style={{ width: "80%", maxWidth: "1000px"}}>
           <iframe
             width="100%"
             height="480px"
