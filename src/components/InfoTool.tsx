@@ -36,7 +36,7 @@ const InfoTooltip: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          bottom: "-500px",
+          bottom: "-600px",
           left: "-180px", // slight tweak for spacing
           backgroundColor: "#E3000A",
           color: "#fff",
@@ -53,6 +53,7 @@ const InfoTooltip: React.FC = () => {
           zIndex: 1001, // one level above
         }}
       >
+        *TRIPLE-PANE WINDOWS ARE ONLY COMPATIBLE WITH EXTERIOR WINDOW FILM*<br></br><br></br>
         1. Enter the number of windows or stone counters tops to be tinted or protected.<br /><br></br>
         2. Add the length and width dimensions in inches.<br /><br></br>
         3. Choose the film type you want.<br /><br></br>
