@@ -1,5 +1,4 @@
 .wrapper {
-    margin-bottom: 10px;
     padding: 40px;
   }
   
@@ -9,6 +8,8 @@
     overflow: hidden;
     padding: 20px;
     z-index: auto;
+    margin-bottom: 80px;
+
   }
   
   .heading {
