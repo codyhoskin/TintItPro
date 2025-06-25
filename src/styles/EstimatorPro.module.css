@@ -232,3 +232,14 @@
   margin-right: 6px;
   font-weight: 700;
 }
+.fadeIn {
+  animation: fadeOnly 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeOnly {
+  to {
+    opacity: 1;
+  }
+}
+

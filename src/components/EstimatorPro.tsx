@@ -70,6 +70,8 @@ const EstimatorPro: React.FC = () => {
     <>
 
       <div className={styles.estimatorWrapper}>
+          <div className={styles.fadeIn}>
+
         <section className={styles.section}>
           <InfoTooltip />
 
@@ -176,6 +178,7 @@ const EstimatorPro: React.FC = () => {
         </section>
         
       </div>
+  </div>
 
     <div className={styles.ctaStepsCard}>
   <div className={styles.ctaStep}>
