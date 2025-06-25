@@ -58,8 +58,8 @@ const Header: React.FC = () => {
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
               <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Marble Protection</Link>
-              <Link href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</Link>
-              <Link href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</Link>
+              <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</a>
+              <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</a>
             </div>
           )}
         </div>
@@ -127,8 +127,8 @@ const Header: React.FC = () => {
             {mobileDropdownOpen && (
               <div className={styles.dropdownMenu}>
                 <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Marble Protection</Link>
-                <Link href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</Link>
-                <Link href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</Link>
+                <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</a>
+                <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</a>
               </div>
             )}
           </div>
