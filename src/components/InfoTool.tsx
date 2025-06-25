@@ -34,10 +34,10 @@ const InfoTooltip: React.FC = () => {
         style={{
           position: "absolute",
           top: "-455px",
-          right: "70px", // slight tweak for spacing
+          right: "55px", // slight tweak for spacing
           backgroundColor: "#E3000A",
           color: "#fff",
-          padding: "40px",
+          padding: "30px",
           borderRadius: "8px",
           maxWidth: "680px",
           width: "550px",
