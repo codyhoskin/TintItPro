@@ -48,3 +48,41 @@
     background-attachment: scroll; /* Override for mobile */
   }
 }
+.showreelSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding: 50;
+  background: transparent;
+}
+
+.videoWrapper {
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 12; /* Slightly taller crop than 16:9 */
+  overflow: hidden;
+  animation: fadeIn 1.2s ease-out forwards;
+  border: none;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  margin: 0;
+}
+  
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

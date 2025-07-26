@@ -5,9 +5,8 @@ import Hero           from "@/components/HeroSection";
 import InfoCard       from "@/components/InfoCard";
 import SocialCard     from "@/components/SocialComponent";
 import TitleSection   from "@/components/TitleSection";
-import { MovieViewing, ServicesSection, FAQSection, ElfsightLazy, EstimatorPro,
+import { ServicesSection, FAQSection, ElfsightLazy, EstimatorPro,
 } from "@/components/Heavy";
-import { VideoSkeleton } from "@/components/Skeletons";
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
@@ -22,14 +21,21 @@ export default function Landing() {
     </section>
 
 
-      <div className={styles.parallaxBanner}></div>
+<section id="showreel" className={styles.showreelSection}>
+  <div className={styles.videoWrapper}>
+    <video
+      src="/video/tuffskinvideo.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      className={styles.video}
+    />
+  </div>
+</section>
 
-      {/* 3️⃣ Video – reserve 16/9 box so no shift */}
-      <section id="showreel" className="relative">
-        <Suspense fallback={<VideoSkeleton />}>
-          <MovieViewing videoId="ZsGwmoubqqE" />
-        </Suspense>
-      </section>
+
+
 
       {/* 4️⃣ Solutions */}
       <section id="solutions">
@@ -76,6 +82,8 @@ export default function Landing() {
        
         </Suspense>
       </section>
+
+      <div className={styles.parallaxBanner}></div>
 
       {/* 8️⃣ FAQ */}
       <section id="faq" className="relative isolate">
