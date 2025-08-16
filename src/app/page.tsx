@@ -5,11 +5,12 @@ import Hero           from "@/components/HeroSection";
 import InfoCard       from "@/components/InfoCard";
 import SocialCard     from "@/components/SocialComponent";
 import TitleSection   from "@/components/TitleSection";
-import { ServicesSection, FAQSection, ElfsightLazy, EstimatorPro,
+import { ServicesSection, ElfsightLazy, EstimatorPro,
 } from "@/components/Heavy";
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
+import FAQChat from "@/components/FAQChat";
 
 // Tailwind container keeps a max-width and side padding.
 export default function Landing() {
@@ -86,11 +87,13 @@ export default function Landing() {
       <div className={styles.parallaxBanner}></div>
 
       {/* 8️⃣ FAQ */}
-      <section id="faq" className="relative isolate">
+      {/* <section id="faq" className="relative isolate">
         <Suspense>
           <FAQSection />
         </Suspense>
-      </section>
+      </section> */}
+
+    <FAQChat />
 
       {/* 9️⃣ Social footer */}
       <SocialCard

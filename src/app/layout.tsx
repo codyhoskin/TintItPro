@@ -21,24 +21,24 @@ const interFontThin = localFont({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tintitpro.netlify.app"),
+  metadataBase: new URL("https://tintitpro.ca"),
   title: {
     default: "Calgary Window Tinting & Marble Protection | Tint it Pro",
     template: "%s | Tint it Pro",
   },
   description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
   keywords: ["window tint", "marble protection", "tuffskin", "decorative film", "car tint", "Tint it Pro", "Calgary"],
-  authors: [{ name: "Tint it Pro", url: "https://tintitpro.netlify.app" }],
+  authors: [{ name: "Tint it Pro", url: "https://tintitpro.ca" }],
   openGraph: {
     title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
     description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
-    url: "https://tintitpro.netlify.app",
+    url: "https://tintitpro.ca",
     siteName: "Tint it Pro",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://tintitpro.netlify.app/images/logo.png", // Make sure this image exists and is optimized
+        url: "https://tintitpro.ca/images/logo.png", // Make sure this image exists and is optimized
         width: 1200,
         height: 630,
         alt: "Calgarys Experts in Window Films & Marble Surface Protection",
@@ -49,14 +49,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
     description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
-    images: ["https://tintitpro.netlify.app/images/logo.png"],
+    images: ["https://tintitpro.ca/images/logo.png"],
     creator: "@tintitpro", // Optional if you have a Twitter handle
   },
   icons: {
     icon: "/favicon.ico",           // Normal favicon
   },
   alternates: {
-    canonical: "https://tintitpro.netlify.app",
+    canonical: "https://tintitpro.ca",
   },
 };
 
