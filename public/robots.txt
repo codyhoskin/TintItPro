@@ -1,9 +1,4 @@
-# *
 User-agent: *
-Allow: /
+Disallow:
 
-# Host
-Host: https://tintitpro.netlify.app/
-
-# Sitemaps
-Sitemap: https://tintitpro.netlify.app/sitemap.xml
+Sitemap: https://tintitpro.ca/sitemap.xml
