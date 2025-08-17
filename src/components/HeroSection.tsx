@@ -80,21 +80,23 @@ const Hero = () => {
             e.currentTarget.style.transform = "scale(1)";
           }}
         >
-          <span
+       <span
             style={{
               display: "inline-flex",
               alignItems: "center",
               padding: "4px 10px",
               backgroundColor: "var(--primary)",
               color: "white",
-              fontSize: "8px",
-              fontWeight: 600,
+              fontSize: "12px",
+              fontWeight: 900,
               borderRadius: "25px",
               gap: "6px",
             }}
           >
-            <h1>NEW</h1><GiPartyPopper size={18} />
-          </span>
+          <span style={{ fontSize: "inherit", fontWeight: "inherit" }}>NEW</span>
+          <GiPartyPopper size={18} />
+        </span>
+
 
           <span style={{ whiteSpace: "nowrap" }}>Get an Instant Estimate!</span>
           <FaCalculator style={{ marginRight: "8px" }} />

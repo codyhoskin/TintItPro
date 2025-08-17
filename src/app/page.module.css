@@ -117,16 +117,17 @@
 
 .question {
   align-self: flex-end;
-  background-color: #2563eb; /* blue */
+  background-color: var(--primary, #2563eb);
   color: white;
 }
 
 .answer {
   align-self: flex-start;
-  background-color: #f1f1f1; /* light gray */
-  color: #333;
+  background-color: var(--card-bg, #f1f1f1);
+  color: var(--foreground, #333);
   cursor: default;
-}.chatWrapper {
+}
+.chatWrapper {
   max-width: 700px;
   margin: 0 auto;
   padding: 2rem;
@@ -140,8 +141,8 @@
 }
 
 .chatWindow {
-  background: #f9fafb;
-  border: 1px solid #ddd;
+  background: var(--background);
+  border: 1px solid var(--border-color, #ddd);
   border-radius: 1rem;
   padding: 1.5rem;
   display: flex;
@@ -182,21 +183,21 @@
 }
 
 .question {
-  background-color: #2563eb;
+  background-color: var(--primary, #2563eb);
   color: white;
   cursor: pointer;
 }
 
 .answer {
-  background-color: #e5e7eb;
-  color: #333;
+  background-color: var(--card-bg, #e5e7eb);
+  color: var(--foreground, #333);
 }
 
 .avatarUser {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #2563eb;
+  background: var(--primary, #2563eb);
   color: white;
   display: flex;
   align-items: center;

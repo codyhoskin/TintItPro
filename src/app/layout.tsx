@@ -23,17 +23,17 @@ const interFontThin = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tintitpro.ca"),
   title: {
-    default: "Calgary Window Tinting & Marble Protection | Tint it Pro",
-    template: "%s | Tint it Pro",
+    default: "Calgary Window Tinting & Marble Protection | Tint It Pro",
+    template: "%s | Tint It Pro",
   },
   description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
-  keywords: ["window tint", "marble protection", "tuffskin", "decorative film", "car tint", "Tint it Pro", "Calgary"],
-  authors: [{ name: "Tint it Pro", url: "https://tintitpro.ca" }],
+  keywords: ["window tint", "marble protection", "tuffskin", "decorative film", "car tint", "Tint It Pro", "Calgary"],
+  authors: [{ name: "Tint It Pro", url: "https://tintitpro.ca" }],
   openGraph: {
-    title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
+    title: "Calgary Window Tinting & Marble Protection | Tint It Pro",
     description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     url: "https://tintitpro.ca",
-    siteName: "Tint it Pro",
+    siteName: "Tint It Pro",
     locale: "en_US",
     type: "website",
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calgary Window Tinting & Marble Protection | Tint it Pro",
+    title: "Calgary Window Tinting & Marble Protection | Tint It Pro",
     description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     images: ["https://tintitpro.ca/images/logo.png"],
     creator: "@tintitpro", // Optional if you have a Twitter handle
