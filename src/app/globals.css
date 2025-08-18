@@ -9,8 +9,7 @@
   --text-muted: #434343;
   --text-button: #E3000A;
   --text-button2: #ffffff;
-  --hero-bg: url("/images/hero/whiteGranitehero.PNG");
-
+  --hero-bg: url("/images/hero/whiteGranitehero-1200.webp");
 }
 
 .dark {
@@ -24,11 +23,8 @@
   --text-muted: #ebebeb;
   --text-button: #ffffff;
   --text-button2: #E3000A;
-  --hero-bg: url("/images/hero/blackGranitehero.PNG");
-
-
+  --hero-bg: url("/images/hero/blackGranitehero-1200.webp");
 }
-
 
 h1, h2, h3, .titleFont {
   font-family: var(--font-inter-bold), sans-serif;
@@ -60,8 +56,9 @@ body {
   font-family: var(--font-inter-thin), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
 }
-
 
 * {
   box-sizing: border-box;
@@ -74,12 +71,37 @@ a {
   text-decoration: none;
 }
 
+/* Performance optimizations */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reduce layout shifts */
+.liquidGlassCard,
+.imageSection,
+.videoWrapper {
+  contain: layout style paint;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
-
 
 .scheduleButton {
   position: absolute;
@@ -91,9 +113,9 @@ a {
   padding: 0;
   cursor: pointer;
   z-index: 5;
-  transition: transform 0.3s ease; /* Smooth transition */
+  transition: transform 0.3s ease;
 }
 
 .scheduleButton:hover {
-  transform: translateX(-50%) scale(1.1); /* Slight scale effect on hover */
+  transform: translateX(-50%) scale(1.1);
 }

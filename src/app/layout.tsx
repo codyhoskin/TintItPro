@@ -10,6 +10,8 @@ const interFontBold = localFont({
   variable: "--font-inter-bold",
   weight: "1000",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 const interFontThin = localFont({
@@ -17,8 +19,9 @@ const interFontThin = localFont({
   variable: "--font-inter-thin",
   weight: "600",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tintitpro.ca"),
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://tintitpro.ca/images/logo.png", // Make sure this image exists and is optimized
+        url: "https://tintitpro.ca/images/logo.png",
         width: 1200,
         height: 630,
         alt: "Calgarys Experts in Window Films & Marble Surface Protection",
@@ -50,10 +53,10 @@ export const metadata: Metadata = {
     title: "Calgary Window Tinting & Marble Protection | Tint It Pro",
     description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     images: ["https://tintitpro.ca/images/logo.png"],
-    creator: "@tintitpro", // Optional if you have a Twitter handle
+    creator: "@tintitpro",
   },
   icons: {
-    icon: "/favicon.ico",           // Normal favicon
+    icon: "/favicon.ico",
   },
   alternates: {
     canonical: "https://tintitpro.ca",
@@ -67,7 +70,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
-
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://tintitpro.setmore.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+      </head>
       <body>
         <ThemeProviderWrapper>  
           <Header />        

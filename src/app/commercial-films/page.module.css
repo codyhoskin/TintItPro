@@ -89,7 +89,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  background-image: url('/images/window-tinting.png'); /* or set with inline style */
+  background-image: url('/images/service2.svg'); /* or set with inline style */
   background-size: cover;
   background-position: center;
   filter: brightness(0.65);

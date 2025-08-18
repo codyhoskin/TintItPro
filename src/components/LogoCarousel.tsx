@@ -12,7 +12,7 @@ const partnerLogos = [
 const LogoCarousel = () => {
   return (
     <div className={styles.carouselWrapper}>
-      <TitleSection title="Working with the Best" subtitle="We use the highest quality products."/>
+      <TitleSection title="" subtitle="We use the highest trusted products"/>
       
         <div className={styles.carouselShadowLeft} />
   <div className={styles.carouselShadowRight} />
@@ -20,8 +20,8 @@ const LogoCarousel = () => {
         {partnerLogos.concat(partnerLogos).map((logo, index) => {
           const isTuffskin = logo.includes("tuffskin");
 
-          const width = isTuffskin ? 100 : 120; // Slightly wider
-          const height = isTuffskin ? 70 : 60;  // Same height for now, or increase to 70 if needed
+          const width = isTuffskin ? 100 : 120;
+          const height = isTuffskin ? 70 : 60;
 
           return (
             <div
@@ -40,6 +40,8 @@ const LogoCarousel = () => {
                 style={{ objectFit: "contain" }}
                 sizes={`${width}px`}
                 priority={index < 4}
+                loading={index < 4 ? "eager" : "lazy"}
+                quality={85}
               />
             </div>
           );

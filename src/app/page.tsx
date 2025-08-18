@@ -10,7 +10,8 @@ import { ServicesSection, ElfsightLazy, EstimatorPro,
 import { FaShieldAlt, FaAward } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
-import FAQChat from "@/components/FAQChat";
+//import FAQChat from "@/components/FAQChat";
+import FAQSection from "@/components/FAQSection";
 
 // Tailwind container keeps a max-width and side padding.
 export default function Landing() {
@@ -35,7 +36,26 @@ export default function Landing() {
   </div>
 </section>
 
+{/* 5️⃣ Benefits strip */}
+<TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
 
+<InfoCard.Wrapper>
+ <InfoCard
+   icon={<FaShieldAlt size={40} className="text-secondary" />}
+   title="Solar Guard® 10 yr Warranty"
+   subtitle="Interior film + install fully covered."
+ />
+ <InfoCard
+   icon={<FaAward size={40} className="text-secondary" />}
+   title="100 % Etch- & Stain-Proof Marble"
+   subtitle="Protect high-end stone from damage & costly repairs."
+ />
+ <InfoCard
+   icon={<MdWbSunny size={40} className="text-secondary" />}
+   title="Why Solar Film Wins"
+   subtitle="Up to 82 % heat rejection & 30 % energy savings."
+ />
+</InfoCard.Wrapper>
 
 
       {/* 4️⃣ Solutions */}
@@ -43,26 +63,7 @@ export default function Landing() {
         <Suspense><ServicesSection /></Suspense>
       </section>
 
-      {/* 5️⃣ Benefits strip */}
-      <TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
-
-     <InfoCard.Wrapper>
-      <InfoCard
-        icon={<FaShieldAlt size={40} className="text-secondary" />}
-        title="Solar Guard® 10 yr Warranty"
-        subtitle="Interior film + install fully covered."
-      />
-      <InfoCard
-        icon={<FaAward size={40} className="text-secondary" />}
-        title="100 % Etch- & Stain-Proof Marble"
-        subtitle="Protect high-end stone from damage & costly repairs."
-      />
-      <InfoCard
-        icon={<MdWbSunny size={40} className="text-secondary" />}
-        title="Why Solar Film Wins"
-        subtitle="Up to 82 % heat rejection & 30 % energy savings."
-      />
-    </InfoCard.Wrapper>
+      
 
       {/* 6️⃣ Reviews */}
       <section id="reviews" className="relative">
@@ -87,13 +88,13 @@ export default function Landing() {
       <div className={styles.parallaxBanner}></div>
 
       {/* 8️⃣ FAQ */}
-      {/* <section id="faq" className="relative isolate">
+      <section id="faq" className="relative isolate">
         <Suspense>
           <FAQSection />
         </Suspense>
-      </section> */}
+      </section> 
 
-    <FAQChat />
+    {/* <FAQChat />*/}
 
       {/* 9️⃣ Social footer */}
       <SocialCard
