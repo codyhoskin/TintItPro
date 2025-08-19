@@ -75,7 +75,9 @@ export default function ElfsightLazy({
     if (!activate || !hostRef.current) return;
 
     const node = hostRef.current;
-    let timeoutId: NodeJS.Timeout;
+    const timeoutId = setTimeout(() => {
+      setReady(true);
+    }, timeoutMs);
 
     const onChange = () => {
       // Use requestAnimationFrame to avoid forced reflow
@@ -103,12 +105,6 @@ export default function ElfsightLazy({
       attributes: false, // Don't observe attribute changes
       characterData: false // Don't observe text changes
     });
-
-    // Fallback timeout
-    timeoutId = setTimeout(() => {
-      setReady(true);
-      mObserver.disconnect();
-    }, timeoutMs);
 
     return () => {
       mObserver.disconnect();

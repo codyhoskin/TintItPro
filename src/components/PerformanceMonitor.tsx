@@ -2,14 +2,6 @@
 
 import { useEffect } from 'react';
 
-interface PerformanceMetrics {
-  fcp: number;
-  lcp: number;
-  fid: number;
-  cls: number;
-  ttfb: number;
-}
-
 const PerformanceMonitor = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -42,7 +34,7 @@ const PerformanceMonitor = () => {
       new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
           if (!entry.hadRecentInput) {
-            clsValue += (entry as any).value;
+            clsValue += (entry as PerformanceEntry & { value: number }).value;
           }
         }
         console.log('CLS:', clsValue);
@@ -61,7 +53,7 @@ const PerformanceMonitor = () => {
         console.log('Slow resources:', slowResources.map(r => ({
           name: r.name,
           duration: r.duration,
-          size: (r as any).transferSize
+          size: (r as PerformanceEntry & { transferSize: number }).transferSize
         })));
       }
     };

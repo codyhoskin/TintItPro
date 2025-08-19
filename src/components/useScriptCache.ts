@@ -11,7 +11,7 @@ export const useScriptCache = ({
   src,
   strategy = 'lazyOnload',
   cacheKey,
-  cacheDuration = 24 * 60 * 60 * 1000 // 24 hours default
+  cacheDuration = 24 * 60 * 60 * 1000 // 24 hours
 }: UseScriptCacheOptions) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +47,7 @@ export const useScriptCache = ({
     const handleLoad = () => {
       setIsLoaded(true);
       setIsLoading(false);
-      
+
       // Cache the script load
       if (cacheKey) {
         localStorage.setItem(cacheKey, JSON.stringify({
@@ -57,7 +57,7 @@ export const useScriptCache = ({
       }
     };
 
-    const handleError = (e: ErrorEvent) => {
+    const handleError = () => {
       setError(new Error(`Failed to load script: ${src}`));
       setIsLoading(false);
     };
