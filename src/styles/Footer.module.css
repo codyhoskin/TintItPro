@@ -294,6 +294,12 @@
     font-size: 20px;
     color: var(--secondary); /* Match your brand color */
   }
+
+  .locationText {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--foreground);
+  }
   
 
   /* Desktop Layout */

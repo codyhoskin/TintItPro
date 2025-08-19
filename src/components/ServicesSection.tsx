@@ -190,7 +190,7 @@ const ServiceCard = memo(({ card, index }: { card: typeof serviceCards[0], index
           </div>
           <ul className={styles.benefitsList} role="list">
             {card.bullets.map((point, i) => (
-              <li key={i} className={styles.benefitItem}>
+              <li key={i} className={styles.benefitItem} role="listitem">
                 <div className={styles.checkIcon} aria-hidden="true">
                   <FaCheck style={{ color: 'white' }} />
                 </div>
@@ -267,7 +267,7 @@ const ServicesSection: React.FC = () => {
         <header style={{ textAlign: "center", marginBottom: "60px" }}>
           <h2 
             id="services-heading"
-            style={{ fontSize: "2.4rem", fontWeight: "bold", marginTop: "25px", color: "var(--foreground)" }}
+            style={{ fontSize: "2.5rem", fontWeight: "bold", marginTop: "25px", color: "var(--foreground)" }}
           >
             Our Solutions
           </h2>
@@ -297,7 +297,9 @@ const ServicesSection: React.FC = () => {
             aria-label="Service offerings"
           >
             {serviceCards.map((card, index) => (
-              <ServiceCard key={card.id} card={card} index={index} />
+              <div key={card.id} role="listitem">
+                <ServiceCard card={card} index={index} />
+              </div>
             ))}
           </m.div>
         </LazyMotion>

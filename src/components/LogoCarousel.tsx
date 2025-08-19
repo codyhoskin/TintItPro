@@ -12,7 +12,10 @@ const partnerLogos = [
 const LogoCarousel = () => {
   return (
     <div className={styles.carouselWrapper}>
-      <TitleSection title="" subtitle="We use the highest trusted products"/>
+      <TitleSection 
+        title="Trusted by Industry Leaders" 
+        subtitle="We partner with the world's most trusted brands"
+      />
       
         <div className={styles.carouselShadowLeft} />
   <div className={styles.carouselShadowRight} />
