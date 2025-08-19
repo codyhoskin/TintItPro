@@ -159,10 +159,12 @@
   }
   
   .wigglePop {
-    animation: wigglePop 2.5s ease-in-out infinite;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-  }
+  animation: wigglePop 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  width: auto;
+  height: auto;
+}
   
   /* Optional: boost it on hover too */
   .wigglePop:hover {

@@ -27,18 +27,21 @@
 }
 
 h1, h2, h3, .titleFont {
-  font-family: var(--font-inter-bold), sans-serif;
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-display: swap;
 }
 
 h4 {
-  font-family: var(--font-inter-bold), sans-serif;
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
   color: var(--secondary);
   padding: 4px;
+  font-display: swap;
 }
 
 p {
-  font-family: var(--font-inter-thin), sans-serif;
+  font-family: var(--font-inter-thin), system-ui, sans-serif;
   font-weight: 100;
+  font-display: swap;
 }
 
 html, body {

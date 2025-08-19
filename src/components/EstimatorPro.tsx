@@ -79,6 +79,7 @@ const EstimatorPro: React.FC = () => {
             src="/images/estimatorpro2.png"
             alt="Window Tinting Estimator Pro Application"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
             className={styles.bgImage}
           />
 
@@ -171,6 +172,7 @@ const EstimatorPro: React.FC = () => {
               alt="Estimator Pro Schedule"
               width={300}
               height={110}
+              style={{ height: 'auto' }}
               className={styles.wigglePop}
             />
           </a>

@@ -11,7 +11,7 @@ const interFontBold = localFont({
   variable: "--font-inter-bold",
   weight: "900",
   display: "swap",
-  preload: true,
+  preload: false,
   fallback: ["system-ui", "arial"],
 });
 
@@ -20,7 +20,7 @@ const interFontThin = localFont({
   variable: "--font-inter-thin",
   weight: "600",
   display: "swap",
-  preload: true,
+  preload: false,
   fallback: ["system-ui", "arial"],
 });
 

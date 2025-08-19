@@ -32,13 +32,22 @@ const PerformanceMonitor = () => {
 
       // Cumulative Layout Shift
       let clsValue = 0;
+      let clsLogged = false;
       new PerformanceObserver((entryList) => {
         for (const entry of entryList.getEntries()) {
-          if (!entry.hadRecentInput) {
-            clsValue += (entry as PerformanceEntry & { value: number }).value;
+          const layoutShiftEntry = entry as PerformanceEntry & { hadRecentInput: boolean; value: number };
+          if (!layoutShiftEntry.hadRecentInput) {
+            clsValue += layoutShiftEntry.value;
           }
         }
-        console.log('CLS:', clsValue);
+        
+        // Only log CLS once after a delay to get the final value
+        if (!clsLogged) {
+          setTimeout(() => {
+            console.log('Final CLS:', clsValue);
+            clsLogged = true;
+          }, 2000); // Wait 2 seconds for layout to stabilize
+        }
       }).observe({ entryTypes: ['layout-shift'] });
 
       // Time to First Byte
