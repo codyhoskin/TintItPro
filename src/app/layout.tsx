@@ -4,11 +4,12 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 const interFontBold = localFont({
   src: "./fonts/Satoshi-Black.otf",
   variable: "--font-inter-bold",
-  weight: "1000",
+  weight: "900",
   display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],
@@ -71,8 +72,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://tintitpro.setmore.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
       </head>
@@ -81,6 +80,7 @@ export default function RootLayout({
           <Header />        
           {children}
           <Footer />
+          {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
         </ThemeProviderWrapper>
       </body>
     </html>

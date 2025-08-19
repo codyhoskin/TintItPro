@@ -28,25 +28,43 @@ const SocialCard: React.FC<SocialCardProps> = ({ imageUrl }) => {
       <motion.div
         ref={ref}
         className={styles.card}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className={styles.cardLeft}>
           <div className={styles.imageWrapper}>
             <Image
               src={imageUrl}
-              alt="Socials"
+              alt="Tint It Pro Professional Services"
               fill
               className={styles.cardImage}
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.imageOverlay} />
           </div>
         </div>
         <div className={styles.cardRight}>
-          <TitleSection title="Connect with Us" subtitle="Follow us on social media." />
-          <SocialLinks />
+          <TitleSection 
+            title="Stay Connected" 
+            subtitle="Follow our journey and discover the latest in window tinting excellence." 
+          />
+          
+          <div className={styles.socialDescription}>
+            <p>Join our community of satisfied customers and stay updated with:</p>
+            <ul className={styles.socialBenefits}>
+              <li>Latest project showcases and before/after photos</li>
+              <li>Expert tips for window film maintenance</li>
+              <li>Industry insights and product updates</li>
+              <li>Special offers and seasonal promotions</li>
+            </ul>
+          </div>
+          
+          <div className={styles.socialCTA}>
+            <p className={styles.socialCTAText}>Connect with us on social media:</p>
+            <SocialLinks />
+          </div>
         </div>
       </motion.div>
     </div>

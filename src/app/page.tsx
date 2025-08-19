@@ -23,39 +23,39 @@ export default function Landing() {
     </section>
 
 
-<section id="showreel" className={styles.showreelSection}>
-  <div className={styles.videoWrapper}>
-    <video
-      src="/video/tuffskinvideo.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      className={styles.video}
+    <section id="showreel" className={styles.showreelSection}>
+      <div className={styles.videoWrapper}>
+        <video
+          src="/video/tuffskinvideo.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className={styles.video}
+        />
+      </div>
+    </section>
+
+    {/* 5️⃣ Benefits strip */}
+    <TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
+
+    <InfoCard.Wrapper>
+    <InfoCard
+      icon={<FaShieldAlt size={40} className="text-secondary" />}
+      title="Solar Guard® 10 yr Warranty"
+      subtitle="Interior film + install fully covered."
     />
-  </div>
-</section>
-
-{/* 5️⃣ Benefits strip */}
-<TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
-
-<InfoCard.Wrapper>
- <InfoCard
-   icon={<FaShieldAlt size={40} className="text-secondary" />}
-   title="Solar Guard® 10 yr Warranty"
-   subtitle="Interior film + install fully covered."
- />
- <InfoCard
-   icon={<FaAward size={40} className="text-secondary" />}
-   title="100 % Etch- & Stain-Proof Marble"
-   subtitle="Protect high-end stone from damage & costly repairs."
- />
- <InfoCard
-   icon={<MdWbSunny size={40} className="text-secondary" />}
-   title="Why Solar Film Wins"
-   subtitle="Up to 82 % heat rejection & 30 % energy savings."
- />
-</InfoCard.Wrapper>
+    <InfoCard
+      icon={<FaAward size={40} className="text-secondary" />}
+      title="100 % Etch- & Stain-Proof Marble"
+      subtitle="Protect high-end stone from damage & costly repairs."
+    />
+    <InfoCard
+      icon={<MdWbSunny size={40} className="text-secondary" />}
+      title="Why Solar Film Wins"
+      subtitle="Up to 82 % heat rejection & 30 % energy savings."
+    />
+    </InfoCard.Wrapper>
 
 
       {/* 4️⃣ Solutions */}

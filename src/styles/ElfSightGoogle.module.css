@@ -9,7 +9,14 @@
     padding: 20px;
     z-index: auto;
     margin-bottom: 80px;
+  }
 
+  .widgetContainer {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    contain: layout style paint;
+    will-change: auto;
   }
   
   .heading {
@@ -41,9 +48,9 @@
   
   .skeleton {
   width: 100%;
-  min-height: 250px;
+  min-height: 400px;
   border-radius: 12px;
-  background: #f3f3f3;
+  background: var(--tertiary);
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -51,11 +58,12 @@
   gap: 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
   animation: pulse 1.5s ease-in-out infinite;
+  contain: layout style paint;
 }
 
 .skeletonLine {
   height: 20px;
-  background: #ddd;
+  background: var(--border-color);
   border-radius: 6px;
 }
 
@@ -71,13 +79,13 @@
 
 @keyframes pulse {
   0% {
-    background-color: #f0f0f0;
+    background-color: var(--tertiary);
   }
   50% {
-    background-color: #e2e2e2;
+    background-color: var(--border-color);
   }
   100% {
-    background-color: #f0f0f0;
+    background-color: var(--tertiary);
   }
 }
 

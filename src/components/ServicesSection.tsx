@@ -4,7 +4,7 @@ import React, { memo, useMemo } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCheck, FaArrowRight, FaShieldAlt, FaBuilding, FaHome, FaMapMarkerAlt, FaComments } from "react-icons/fa";
+import { FaCheck, FaChevronRight, FaShieldAlt, FaBuilding, FaHome, FaMapMarkerAlt, FaComments } from "react-icons/fa";
 import styles from "../styles/ServicesSection.module.css";
 
 // Memoized service cards data for performance
@@ -174,7 +174,7 @@ const ServiceCard = memo(({ card, index }: { card: typeof serviceCards[0], index
                 className={styles.arrowButton}
                 aria-label={`Navigate to ${card.title} page`}
               >
-                <FaArrowRight aria-hidden="true" />
+                <FaChevronRight aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -192,7 +192,7 @@ const ServiceCard = memo(({ card, index }: { card: typeof serviceCards[0], index
             {card.bullets.map((point, i) => (
               <li key={i} className={styles.benefitItem}>
                 <div className={styles.checkIcon} aria-hidden="true">
-                  <FaCheck />
+                  <FaCheck style={{ color: 'white' }} />
                 </div>
                 <span className={styles.benefitText}>{point}</span>
               </li>

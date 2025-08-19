@@ -33,7 +33,7 @@
 .parallaxBanner {
   width: 100%;
   height: 200px;
-  background-image: url("/images/hero/lightWindow.PNG");
+  background-image: url("/images/hero/lightWindow.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

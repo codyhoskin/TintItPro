@@ -5,6 +5,7 @@ import styles from "../styles/Footer.module.css";
 import { MdLocationOn } from "react-icons/md";
 import { motion } from "framer-motion";
 import SocialLinks from "./SocialLinks";
+import { FaClipboard, FaWhatsapp, FaCalendarAlt } from "react-icons/fa";
 
 const floatUp = {
   initial: { opacity: 0, y: 30 },
@@ -14,29 +15,53 @@ const floatUp = {
 };
 
 const Footer = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '+4034701687';
+    const message = 'Hello, I have a question about window tinting services!';
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <footer>
-      {/* Upper Section */}
-     <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          padding: "40px 0",
-        }}
+      {/* Call to Action Section */}
+      <motion.div 
+        className={styles.ctaSection}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <div style={{ width: "80%", maxWidth: "1000px"}}>
-          <iframe
-            width="100%"
-            height="480px"
-            src="https://app.tintwiz.com/web/ce/q2qhvszp8cxjukdexllsugfkhh5dvi3h"
-            frameBorder="0"
-            style={{ border: "none" }}
-            title="tint wiz sign up"
-          ></iframe>
+        <div className={styles.ctaContainer}>
+          <div className={styles.ctaContent}>
+            <div className={styles.ctaIcon}>
+              <FaCalendarAlt size={60} color="#475569" />
+            </div>
+            <div className={styles.ctaText}>
+              <h2>Ready to Transform Your Space?</h2>
+              <p>Get your free consultation and quote today. Our experts are ready to help you choose the perfect window films and protection solutions for your home or business.</p>
+              <div className={styles.ctaButtons}>
+                <a
+                  href="https://tintitpro.setmore.com/"
+                  className={styles.primaryCtaButton}
+                  aria-label="Book Your Free Consultation"
+                >
+                  <FaClipboard style={{ marginRight: "8px" }} />
+                  Book Your Free Consultation
+                </a>
+                <button
+                  onClick={handleWhatsAppClick}
+                  className={styles.secondaryCtaButton}
+                  aria-label="Contact us on WhatsApp"
+                >
+                  <FaWhatsapp style={{ marginRight: "8px", fontSize: "1.2em" }} />
+                  Text Us on WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className={styles.upperFooter}>
         {/* Logo */}

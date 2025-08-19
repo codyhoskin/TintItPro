@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import InfoTooltip from "./InfoTool";
 import styles from "../styles/EstimatorPro.module.css";
-import { FaRegEdit, FaCalculator, FaRegCheckCircle } from "react-icons/fa";
+import { FaRegEdit, FaCalculator, FaRegCheckCircle, FaArrowRight } from "react-icons/fa";
 
 const filmTypes = [
   { type: "None", pricePerSqFt: 0 },
@@ -180,28 +180,61 @@ const EstimatorPro: React.FC = () => {
       </div>
   </div>
 
-    <div className={styles.ctaStepsCard}>
-  <div className={styles.ctaStep}>
-    <FaRegEdit className={styles.ctaIcon} />
-    <div>
-      <strong>1:</strong> Fill out the Estimator Pro app above.
-    </div>
-  </div>
+    <div className={styles.bentoContainer}>
+      <div className={styles.bentoHeader}>
+        <h2 className={styles.bentoTitle}>How Estimator Pro Works</h2>
+        <p className={styles.bentoSubtitle}>Get your instant quote in three simple steps</p>
+      </div>
+      
+      <div className={styles.bentoGrid}>
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoIcon}>
+            <FaRegEdit />
+          </div>
+          <div className={styles.bentoContent}>
+            <h3 className={styles.bentoCardTitle}>Enter Your Details</h3>
+            <p className={styles.bentoCardText}>
+              Input your window dimensions, film preferences, and equipment needs using our intuitive interface.
+            </p>
+          </div>
+          <div className={styles.bentoNumber}>1</div>
+        </div>
 
-  <div className={styles.ctaStep}>
-    <FaCalculator className={styles.ctaIcon} />
-    <div>
-      <strong>2:</strong> Get a fast and easy online quote.
-    </div>
-  </div>
+        <div className={styles.bentoArrow}>
+          <FaArrowRight />
+        </div>
 
-  <div className={styles.ctaStep}>
-    <FaRegCheckCircle className={styles.ctaIcon} />
-    <div>
-      <strong>3:</strong> Know the cost before booking an appointment!
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoIcon}>
+            <FaCalculator />
+          </div>
+          <div className={styles.bentoContent}>
+            <h3 className={styles.bentoCardTitle}>Instant Calculation</h3>
+            <p className={styles.bentoCardText}>
+              Our advanced algorithm instantly calculates your total cost with transparent pricing breakdown.
+            </p>
+          </div>
+          <div className={styles.bentoNumber}>2</div>
+        </div>
+
+        <div className={styles.bentoArrow}>
+          <FaArrowRight />
+        </div>
+
+        <div className={styles.bentoCard}>
+          <div className={styles.bentoIcon}>
+            <FaRegCheckCircle />
+          </div>
+          <div className={styles.bentoContent}>
+            <h3 className={styles.bentoCardTitle}>Book Confidently</h3>
+            <p className={styles.bentoCardText}>
+              Know your exact cost upfront and book your appointment with confidence and peace of mind.
+            </p>
+          </div>
+          <div className={styles.bentoNumber}>3</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     </>
   );

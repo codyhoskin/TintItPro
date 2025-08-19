@@ -1,3 +1,181 @@
+/* Call to Action Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary) 50%, var(--secondary) 100%);
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.06) 100%);
+  pointer-events: none;
+}
+
+.ctaContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.ctaIcon {
+  background: var(--background);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.ctaIcon svg {
+  color: var(--secondary);
+  font-size: 1.2em;
+}
+
+.ctaIcon::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.ctaText h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 0 24px 0;
+  color: white;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ctaText p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 750px;
+  margin: 0 0 50px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.primaryCtaButton {
+  background: var(--background);
+  color: var(--secondary);
+  padding: 22px 45px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  height: 60px;
+}
+
+.primaryCtaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.primaryCtaButton:hover::before {
+  left: 100%;
+}
+
+.primaryCtaButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--tertiary);
+  color: var(--secondary);
+}
+
+.secondaryCtaButton {
+  background: var(--background);
+  color: #10b981;
+  padding: 18px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
+.secondaryCtaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.secondaryCtaButton:hover::before {
+  left: 100%;
+}
+
+.secondaryCtaButton:hover {
+  background: var(--tertiary);
+  color: #10b981;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
 /* Upper Footer */
 .upperFooter {
     background-color: var(--tertiary);
@@ -120,6 +298,35 @@
 
   /* Desktop Layout */
   @media (min-width: 768px) {
+    .ctaContent {
+      flex-direction: row;
+      text-align: left;
+      gap: 60px;
+    }
+
+    .ctaText h2 {
+      font-size: 3.2rem;
+    }
+
+    .ctaText p {
+      font-size: 1.3rem;
+    }
+
+    .ctaButtons {
+      flex-direction: row;
+      gap: 25px;
+    }
+
+    .primaryCtaButton {
+      padding: 22px 45px;
+      font-size: 1.2rem;
+    }
+
+    .secondaryCtaButton {
+      padding: 20px 40px;
+      font-size: 1.1rem;
+    }
+
     .upperFooter {
       flex-direction: row;
       justify-content: space-between;
