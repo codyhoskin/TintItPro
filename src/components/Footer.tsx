@@ -98,7 +98,7 @@ const Footer = () => {
 
         {/* Hours of Operation */}
         <motion.div className={styles.hoursBlock} {...floatUp}>
-          <h4>Hours of Operation</h4>
+          <h3>Hours of Operation</h3>
           <p>Monday - Saturday: 8am - 8pm</p>
           <p>Sunday: 10am - 7pm</p>
           <p>Holidays: 10am - 5pm</p>
@@ -106,7 +106,7 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <motion.div className={styles.socialIconsBlock} {...floatUp}>
-          <h4>Follow Us</h4>
+          <h3>Follow Us</h3>
           <SocialLinks size={25}/>
         </motion.div>
       </div>
