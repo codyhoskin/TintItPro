@@ -41,7 +41,7 @@ export default function Landing() {
             default
           />
           <p>
-            Your browser doesn't support video playback. This video showcases TuffSkin® stone protection 
+            Your browser doesnt support video playback. This video showcases TuffSkin® stone protection 
             services, demonstrating our professional installation process and the lasting protection 
             we provide for marble and granite surfaces.
           </p>

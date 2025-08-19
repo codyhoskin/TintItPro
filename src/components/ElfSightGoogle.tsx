@@ -38,7 +38,7 @@ const ElfsightWidget = () => {
       <div className={styles.inner}>
         <TitleSection
           title="Customer Testimonials"
-          subtitle="Real feedback from real people."
+          subtitle="See what Calgary customers say about Tint It Pro."
         />
 
         {/* Script loader with caching strategy */}
