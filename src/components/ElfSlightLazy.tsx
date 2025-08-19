@@ -39,7 +39,7 @@ export default function ElfsightLazy({
   const hostRef = useRef<HTMLDivElement | null>(null);
 
   // Use the script cache hook for Elfsight
-  const { isLoaded: scriptLoaded } = useScriptCache({
+  useScriptCache({
     src: "https://static.elfsight.com/platform/platform.js",
     strategy: "lazyOnload",
     cacheKey: "elfsight-platform-cache",
