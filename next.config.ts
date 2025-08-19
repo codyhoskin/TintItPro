@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000, // 1 year
   },
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'react-icons'],
   },
   compiler: {
