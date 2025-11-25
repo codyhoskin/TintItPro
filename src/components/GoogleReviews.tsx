@@ -21,7 +21,7 @@ const GoogleReviewsSimple = () => {
         ))}
       </div>
     </div>
-    <div className={styles.ratingText}>5.0 Rating by 75+ Happy Customers</div>
+    <div className={styles.ratingText}>5.0 Rating by 82+ Happy Customers</div>
   </div>
 </a>
     </div>

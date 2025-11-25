@@ -101,7 +101,7 @@ const imageSrc =
           marginBottom: "50px",
         }}
       >
-        <Image src={imageSrc} alt="TuffSkin Sample 1" width={300} height={90}   className={styles.themedLogo}/>
+        <Image src={imageSrc} alt="TuffSkin Marble Protection" width={300} height={90}   className={styles.themedLogo}/>
 
         <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
           <p style={{ marginBottom: 0, textAlign: "center", color: "var(--quad)" }}>

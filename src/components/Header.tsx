@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import ThemeToggle from "./ThemeToggle";
 import { FaCalculator, FaClipboard } from "react-icons/fa";
 import SocialLinks from "./SocialLinks";
+import { RiveLogoNav } from "./RiveHeaderLogo";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,14 +27,7 @@ const Header: React.FC = () => {
       {/* Logo */}
       <div className={styles.logo}>
         <Link href="/#home" aria-label="Navigate to Home">
-          <Image
-            src="/images/logo.png"
-            alt="Tint it Pro logo"
-            width={70}
-            height={50}
-            priority
-            className={styles.logoImg}
-          />
+        <RiveLogoNav width={100} height={100} delay={200} />
         </Link>
 
       </div>
