@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           </button>
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Marble Protection</Link>
+              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Surface Protection</Link>
               <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</a>
               <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</a>
             </div>
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
           aria-label="Get your free quote today"
         >
           <FaClipboard size={20} style={{ marginRight: "8px", marginBottom: "-4px" }} />
-          Book Your Free Consultation!
+           Request a Consultation
         </a>
       </div>
 
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
             </button>
             {mobileDropdownOpen && (
               <div className={styles.dropdownMenu}>
-                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Marble Protection</Link>
+                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Surface Protection</Link>
                 <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</a>
                 <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</a>
               </div>
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
     }}
   >
     <FaClipboard style={{ marginRight: "8px" }} />
-    Book Your Free Consultation!
+      Request a Consultation
   </a>
 </div>
 

@@ -12,7 +12,7 @@ const serviceCards = [
   {
     id: "countertop-protection",
     img: "/images/service1.webp",
-    title: "Tuffskin Marble Protection",
+    title: "Tuffskin Surface Protection",
     subtitle: "For the peace of mind",
     category: "Stone Protection",
     categoryIcon: <FaShieldAlt />,

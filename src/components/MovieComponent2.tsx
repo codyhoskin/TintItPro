@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MovieViewingComponent: React.FC = () => {
   const videoId = "UrYT7casVJM";
-  const title = "Tint It Pro Marble Protection Video";
+  const title = "Tint It Pro Surface Protection Video";
   const description = "Watch how we protect marble surfaces using TuffSkin film.";
   const uploadDate = "2024-03-10";
 

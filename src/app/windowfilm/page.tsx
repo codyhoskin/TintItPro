@@ -38,7 +38,7 @@ const WindowFilms: React.FC = () => {
             sacrificing style.
           </p>
           <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
-            Book Your Free Consultation
+            Request a Consultation
           </a>
         </div>
         <div className={styles.heroImagePlaceholder}></div>
@@ -49,7 +49,7 @@ const WindowFilms: React.FC = () => {
         <h2 style={{padding: "20px"}}>Enhance Comfort & Elegance With Premium Window Film</h2>
         <p>
           We specialize in high-end residential window tinting using industry-leading films
-          by Solar Gard. Whether you want to reduce glare, improve privacy, or enhance your
+          by Solar Guard. Whether you want to reduce glare, improve privacy, or enhance your
           homes look, we tailor solutions to your lifestyle.
         </p>
       </section>
@@ -85,7 +85,7 @@ const WindowFilms: React.FC = () => {
           <li>Daytime Privacy</li>
           <li>Glare Reduction</li>
           <li>10-Year Warranty</li>
-          <li>Solar Gard Certified</li>
+          <li>Solar Guard Certified</li>
           <li>Elegant Installation</li>
           <li>Fully Insured & Professional</li>
         </ul>

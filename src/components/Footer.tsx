@@ -57,10 +57,10 @@ const Footer = () => {
                 <a
                   href="https://tintitpro.setmore.com/"
                   className={styles.primaryCtaButton}
-                  aria-label="Book Your Free Consultation"
+                  aria-label="Request a Consultation"
                 >
                   <FaClipboard style={{ marginRight: "8px" }} />
-                  Book Your Free Consultation
+                  Request a Consultation
                 </a>
 
                 <button
@@ -92,7 +92,7 @@ const Footer = () => {
         <motion.div className={styles.descriptionBlock} {...floatUp}>
           <p className={styles.description}>
             We are proud to be an authorized dealer and installer for TuffSkin®
-            Stone Sealer and Solar Gard® Window Films in Calgary.
+            Stone Sealer and Solar Guard® Window Films in Calgary.
           </p>
         </motion.div>
 

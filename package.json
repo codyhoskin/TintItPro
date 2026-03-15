@@ -26,9 +26,13 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/babel__traverse": "^7.28.0",
+    "@types/estree": "^1.0.8",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-is": "^19.2.0",
+    "@types/tar-stream": "^3.1.4",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "typescript": "^5"

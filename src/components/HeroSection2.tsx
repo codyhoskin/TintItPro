@@ -91,7 +91,7 @@ const Hero = () => {
             <span style={{ color: "var(--secondary)", fontWeight: "bold", textDecoration: "underline", textUnderlineOffset: "4px" }}>
               <Link href="https://www.tuffskin.com/">Tuffskin</Link>
             </span>
-            <span style={{ color: "var(--secondary)" }}>®</span> Marble Protection.
+            <span style={{ color: "var(--secondary)" }}>®</span> Surface Protection.
           </p>
 
         
@@ -100,11 +100,11 @@ const Hero = () => {
             <a
               href="https://tintitpro.setmore.com/"
               className={`${styles.primaryButton} ${isVisible ? styles.animate : ""}`}
-              aria-label="Book Your Free Consultation!"
+              aria-label="Request a Consultation"
               ref={buttonRef}
             >
               <FaClipboard style={{ marginRight: "8px" }} />
-              Book Your Free Consultation!
+                Request a Consultation
             </a>
             <WhatsAppButton />
             <Link
