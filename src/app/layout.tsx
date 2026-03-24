@@ -30,12 +30,22 @@ export const metadata: Metadata = {
     default: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     template: "%s | Tint It Pro",
   },
-  description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
-  keywords: ["window tint", "Surface protection", "tuffskin", "decorative film", "car tint", "Tint It Pro", "Calgary"],
+  description:
+    "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+  keywords: [
+    "window tint",
+    "Surface protection",
+    "tuffskin",
+    "decorative film",
+    "car tint",
+    "Tint It Pro",
+    "Calgary",
+  ],
   authors: [{ name: "Tint It Pro", url: "https://tintitpro.ca" }],
   openGraph: {
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
-    description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+    description:
+      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     url: "https://tintitpro.ca",
     siteName: "Tint It Pro",
     locale: "en_US",
@@ -52,7 +62,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
-    description: "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+    description:
+      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
     images: ["https://tintitpro.ca/images/logo.png"],
     creator: "@tintitpro",
   },
@@ -70,17 +81,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${interFontBold.variable} ${interFontThin.variable}`}>
-      <head>
-        <link rel="dns-prefetch" href="https://tintitpro.setmore.com" />
-        <link rel="dns-prefetch" href="https://www.google.com" />
-      </head>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${interFontBold.variable} ${interFontThin.variable}`}
+    >
       <body>
-        <ThemeProviderWrapper>  
-          <Header />        
+        <ThemeProviderWrapper>
+          <Header />
           {children}
           <Footer />
-          {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
+          {process.env.NODE_ENV === "development" && <PerformanceMonitor />}
         </ThemeProviderWrapper>
       </body>
     </html>

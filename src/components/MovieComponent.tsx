@@ -8,39 +8,20 @@ interface MovieViewingComponentProps {
   videoId: string;
   title?: string;
   description?: string;
-  uploadDate?: string;
   thumbnailUrl?: string;
   showCaption?: boolean;
 }
 
 const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
   videoId,
-  uploadDate = "2024-03-10",
   thumbnailUrl,
 }) => {
   const [isInView, setIsInView] = useState(false);
   const videoRef = useRef<HTMLDivElement | null>(null);
 
-  const thumbUrl = thumbnailUrl || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const thumbUrl =
+    thumbnailUrl || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1`;
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    thumbnailUrl: [thumbUrl],
-    uploadDate,
-    contentUrl: videoUrl,
-    embedUrl,
-    publisher: {
-      "@type": "Organization",
-      name: "Tint It Pro",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://tintitpro.netlify.app/images/logo.png",
-      },
-    },
-  };
 
   useEffect(() => {
     const node = videoRef.current;
@@ -74,13 +55,10 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
         textAlign: "center",
       }}
     >
-      <TitleSection title="Watch Our Work in Action" subtitle="See how Tint It Pro transforms your space with professional film installation. This short video showcases the clarity, protection, and style our services deliver."/>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      <TitleSection
+        title="Watch Our Work in Action"
+        subtitle="See how Tint It Pro transforms your space with professional film installation. This short video showcases the clarity, protection, and style our services deliver."
       />
-
-  
 
       <div
         ref={videoRef}
@@ -112,7 +90,7 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
         ) : (
           <Image
             src={thumbUrl}
-            alt={`Thumbnail for Tint it Pro`}
+            alt="Thumbnail for Tint it Pro"
             fill
             sizes="(max-width: 768px) 100vw, 1000px"
             style={{ objectFit: "cover" }}

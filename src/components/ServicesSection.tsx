@@ -213,48 +213,14 @@ const ServiceCard = memo(({ card, index }: { card: typeof serviceCards[0], index
 
 ServiceCard.displayName = 'ServiceCard';
 
-// Structured data for SEO
-const generateStructuredData = () => {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Window Tinting and Protection Services",
-    "description": "Professional window tinting and countertop protection services in Calgary",
-    "itemListElement": serviceCards.map((card, index) => ({
-      "@type": "Service",
-      "position": index + 1,
-      "name": card.title,
-      "description": card.description,
-      "url": `https://tintitpro.com${card.link}`,
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "TintItPro",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Calgary",
-          "addressRegion": "Alberta",
-          "addressCountry": "CA"
-        }
-      },
-      "areaServed": {
-        "@type": "City",
-        "name": "Calgary"
-      }
-    }))
-  };
-};
+
 
 const ServicesSection: React.FC = () => {
   // Memoize structured data
-  const structuredData = useMemo(() => generateStructuredData(), []);
 
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+     
       
       <section
         style={{

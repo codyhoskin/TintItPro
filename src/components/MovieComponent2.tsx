@@ -6,8 +6,6 @@ import Image from "next/image";
 const MovieViewingComponent: React.FC = () => {
   const videoId = "UrYT7casVJM";
   const title = "Tint It Pro Surface Protection Video";
-  const description = "Watch how we protect marble surfaces using TuffSkin film.";
-  const uploadDate = "2024-03-10";
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [thumbnailSrc, setThumbnailSrc] = useState(
@@ -15,26 +13,6 @@ const MovieViewingComponent: React.FC = () => {
   );
 
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: title,
-    description,
-    thumbnailUrl: [thumbnailSrc],
-    uploadDate,
-    contentUrl: videoUrl,
-    embedUrl,
-    publisher: {
-      "@type": "Organization",
-      name: "Tint It Pro",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://tintitpro.netlify.app/images/logo.png",
-      },
-    },
-  };
 
   return (
     <section
@@ -49,11 +27,6 @@ const MovieViewingComponent: React.FC = () => {
         borderRadius: "20px",
       }}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-
       <div
         style={{
           width: "100%",
@@ -63,8 +36,8 @@ const MovieViewingComponent: React.FC = () => {
           overflow: "hidden",
           boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
           background: "#000",
-          paddingBottom: isPlaying ? "56.25%" : "0", // 👈 ADD THIS
-          height: isPlaying ? 0 : "auto", 
+          paddingBottom: isPlaying ? "56.25%" : "0",
+          height: isPlaying ? 0 : "auto",
         }}
       >
         {isPlaying ? (
@@ -88,11 +61,17 @@ const MovieViewingComponent: React.FC = () => {
           <div
             onClick={() => setIsPlaying(true)}
             role="button"
+            tabIndex={0}
             aria-label={`Play video: ${title}`}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setIsPlaying(true);
+              }
+            }}
             style={{
               cursor: "pointer",
               position: "relative",
-              paddingBottom: "56.25%", // 16:9 aspect ratio
+              paddingBottom: "56.25%",
               height: 0,
               width: "100%",
             }}
@@ -101,12 +80,13 @@ const MovieViewingComponent: React.FC = () => {
               src={thumbnailSrc}
               alt={`Thumbnail for ${title}`}
               fill
-              quality={100}
+              quality={85}
               priority
               sizes="(max-width: 768px) 100vw, 900px"
               style={{ objectFit: "cover" }}
               onError={() => setThumbnailSrc("/images/video-fallback.jpg")}
             />
+
             <div
               style={{
                 position: "absolute",
