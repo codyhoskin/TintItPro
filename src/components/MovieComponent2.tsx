@@ -9,14 +9,14 @@ const MovieViewingComponent: React.FC = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [thumbnailSrc, setThumbnailSrc] = useState(
-    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
   );
 
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
 
   return (
     <section
-      aria-labelledby="video-title"
+      aria-labelledby="Tuffskin Surface Protection"
       style={{
         width: "100%",
         backgroundColor: "var(--background)",
@@ -28,18 +28,17 @@ const MovieViewingComponent: React.FC = () => {
       }}
     >
       <div
-        style={{
-          width: "100%",
-          maxWidth: "900px",
-          position: "relative",
-          borderRadius: "20px",
-          overflow: "hidden",
-          boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
-          background: "#000",
-          paddingBottom: isPlaying ? "56.25%" : "0",
-          height: isPlaying ? 0 : "auto",
-        }}
-      >
+      style={{
+        width: "100%",
+        maxWidth: "1000px", // 🔥 make wider
+        position: "relative",
+        borderRadius: "20px",
+        overflow: "hidden",
+        boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+        background: "#000",
+        aspectRatio: "16 / 9", // 🔥 keep correct ratio
+      }}
+    >
         {isPlaying ? (
           <iframe
             src={embedUrl}
@@ -50,30 +49,31 @@ const MovieViewingComponent: React.FC = () => {
             loading="lazy"
             style={{
               position: "absolute",
-              top: 0,
-              left: 0,
+              inset: 0,
               width: "100%",
               height: "100%",
               border: "none",
+              transform: "scale(0.65)",
             }}
           />
         ) : (
           <div
             onClick={() => setIsPlaying(true)}
-            role="button"
-            tabIndex={0}
-            aria-label={`Play video: ${title}`}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
                 setIsPlaying(true);
               }
             }}
+            role="button"
+            tabIndex={0}
+            aria-label={`Play video: ${title}`}
             style={{
               cursor: "pointer",
-              position: "relative",
-              paddingBottom: "56.25%",
-              height: 0,
+              position: "absolute",
+              inset: 0,
               width: "100%",
+              height: "100%",
             }}
           >
             <Image
@@ -82,9 +82,22 @@ const MovieViewingComponent: React.FC = () => {
               fill
               quality={85}
               priority
-              sizes="(max-width: 768px) 100vw, 900px"
+              sizes="(max-width: 768px) 100vw, 1200px"
               style={{ objectFit: "cover" }}
-              onError={() => setThumbnailSrc("/images/video-fallback.jpg")}
+              onError={() =>
+                setThumbnailSrc(
+                  `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                )
+              }
+            />
+
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0.05))",
+              }}
             />
 
             <div
@@ -93,15 +106,15 @@ const MovieViewingComponent: React.FC = () => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "80px",
-                height: "80px",
-                background: "rgba(255,255,255,0.85)",
+                width: "84px",
+                height: "84px",
+                background: "rgba(255,255,255,0.9)",
                 borderRadius: "50%",
                 backgroundImage: "url('/images/play.svg')",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                backgroundSize: "40%",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.25)",
+                backgroundSize: "38%",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
               }}
             />
           </div>

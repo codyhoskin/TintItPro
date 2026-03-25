@@ -61,7 +61,7 @@
 .videoWrapper {
   width: 100%;
   max-width: 960px;
-  aspect-ratio: 16 / 12; /* Slightly taller crop than 16:9 */
+  aspect-ratio: 16 / 9; /* Slightly taller crop than 16:9 */
   overflow: hidden;
   animation: fadeIn 1.2s ease-out forwards;
   border: none;

@@ -22,7 +22,6 @@ export default function Landing() {
       <Hero />
     </section>
 
-
     <section id="showreel" className={styles.showreelSection}>
       <div className={styles.videoWrapper}>
         <video
@@ -31,6 +30,7 @@ export default function Landing() {
           muted
           loop
           playsInline
+          controls={false}
           className={styles.video}
         >
           <track
@@ -41,9 +41,10 @@ export default function Landing() {
             default
           />
           <p>
-            Your browser doesnt support video playback. This video showcases TuffSkin® stone protection 
-            services, demonstrating our professional installation process and the lasting protection 
-            we provide for marble and granite surfaces.
+            Your browser doesnt support video playback. This video showcases TuffSkin®
+            stone protection services, demonstrating our professional installation
+            process and the lasting protection we provide for marble and granite
+            surfaces.
           </p>
         </video>
       </div>

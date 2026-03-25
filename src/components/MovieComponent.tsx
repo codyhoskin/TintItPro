@@ -46,7 +46,7 @@ const MovieViewingComponent: React.FC<MovieViewingComponentProps> = ({
       aria-labelledby="video-title"
       style={{
         width: "100%",
-        maxWidth: "1200px",
+        maxWidth: "100px",
         margin: "100px auto",
         padding: "40px 20px",
         borderRadius: "20px",
