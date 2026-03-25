@@ -33,13 +33,7 @@ export default function Landing() {
           controls={false}
           className={styles.video}
         >
-          <track
-            kind="captions"
-            src="/video/tuffskinvideo-captions.vtt"
-            srcLang="en"
-            label="English"
-            default
-          />
+   
           <p>
             Your browser doesnt support video playback. This video showcases TuffSkin®
             stone protection services, demonstrating our professional installation
