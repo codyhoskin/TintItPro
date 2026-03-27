@@ -46,13 +46,14 @@ const Header: React.FC = () => {
           onMouseLeave={() => setDesktopDropdownOpen(false)}
         >
           <button className={styles.dropdownTrigger}>
-            Solutions <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
+            Services <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
           </button>
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Surface Protection</Link>
-              <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Films</a>
-              <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Films</a>
+              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Glass Protection</Link>
+              <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Window Films</a>
+              <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Window Films</a>
+              <a href="/tuffskin" aria-label="Navigate to tuffskin page.">Stone Protection</a>
             </div>
           )}
         </div>
@@ -109,19 +110,19 @@ const Header: React.FC = () => {
 
 
 
-          {/* Mobile Dropdown for Solutions */}
           <div className={styles.dropdown}>
             <button
               className={styles.dropdownTrigger}
               onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
             >
-              Solutions <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
+              Services <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
             </button>
             {mobileDropdownOpen && (
               <div className={styles.dropdownMenu}>
-                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Surface Protection</Link>
-                <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Films</a>
-                <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Films</a>
+                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Glass Protection</Link>
+                <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Window Films</a>
+                <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Window Films</a>
+                <a href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Stone Protection</a>
               </div>
             )}
           </div>

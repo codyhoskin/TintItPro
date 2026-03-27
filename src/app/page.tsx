@@ -7,7 +7,7 @@ import SocialCard     from "@/components/SocialComponent";
 import TitleSection   from "@/components/TitleSection";
 import { ServicesSection, ElfsightLazy, EstimatorPro,
 } from "@/components/Heavy";
-import { FaShieldAlt, FaAward } from "react-icons/fa";
+import { FaShieldAlt, FaWater } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
 //import FAQChat from "@/components/FAQChat";
@@ -45,23 +45,23 @@ export default function Landing() {
     </section>
 
     {/* 5️⃣ Benefits strip */}
-    <TitleSection title="Lasting Benefits" subtitle="No-stress warranty coverage." />
+    <TitleSection title="Why Choose TintItPro" subtitle="Premium protection for your glass, windows, and natural stone" />
 
     <InfoCard.Wrapper>
     <InfoCard
       icon={<FaShieldAlt size={40} className="text-secondary" />}
-      title="Solar Guard® 10 yr Warranty"
-      subtitle="Interior film + install fully covered."
+      title="Long-Term Surface Protection"
+      subtitle="Protect your windows and natural stone from daily wear, damage, and environmental exposure."
     />
     <InfoCard
-      icon={<FaAward size={40} className="text-secondary" />}
-      title="100 % Etch- & Stain-Proof Marble"
-      subtitle="Protect high-end stone from damage & costly repairs."
+      icon={<FaWater size={40} className="text-secondary" />}
+      title="Reduce Maintenance & Cleaning"
+      subtitle="Keep shower glass, railings, and surfaces looking clean with less effort and no harsh chemicals"
     />
     <InfoCard
       icon={<MdWbSunny size={40} className="text-secondary" />}
-      title="Why Solar Film Wins"
-      subtitle="Up to 82 % heat rejection & 30 % energy savings."
+      title="Improve Comfort & Performance"
+      subtitle="Reduce heat, UV damage, and glare while protecting interiors and improving overall comfort."
     />
     </InfoCard.Wrapper>
 

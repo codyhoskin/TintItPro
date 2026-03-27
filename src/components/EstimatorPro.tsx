@@ -4,7 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import InfoTooltip from "./InfoTool";
 import styles from "../styles/EstimatorPro.module.css";
-import { FaRegEdit, FaCalculator, FaRegCheckCircle, FaArrowRight } from "react-icons/fa";
+import {
+  FaRegEdit,
+  FaCalculator,
+  FaRegCheckCircle,
+  FaArrowRight,
+  FaClipboardCheck,
+} from "react-icons/fa";
 
 const filmTypes = [
   { type: "None", pricePerSqFt: 0 },
@@ -36,9 +42,14 @@ const EstimatorPro: React.FC = () => {
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
     { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
   ]);
+
   const [selectedEquipment, setSelectedEquipment] = useState(equipmentOptions[0]);
 
-  const handleInputChange = (index: number, field: keyof WindowData, value: string) => {
+  const handleInputChange = (
+    index: number,
+    field: keyof WindowData,
+    value: string
+  ) => {
     const updated = [...windowData];
     if (field === "film") {
       updated[index][field] = filmTypes.find((f) => f.type === value)!;
@@ -68,176 +79,268 @@ const EstimatorPro: React.FC = () => {
 
   return (
     <>
-
       <div className={styles.estimatorWrapper}>
-          <div className={styles.fadeIn}>
+        <div className={styles.fadeIn}>
+          <section className={styles.section}>
+            <InfoTooltip />
 
-        <section className={styles.section}>
-          <InfoTooltip />
+            <Image
+              src="/images/estimatorpro2.png"
+              alt="Window Tinting Estimator Pro Application"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              className={styles.bgImage}
+            />
 
-          <Image
-            src="/images/estimatorpro2.png"
-            alt="Window Tinting Estimator Pro Application"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            className={styles.bgImage}
-          />
+            <div className={styles.formWrapper}>
+              <h2 className={styles.totalHeading}>Estimated Cost: ${totalCost}</h2>
 
-          <div className={styles.formWrapper}>
-            <h2 className={styles.totalHeading}>Estimated Cost: ${totalCost}</h2>
+              {windowData.map((row, index) => (
+                <div key={index} className={styles.row}>
+                  <label htmlFor={`numWindows-${index}`} className={styles.srOnly}>
+                    Number of Windows
+                  </label>
+                  <input
+                    id={`numWindows-${index}`}
+                    type="number"
+                    min={1}
+                    value={row.numWindows}
+                    onChange={(e) =>
+                      handleInputChange(index, "numWindows", e.target.value)
+                    }
+                    onBlur={(e) => {
+                      if (e.target.value === "") {
+                        handleInputChange(index, "numWindows", "1");
+                      }
+                    }}
+                    className={`${styles.input} ${styles.smallInput}`}
+                  />
 
-            {windowData.map((row, index) => (
-              <div key={index} className={styles.row}>
-                <label htmlFor={`numWindows-${index}`} className={styles.srOnly}>Number of Windows</label>
-                <input
-                  id={`numWindows-${index}`}
-                  type="number"
-                  min={1}
-                  value={row.numWindows}
-                  onChange={(e) => handleInputChange(index, "numWindows", e.target.value)}
-                  onBlur={(e) => {
-                    if (e.target.value === "") handleInputChange(index, "numWindows", "1");
-                  }}
-                  className={`${styles.input} ${styles.smallInput}`}
-                />
+                  <label htmlFor={`length-${index}`} className={styles.srOnly}>
+                    Length in inches
+                  </label>
+                  <input
+                    id={`length-${index}`}
+                    type="number"
+                    value={row.length}
+                    onChange={(e) =>
+                      handleInputChange(index, "length", e.target.value)
+                    }
+                    onBlur={(e) => {
+                      if (e.target.value === "") {
+                        handleInputChange(index, "length", "0");
+                      }
+                    }}
+                    className={styles.input}
+                  />
 
-                <label htmlFor={`length-${index}`} className={styles.srOnly}>Length in inches</label>
-                <input
-                  id={`length-${index}`}
-                  type="number"
-                  value={row.length}
-                  onChange={(e) => handleInputChange(index, "length", e.target.value)}
-                  onBlur={(e) => {
-                    if (e.target.value === "") handleInputChange(index, "length", "0");
-                  }}
-                  className={styles.input}
-                />
+                  <label htmlFor={`width-${index}`} className={styles.srOnly}>
+                    Width in inches
+                  </label>
+                  <input
+                    id={`width-${index}`}
+                    type="number"
+                    value={row.width}
+                    onChange={(e) =>
+                      handleInputChange(index, "width", e.target.value)
+                    }
+                    onBlur={(e) => {
+                      if (e.target.value === "") {
+                        handleInputChange(index, "width", "0");
+                      }
+                    }}
+                    className={styles.input}
+                  />
 
-                <label htmlFor={`width-${index}`} className={styles.srOnly}>Width in inches</label>
-                <input
-                  id={`width-${index}`}
-                  type="number"
-                  value={row.width}
-                  onChange={(e) => handleInputChange(index, "width", e.target.value)}
-                  onBlur={(e) => {
-                    if (e.target.value === "") handleInputChange(index, "width", "0");
-                  }}
-                  className={styles.input}
-                />
+                  <label htmlFor={`film-${index}`} className={styles.srOnly}>
+                    Film Type
+                  </label>
+                  <select
+                    id={`film-${index}`}
+                    value={row.film.type}
+                    onChange={(e) =>
+                      handleInputChange(index, "film", e.target.value)
+                    }
+                    className={`${styles.select} ${styles.filmSelect}`}
+                  >
+                    {filmTypes.map((f) => (
+                      <option key={f.type} value={f.type}>
+                        {f.type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ))}
 
-                <label htmlFor={`film-${index}`} className={styles.srOnly}>Film Type</label>
+              <div className={styles.equipmentWrapper}>
+                <label htmlFor="equipment" className={styles.srOnly}>
+                  Equipment
+                </label>
                 <select
-                  id={`film-${index}`}
-                  value={row.film.type}
-                  onChange={(e) => handleInputChange(index, "film", e.target.value)}
-                  className={`${styles.select} ${styles.filmSelect}`}
+                  id="equipment"
+                  value={selectedEquipment.type}
+                  onChange={(e) =>
+                    setSelectedEquipment(
+                      equipmentOptions.find((eq) => eq.type === e.target.value)!
+                    )
+                  }
+                  className={styles.equipmentSelect}
                 >
-                  {filmTypes.map((f) => (
-                    <option key={f.type} value={f.type}>
-                      {f.type}
+                  {equipmentOptions.map((eq) => (
+                    <option key={eq.type} value={eq.type}>
+                      {eq.type}
                     </option>
                   ))}
                 </select>
               </div>
-            ))}
-
-            <div className={styles.equipmentWrapper}>
-              <label htmlFor="equipment" className={styles.srOnly}>Equipment</label>
-              <select
-                id="equipment"
-                value={selectedEquipment.type}
-                onChange={(e) =>
-                  setSelectedEquipment(
-                    equipmentOptions.find((eq) => eq.type === e.target.value)!
-                  )
-                }
-                className={styles.equipmentSelect}
-              >
-                {equipmentOptions.map((eq) => (
-                  <option key={eq.type} value={eq.type}>
-                    {eq.type}
-                  </option>
-                ))}
-              </select>
             </div>
+          </section>
+        </div>
+      </div>
+
+      <div className={styles.bentoContainer}>
+        <div className={styles.bentoHeader}>
+          <h2 className={styles.bentoTitle}>How Estimator Pro Works</h2>
+          <p className={styles.bentoSubtitle}>
+            Get your instant quote in three simple steps
+          </p>
+        </div>
+
+        <div className={styles.bentoGrid}>
+          <div className={styles.bentoCard}>
+            <div className={styles.bentoIcon}>
+              <FaRegEdit />
+            </div>
+            <div className={styles.bentoContent}>
+              <h3 className={styles.bentoCardTitle}>Enter Measurements</h3>
+              <p className={styles.bentoCardText}>
+                Add each window or countertop individually.
+              </p>
+            </div>
+            <div className={styles.bentoNumber}>1</div>
           </div>
 
+          <div className={styles.bentoArrow}>
+            <FaArrowRight />
+          </div>
+
+          <div className={styles.bentoCard}>
+            <div className={styles.bentoIcon}>
+              <FaCalculator />
+            </div>
+            <div className={styles.bentoContent}>
+              <h3 className={styles.bentoCardTitle}>Choose Your Options</h3>
+              <p className={styles.bentoCardText}>
+                Select your file type and installation needs.
+              </p>
+            </div>
+            <div className={styles.bentoNumber}>2</div>
+          </div>
+
+          <div className={styles.bentoArrow}>
+            <FaArrowRight />
+          </div>
+
+          <div className={styles.bentoCard}>
+            <div className={styles.bentoIcon}>
+              <FaRegCheckCircle />
+            </div>
+            <div className={styles.bentoContent}>
+              <h3 className={styles.bentoCardTitle}>Get Your Price Range</h3>
+              <p className={styles.bentoCardText}>
+                Instant estimate based on your input.
+              </p>
+            </div>
+            <div className={styles.bentoNumber}>3</div>
+          </div>
+        </div>
+
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "80px",
+            padding: "0 20px",
+          }}
+        >
           <a
             href="https://tintitpro.setmore.com/"
-            aria-label="Schedule an appointment with Estimator Pro"
-            className={styles.scheduleButton}
+            aria-label="Request a consultation with Estimator Pro"
+            style={{
+              display: "inline-flex",
+              justifyContent: "center",
+              alignItems: "center",
+              textDecoration: "none",
+              width: "100%",
+              maxWidth: "520px",
+            }}
           >
-            <Image
-              src="/images/schedule.png"
-              alt="Estimator Pro Schedule"
-              width={300}
-              height={110}
-              style={{ height: 'auto' }}
+            <div
               className={styles.wigglePop}
-            />
+              style={{
+                width: "100%",
+                filter: "drop-shadow(0 12px 20px rgba(227, 0, 10, 0.16))",
+              }}
+            >
+              <svg
+                viewBox="0 0 900 260"
+                width="100%"
+                height="auto"
+                role="img"
+                aria-label="Request Consultation"
+                style={{
+                  overflow: "visible",
+                  display: "block",
+                }}
+              >
+                <g transform="translate(24,24) skewX(-8)">
+                  <rect
+                    x="0"
+                    y="0"
+                    width="820"
+                    height="200"
+                    rx="34"
+                    fill="#ffffff"
+                    stroke="#E3000A"
+                    strokeWidth="12"
+                  />
+                </g>
+
+                <circle cx="170" cy="125" r="42" fill="#E3000A" />
+
+                <foreignObject x="145" y="98" width="54" height="54">
+                  <div
+                    style={{
+                      width: "54px",
+                      height: "54px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontSize: "40px",
+                    }}
+                  >
+                    <FaClipboardCheck />
+                  </div>
+                </foreignObject>
+
+                <text
+                  x="250"
+                  y="138"
+                  fill="#E3000A"
+                  fontSize="44"
+                  fontWeight="1000"
+                  fontFamily="Arial, Helvetica, sans-serif"
+                  letterSpacing="0.3"
+                >
+                  Request Consultation
+                </text>
+              </svg>
+            </div>
           </a>
-          
-        </section>
-        
-      </div>
-  </div>
-
-    <div className={styles.bentoContainer}>
-      <div className={styles.bentoHeader}>
-        <h2 className={styles.bentoTitle}>How Estimator Pro Works</h2>
-        <p className={styles.bentoSubtitle}>Get your instant quote in three simple steps</p>
-      </div>
-      
-      <div className={styles.bentoGrid}>
-        <div className={styles.bentoCard}>
-          <div className={styles.bentoIcon}>
-            <FaRegEdit />
-          </div>
-          <div className={styles.bentoContent}>
-            <h3 className={styles.bentoCardTitle}>Enter Your Details</h3>
-            <p className={styles.bentoCardText}>
-              Input your window dimensions, film preferences, and equipment needs using our intuitive interface.
-            </p>
-          </div>
-          <div className={styles.bentoNumber}>1</div>
-        </div>
-
-        <div className={styles.bentoArrow}>
-          <FaArrowRight />
-        </div>
-
-        <div className={styles.bentoCard}>
-          <div className={styles.bentoIcon}>
-            <FaCalculator />
-          </div>
-          <div className={styles.bentoContent}>
-            <h3 className={styles.bentoCardTitle}>Instant Calculation</h3>
-            <p className={styles.bentoCardText}>
-              Our advanced algorithm instantly calculates your total cost with transparent pricing breakdown.
-            </p>
-          </div>
-          <div className={styles.bentoNumber}>2</div>
-        </div>
-
-        <div className={styles.bentoArrow}>
-          <FaArrowRight />
-        </div>
-
-        <div className={styles.bentoCard}>
-          <div className={styles.bentoIcon}>
-            <FaRegCheckCircle />
-          </div>
-          <div className={styles.bentoContent}>
-            <h3 className={styles.bentoCardTitle}>Book Confidently</h3>
-            <p className={styles.bentoCardText}>
-              Know your exact cost upfront and book your appointment with confidence and peace of mind.
-            </p>
-          </div>
-          <div className={styles.bentoNumber}>3</div>
         </div>
       </div>
-    </div>
-
     </>
   );
 };
