@@ -245,7 +245,7 @@ const ServicesSection: React.FC = () => {
             color: "var(--foreground)",
           }}
         >
-          Our Solutions
+          Our Services
         </h2>
       </header>
 
