@@ -67,7 +67,7 @@ export default function Landing() {
 
 
 
-      <section id="services">
+      <section id="solutions">
         <Suspense><ServicesSection /></Suspense>
       </section>
 

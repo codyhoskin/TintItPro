@@ -283,12 +283,12 @@ const Hero = () => {
 
               <span style={benefitPillStyle}>
                 <FaCheckCircle size={14} style={checkIconStyle} />
-                Stop water spots on shower glass & railings
+                Reduce water spots on shower glass & railings
               </span>
 
               <span style={benefitPillStyle}>
                 <FaCheckCircle size={14} style={checkIconStyle} />
-                Prevent natural stone damage
+                Prevent etching & stains on natural stone
               </span>
             </div>
           </div>
