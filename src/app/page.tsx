@@ -66,8 +66,8 @@ export default function Landing() {
     </InfoCard.Wrapper>
 
 
-      {/* 4️⃣ Solutions */}
-      <section id="solutions">
+
+      <section id="services">
         <Suspense><ServicesSection /></Suspense>
       </section>
 

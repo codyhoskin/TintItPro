@@ -217,7 +217,7 @@ const Hero = () => {
                     transitionDelay: "0.16s",
                   }}
                 >
-                  Natural Stone
+                  Natural Stone Surfaces
                 </span>
               </h1>
 
@@ -239,8 +239,8 @@ const Hero = () => {
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "8px",
-                    padding: "12px 20px",
+                    gap: "6px",
+                    padding: "8px 12px",
                     background: "var(--background)",
                     color: "var(--secondary)",
                     fontSize: "14px",
