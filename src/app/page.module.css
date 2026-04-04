@@ -33,7 +33,7 @@
 .parallaxBanner {
   width: 100%;
   height: 200px;
-  background-image: url("/images/hero/lightWindow.webp");
+  background-image: url("/images/websitefallback.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,15 +54,16 @@
   justify-content: center;
   align-items: center;
   margin-top: 0;
-  padding: 50;
+  padding: 50px; /* FIXED */
   background: transparent;
 }
 
 .videoWrapper {
   width: 100%;
-  max-width: 960px;
-  aspect-ratio: 16 / 9; /* Slightly taller crop than 16:9 */
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  margin: 0 auto; /* EXTRA SAFETY */
   animation: fadeIn 1.2s ease-out forwards;
   border: var(--glass-border);
   border-radius: var(--radius-ui);

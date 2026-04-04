@@ -22,27 +22,27 @@ export default function Landing() {
       <Hero />
     </section>
 
-    <section id="showreel" className={styles.showreelSection}>
-      <div className={styles.videoWrapper}>
-        <video
-          src="/video/tuffskinvideo.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls={false}
-          className={styles.video}
-        >
+    <section id="showreel" className={styles.showreelSection}> </section>
+    <div className={styles.videoWrapper}>
+      <video
+        src="/video/tuffskinvideo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls={false}
+        className={styles.video}
+      >
+  
+        <p>
+          Your browser doesnt support video playback. This video showcases TuffSkin®
+          stone protection services, demonstrating our professional installation
+          process and the lasting protection we provide for marble and granite
+          surfaces.
+        </p>
+      </video>
+    </div>
    
-          <p>
-            Your browser doesnt support video playback. This video showcases TuffSkin®
-            stone protection services, demonstrating our professional installation
-            process and the lasting protection we provide for marble and granite
-            surfaces.
-          </p>
-        </video>
-      </div>
-    </section>
 
     {/* 5️⃣ Benefits strip */}
     <TitleSection title="Why Choose Tint It Pro" subtitle="Premium protection for your glass, windows, and natural stone" />
