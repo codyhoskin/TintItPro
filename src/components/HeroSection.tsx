@@ -251,8 +251,8 @@ const Hero = () => {
               <div
                 style={{
                   position: "absolute",
-                  right: "0px",
-                  top: "120px",
+                  right: "30px",
+                  top: "10px",
                   zIndex: 2,
                   opacity: heroVisible ? 1 : 0,
                   transform: heroVisible
