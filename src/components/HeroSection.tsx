@@ -86,7 +86,7 @@ const Hero = () => {
             loop
             playsInline
             preload="auto"
-            poster="/images/hero/whiteGranitehero-1200.webp"
+            poster="/images/websitefallback.png"
           />
           <div className={styles.heroOverlay} />
         </div>

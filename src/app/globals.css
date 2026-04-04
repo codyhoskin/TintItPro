@@ -9,7 +9,7 @@
   --text-muted: #434343;
   --text-button: #e3000bda;
   --text-button2: #ffffff;
-  --hero-bg: url("/images/hero/whiteGranitehero-1200.webp");
+  --hero-bg: url("/images/websitefallback.png");
 
   /* Sharp “glass” UI: square corners + specular top/right edge */
   --radius-ui: 0;
@@ -38,7 +38,7 @@
   --text-muted: #ebebeb;
   --text-button: #ffffff;
   --text-button2: #e3000bcf;
-  --hero-bg: url("/images/hero/blackGranitehero-1200.webp");
+  --hero-bg: url("/images/websitefallback.png");
 
   --glass-border: 1px solid rgba(255, 255, 255, 0.14);
   --glass-edge:
