@@ -24,8 +24,8 @@ const LogoCarousel = () => {
         {partnerLogos.concat(partnerLogos).map((logo, index) => {
           const isTuffskin = logo.includes("tuffskin");
 
-          const width = isTuffskin ? 100 : 120;
-          const height = isTuffskin ? 70 : 60;
+          const width = isTuffskin ? 120 : 140;
+          const height = isTuffskin ? 90 : 80;
 
           return (
             <div
