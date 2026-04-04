@@ -27,7 +27,7 @@ const Header: React.FC = () => {
       {/* Logo */}
       <div className={styles.logo}>
         <Link href="/#home" aria-label="Navigate to Home">
-        <RiveLogoNav width={100} height={100} delay={200} />
+        <RiveLogoNav width={90} height={90} delay={200} />
         </Link>
 
       </div>
