@@ -300,14 +300,14 @@ const EstimatorPro: React.FC = () => {
                     y="0"
                     width="820"
                     height="200"
-                    rx="34"
+                    rx="4"
                     fill="#ffffff"
-                    stroke="#E3000A"
+                    stroke="var(--primary)"
                     strokeWidth="12"
                   />
                 </g>
 
-                <circle cx="170" cy="125" r="42" fill="#E3000A" />
+                <circle cx="170" cy="125" r="42" fill="var(--primary)" />
 
                 <foreignObject x="145" y="98" width="54" height="54">
                   <div
@@ -328,7 +328,7 @@ const EstimatorPro: React.FC = () => {
                 <text
                   x="250"
                   y="138"
-                  fill="#E3000A"
+                  fill="var(--primary)"
                   fontSize="44"
                   fontWeight="1000"
                   fontFamily="Arial, Helvetica, sans-serif"

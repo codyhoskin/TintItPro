@@ -184,11 +184,12 @@
 .upperFooter {
     background-color: var(--tertiary);
     color: var(--foreground);
-    padding: 40px 20px;
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
     text-align: center;
+    margin-top: 20;
   }
   
   /* Each block styling */
