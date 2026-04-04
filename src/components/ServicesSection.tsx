@@ -18,10 +18,10 @@ import styles from "../styles/ServicesSection.module.css";
 const serviceCards = [
   {
     id: "glass-protection",
-    img: "/images/service3.webp",
+    img: "/images/service01.svg",
     title: "Glass Protection",
     subtitle: "Cleaner glass. Less effort.",
-    category: "Protect your glass",
+    category: "Preserve your glass",
     categoryIcon: <FaShieldAlt />,
     bullets: [
       "No more water spots",
@@ -45,7 +45,7 @@ const serviceCards = [
   },
   {
     id: "window-film",
-    img: "/images/service2.webp",
+    img: "/images/service3.webp",
     title: "Window Film",
     subtitle: "Less heat. Less glare.",
     category: "Upgrade Interiors",
@@ -239,7 +239,7 @@ const ServicesSection: React.FC = () => {
         <h2
           id="services-heading"
           style={{
-            fontSize: "2.5rem",
+            fontSize: "clamp(1.65rem, 4.8vw, 2.5rem)",
             fontWeight: "bold",
             marginTop: "25px",
             color: "var(--foreground)",

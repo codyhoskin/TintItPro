@@ -8,7 +8,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
   will-change: transform, opacity;
   background: linear-gradient(
     135deg,
@@ -20,12 +20,11 @@
   );
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
+  border: var(--glass-border);
+  box-shadow:
     0 8px 32px rgba(31, 38, 135, 0.37),
     0 4px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    var(--glass-edge);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -69,7 +68,7 @@
     rgba(255, 255, 255, 0.3) 0%,
     transparent 50%
   );
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -86,14 +85,16 @@
   width: 100%;
   height: 350px;
   overflow: hidden;
-  border-radius: 25px;
-  border: 2px solid white;
+  border-radius: var(--radius-ui);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   background: white;
   padding: 20px;
   box-sizing: border-box;
   margin-bottom: -30px;
   z-index: 3;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    var(--glass-edge-light);
   contain: layout style paint;
 }
 
@@ -111,7 +112,7 @@
     rgba(0, 0, 0, 0.1) 60%,
     rgba(0, 0, 0, 0) 100%
   );
-  border-radius: 25px;
+  border-radius: var(--radius-ui);
 }
 
 /* Text Overlay */
@@ -134,7 +135,8 @@
   top: 20px;
   right: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
+  box-shadow: var(--glass-edge);
   padding: 8px 12px;
   display: flex;
   align-items: center;
@@ -182,8 +184,9 @@
 
 .locationBadge {
   background: white;
-  border: 1px solid black;
-  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-ui);
+  box-shadow: var(--glass-edge-light);
   padding: 8px 15px;
   display: flex;
   align-items: center;
@@ -210,7 +213,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   padding: 15px 25px;
-  border-radius: 10px;
+  border-radius: var(--radius-ui);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -219,7 +222,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    var(--glass-edge);
 }
 
 .ctaButton:hover {
@@ -265,7 +270,7 @@
 /* Benefits Section */
 .benefitsSection {
   padding: 30px 20px 20px 20px;
-  border-radius: 25px;
+  border-radius: var(--radius-ui);
   position: relative;
   z-index: 2;
   margin-top: 60px;
@@ -365,7 +370,7 @@
   }
   
   .cardTitle {
-    font-size: 1.5rem;
+    font-size: 1.28rem;
     text-align: left;
   }
   

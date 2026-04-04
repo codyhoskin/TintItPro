@@ -64,7 +64,11 @@
   aspect-ratio: 16 / 9; /* Slightly taller crop than 16:9 */
   overflow: hidden;
   animation: fadeIn 1.2s ease-out forwards;
-  border: none;
+  border: var(--glass-border);
+  border-radius: var(--radius-ui);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    var(--glass-edge);
 }
 
 .video {
@@ -108,7 +112,7 @@
 
 .bubble {
   padding: 0.75rem 1rem;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-ui);
   max-width: 75%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -143,7 +147,7 @@
 .chatWindow {
   background: var(--background);
   border: 1px solid var(--border-color, #ddd);
-  border-radius: 1rem;
+  border-radius: var(--radius-ui);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -175,7 +179,7 @@
 
 .bubble {
   padding: 0.75rem 1rem;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-ui);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   word-wrap: break-word;
   font-size: 0.95rem;

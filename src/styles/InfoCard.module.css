@@ -6,12 +6,12 @@
   max-width: 1200px;
   margin: 60px auto;
   padding: 4rem 1rem;
-  border-radius: 24px;
+  border-radius: var(--radius-ui);
   position: relative;
   overflow: hidden;
   z-index: 1;
 
-  background-image: url("/images/hero/whiteGranitehero-1200.webp");
+  background-image: url("/images/tintitproView.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,8 +33,8 @@
   max-width: 360px;
   min-width: 280px;
   padding: 40px 30px;
-  border-radius: 20px;
-  
+  border-radius: var(--radius-ui);
+
   /* Liquid Glass Background */
   background: linear-gradient(
     135deg,
@@ -50,14 +50,13 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   
   /* Liquid glass border */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  
+  border: var(--glass-border);
+
   /* Liquid glass shadow with color */
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(31, 38, 135, 0.37),
     0 4px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    var(--glass-edge);
   
   text-align: center;
   color: var(--foreground);
@@ -100,7 +99,7 @@
     rgba(255, 255, 255, 0.3) 0%,
     transparent 50%
   );
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -123,6 +122,12 @@
   margin-bottom: 12px;
   color: var(--quad);
   font-family: var(--font-inter-bold), sans-serif;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.45rem;
+  }
 }
 
 .subtitle {

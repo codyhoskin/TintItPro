@@ -38,7 +38,7 @@
 .ctaBlock {
   background-color: rgba(255, 255, 255, 0.1); /* Transparent card layer */
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  border-radius: var(--radius-ui);
   padding: 30px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -76,7 +76,7 @@
 }
 
 .roundedImage {
-  border-radius: 16px;
+  border-radius: var(--radius-ui);
   max-width: 95%;
 }
 
@@ -114,7 +114,7 @@
   background-color: var(--secondary);
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: var(--radius-ui);
   font-weight: 600;
     transition: all 0.3s ease;
 
@@ -130,6 +130,6 @@
 .faqSection {
   padding: 40px 20px;
   background-color: #f9f9f9;
-  border-radius: 12px;
+  border-radius: var(--radius-ui);
 }
 

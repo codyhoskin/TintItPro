@@ -19,14 +19,21 @@ const WhyChooseUsBanner: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 px-4">
       <div
         ref={ref}
-        className="relative w-full max-w-6xl bg-white/10 backdrop-blur-lg border border-white/20 rounded-b-[2.5rem] rounded-t-[4rem] shadow-2xl px-12 py-20"
+        className="relative w-full max-w-6xl bg-white/10 backdrop-blur-lg border border-white/25 shadow-2xl px-12 py-20 rounded-none"
+        style={{
+          boxShadow:
+            "0 25px 50px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.15), var(--glass-edge)",
+        }}
       >
         {/* Clipboard Top */}
-        <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-700 text-white px-8 py-3 rounded-b-xl shadow-lg text-xl font-semibold">
+        <div
+          className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-700 text-white px-8 py-3 shadow-lg text-xl font-semibold rounded-none border border-white/20"
+          style={{ boxShadow: "var(--glass-edge)" }}
+        >
           📋 Checklist
         </div>
 
-        <h2 className="text-5xl md:text-6xl font-bold text-center mb-16 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-center mb-16 tracking-tight px-1">
           💡 Why Choose Tint it Pro
         </h2>
 

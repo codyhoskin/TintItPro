@@ -52,9 +52,8 @@
 
 .ratingText {
   font-family: var(--font-inter-bold), sans-serif;
-  color: var(--foreground);
+  color: white;
   font-size: clamp(0.8rem, 1.6vw, 0.5rem);
-  padding: 10px;
   margin-left: 10px;
 }
 

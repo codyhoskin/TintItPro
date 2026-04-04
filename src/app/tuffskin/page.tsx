@@ -105,7 +105,7 @@ const imageSrc =
 
         <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
           <p style={{ marginBottom: 0, textAlign: "center", color: "var(--quad)" }}>
-            We are a professional certified TuffSkin© installer. <br></br>TuffSkin© provides professional-grade protection for natural stone surfaces, helping prevent etching,
+            We are a professional certified TuffSkin® installer. <br></br>TuffSkin® provides professional-grade protection for natural stone surfaces, helping prevent etching,
             staining, and damage from heat or moisture. Ideal for kitchens, bathrooms, restaurants, and hotels, it
             maintains the look and feel of luxury countertops without the usual wear and tear.
           </p>

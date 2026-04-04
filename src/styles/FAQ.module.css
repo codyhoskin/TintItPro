@@ -1,6 +1,7 @@
 .container {
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: var(--glass-border);
+    border-radius: var(--radius-ui);
+    box-shadow: var(--glass-edge-light);
     margin-bottom: 15px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;

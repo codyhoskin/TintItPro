@@ -19,7 +19,7 @@ function ReviewsSkeleton({ height = 600 }: { height?: number }) {
         contain: "layout style paint",
         willChange: "auto"
       }}
-      className="w-full rounded-xl bg-gray-100 dark:bg-slate-800 animate-pulse"
+      className="w-full rounded-none bg-gray-100 dark:bg-slate-800 animate-pulse"
       aria-hidden="true"
     />
   );

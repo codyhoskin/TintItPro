@@ -45,7 +45,7 @@ export default function Landing() {
     </section>
 
     {/* 5️⃣ Benefits strip */}
-    <TitleSection title="Why Choose TintItPro" subtitle="Premium protection for your glass, windows, and natural stone" />
+    <TitleSection title="Why Choose Tint It Pro" subtitle="Premium protection for your glass, windows, and natural stone" />
 
     <InfoCard.Wrapper>
     <InfoCard

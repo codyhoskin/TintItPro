@@ -18,6 +18,7 @@ import { LogoSkeleton } from "./Skeletons";
 
 const Hero = () => {
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [heroVisible, setHeroVisible] = useState(false);
 
@@ -37,6 +38,13 @@ const Hero = () => {
 
     if (node) observer.observe(node);
 
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        // autoplay can fail silently on some browsers
+      });
+    }
+
     return () => {
       clearTimeout(timer);
       if (node) observer.unobserve(node);
@@ -48,16 +56,16 @@ const Hero = () => {
     alignItems: "center",
     gap: "8px",
     padding: "10px 16px",
-    borderRadius: "999px",
-    border: "1px solid rgba(0,0,0,0.08)",
-    background: "rgba(255,255,255,0.04)",
-    boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
-    color: "var(--foreground)",
+    borderRadius: 0,
+    border: "1px solid rgba(255,255,255,0.22)",
+    background: "rgba(255,255,255,0.08)",
+    boxShadow: "0 6px 18px rgba(0,0,0,0.10), var(--glass-edge)",
+    color: "#ffffff",
     fontSize: "14px",
     fontWeight: 600,
     lineHeight: 1.15,
-    backdropFilter: "blur(8px)",
-    WebkitBackdropFilter: "blur(8px)",
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
   };
 
   const checkIconStyle: React.CSSProperties = {
@@ -68,6 +76,21 @@ const Hero = () => {
   return (
     <>
       <section className={styles.hero}>
+        <div className={styles.heroMedia}>
+          <video
+            ref={videoRef}
+            className={styles.heroVideo}
+            src="/video/tintitproHero.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/hero/whiteGranitehero-1200.webp"
+          />
+          <div className={styles.heroOverlay} />
+        </div>
+
         <div className={styles.heroInner}>
           <div
             style={{
@@ -90,13 +113,16 @@ const Hero = () => {
                 gap: "8px",
                 marginLeft: "10px",
                 padding: "4px 4px",
-                borderRadius: "30px",
-                border: "0.5px solid var(--text-muted)",
-                color: "var(--text-muted)",
+                borderRadius: 0,
+                border: "1px solid rgba(255,255,255,0.35)",
+                color: "#ffffff",
                 fontWeight: 600,
                 fontSize: "15px",
                 textDecoration: "none",
-                backgroundColor: "transparent",
+                backgroundColor: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                boxShadow: "var(--glass-edge)",
                 transition: "all 0.25s ease-in-out",
               }}
               onMouseEnter={(e) => {
@@ -105,8 +131,8 @@ const Hero = () => {
                 e.currentTarget.style.transform = "scale(1.03)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-                e.currentTarget.style.color = "var(--text-muted)";
+                e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.color = "#ffffff";
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >
@@ -119,7 +145,7 @@ const Hero = () => {
                   color: "white",
                   fontSize: "12px",
                   fontWeight: 900,
-                  borderRadius: "25px",
+                  borderRadius: 0,
                   gap: "6px",
                 }}
               >
@@ -156,24 +182,25 @@ const Hero = () => {
                 gap: "18px",
                 marginBottom: "18px",
                 maxWidth: "1180px",
+                position: "relative",
               }}
             >
               <h1
                 className={styles.title}
                 style={{
                   textAlign: "left",
-                  fontSize: "clamp(2.6rem, 5.2vw, 5.4rem)",
                   lineHeight: 0.94,
                   letterSpacing: "-0.05em",
                   margin: 0,
-                  color: "var(--foreground)",
+                  color: "#ffffff",
+                  textShadow: "0 10px 30px rgba(0,0,0,0.28)",
                   flex: "1 1 720px",
                 }}
               >
                 <span
                   style={{
                     display: "block",
-                    color: "#3aa0e8",
+                    color: "#7cc9ff",
                     opacity: heroVisible ? 1 : 0,
                     transform: heroVisible
                       ? "translateY(0px)"
@@ -189,7 +216,7 @@ const Hero = () => {
                 <span
                   style={{
                     display: "block",
-                    color: "#42434a",
+                    color: "#ffffff",
                     opacity: heroVisible ? 1 : 0,
                     transform: heroVisible
                       ? "translateY(0px)"
@@ -206,7 +233,7 @@ const Hero = () => {
                 <span
                   style={{
                     display: "block",
-                    color: "#9dbbcd",
+                    color: "#d6e7f3",
                     opacity: heroVisible ? 1 : 0,
                     transform: heroVisible
                       ? "translateY(0px)"
@@ -225,7 +252,7 @@ const Hero = () => {
                 style={{
                   position: "absolute",
                   right: "0px",
-                  top: "120px", // adjust this to align with title
+                  top: "120px",
                   zIndex: 2,
                   opacity: heroVisible ? 1 : 0,
                   transform: heroVisible
@@ -241,14 +268,16 @@ const Hero = () => {
                     alignItems: "center",
                     gap: "6px",
                     padding: "8px 12px",
-                    background: "var(--background)",
-                    color: "var(--secondary)",
+                    background: "rgba(255,255,255,0.12)",
+                    color: "#ffffff",
                     fontSize: "14px",
                     fontWeight: 700,
-                    borderRadius: "12px",
-                    outline: "2px solid var(--secondary)",
+                    borderRadius: 0,
+                    border: "1px solid rgba(255,255,255,0.28)",
                     whiteSpace: "nowrap",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.05)",
+                    boxShadow: "0 6px 18px rgba(0,0,0,0.14), var(--glass-edge)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
                   }}
                 >
                   <MdLocationOn size={18} />

@@ -11,9 +11,11 @@
   flex-direction: row;
   max-width: 850px;
   width: 100%;
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
   border: 1px solid var(--secondary);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    var(--glass-edge);
   overflow: hidden;
   background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary) 50%, var(--secondary) 100%);
   position: relative;
@@ -44,8 +46,10 @@
   padding: 35px 30px;
   background: var(--background);
   backdrop-filter: blur(10px);
-  border-radius: 0 20px 20px 0;
-  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-ui);
+  box-shadow:
+    -8px 0 32px rgba(0, 0, 0, 0.1),
+    var(--glass-edge-light);
   color: var(--foreground) !important;
   z-index: 2;
   display: flex;
@@ -160,7 +164,7 @@
     flex: none;
     width: 100%;
     padding: 25px 20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: var(--radius-ui);
     gap: 20px;
     order: 1;
   }

@@ -3,10 +3,11 @@ import styles from "../styles/LogoCarousel.module.css";
 import TitleSection from "./TitleSection";
 
 const partnerLogos = [
-  "/images/armorcoat-sheild.png",
+  "/images/armorcoat.svg",
   "/images/panorama.webp",
   "/images/solarguard.png",
   "/images/tuffskin-web.png",
+  "/images/certifiedBadge.svg",
 ];
 
 const LogoCarousel = () => {

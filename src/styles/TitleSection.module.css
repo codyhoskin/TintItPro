@@ -32,6 +32,12 @@
     display: inline-block;
     transform-origin: bottom;
   }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 1.65rem;
+    }
+  }
   
   /* Only animate when this class is present */
   .animateWave {

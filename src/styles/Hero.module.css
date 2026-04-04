@@ -1,192 +1,202 @@
 .title {
-  margin-top: 15px;
-  font-size: clamp(4.4rem, 5vw, 4.5rem);
-  padding: 15px 10px;
+  margin-top: 0;
+  font-size: clamp(3.25rem, 4.6vw, 5.4rem);
+  padding: 0;
   font-weight: bold;
-  line-height: 1.2;
-  max-width: 500px;
+  line-height: 0.95;
+  max-width: 720px;
   word-break: break-word;
-  text-align: center; /* optional if you want it centered */
+  text-align: left;
   color: var(--secondary);
 }
 
-  
-  .secondary {
-    color: var(--text-muted); /* your secondary color */
-    font-size: clamp(1.4rem, 4vw, 1.9rem);
-    line-height: 1; /* try 1.1 to 1.4 depending on desired tightness */
-    display: inline-block;
-    padding: 10px;
-  }
-  
-  .checkIcon {
-    color: var(--secondary); /* blue verified check */
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-  
-  .subtitle {
-    max-width: 500px;
-    padding: 10px;
-    font-size: clamp(1.1rem, 2.4vw, 1.1rem);
-    line-height: 1.6;
-    text-align: left;
-  }
-  
-  
+.secondary {
+  color: var(--text-muted);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 1;
+  display: inline-block;
+  padding: 10px;
+}
+
+.checkIcon {
+  color: var(--secondary);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.subtitle {
+  max-width: 500px;
+  padding: 10px 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.1rem);
+  line-height: 1.6;
+  text-align: left;
+}
+
 .ctaButtons {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  padding: 30px 10px;
+  padding: 26px 0 0;
   font-family: var(--font-inter-bold), sans-serif;
 }
 
 @media (max-width: 768px) {
   .ctaButtons {
     flex-direction: column;
-    align-items: center;        /* ✅ centers items */
-    justify-content: center;    /* ✅ centers layout */
-    text-align: center;         /* ✅ centers text inside children */
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
   }
 
   .ctaButtons > * {
-    width: 100%;                /* ✅ ensures full-width buttons inside */
-    max-width: 320px;           /* ✅ keep buttons from stretching too far */
+    width: 100%;
+    max-width: 340px;
   }
 }
 
-
-
-  .primaryButton,
-  .secondaryButton,
-  .ctaButton1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    min-width: 300px;
-    text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  @media (max-width: 768px) {
-  .heroImageWrapper {
-    margin: 0 auto;
-  }
-}
-@media (max-width: 768px) {
-  .hero > div {
-    flex-direction: column !important;
-    align-items: center;
-  }
+.primaryButton,
+.secondaryButton,
+.ctaButton1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-ui);
+  text-decoration: none;
+  font-weight: bold;
+  min-width: 300px;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: var(--glass-border);
 }
 
-
- .primaryButton {
+.primaryButton {
   background-color: var(--secondary);
   color: white;
-  padding: 22px;
-  border-radius: 22px; /* optional for rounded look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle initial shadow */
-  transition: all 0.25s ease;
+  padding: 20px 24px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    var(--glass-edge);
 }
 
 .primaryButton:hover {
   background-color: var(--primary);
   transform: scale(1.05);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); /* deeper shadow on hover */
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.25),
+    var(--glass-edge);
 }
 
-  
-  .animate {
-    animation: wigglePop 1.5s ease-in-out;
-  }
-  
+.animate {
+  animation: wigglePop 1.5s ease-in-out;
+}
 
-  
-  
-  
-  .secondaryButton {
-    background-color: transparent;
-    border: 2px solid var(--text-button);
-    color: var(--text-button);
-    font-family: var(--font-inter-bold), sans-serif;
-    font-weight: bold;
-  }
-  
-  .secondaryButton:hover {
-    background-color: var(--primary);
-    color: white;
-    transform: scale(1.1); /* Increase size */
-  }
+.secondaryButton {
+  background-color: transparent;
+  border: 1px solid var(--text-button);
+  color: var(--text-button);
+  font-family: var(--font-inter-bold), sans-serif;
+  font-weight: bold;
+  box-shadow: var(--glass-edge);
+}
+
+.secondaryButton:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
 
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
   display: flex;
-  justify-content: center;
-  padding: 0 20px;
-  margin-top: 160px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin-top: -40;
+  margin-bottom: 30;
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: scaleX(-1);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 10, 16, 0.72) 0%,
+      rgba(6, 10, 16, 0.5) 32%,
+      rgba(6, 10, 16, 0.2) 58%,
+      rgba(6, 10, 16, 0.32) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
 }
 
 .heroInner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 680px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 150px 24px 56px;
   text-align: left;
-  padding-left: 30px;
-  padding-right: 20px;
 }
 
 @media (min-width: 1024px) {
+  .heroInner {
+    padding: 170px 40px 70px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .heroInner {
+    padding-left: 7vw;
+    padding-right: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
   .hero {
-    justify-content: flex-start;
-    padding-left: 14vw;
-    padding-right: 20px;
+    min-height: 100svh;
+    height: auto;
   }
 
   .heroInner {
-    padding-left: 0px;
-    padding-right: 0;
+    padding: 130px 20px 44px;
+  }
+
+  .title {
+    font-size: clamp(1.95rem, 7.2vw, 3.15rem);
+    max-width: 100%;
+    line-height: 0.96;
   }
 }
-
-
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  margin-top: -170px;
-  z-index: -1;
-
-  background-image: var(--hero-bg);
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-
-  /* Opacity gradient mask from left (transparent) to right (opaque) */
-  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.6) 100%);
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.6) 100%);
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
-
-
-
 
 .locationWrapper {
   width: 100%;
@@ -197,16 +207,17 @@
 
 .locationTag {
   display: inline-flex;
-  align-items: left;
-  justify-content: left;
-  border: 2px solid white;
+  align-items: center;
+  justify-content: center;
+  border: var(--glass-border);
   color: white;
   padding: 6px 15px;
-  border-radius: 20px;
+  border-radius: var(--radius-ui);
   font-weight: bold;
   gap: 6px;
   margin-left: 25px;
   margin-top: 185px;
+  box-shadow: var(--glass-edge);
 }
 
 .ctaButton1 {
@@ -215,18 +226,20 @@
   font-family: var(--font-inter-bold), sans-serif;
   font-weight: bold;
   color: white;
-  border-radius: 8px;
   text-decoration: none;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
   font-size: 16px;
   width: auto;
   min-width: 300px;
   text-align: center;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    var(--glass-edge);
 }
 
 .ctaButton1:hover {
   background-color: var(--text-muted);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 @keyframes wigglePop {
@@ -238,6 +251,7 @@
   85%  { transform: scale(1.05) rotate(0deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
+
 .highlight-link {
   color: var(--secondary);
   font-weight: 600;
@@ -252,3 +266,15 @@
   color: var(--primary);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .heroVideo {
+    animation: none !important;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .ctaButton1,
+  .highlight-link {
+    transition: none !important;
+  }
+}
