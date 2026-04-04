@@ -49,7 +49,7 @@ const WhatsAppButton = () => {
             transition: 'max-width 0.3s ease',
           }}
         >
-          {hovered ? 'Click to text us on WhatsApp!' : 'Have a quick question?'}
+          {hovered ? 'Click to text us on WhatsApp!' : 'Chat with us!'}
         </span>
       </button>
 

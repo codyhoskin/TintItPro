@@ -312,7 +312,7 @@ const Hero = () => {
 
               <span style={benefitPillStyle}>
                 <FaCheckCircle size={14} style={checkIconStyle} />
-                Reduce water spots on shower glass & railings
+                Reduce water spots & buildup
               </span>
 
               <span style={benefitPillStyle}>
