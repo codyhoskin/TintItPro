@@ -23,33 +23,39 @@ const Hero = () => {
   const [heroVisible, setHeroVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setHeroVisible(true), 80);
+    const timer = setTimeout(() => setHeroVisible(true), 80)
 
-    const node = buttonRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          setIsVisible(true)
+          observer.disconnect()
         }
       },
       { threshold: 0.5 }
-    );
+    )
 
-    if (node) observer.observe(node);
+    const node = buttonRef.current
+    if (node) observer.observe(node)
 
-    const video = videoRef.current;
+    const video = videoRef.current
     if (video) {
-      video.play().catch(() => {
-        // autoplay can fail silently on some browsers
-      });
+      video.muted = true
+      video.defaultMuted = true
+      video.playsInline = true
+
+      const tryPlay = () => {
+        video.play().catch(() => {})
+      }
+
+      tryPlay()
     }
 
     return () => {
-      clearTimeout(timer);
-      if (node) observer.unobserve(node);
-    };
-  }, []);
+      clearTimeout(timer)
+      observer.disconnect()
+    }
+  }, [])
 
   const benefitPillStyle: React.CSSProperties = {
     display: "inline-flex",
@@ -80,14 +86,18 @@ const Hero = () => {
           <video
             ref={videoRef}
             className={styles.heroVideo}
-            src="/video/tintitproHero.mp4"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
             poster="/images/websitefallback.png"
-          />
+            onLoadedData={() => {
+              videoRef.current?.play().catch(() => {})
+            }}
+          >
+            <source src="/video/tintitproHero.mp4" type="video/mp4" />
+          </video>
           <div className={styles.heroOverlay} />
         </div>
 
