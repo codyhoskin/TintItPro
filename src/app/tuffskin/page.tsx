@@ -12,49 +12,49 @@ import { useTheme } from "next-themes";
 
 const generalFAQ = [
   {
-    question: "What is TuffSkin?",
+    question: "What is TuffSkin®?",
     answer:
-      "TuffSkin is a proprietary stone laminate made from high-tech polyester that is gas-permeable but liquid-impermeable. Our hard coat technology resists abrasions and provides a long product life. TuffSkin adhesive is explicitly designed to work with stone to be removable and replaceable. In doing so, stone restoration is a thing of the past.",
+      "TuffSkin® is a proprietary stone laminate made from high-tech polyester that is gas-permeable but liquid-impermeable. Our hard coat technology resists abrasions and provides a long product life. TuffSkin® adhesive is explicitly designed to work with stone to be removable and replaceable. In doing so, stone restoration is a thing of the past.",
   },
   {
-    question: "Why TuffSkin?",
+    question: "Why TuffSkin®?",
     answer:
-      "Calcium-based Stones like Marble, Onyx, and Travertines etch and stain very easily, sometimes faster than they can be wiped away. No liquid sealer can prevent this issue. TuffSkin has been providing complete etch and stain protection since 2006.",
+      "Calcium-based Stones like Marble, Onyx, and Travertines etch and stain very easily, sometimes faster than they can be wiped away. No liquid sealer can prevent this issue. TuffSkin® has been providing complete etch and stain protection since 2006.",
   },
   {
-    question: "Will TuffSkin protect my counters from direct heat?",
+    question: "Will TuffSkin® protect my counters from direct heat?",
     answer:
       "Yes, it can take the heat and stay in the kitchen. In the bathroom, blow dryers and curling irons do not affect TS. It can withstand heat up to 204 degrees Celsius/400 degrees Fahrenheit.",
   },
   {
-    question: "How long will my TuffSkin last?",
+    question: "How long will my TuffSkin® last?",
     answer:
-      "Historically, the decision to replace TuffSkin is an aesthetic determination based upon personal preference. Hotels are replaced every 8-10 years, busy restaurants and bars every 1-5 years, and residential customers every 4-8 years. Regardless of when the decision is made to replace TuffSkin, the product's performance will remain acid, alkaline, water, and oil-proof for as long as TuffSkin is protecting the surface.",
+      "Historically, the decision to replace TuffSkin® is an aesthetic determination based upon personal preference. Hotels are replaced every 8-10 years, busy restaurants and bars every 1-5 years, and residential customers every 4-8 years. Regardless of when the decision is made to replace TuffSkin®, the product's performance will remain acid, alkaline, water, and oil-proof for as long as TuffSkin® is protecting the surface.",
   },
   {
-    question: "What finishes are available for TuffSkin?",
+    question: "What finishes are available for TuffSkin®?",
     answer:
       "Satin or Gloss are the two finishes available. Satin is used for a honed finish where Gloss is used for a polished finish.",
   },
   {
-    question: "Does TuffSkin wrap around the edge of the stone?",
+    question: "Does TuffSkin® wrap around the edge of the stone?",
     answer:
-      "No, TuffSkin protects the countertop's surface, slab backsplashes, and waterfall edges, which are the main areas where damage may occur.",
+      "No, TuffSkin® protects the countertop's surface, slab backsplashes, and waterfall edges, which are the main areas where damage may occur.",
   },
   {
-    question: "Does TuffSkin peel?",
+    question: "Does TuffSkin® peel?",
     answer:
-      "TuffSkin never peels on its own, but humans can peel it back with some effort. We have seen this in Bars, especially gaming bars. These types of installations require staff to review them monthly. We see no issues in home or hotel room installations. TuffSkin is a better way to maintain these surfaces.",
+      "TuffSkin® never peels on its own, but humans can peel it back with some effort. We have seen this in Bars, especially gaming bars. These types of installations require staff to review them monthly. We see no issues in home or hotel room installations. TuffSkin® is a better way to maintain these surfaces.",
   },
   {
-    question: "What will my countertops look like with TuffSkin installed?",
+    question: "What will my countertops look like with TuffSkin® installed?",
     answer:
       "Clients often report that their stone looks remarkable with TS’s color-enhancing effect. Satin enhances a honed finish, while gloss enhances a polished finish.",
   },
   {
-    question: "What other surfaces can TuffSkin protect?",
+    question: "What other surfaces can TuffSkin® protect?",
     answer:
-      "Aside from natural stone surfaces, TuffSkin can protect any flat surface needing protection. From engineered stone like quartz, metal, glass, and other flat surfaces.",
+      "Aside from natural stone surfaces, TuffSkin® can protect any flat surface needing protection. From engineered stone like quartz, metal, glass, and other flat surfaces.",
   },
   {
     question: "Care & 10-Year Warranty",
@@ -101,16 +101,16 @@ const imageSrc =
           marginBottom: "50px",
         }}
       >
-        <Image src={imageSrc} alt="TuffSkin Surface Protection" width={300} height={90}   className={styles.themedLogo}/>
+        <Image src={imageSrc} alt="TuffSkin® Surface Protection" width={300} height={90}   className={styles.themedLogo}/>
 
         <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
-          <p style={{ marginBottom: 0, textAlign: "center", color: "var(--quad)" }}>
+          <p style={{ marginBottom: 0, textAlign: "center", color: "black" }}>
             We are a professional certified TuffSkin® installer. <br></br>TuffSkin® provides professional-grade protection for natural stone surfaces, helping prevent etching,
             staining, and damage from heat or moisture. Ideal for kitchens, bathrooms, restaurants, and hotels, it
             maintains the look and feel of luxury countertops without the usual wear and tear.
           </p>
         </div>
-        <Image src="/images/tuffskin-header2.png" alt="TuffSkin Sample" width={700} height={180}     className={styles.roundedImage}/>
+        <Image src="/images/tuffskin-header2.png" alt="TuffSkin® Sample" width={700} height={180}     className={styles.roundedImage}/>
 
         <MovieViewingComponent />
 
@@ -118,7 +118,7 @@ const imageSrc =
           <Image
             key={idx}
             src={src}
-            alt={`TuffSkin Image ${idx}`}
+            alt={`TuffSkin® Image ${idx}`}
             width={600}
             height={400}
             style={{
@@ -200,7 +200,7 @@ const imageSrc =
 
       <Image
         src="/images/tuffskin-info2.png"
-        alt="TuffSkin Info"
+        alt="TuffSkin® Info"
         width={600}
         height={400}
         style={{

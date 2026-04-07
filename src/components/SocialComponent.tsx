@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Script from "next/script";
 import SocialLinks from "./SocialLinks";
 import { motion, useInView } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
@@ -260,6 +261,31 @@ const SocialCard: React.FC<SocialCardProps> = () => {
                 }}
               >
                 <SocialLinks />
+              </div>
+
+              <div
+                style={{
+                  width: "100%",
+                  marginTop: "18px",
+                  padding: "14px",
+                  background: "rgba(255,255,255,0.08)",
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  boxSizing: "border-box",
+                  boxShadow: "var(--glass-edge)",
+                }}
+              >
+                <Script
+                  src="https://elfsightcdn.com/platform.js"
+                  strategy="lazyOnload"
+                />
+                <div
+                  className="elfsight-app-ae477bbe-7b15-477f-8e77-2a3b63606c61"
+                  data-elfsight-app-lazy
+                  style={{
+                    minHeight: "420px",
+                    width: "100%",
+                  }}
+                />
               </div>
             </div>
           </div>

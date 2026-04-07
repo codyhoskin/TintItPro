@@ -311,8 +311,7 @@ const Footer = () => {
 
         <motion.div className={styles.descriptionBlock} {...floatUp}>
           <p className={styles.description}>
-            Authorized TuffSkin® stone sealer and Solar Guard® window film
-            installer serving Calgary.
+            Premium Stone & Glass Protection in Calgary. Authorized TuffSkin® & Solar Gard® Certified Installer.
           </p>
         </motion.div>
 
@@ -337,8 +336,8 @@ const Footer = () => {
         <motion.div className={styles.hoursBlock} {...floatUp}>
           <h3>Hours of Operation</h3>
           <p>Monday - Saturday: 8am - 8pm</p>
-          <p>Sunday: 10am - 7pm</p>
-          <p>Holidays: 10am - 5pm</p>
+          <p>Sunday: 10am - 6pm</p>
+          <p>Holidays: Closed</p>
         </motion.div>
 
         <motion.div className={styles.socialIconsBlock} {...floatUp}>

@@ -19,7 +19,7 @@ const filmTypes = [
   { type: "Exterior", pricePerSqFt: 20 },
   { type: "Exterior Premium", pricePerSqFt: 23 },
   { type: "Decorative", pricePerSqFt: 12 },
-  { type: "Tuffskin", pricePerSqFt: 45 },
+  { type: "TuffSkin®", pricePerSqFt: 45 },
 ];
 
 const equipmentOptions = [

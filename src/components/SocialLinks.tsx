@@ -4,7 +4,7 @@ import {
   FaYoutube,
   FaInstagram,
   FaFacebookF,
-  FaXTwitter,
+  FaTiktok,
 } from "react-icons/fa6";
 import styles from "../styles/SocialLinks.module.css";
 
@@ -14,11 +14,6 @@ interface SocialLinksProps {
 
 const SocialLinks: React.FC<SocialLinksProps> = ({ size = 20 }) => {
   const socialLinks = [
-    {
-      href: "https://www.youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
-      label: "Visit our YouTube channel",
-      icon: <FaYoutube size={size} />,
-    },
     {
       href: "https://instagram.com/tintitpro",
       label: "Visit our Instagram profile",
@@ -30,9 +25,14 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ size = 20 }) => {
       icon: <FaFacebookF size={size} />,
     },
     {
-      href: "https://x.com/tintitpro",
-      label: "Visit our X (Twitter) profile",
-      icon: <FaXTwitter size={size} />,
+      href: "https://www.tiktok.com/@tintitpro?_r=1&_t=ZS-95K6r15WdCK",
+      label: "Visit our TikTok profile",
+      icon: <FaTiktok size={size} />,
+    },
+    {
+      href: "https://www.youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
+      label: "Visit our YouTube channel",
+      icon: <FaYoutube size={size} />,
     },
   ];
 

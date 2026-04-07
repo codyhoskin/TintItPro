@@ -7,7 +7,7 @@ const faqItems = [
   {
     question: "What services do you offer?",
     answer:
-      "We offer professional SolarGard® window tinting and Tuffskin® Surface protection services, decorative film, anti-graffiti films & more..",
+      "We offer professional SolarGard® window tinting and TuffSkin® surface protection services, decorative film, anti-graffiti films & more..",
   },
   {
     question: "Where are you located?",

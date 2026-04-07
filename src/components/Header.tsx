@@ -50,14 +50,14 @@ const Header: React.FC = () => {
           </button>
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Glass Protection</Link>
               <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Window Films</a>
               <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Window Films</a>
-              <a href="/tuffskin" aria-label="Navigate to tuffskin page.">Stone Protection</a>
+              <a href="/tuffskin" aria-label="Navigate to tuffskin page.">Stone Protection (TuffSkin®)</a>
+              <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Glass Protection</Link>
             </div>
           )}
         </div>
-        <Link href="/#estimator" aria-label="Navigate to estimator section.">Online Estimator</Link>
+        <Link href="/#estimator" aria-label="Navigate to estimator section.">Get a Quote</Link>
         <Link href="/#reviews" aria-label="Navigate to reviews section.">Reviews</Link>
         <Link href="/#faq" aria-label="Navigate to FAQ section.">FAQ</Link>
       </nav>
@@ -118,11 +118,11 @@ const Header: React.FC = () => {
               Services <span style={{ fontSize: "0.75rem", marginLeft: "6px" }}>▼</span>
             </button>
             {mobileDropdownOpen && (
-              <div className={styles.dropdownMenu}>
-                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Glass Protection</Link>
+              <div className={`${styles.dropdownMenu} ${styles.mobileDropdownMenu}`}>
                 <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Window Films</a>
                 <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Window Films</a>
-                <a href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Stone Protection</a>
+                <a href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Stone Protection (TuffSkin®)</a>
+                <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Glass Protection</Link>
               </div>
             )}
           </div>

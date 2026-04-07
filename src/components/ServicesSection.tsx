@@ -24,9 +24,9 @@ const serviceCards = [
     category: "Preserve your glass",
     categoryIcon: <FaShieldAlt />,
     bullets: [
-      "No more water spots",
-      "Less maintenance",
-      "Crystal clear glass",
+      "Easier to keep spot-free",
+      "Less maintenance required",
+      "Protects against buildup",
       "Resists stains & soap scum",
     ],
     link: "/tuffskin",

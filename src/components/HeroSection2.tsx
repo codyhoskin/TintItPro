@@ -89,7 +89,7 @@ const Hero = () => {
             </span>
             <span style={{ color: "var(--secondary)" }}>®</span> Window Films & {" "}
             <span style={{ color: "var(--secondary)", fontWeight: "bold", textDecoration: "underline", textUnderlineOffset: "4px" }}>
-              <Link href="https://www.tuffskin.com/">Tuffskin</Link>
+              <Link href="https://www.tuffskin.com/">TuffSkin®</Link>
             </span>
             <span style={{ color: "var(--secondary)" }}>®</span> Surface Protection.
           </p>

@@ -16,7 +16,7 @@ const MovieViewingComponent: React.FC = () => {
 
   return (
     <section
-      aria-labelledby="Tuffskin Surface Protection"
+      aria-labelledby="TuffSkin® Surface Protection"
       style={{
         width: "100%",
         backgroundColor: "var(--background)",
