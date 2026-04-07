@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useEffect, useState, Suspense } from "react";
+import Script from "next/script";
 import styles from "../styles/Hero.module.css";
 import Link from "next/link";
-import GoogleReviews from "../components/GoogleReviews";
 import {
   FaCalculator,
   FaClipboard,
@@ -346,7 +346,23 @@ const Hero = () => {
             </a>
 
             <div style={{ display: "flex", alignItems: "center" }}>
-              <GoogleReviews />
+              <div
+                style={{
+                  minWidth: "min(100%, 360px)",
+                  maxWidth: "360px",
+                  width: "100%",
+                  padding: "8px 0",
+                }}
+              >
+                <Script
+                  src="https://elfsightcdn.com/platform.js"
+                  strategy="lazyOnload"
+                />
+                <div
+                  className="elfsight-app-a323dd43-baad-4d36-8732-f2b41adf9351"
+                  data-elfsight-app-lazy
+                />
+              </div>
             </div>
           </div>
         </div>
