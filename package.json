@@ -36,5 +36,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "typescript": "^5"
+  },
+  "overrides": {
+    "vite": "7.3.2"
   }
 }

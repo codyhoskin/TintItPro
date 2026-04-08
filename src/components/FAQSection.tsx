@@ -7,7 +7,7 @@ const faqItems = [
   {
     question: "What services do you offer?",
     answer:
-      "We offer professional SolarGard® window tinting and TuffSkin® surface protection services, decorative film, anti-graffiti films & more..",
+      "We offer professional SolarGard® window tinting and Tuffskin® Surface protection services, decorative film, anti-graffiti films & more..",
   },
   {
     question: "Where are you located?",
@@ -16,7 +16,7 @@ const faqItems = [
   {
     question: "Which window film manufacturer do you use?",
     answer:
-      "Our customers deserve the absolute best, so we use Solar Guard Films by Saint-Gobain, backed by an eight-year warranty. Solar Guard is a global leader in patent-protected film technologies for solar control and surface protection across the residential and commercial industries as the Specialty Films Division of the worldwide glass and building technology icon Saint-Gobain. Solar Guard builds upon decades of work to offer proprietary solar control and safety film solutions. The company’s product portfolio delivers unmatched results in enhancing and protecting homes, buildings, and, most importantly, the residents and tenants inside.",
+      "Our customers deserve the absolute best, so we use Solar Gard® Films by Saint-Gobain, backed by an eight-year warranty. Solar Gard® is a global leader in patent-protected film technologies for solar control and surface protection across the residential and commercial industries as the Specialty Films Division of the worldwide glass and building technology icon Saint-Gobain. Solar Gard® builds upon decades of work to offer proprietary solar control and safety film solutions. The company’s product portfolio delivers unmatched results in enhancing and protecting homes, buildings, and, most importantly, the residents and tenants inside.",
   },
   {
     question: "What is the cost for an estimate?",
