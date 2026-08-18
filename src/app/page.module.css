@@ -122,7 +122,7 @@
 
 .question {
   align-self: flex-end;
-  background-color: var(--primary, #2563eb);
+  background-color: var(--primary, #0042dd);
   color: white;
 }
 
@@ -188,7 +188,7 @@
 }
 
 .question {
-  background-color: var(--primary, #2563eb);
+  background-color: var(--primary, #0042dd);
   color: white;
   cursor: pointer;
 }
@@ -202,7 +202,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--primary, #2563eb);
+  background: var(--primary, #0042dd);
   color: white;
   display: flex;
   align-items: center;

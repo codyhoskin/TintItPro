@@ -110,7 +110,7 @@
 }
 
 .nav a:hover {
-  color: #2cc0ff;
+  color: #0042dd;
 }
 
 .desktopActions {
@@ -142,7 +142,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #2cc0ff;
+  background-color: #0042dd;
 }
 
 .ctaButton1 {
@@ -427,7 +427,7 @@
 }
 
 .dropdownTrigger:hover {
-  color: #2cc0ff;
+  color: #0042dd;
 }
 
 .dropdownMenu {
@@ -485,7 +485,7 @@
 }
 
 .dropdownMenu a:hover {
-  color: #2cc0ff;
+  color: #0042dd;
 }
 
 @media (max-width: 1000px) {

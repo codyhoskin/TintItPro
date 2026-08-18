@@ -1,0 +1,210 @@
+.infoWrapper {
+  position: relative;
+  z-index: 20;
+  text-align: left;
+}
+
+.infoButton {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 14%, transparent);
+  border-radius: 999px;
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 5%, var(--background));
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.infoButton:hover,
+.infoButton[aria-expanded="true"] {
+  border-color: #0042dd;
+  color: #ffffff;
+  background: #0042dd;
+}
+
+.infoButton svg {
+  font-size: 0.9rem;
+}
+
+.infoPanel {
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  right: max(20px, calc((100vw - 1120px) / 2 + 20px));
+  width: min(430px, 82vw);
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 3px solid #0042dd;
+  border-radius: 16px;
+  color: #ffffff;
+  background: #121212;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(calc(-50% + 10px));
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  pointer-events: none;
+}
+
+.infoPanelOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.panelHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.panelHeading span {
+  color: #9eb6ff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.panelHeading strong {
+  color: #ffffff;
+  font-size: 0.88rem;
+}
+
+.stepList {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.stepList li {
+  display: grid;
+  grid-template-columns: 28px 1fr 14px;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  background: #181818;
+}
+
+.stepList li > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  color: #ffffff;
+  background: #0042dd;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.stepList p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.stepList svg {
+  color: #ffffff;
+  font-size: 0.65rem;
+}
+
+.infoNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-left: 3px solid #0042dd;
+  background: rgba(0, 66, 221, 0.12);
+}
+
+.infoNote strong {
+  flex: 0 0 auto;
+  color: #ffffff;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.infoNote p,
+.disclaimer {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.66rem;
+  line-height: 1.4;
+}
+
+.disclaimer {
+  margin-top: 9px;
+  padding: 0 2px;
+}
+
+@media (max-width: 700px) {
+  .infoWrapper {
+    align-self: flex-start;
+  }
+
+  .infoPanel {
+    right: 20px;
+    left: 20px;
+    width: min(430px, calc(100vw - 54px));
+    margin: auto;
+    padding: 13px;
+  }
+
+  .panelHeading {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .infoButton {
+    min-height: 32px;
+    gap: 6px;
+    padding: 0 9px;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  .infoButton svg {
+    font-size: 0.78rem;
+  }
+
+  .infoPanel {
+    width: auto;
+  }
+
+  .panelHeading span {
+    display: none;
+  }
+
+  .infoNote {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infoButton,
+  .infoPanel {
+    transition: none;
+  }
+}

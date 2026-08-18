@@ -14,7 +14,7 @@ interface StreamBackgroundProps {
 const StreamBackground: React.FC<StreamBackgroundProps> = ({
   position,
   height = "800px",
-  color = "#27A7E0",
+  color = "#0042DD",
   variant = "default",
   duration = "10s",
 }) => {

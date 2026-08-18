@@ -191,7 +191,7 @@
     text-align: center;
     margin-top: 20;
   }
-  
+
   /* Each block styling */
   .logoBlock,
   .descriptionBlock,
@@ -204,7 +204,7 @@
     align-items: center;
     gap: 10px;
   }
-  
+
   .logo img {
     width: auto;
     height: 200px;
@@ -213,80 +213,80 @@
     transition: filter 0.3s ease;
     padding: 1px;
   }
-  
+
   /* Dark Mode */
   .dark .logo img {
     filter: invert(100%); /* White logo in dark mode */
   }
-  
-  
+
+
   .description {
     max-width: 350px;
     font-size: 14px;
     line-height: 1.6;
     padding: 10px;min-width: 200px;
   }
-  
-  
+
+
   .socialIcons {
     display: flex;
     gap: 25px;
   }
-  
+
   .socialIcons a {
     color: var(--foreground);
     font-size: 30px;
     transition: color 0.3s ease-in-out;
   }
-  
+
   .socialIcons a:hover {
     color: var(--primary);
   }
-  
+
   .hoursBlock p {
     margin: 0;
     font-size: 14px;
     min-width: 200px;
   }
-  
+
   .mapBlock iframe {
     border-radius: var(--radius-ui);
     width: 320px;
     height: 190px;
 
   }
-  
+
   /* Bottom Footer */
   .bottomFooter {
-    background-color: #E3000A;
+    background-color: #121212;
     color: var(--foreground);
     text-align: center;
     padding: 12px 10px;
   }
-  
+
   .bottomLinks {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 10px;
   }
-  
+
   .bottomLinks a {
     color: white;
     font-size: 12px;
     text-decoration: none;
   }
-  
+
   .bottomLinks a:hover {
     font-weight: bold;
     font-size: 14px;
   }
-  
+
   .copyText {
     font-size: 12px;
     color: white;
   }
-  
+
   .locationRow {
     display: flex;
     align-items: center;
@@ -294,7 +294,7 @@
     justify-content: center;
     color: var(--secondary); /* center in mobile, adjust if needed for desktop */
   }
-  
+
   .locationIcon {
     font-size: 20px;
     color: var(--secondary); /* Match your brand color */
@@ -305,7 +305,7 @@
     font-weight: 700;
     color: var(--foreground);
   }
-  
+
 
   /* Desktop Layout */
   @media (min-width: 768px) {
@@ -345,7 +345,7 @@
       text-align: left;
       gap: 30px;
     }
-  
+
     .logoBlock,
     .descriptionBlock,
     .mapBlock,
@@ -353,10 +353,9 @@
     .socialIconsBlock {
       align-items: flex-start;
     }
-  
+
     .mapBlock iframe {
       width: 200px;
       height: 150px;
     }
   }
-  

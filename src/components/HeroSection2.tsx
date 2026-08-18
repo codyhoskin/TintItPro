@@ -110,7 +110,7 @@ const Hero = () => {
             <Link
               href="/#estimator"
               className={styles.ctaButton1}
-              aria-label="Get your free quote today"
+              aria-label="Get your quote today"
             >
               <FaCalculator style={{ marginRight: "8px" }} />
               Get an Instant Estimation!

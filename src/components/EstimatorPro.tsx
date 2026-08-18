@@ -1,16 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import InfoTooltip from "./InfoTool";
-import styles from "../styles/EstimatorPro.module.css";
 import {
-  FaRegEdit,
-  FaCalculator,
-  FaRegCheckCircle,
-  FaArrowRight,
+  FaArrowsAltH,
+  FaArrowsAltV,
+  FaCheck,
+  FaChevronLeft,
+  FaChevronRight,
   FaClipboardCheck,
+  FaFilm,
+  FaLayerGroup,
+  FaPlus,
+  FaRegWindowMaximize,
+  FaRulerCombined,
+  FaThLarge,
+  FaTools,
+  FaTrashAlt,
 } from "react-icons/fa";
+import styles from "../styles/EstimatorPro.module.css";
 
 const filmTypes = [
   { type: "None", pricePerSqFt: 0 },
@@ -23,326 +32,519 @@ const filmTypes = [
 ];
 
 const equipmentOptions = [
-  { type: "None", price: 0 },
-  { type: "Ladder", price: 150 },
-  { type: "Scaffold", price: 450 },
-  { type: "Lift", price: 1000 },
+  { type: "None", price: 0, detail: "Standard ground-level access" },
+  { type: "Ladder", price: 150, detail: "For elevated residential access" },
+  { type: "Scaffold", price: 450, detail: "For larger or extended-height areas" },
+  { type: "Lift", price: 1000, detail: "For high or restricted-access projects" },
 ];
 
-interface WindowData {
-  numWindows: number | "";
+const steps = [
+  { label: "Project", icon: FaLayerGroup },
+  { label: "Review", icon: FaClipboardCheck },
+];
+
+type SurfaceType = "Window" | "Countertop";
+
+interface SurfaceData {
+  surface: SurfaceType;
+  quantity: number;
   length: number | "";
   width: number | "";
   film: { type: string; pricePerSqFt: number };
 }
 
+const createSurface = (surface: SurfaceType): SurfaceData => ({
+  surface,
+  quantity: 1,
+  length: "",
+  width: "",
+  film: filmTypes[0],
+});
+
+const formatCurrency = (value: number) =>
+  new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency: "CAD",
+    minimumFractionDigits: 2,
+  }).format(value);
+
 const EstimatorPro: React.FC = () => {
-  const [windowData, setWindowData] = useState<WindowData[]>([
-    { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
-    { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
-    { numWindows: 0, length: 0, width: 0, film: filmTypes[0] },
+  const [activeStep, setActiveStep] = useState(0);
+  const [furthestStep, setFurthestStep] = useState(0);
+  const [surfaceData, setSurfaceData] = useState<SurfaceData[]>([
+    createSurface("Window"),
   ]);
+  const [selectedEquipment, setSelectedEquipment] = useState(
+    equipmentOptions[0]
+  );
+  const [validationMessage, setValidationMessage] = useState("");
 
-  const [selectedEquipment, setSelectedEquipment] = useState(equipmentOptions[0]);
+  const totalSurfaces = surfaceData.reduce((total, item) => total + item.quantity, 0);
 
-  const handleInputChange = (
+  const addSurfaceGroup = (surface: SurfaceType) => {
+    if (totalSurfaces >= 20) {
+      setValidationMessage("Please limit this preliminary estimate to 20 surfaces.");
+      return;
+    }
+
+    setValidationMessage("");
+    setSurfaceData((current) => [...current, createSurface(surface)]);
+  };
+
+  const removeSurfaceGroup = (index: number) => {
+    setSurfaceData((current) => current.filter((_, itemIndex) => itemIndex !== index));
+    setValidationMessage("");
+  };
+
+  const updateSurfaceQuantity = (index: number, value: number) => {
+    const currentQuantity = surfaceData[index]?.quantity ?? 0;
+    const maxForGroup = Math.max(1, 20 - (totalSurfaces - currentQuantity));
+    const nextQuantity = Math.max(1, Math.min(maxForGroup, Math.floor(value || 1)));
+
+    if (value > maxForGroup) {
+      setValidationMessage("Please limit this preliminary estimate to 20 surfaces.");
+    } else {
+      setValidationMessage("");
+    }
+
+    setSurfaceData((current) =>
+      current.map((item, itemIndex) =>
+        itemIndex === index ? { ...item, quantity: nextQuantity } : item
+      )
+    );
+  };
+
+  const updateSurface = (
     index: number,
-    field: keyof WindowData,
+    field: "length" | "width" | "film",
     value: string
   ) => {
-    const updated = [...windowData];
-    if (field === "film") {
-      updated[index][field] = filmTypes.find((f) => f.type === value)!;
-    } else {
-      updated[index][field] = value === "" ? "" : parseInt(value);
+    setSurfaceData((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+
+        if (field === "film") {
+          return {
+            ...item,
+            film: filmTypes.find((film) => film.type === value) ?? filmTypes[0],
+          };
+        }
+
+        const numericValue = value === "" ? "" : Number(value);
+        return { ...item, [field]: numericValue };
+      })
+    );
+    setValidationMessage("");
+  };
+
+  const estimatedCost = useMemo(() => {
+    const surfaceCost = surfaceData.reduce((total, item) => {
+      const length = item.length === "" ? 0 : item.length;
+      const width = item.width === "" ? 0 : item.width;
+      const areaSqFt = (length * width) / 144;
+      return total + areaSqFt * item.film.pricePerSqFt * item.quantity;
+    }, 0);
+
+    return Math.max(349, surfaceCost + selectedEquipment.price);
+  }, [surfaceData, selectedEquipment]);
+
+  const validateCurrentStep = () => {
+    if (activeStep === 0 && (surfaceData.length === 0 || totalSurfaces === 0)) {
+      setValidationMessage("Add at least one window or countertop to continue.");
+      return false;
     }
-    setWindowData(updated);
+
+    const missingMeasurement = surfaceData.findIndex(
+      (item) =>
+        item.length === "" ||
+        item.width === "" ||
+        item.length <= 0 ||
+        item.width <= 0
+    );
+
+    if (activeStep === 0 && missingMeasurement !== -1) {
+      setValidationMessage("Set width and height for every size card.");
+      return false;
+    }
+
+    const missingFilm = surfaceData.findIndex((item) => item.film.type === "None");
+
+    if (activeStep === 0 && missingFilm !== -1) {
+      setValidationMessage("Choose a film for every size card.");
+      return false;
+    }
+
+    setValidationMessage("");
+    return true;
   };
 
-  const sanitizeData = () => {
-    return windowData.map((row) => ({
-      numWindows: row.numWindows === "" ? 1 : row.numWindows,
-      length: row.length === "" ? 0 : row.length,
-      width: row.width === "" ? 0 : row.width,
-      film: row.film,
-    }));
+  const goToNextStep = () => {
+    if (!validateCurrentStep()) return;
+    const nextStep = Math.min(activeStep + 1, steps.length - 1);
+    setActiveStep(nextStep);
+    setFurthestStep((current) => Math.max(current, nextStep));
   };
 
-  const totalCost = Math.max(
-    349,
-    sanitizeData().reduce((acc, row) => {
-      const areaSqInches = row.length * row.width;
-      const areaSqFeet = areaSqInches / 144;
-      return acc + areaSqFeet * row.numWindows * row.film.pricePerSqFt;
-    }, 0) + selectedEquipment.price
-  ).toFixed(2);
+  const goToPreviousStep = () => {
+    setValidationMessage("");
+    setActiveStep((current) => Math.max(0, current - 1));
+  };
+
+  const goToCompletedStep = (index: number) => {
+    if (index > furthestStep) return;
+    setValidationMessage("");
+    setActiveStep(index);
+  };
 
   return (
-    <>
-      <div className={styles.estimatorWrapper}>
-        <div className={styles.fadeIn}>
-          <section className={styles.section}>
+    <section className={styles.estimatorSection} aria-labelledby="estimator-title">
+      <div className={styles.estimatorShell}>
+        <header className={styles.estimatorHeader}>
+          <div>
+            <span className={styles.eyebrow}>Instant estimate</span>
+            <h2 id="estimator-title">Estimator Pro</h2>
+            <p>Two quick sections. A clear starting price.</p>
+          </div>
+          <div className={styles.headerMeta}>
             <InfoTooltip />
-
-            <Image
-              src="/images/estimatorpro2.png"
-              alt="Window Tinting Estimator Pro Application"
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              className={styles.bgImage}
-            />
-
-            <div className={styles.formWrapper}>
-              <h2 className={styles.totalHeading}>Estimated Cost: ${totalCost}</h2>
-
-              {windowData.map((row, index) => (
-                <div key={index} className={styles.row}>
-                  <label htmlFor={`numWindows-${index}`} className={styles.srOnly}>
-                    Number of Windows
-                  </label>
-                  <input
-                    id={`numWindows-${index}`}
-                    type="number"
-                    min={1}
-                    value={row.numWindows}
-                    onChange={(e) =>
-                      handleInputChange(index, "numWindows", e.target.value)
-                    }
-                    onBlur={(e) => {
-                      if (e.target.value === "") {
-                        handleInputChange(index, "numWindows", "1");
-                      }
-                    }}
-                    className={`${styles.input} ${styles.smallInput}`}
-                  />
-
-                  <label htmlFor={`length-${index}`} className={styles.srOnly}>
-                    Length in inches
-                  </label>
-                  <input
-                    id={`length-${index}`}
-                    type="number"
-                    value={row.length}
-                    onChange={(e) =>
-                      handleInputChange(index, "length", e.target.value)
-                    }
-                    onBlur={(e) => {
-                      if (e.target.value === "") {
-                        handleInputChange(index, "length", "0");
-                      }
-                    }}
-                    className={styles.input}
-                  />
-
-                  <label htmlFor={`width-${index}`} className={styles.srOnly}>
-                    Width in inches
-                  </label>
-                  <input
-                    id={`width-${index}`}
-                    type="number"
-                    value={row.width}
-                    onChange={(e) =>
-                      handleInputChange(index, "width", e.target.value)
-                    }
-                    onBlur={(e) => {
-                      if (e.target.value === "") {
-                        handleInputChange(index, "width", "0");
-                      }
-                    }}
-                    className={styles.input}
-                  />
-
-                  <label htmlFor={`film-${index}`} className={styles.srOnly}>
-                    Film Type
-                  </label>
-                  <select
-                    id={`film-${index}`}
-                    value={row.film.type}
-                    onChange={(e) =>
-                      handleInputChange(index, "film", e.target.value)
-                    }
-                    className={`${styles.select} ${styles.filmSelect}`}
-                  >
-                    {filmTypes.map((f) => (
-                      <option key={f.type} value={f.type}>
-                        {f.type}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-
-              <div className={styles.equipmentWrapper}>
-                <label htmlFor="equipment" className={styles.srOnly}>
-                  Equipment
-                </label>
-                <select
-                  id="equipment"
-                  value={selectedEquipment.type}
-                  onChange={(e) =>
-                    setSelectedEquipment(
-                      equipmentOptions.find((eq) => eq.type === e.target.value)!
-                    )
-                  }
-                  className={styles.equipmentSelect}
-                >
-                  {equipmentOptions.map((eq) => (
-                    <option key={eq.type} value={eq.type}>
-                      {eq.type}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      <div className={styles.bentoContainer}>
-        <div className={styles.bentoHeader}>
-          <h2 className={styles.bentoTitle}>How Estimator Pro Works</h2>
-          <p className={styles.bentoSubtitle}>
-            Get your instant quote in three simple steps
-          </p>
-        </div>
-
-        <div className={styles.bentoGrid}>
-          <div className={styles.bentoCard}>
-            <div className={styles.bentoIcon}>
-              <FaRegEdit />
-            </div>
-            <div className={styles.bentoContent}>
-              <h3 className={styles.bentoCardTitle}>Enter Measurements</h3>
-              <p className={styles.bentoCardText}>
-                Add each window or countertop individually.
-              </p>
-            </div>
-            <div className={styles.bentoNumber}>1</div>
           </div>
+        </header>
 
-          <div className={styles.bentoArrow}>
-            <FaArrowRight />
-          </div>
+        <nav className={styles.progressNav} aria-label="Estimate progress">
+          {steps.map((step, index) => {
+            const isActive = activeStep === index;
+            const isComplete = index < activeStep || index < furthestStep;
+            const isAccessible = index <= furthestStep;
+            const StepIcon = step.icon;
 
-          <div className={styles.bentoCard}>
-            <div className={styles.bentoIcon}>
-              <FaCalculator />
-            </div>
-            <div className={styles.bentoContent}>
-              <h3 className={styles.bentoCardTitle}>Choose Your Options</h3>
-              <p className={styles.bentoCardText}>
-                Select your file type and installation needs.
-              </p>
-            </div>
-            <div className={styles.bentoNumber}>2</div>
-          </div>
-
-          <div className={styles.bentoArrow}>
-            <FaArrowRight />
-          </div>
-
-          <div className={styles.bentoCard}>
-            <div className={styles.bentoIcon}>
-              <FaRegCheckCircle />
-            </div>
-            <div className={styles.bentoContent}>
-              <h3 className={styles.bentoCardTitle}>Get Your Price Range</h3>
-              <p className={styles.bentoCardText}>
-                Instant estimate based on your input.
-              </p>
-            </div>
-            <div className={styles.bentoNumber}>3</div>
-          </div>
-        </div>
-
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "80px",
-            padding: "0 20px",
-          }}
-        >
-          <a
-            href="https://tintitpro.setmore.com/"
-            aria-label="Request a consultation with Estimator Pro"
-            style={{
-              display: "inline-flex",
-              justifyContent: "center",
-              alignItems: "center",
-              textDecoration: "none",
-              width: "100%",
-              maxWidth: "520px",
-            }}
-          >
-            <div
-              className={styles.wigglePop}
-              style={{
-                width: "100%",
-                filter: "drop-shadow(0 12px 20px rgba(227, 0, 10, 0.16))",
-              }}
-            >
-              <svg
-                viewBox="0 0 900 260"
-                width="100%"
-                height="auto"
-                role="img"
-                aria-label="Request Consultation"
-                style={{
-                  overflow: "visible",
-                  display: "block",
-                }}
+            return (
+              <button
+                type="button"
+                key={step.label}
+                onClick={() => goToCompletedStep(index)}
+                className={`${styles.progressStep} ${
+                  isActive ? styles.progressStepActive : ""
+                } ${isComplete ? styles.progressStepComplete : ""}`}
+                disabled={!isAccessible}
+                aria-current={isActive ? "step" : undefined}
               >
-                <g transform="translate(24,24) skewX(-8)">
-                  <rect
-                    x="0"
-                    y="0"
-                    width="820"
-                    height="200"
-                    rx="4"
-                    fill="#ffffff"
-                    stroke="var(--primary)"
-                    strokeWidth="12"
-                  />
-                </g>
+                <span className={styles.stepNumber}>
+                  {isComplete && !isActive ? <FaCheck /> : <StepIcon />}
+                </span>
+                <strong>{step.label}</strong>
+              </button>
+            );
+          })}
+        </nav>
 
-                <circle cx="170" cy="125" r="42" fill="var(--primary)" />
+        <div className={styles.estimatorBody}>
+          <div className={styles.stagePanel}>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeStep}
+                initial={{ opacity: 0, x: 28 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.28, ease: "easeOut" }}
+                className={styles.stageContent}
+              >
+                {activeStep === 0 && (
+                  <div>
+                    <div className={styles.stageHeading}>
+                      <span>Section 1 of 2</span>
+                      <h3>Build your project</h3>
+                      <p>Group matching surfaces, then choose their size and film.</p>
+                    </div>
 
-                <foreignObject x="145" y="98" width="54" height="54">
-                  <div
-                    style={{
-                      width: "54px",
-                      height: "54px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontSize: "40px",
-                    }}
-                  >
-                    <FaClipboardCheck />
+                    <div className={styles.surfaceSetupGrid}>
+                      {surfaceData.map((item, index) => (
+                        <SurfaceSetupCard
+                          key={`${item.surface}-${index}`}
+                          item={item}
+                          index={index}
+                          onQuantityChange={(value) =>
+                            updateSurfaceQuantity(index, value)
+                          }
+                          onMeasurementChange={(field, value) =>
+                            updateSurface(index, field, value)
+                          }
+                          onFilmChange={(value) => updateSurface(index, "film", value)}
+                          onRemove={() => removeSurfaceGroup(index)}
+                        />
+                      ))}
+                    </div>
+
+                    <div className={styles.addSurfaceRow}>
+                      <button type="button" onClick={() => addSurfaceGroup("Window")}>
+                        <FaPlus /> Windows
+                      </button>
+                      <button type="button" onClick={() => addSurfaceGroup("Countertop")}>
+                        <FaPlus /> Counters
+                      </button>
+                      <span>
+                        <strong>{totalSurfaces}</strong> total
+                      </span>
+                    </div>
                   </div>
-                </foreignObject>
+                )}
 
-                <text
-                  x="250"
-                  y="138"
-                  fill="var(--primary)"
-                  fontSize="44"
-                  fontWeight="1000"
-                  fontFamily="Arial, Helvetica, sans-serif"
-                  letterSpacing="0.3"
+                {activeStep === 1 && (
+                  <div>
+                    <div className={styles.stageHeading}>
+                      <span>Section 2 of 2</span>
+                      <h3>Final check</h3>
+                      <p>Are your windows within reach?</p>
+                    </div>
+
+                    <fieldset className={styles.equipmentFieldset}>
+                      <legend><FaTools /> Access</legend>
+                      <div className={styles.equipmentGrid}>
+                        {equipmentOptions.map((equipment) => {
+                          const isSelected = selectedEquipment.type === equipment.type;
+                          return (
+                            <label
+                              className={`${styles.equipmentCard} ${
+                                isSelected ? styles.equipmentCardSelected : ""
+                              }`}
+                              key={equipment.type}
+                            >
+                              <input
+                                type="radio"
+                                name="equipment"
+                                value={equipment.type}
+                                checked={isSelected}
+                                onChange={() => setSelectedEquipment(equipment)}
+                              />
+                              <span className={styles.equipmentCheck}>
+                                {isSelected && <FaCheck />}
+                              </span>
+                              <strong>{equipment.type}</strong>
+                              <b>{equipment.price ? `+${formatCurrency(equipment.price)}` : "Included"}</b>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </fieldset>
+
+                    <div className={styles.reviewBlock}>
+                      <div><span>Surfaces</span><strong>{totalSurfaces}</strong></div>
+                      <div>
+                        <span>Film selected</span>
+                        <strong>
+                          {surfaceData.reduce(
+                            (total, item) =>
+                              total + (item.film.type !== "None" ? item.quantity : 0),
+                            0
+                          )}
+                        </strong>
+                      </div>
+                      <div><span>Access</span><strong>{selectedEquipment.type}</strong></div>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {validationMessage && (
+              <p className={styles.validationMessage} role="alert">
+                {validationMessage}
+              </p>
+            )}
+
+            <div className={styles.stageActions}>
+              {activeStep > 0 ? (
+                <button type="button" className={styles.secondaryButton} onClick={goToPreviousStep}>
+                  <FaChevronLeft /> Back
+                </button>
+              ) : (
+                <span />
+              )}
+
+              {activeStep < steps.length - 1 ? (
+                <button type="button" className={styles.primaryButton} onClick={goToNextStep}>
+                  Continue <FaChevronRight />
+                </button>
+              ) : (
+                <a
+                  href="https://tintitpro.setmore.com/"
+                  className={styles.primaryButton}
+                  aria-label="Request a consultation for this estimate"
                 >
-                  Request Consultation
-                </text>
-              </svg>
+                  Book consult <FaClipboardCheck />
+                </a>
+              )}
             </div>
-          </a>
+          </div>
+
+          <aside className={styles.estimatePanel} aria-live="polite">
+            <div className={styles.estimatePanelTop}>
+              <span>Estimate</span>
+              <FaRulerCombined />
+            </div>
+            <strong className={styles.estimateTotal}>{formatCurrency(estimatedCost)}</strong>
+            <p>CAD · preliminary</p>
+
+            <dl className={styles.projectFacts}>
+              <div>
+                <dt>Surfaces</dt>
+                <dd>{totalSurfaces}</dd>
+              </div>
+              <div>
+                <dt>Films</dt>
+                <dd>
+                  {surfaceData.reduce(
+                    (total, item) =>
+                      total + (item.film.type !== "None" ? item.quantity : 0),
+                    0
+                  )}
+                </dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>{selectedEquipment.type}</dd>
+              </div>
+            </dl>
+
+            <div className={styles.estimateNote}>
+              <FaTools />
+              <p>Final pricing is confirmed after consultation.</p>
+            </div>
+          </aside>
         </div>
       </div>
-    </>
+    </section>
   );
 };
+
+interface SurfaceSetupCardProps {
+  item: SurfaceData;
+  index: number;
+  onQuantityChange: (value: number) => void;
+  onMeasurementChange: (field: "length" | "width", value: string) => void;
+  onFilmChange: (value: string) => void;
+  onRemove: () => void;
+}
+
+const SurfaceSetupCard = ({
+  item,
+  index,
+  onQuantityChange,
+  onMeasurementChange,
+  onFilmChange,
+  onRemove,
+}: SurfaceSetupCardProps) => (
+  <article className={styles.surfaceSetupCard}>
+    <header className={styles.surfaceSetupHeader}>
+      <span className={styles.quantityIcon}>
+        {item.surface === "Window" ? <FaRegWindowMaximize /> : <FaThLarge />}
+      </span>
+      <div>
+        <strong>{item.surface === "Window" ? "Windows" : "Counters"}</strong>
+        <small>
+          {item.quantity} {item.surface.toLowerCase()}
+          {item.quantity === 1 ? "" : "s"}
+        </small>
+      </div>
+      <button type="button" onClick={onRemove} aria-label={`Remove ${item.surface} card`}>
+        <FaTrashAlt />
+      </button>
+    </header>
+
+    <div className={styles.batchQuantity}>
+      <span>Quantity</span>
+      <div className={styles.counterControl}>
+        <button
+          type="button"
+          onClick={() => onQuantityChange(item.quantity - 1)}
+          aria-label={`Reduce ${item.surface} quantity`}
+        >
+          −
+        </button>
+        <input
+          type="number"
+          min="1"
+          max="20"
+          value={item.quantity}
+          onChange={(event) => onQuantityChange(Number(event.target.value))}
+          aria-label={`${item.surface} quantity for this size`}
+        />
+        <button
+          type="button"
+          onClick={() => onQuantityChange(item.quantity + 1)}
+          aria-label={`Increase ${item.surface} quantity`}
+        >
+          +
+        </button>
+      </div>
+    </div>
+
+    <div className={styles.measurementGrid}>
+      <MeasurementInput
+        id={`length-${index}`}
+        icon={<FaArrowsAltH />}
+        label="Width"
+        value={item.length}
+        onChange={(value) => onMeasurementChange("length", value)}
+      />
+      <MeasurementInput
+        id={`width-${index}`}
+        icon={<FaArrowsAltV />}
+        label="Height"
+        value={item.width}
+        onChange={(value) => onMeasurementChange("width", value)}
+      />
+    </div>
+
+    <label className={styles.filmPicker}>
+      <FaFilm />
+      <span>
+        <small>Film type</small>
+        <select value={item.film.type} onChange={(event) => onFilmChange(event.target.value)}>
+          {filmTypes.map((film) => (
+            <option key={film.type} value={film.type}>
+              {film.type}
+            </option>
+          ))}
+        </select>
+      </span>
+    </label>
+  </article>
+);
+
+interface MeasurementInputProps {
+  id: string;
+  icon: React.ReactNode;
+  label: string;
+  value: number | "";
+  onChange: (value: string) => void;
+}
+
+const MeasurementInput = ({ id, icon, label, value, onChange }: MeasurementInputProps) => (
+  <label className={styles.measurementField} htmlFor={id}>
+    <span className={styles.measurementHeader}>
+      <span className={styles.measurementLabel}>{icon}{label}</span>
+      <strong>{value === "" ? "Not set" : `${value} in`}</strong>
+    </span>
+    <input
+      id={id}
+      type="range"
+      min="0"
+      max="240"
+      step="1"
+      value={value === "" ? 0 : value}
+      aria-valuetext={value === "" ? "Not set" : `${value} inches`}
+      style={
+        {
+          "--slider-progress": `${((value === "" ? 0 : value) / 240) * 100}%`,
+        } as React.CSSProperties
+      }
+      onInput={(event) => onChange(event.currentTarget.value)}
+    />
+    <span className={styles.measurementScale} aria-hidden="true">
+      <small>0</small>
+      <small>240 in</small>
+    </span>
+  </label>
+);
 
 export default EstimatorPro;

@@ -52,7 +52,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
           style={{
             flex: "0 0 100%",
             width: "100%",
-            background: "var(--quad)",
+            background: "var(--background)",
             borderBottom: "1px solid var(--border-color)",
             padding: "18px 20px",
             display: "flex",
@@ -67,7 +67,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
               fontSize: "12px",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--primary)",
+              color: "var(--foreground)",
               fontWeight: 700,
               whiteSpace: "nowrap",
             }}
@@ -89,7 +89,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
               fontSize: "12px",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "var(--primary)",
+              color: "var(--foreground)",
               fontWeight: 600,
               whiteSpace: "nowrap",
               opacity: 0.8,
@@ -117,7 +117,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 34%), radial-gradient(circle at 85% 85%, rgba(39,168,224,0.10), transparent 30%)",
+                "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08), transparent 34%), radial-gradient(circle at 85% 85%, rgba(0,66,221,0.10), transparent 30%)",
               pointerEvents: "none",
             }}
           />
@@ -139,7 +139,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
                 marginBottom: "18px",
                 border: "var(--glass-border)",
                 background: "rgba(255,255,255,0.08)",
-                color: "var(--tertiary)",
+                color: "#ffffff",
                 fontSize: "11px",
                 fontWeight: 700,
                 letterSpacing: "0.14em",
@@ -158,7 +158,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
                 letterSpacing: "-0.05em",
                 fontWeight: 800,
                 margin: "0 0 18px 0",
-                color: "var(--tertiary)",
+                color: "#ffffff",
                 maxWidth: "700px",
                 wordBreak: "break-word",
               }}
@@ -170,7 +170,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
               style={{
                 fontSize: "clamp(1rem, 3.8vw, 1.15rem)",
                 lineHeight: 1.7,
-                color: "var(--tertiary)",
+                color: "rgba(255,255,255,0.82)",
                 maxWidth: "700px",
                 margin: "0 0 24px 0",
               }}
@@ -210,7 +210,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
                 >
                   <FaCheckCircle
                     style={{
-                      color: "var(--tertiary)",
+                      color: "#ffffff",
                       flexShrink: 0,
                       marginTop: "3px",
                       fontSize: "14px",
@@ -218,7 +218,7 @@ const SocialCard: React.FC<SocialCardProps> = () => {
                   />
                   <span
                     style={{
-                      color: "var(--tertiary)",
+                      color: "rgba(255,255,255,0.9)",
                       fontSize: "15px",
                       lineHeight: 1.6,
                       fontWeight: 500,

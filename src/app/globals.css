@@ -1,15 +1,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #e3000bd6; /* Main Brand Color */
-  --secondary: #27a8e0d3; /* Accent Color */
+  --primary: #121212; /* Main Brand Color */
+  --secondary: #0042dd; /* Brand Blue */
   --tertiary: #e9e9e9; /* Success/Highlight Color */
   --quad: #f6f6f6d3;
   --border-color: #f2f2f2;
   --text-muted: #434343;
-  --text-button: #e3000bda;
+  --text-button: #121212;
   --text-button2: #ffffff;
   --hero-bg: url("/images/websitefallback.png");
+  --custom-cursor: url("/images/cursor.svg?v=white-blue-tip") 8 8, auto;
 
   /* Sharp “glass” UI: square corners + specular top/right edge */
   --radius-ui: 0;
@@ -38,7 +39,7 @@
   --footer-stroke: rgba(0, 0, 0, 0.08);
 
   --footer-shadow: 0 22px 60px rgba(0, 0, 0, 0.1);
-  --footer-hero-shadow: 0 18px 40px rgba(227, 0, 11, 0.18);
+  --footer-hero-shadow: 0 18px 40px rgba(18, 18, 18, 0.22);
 
   --footer-accent: var(--secondary);
   --footer-button-text: #ffffff;
@@ -47,15 +48,16 @@
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --primary: #b80009d3; /* Adjusted for dark mode */
-  --secondary: #2cc0ffd4; /* Darker accent */
+  --primary: #121212; /* Main Brand Color */
+  --secondary: #0042dd; /* Brand Blue */
   --tertiary: #1d1d1d; /* Dark success color */
   --quad: #f5f5f5;
   --border-color: #4d4d4d;
   --text-muted: #ebebeb;
   --text-button: #ffffff;
-  --text-button2: #e3000bcf;
+  --text-button2: #ffffff;
   --hero-bg: url("/images/websitefallback.png");
+  --custom-cursor: url("/images/cursor.svg?v=white-blue-tip") 8 8, auto;
 
   --glass-border: 1px solid rgba(255, 255, 255, 0.14);
   --glass-edge:
@@ -81,7 +83,7 @@
   --footer-stroke: rgba(255, 255, 255, 0.12);
 
   --footer-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
-  --footer-hero-shadow: 0 18px 40px rgba(227, 0, 11, 0.22);
+  --footer-hero-shadow: 0 18px 40px rgba(18, 18, 18, 0.3);
 
   --footer-accent: var(--secondary);
   --footer-button-text: #ffffff;
@@ -140,7 +142,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-display: swap;
-  cursor: url("/images/cursor.svg") 8 8, auto;
+  cursor: var(--custom-cursor);
 }
 
 * {

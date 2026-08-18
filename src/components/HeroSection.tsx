@@ -75,7 +75,7 @@ const Hero = () => {
   };
 
   const checkIconStyle: React.CSSProperties = {
-    color: "#e22626",
+    color: "#ffffff",
     flexShrink: 0,
   };
 
@@ -116,7 +116,7 @@ const Hero = () => {
           >
             <Link
               href="/#estimator"
-              aria-label="Get your free quote today"
+              aria-label="Get your quote today"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -210,7 +210,7 @@ const Hero = () => {
                 <span
                   style={{
                     display: "block",
-                    color: "#7cc9ff",
+                    color: "#0042DD",
                     opacity: heroVisible ? 1 : 0,
                     transform: heroVisible
                       ? "translateY(0px)"
