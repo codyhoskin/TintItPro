@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 const reasons = [
   "Certified Solar Gard® & TuffSkin® Dealer",
   "Locally Owned & Operated in Calgary",
-  "Free, No-Obligation Estimates",
+  "No-Obligation Estimates",
   "Expert Installation by Trained Pros",
   "Customized Solutions for Your Home",
 ];

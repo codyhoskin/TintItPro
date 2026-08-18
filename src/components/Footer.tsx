@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/Footer.module.css";
 import { MdLocationOn } from "react-icons/md";
 import { motion, easeOut } from "framer-motion";
@@ -9,10 +8,10 @@ import SocialLinks from "./SocialLinks";
 import {
   FaClipboard,
   FaWhatsapp,
-  FaCalendarAlt,
   FaCheckCircle,
 } from "react-icons/fa";
 import { RiveLogoFooter } from "./RiveLogo";
+import VanParallax from "./VanParallax";
 
 const floatUp = {
   initial: { opacity: 0, y: 30 },
@@ -74,35 +73,6 @@ const Footer = () => {
 
             <div
               style={{
-                position: "absolute",
-                right: "-10px",
-                bottom: "0",
-                width: "clamp(220px, 28vw, 420px)",
-                height: "100%",
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "flex-end",
-                pointerEvents: "none",
-                opacity: 0.22,
-              }}
-            >
-              <Image
-                src="/images/hero/tinterguy.png"
-                alt="Tint It Pro character"
-                width={340}
-                height={520}
-                priority
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
-                  objectPosition: "bottom right",
-                }}
-              />
-            </div>
-
-            <div
-              style={{
                 position: "relative",
                 zIndex: 2,
                 padding: "clamp(22px, 4vw, 42px)",
@@ -114,29 +84,6 @@ const Footer = () => {
                   minWidth: 0,
                 }}
               >
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "9px 12px",
-                    marginBottom: "16px",
-                    background: "var(--footer-glass-bg)",
-                    border: `1px solid var(--footer-stroke)`,
-                    color: "var(--footer-text)",
-                    fontSize: "11px",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    boxSizing: "border-box",
-                  }}
-                >
-                  <FaCalendarAlt />
-                  Free Consultation
-                </div>
-
                 <h2
                   style={{
                     margin: "0 0 12px 0",
@@ -244,7 +191,7 @@ const Footer = () => {
                       const el = e.currentTarget;
                       el.style.transform = "translateY(-2px) scale(1.02)";
                       el.style.boxShadow =
-                        "0 28px 80px rgba(227,0,11,0.35), var(--footer-hero-shadow)";
+                        "0 28px 80px rgba(18,18,18,0.38), var(--footer-hero-shadow)";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget;
@@ -301,6 +248,8 @@ const Footer = () => {
           </div>
         </div>
       </motion.div>
+
+      <VanParallax />
 
       <div className={styles.upperFooter}>
         <motion.div className={styles.logoBlock} {...floatUp}>

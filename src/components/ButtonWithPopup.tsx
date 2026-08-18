@@ -48,7 +48,7 @@ const TextButtonWithPopup: React.FC = () => {
             top: "-60px",
             left: "50%",
             transform: "translateX(-50%)",
-            background: "#E3000A",
+            background: "#121212",
             color: "white",
             padding: "10px 20px",
             borderRadius: "8px",

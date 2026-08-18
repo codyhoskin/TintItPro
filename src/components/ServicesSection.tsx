@@ -24,7 +24,7 @@ const serviceCards = [
     category: "Preserve your glass",
     categoryIcon: <FaShieldAlt />,
     bullets: [
-      "Easier to keep spot-free",
+      "Easier to keep spotless",
       "Less maintenance required",
       "Protects against buildup",
       "Resists stains & soap scum",

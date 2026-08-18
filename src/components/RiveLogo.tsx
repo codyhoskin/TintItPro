@@ -1,6 +1,4 @@
-import { useEffect, useRef } from "react";
-import { useInView } from "framer-motion";
-import { useRive } from "@rive-app/react-canvas";
+import Image from "next/image";
 
 interface RiveLogoProps {
   width?: number;
@@ -8,23 +6,15 @@ interface RiveLogoProps {
 }
 
 export const RiveLogoFooter = ({ width = 240, height = 240 }: RiveLogoProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-20% 0px" });
-
-  const { rive, RiveComponent } = useRive({
-    src: "/rive/tintitpro.riv",
-    autoplay: false,
-  });
-
-  useEffect(() => {
-    if (isInView && rive) {
-      rive.play();
-    }
-  }, [isInView, rive]);
-
   return (
-    <div ref={ref} style={{ width, height }}>
-      <RiveComponent />
+    <div style={{ width, height, position: "relative" }}>
+      <Image
+        src="/images/logo.png"
+        alt="Tint It Pro"
+        fill
+        sizes={`${width}px`}
+        style={{ objectFit: "contain" }}
+      />
     </div>
   );
 };

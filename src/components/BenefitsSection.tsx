@@ -12,7 +12,7 @@ const benefits = [
   {
     emoji: "❄️",
     title: "Reduce Heat & Glare",
-    description: "Stay cool and glare-free while keeping natural light.",
+    description: "Stay cool and reduce glare while keeping natural light.",
   },
   {
     emoji: "💸",

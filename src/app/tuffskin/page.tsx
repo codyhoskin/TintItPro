@@ -63,7 +63,7 @@ const generalFAQ = [
         href="https://www.tuffskin.com/care-and-warranty/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ color: "#0070f3", textDecoration: "underline" }}
+        style={{ color: "#0042DD", textDecoration: "underline" }}
       >
         View Care Instructions and Warranty
       </a>
@@ -135,7 +135,7 @@ const imageSrc =
     <div className={styles.ctaBlock}>
   <div className={styles.ctaContent}>
     <div className={styles.iconWrapper}>
-      <MdPhotoLibrary size={85} color="#2cc0ff" />
+      <MdPhotoLibrary size={85} color="#0042DD" />
     </div>
 
     <div className={styles.textWrapper}>

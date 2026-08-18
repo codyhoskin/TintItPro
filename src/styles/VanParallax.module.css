@@ -1,0 +1,23 @@
+.parallaxSection {
+  width: 100%;
+  height: clamp(210px, 24vw, 320px);
+  margin-top: clamp(24px, 4vw, 48px);
+  border-top: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 32%, transparent 72%, rgba(0, 0, 0, 0.14)),
+    url("/images/tint-it-pro-van-parallax.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (max-width: 640px) {
+  .parallaxSection {
+    height: 220px;
+    margin-top: 28px;
+    background-position: 56% center;
+    background-attachment: scroll;
+  }
+}

@@ -36,7 +36,7 @@ const CommercialWindowTinting: React.FC = () => {
             industry-leading commercial films.
           </p>
           <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
-            Request a Free On-Site Quote
+            Request an On-Site Consultation
           </a>
         </div>
         <div className={styles.heroImageCommercial}></div>
@@ -171,12 +171,12 @@ const CommercialWindowTinting: React.FC = () => {
 
       {/* Final CTA */}
       <section className={styles.finalCTA}>
-        <h2>Get a Free Commercial Tinting Quote</h2>
+        <h2>Get a Commercial Tinting Quote</h2>
         <p>
           Our team will visit your site, assess your needs, and provide a tailored proposal.
         </p>
         <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
-          Book a Free Consultation
+          Book a Consultation
         </a>
       </section>
     </main>

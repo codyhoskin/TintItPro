@@ -72,7 +72,7 @@ const Header: React.FC = () => {
         <a
           href="https://tintitpro.setmore.com/"
           className={styles.ctaButton}
-          aria-label="Get your free quote today"
+          aria-label="Get your quote today"
         >
           <FaClipboard size={20} style={{ marginRight: "8px", marginBottom: "-4px" }} />
            Request a Consultation
@@ -145,7 +145,7 @@ const Header: React.FC = () => {
   <Link
     href="/#estimator"
     className={styles.ctaButton1}
-    aria-label="Get your free quote today"
+    aria-label="Get your quote today"
     style={{
       display: "inline-flex",
       alignItems: "center",
@@ -167,7 +167,7 @@ const Header: React.FC = () => {
   <a
     href="https://tintitpro.setmore.com/"
     className={styles.ctaButton}
-    aria-label="Get your free quote today"
+    aria-label="Get your quote today"
     style={{
       display: "inline-flex",
       alignItems: "center",

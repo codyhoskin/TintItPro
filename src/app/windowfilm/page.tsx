@@ -141,8 +141,8 @@ const WindowFilms: React.FC = () => {
   <h2>Our 3-Step Process</h2>
   <div className={styles.processFlow}>
     <div className={styles.stepCard}>
-      <h3>1. Free In-Home Consultation</h3>
-      <p>Well assess your space and recommend ideal tinting options.</p>
+      <h3>1. In-Home Consultation</h3>
+      <p>We&apos;ll assess your space and recommend ideal window film options.</p>
     </div>
 
     <div className={styles.arrow}>&rarr;</div>
@@ -165,9 +165,9 @@ const WindowFilms: React.FC = () => {
       {/* Final CTA */}
       <section className={styles.finalCTA}>
         <h2>Ready to Protect and Enhance Your Home?</h2>
-        <p>Get expert advice and a no-pressure estimate — right at your home.</p>
+        <p>Get expert advice and tailored recommendations — right at your home.</p>
         <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
-          Book a Free Consultation
+          Book a Consultation
         </a>
       </section>
     </main>

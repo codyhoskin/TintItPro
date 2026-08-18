@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Tint It Pro",
   },
   description:
-    "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+    "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
   keywords: [
     "window tint",
     "Surface protection",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     description:
-      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
     url: "https://tintitpro.ca",
     siteName: "Tint It Pro",
     locale: "en_US",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     description:
-      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Free estimates available!",
+      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
     images: ["https://tintitpro.ca/images/logo.png"],
     creator: "@tintitpro",
   },
