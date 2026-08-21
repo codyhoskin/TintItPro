@@ -58,7 +58,10 @@ const createSurface = (surface: SurfaceType): SurfaceData => ({
   quantity: 1,
   length: "",
   width: "",
-  film: filmTypes[0],
+  film:
+    surface === "Countertop"
+      ? filmTypes.find((film) => film.type === "TuffSkin®") ?? filmTypes[0]
+      : filmTypes[0],
 });
 
 const formatCurrency = (value: number) =>
@@ -203,7 +206,7 @@ const EstimatorPro: React.FC = () => {
           <div>
             <span className={styles.eyebrow}>Instant estimate</span>
             <h2 id="estimator-title">Estimator Pro</h2>
-            <p>Two quick sections. A clear starting price.</p>
+            <p className={styles.headerSubtitle}>Two quick sections. A clear starting price.</p>
           </div>
           <div className={styles.headerMeta}>
             <InfoTooltip />
@@ -500,11 +503,17 @@ const SurfaceSetupCard = ({
       <span>
         <small>Film type</small>
         <select value={item.film.type} onChange={(event) => onFilmChange(event.target.value)}>
-          {filmTypes.map((film) => (
-            <option key={film.type} value={film.type}>
-              {film.type}
-            </option>
-          ))}
+          {filmTypes
+            .filter((film) =>
+              item.surface === "Countertop"
+                ? film.type === "TuffSkin®"
+                : film.type !== "TuffSkin®"
+            )
+            .map((film) => (
+              <option key={film.type} value={film.type}>
+                {film.type}
+              </option>
+            ))}
         </select>
       </span>
     </label>
