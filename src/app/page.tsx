@@ -3,15 +3,18 @@
 import { Suspense } from "react";
 import Hero           from "@/components/HeroSection";
 import InfoCard       from "@/components/InfoCard";
-import SocialCard     from "@/components/SocialComponent";
 import TitleSection   from "@/components/TitleSection";
-import { ServicesSection, ElfsightLazy, EstimatorPro,
+import ViewportMount  from "@/components/ViewportMount";
+import ViewportVideo  from "@/components/ViewportVideo";
+import { ServicesSection, GoogleReviewShowcase, EstimatorPro, SocialCard,
 } from "@/components/Heavy";
 import { FaShieldAlt, FaWater } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
 //import FAQChat from "@/components/FAQChat";
 import FAQSection, { faqItems } from "@/components/FAQSection";
+import StructuredData from "@/components/StructuredData";
+import { homePageStructuredData } from "@/lib/seo";
 
 const faqStructuredData = {
   "@context": "https://schema.org",
@@ -30,6 +33,7 @@ const faqStructuredData = {
 export default function Landing() {
   return (
     <main id="main" >
+    <StructuredData data={homePageStructuredData} />
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
@@ -43,23 +47,11 @@ export default function Landing() {
 
     <section id="showreel" className={styles.showreelSection}> </section>
     <div className={styles.videoWrapper}>
-      <video
+      <ViewportVideo
         src="/video/tuffskinvideo.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        controls={false}
+        label="Tint It Pro natural stone protection showreel"
         className={styles.video}
-      >
-  
-        <p>
-          Your browser doesnt support video playback. This video showcases TuffSkin®
-          stone protection services, demonstrating our professional installation
-          process and the lasting protection we provide for marble and granite
-          surfaces.
-        </p>
-      </video>
+      />
     </div>
    
 
@@ -87,14 +79,18 @@ export default function Landing() {
 
 
       <section id="solutions">
-        <Suspense><ServicesSection /></Suspense>
+        <ViewportMount minHeight={760}>
+          <Suspense><ServicesSection /></Suspense>
+        </ViewportMount>
       </section>
 
       
 
       {/* 6️⃣ Reviews */}
       <section id="reviews" className="relative">
-        <Suspense><ElfsightLazy height={700}/></Suspense>
+        <ViewportMount minHeight={620}>
+          <Suspense><GoogleReviewShowcase /></Suspense>
+        </ViewportMount>
       </section>
 
 
@@ -102,13 +98,11 @@ export default function Landing() {
       {/* 7️⃣ Estimator – decorative background locked with aspect-ratio */}
       <section id="estimator" className="relative isolate overflow-hidden">
         <Suspense>
-          
-          <div style={{ minHeight: "100px" }}>
-           
-            <EstimatorPro />
-              
-          </div>
-       
+          <ViewportMount minHeight={760}>
+            <div style={{ minHeight: "100px" }}>
+              <EstimatorPro />
+            </div>
+          </ViewportMount>
         </Suspense>
       </section>
 
@@ -124,17 +118,19 @@ export default function Landing() {
     {/* <FAQChat />*/}
 
       {/* 9️⃣ Social footer */}
-      <SocialCard
-        title="Connect with Us."
-        subtitle="Follow us on social media"
-        imageUrl="/images/hero/tinterguy.png"
-        socialLinks={{
-          facebook:  "https://facebook.com/tintitpro",
-          instagram: "https://instagram.com/tintitpro",
-          twitter:   "https://twitter.com/tintitpro",
-          youtube:   "https://youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
-        }}
-      />
+      <ViewportMount minHeight={900} rootMargin="400px 0px">
+        <SocialCard
+          title="Connect with Us."
+          subtitle="Follow us on social media"
+          imageUrl="/images/hero/tinterguy.png"
+          socialLinks={{
+            facebook:  "https://facebook.com/tintitpro",
+            instagram: "https://instagram.com/tintitpro",
+            twitter:   "https://twitter.com/tintitpro",
+            youtube:   "https://youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
+          }}
+        />
+      </ViewportMount>
     </main>
   );
 }

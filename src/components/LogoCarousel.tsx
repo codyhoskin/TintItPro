@@ -43,8 +43,7 @@ const LogoCarousel = () => {
                 fill
                 style={{ objectFit: "contain" }}
                 sizes={`${width}px`}
-                priority={index < 4}
-                loading={index < 4 ? "eager" : "lazy"}
+                loading="lazy"
                 quality={85}
               />
             </div>

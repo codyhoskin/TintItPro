@@ -18,7 +18,7 @@ import styles from "../styles/ServicesSection.module.css";
 const serviceCards = [
   {
     id: "glass-protection",
-    img: "/images/service01.svg",
+    img: "/images/service01.webp",
     title: "Glass Protection",
     subtitle: "Cleaner glass. Less effort.",
     category: "Preserve your glass",
@@ -146,8 +146,7 @@ const ServiceCard = memo(
               alt={`${card.title} - ${card.description}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority={index === 0}
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="lazy"
               quality={85}
               style={{
                 objectFit: "cover",

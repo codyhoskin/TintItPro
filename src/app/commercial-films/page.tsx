@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import {ElfsightLazy} from "@/components/Heavy";
+import { GoogleReviewShowcase } from "@/components/Heavy";
 
 
 const CommercialWindowTinting: React.FC = () => {
@@ -116,7 +116,7 @@ const CommercialWindowTinting: React.FC = () => {
           <div key={i} className={styles.imageWrapper}>
             <Image
               src={src}
-              alt={`Project ${i + 1}`}
+              alt={`Commercial window film installation project in Calgary ${i + 1}`}
               width={400}
               height={250}
               className={styles.galleryImage}
@@ -145,7 +145,7 @@ const CommercialWindowTinting: React.FC = () => {
 
       {/* Testimonials */}
        <section className={styles.testimonialsSection}>
-        <ElfsightLazy />
+        <GoogleReviewShowcase />
       </section>
 
       {/* Process */}

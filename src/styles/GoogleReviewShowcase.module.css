@@ -1,0 +1,355 @@
+.wrapper {
+  background: var(--background);
+  color: var(--foreground);
+  padding: clamp(64px, 8vw, 112px) clamp(18px, 5vw, 72px);
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.summary {
+  align-items: center;
+  background: var(--tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: var(--glass-edge);
+  display: flex;
+  justify-content: space-between;
+  margin: 28px 0 22px;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.summaryBrand,
+.ratingLine,
+.authorRow,
+.author,
+.controls,
+.googleButton,
+.readOnGoogle,
+.fallbackCard {
+  align-items: center;
+  display: flex;
+}
+
+.summaryBrand {
+  gap: 16px;
+}
+
+.googleLogo {
+  flex: 0 0 auto;
+}
+
+.eyebrow {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.ratingLine {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ratingLine strong {
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.starOn {
+  color: #fbbc04;
+}
+
+.starOff {
+  color: #b8b8b8;
+}
+
+.smallStars {
+  font-size: 0.9rem;
+  margin: 22px 0 15px;
+}
+
+.reviewCount {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.92rem;
+  margin-top: 5px;
+}
+
+.googleButton {
+  background: var(--secondary);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  gap: 9px;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.googleButton:hover,
+.googleButton:focus-visible {
+  background: #0036b8;
+  transform: translateY(-2px);
+}
+
+.rail {
+  display: grid;
+  gap: 18px;
+  grid-auto-columns: minmax(min(86vw, 340px), 1fr);
+  grid-auto-flow: column;
+  overflow-x: auto;
+  padding: 2px 2px 14px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.rail::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewCard,
+.skeletonCard {
+  background: var(--tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  box-shadow: var(--glass-edge);
+  min-height: 300px;
+  padding: 24px;
+  scroll-snap-align: start;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorRow {
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.author {
+  gap: 12px;
+  min-width: 0;
+}
+
+.author > span:last-child {
+  min-width: 0;
+}
+
+.author strong,
+.author small {
+  display: block;
+}
+
+.author strong {
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author small {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 3px;
+}
+
+.avatar,
+.avatarFallback {
+  border-radius: 50%;
+  flex: 0 0 46px;
+  height: 46px;
+  width: 46px;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.avatarFallback {
+  align-items: center;
+  background: var(--secondary);
+  color: #fff;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+}
+
+.cardGoogleLogo {
+  flex: 0 0 auto;
+}
+
+.reviewText {
+  color: var(--foreground);
+  display: -webkit-box;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.readOnGoogle {
+  color: var(--secondary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 18px;
+  width: fit-content;
+}
+
+.controls {
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.controls button {
+  align-items: center;
+  background: var(--tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--foreground);
+  cursor: pointer;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 46px;
+  justify-content: center;
+  transition: background-color 160ms ease, color 160ms ease;
+  width: 46px;
+}
+
+.controls button:hover,
+.controls button:focus-visible {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.fallbackCard {
+  background: var(--tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  box-shadow: var(--glass-edge);
+  gap: 20px;
+  justify-content: space-between;
+  min-height: 170px;
+  padding: clamp(26px, 4vw, 46px);
+}
+
+.fallbackCard strong,
+.fallbackCard small {
+  display: block;
+}
+
+.fallbackCard strong {
+  font-family: var(--font-inter-bold), system-ui, sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+}
+
+.fallbackCard small {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+.fallbackCard > svg {
+  color: var(--secondary);
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeletonCard span {
+  animation: shimmer 1.4s ease-in-out infinite;
+  background: var(--border-color);
+  border-radius: 8px;
+  display: block;
+  height: 18px;
+}
+
+.skeletonCard span:first-child {
+  height: 48px;
+  width: 68%;
+}
+
+.skeletonCard span:nth-child(2) {
+  margin-top: 18px;
+  width: 92%;
+}
+
+.skeletonCard span:last-child {
+  width: 72%;
+}
+
+.srOnly {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (min-width: 900px) {
+  .rail {
+    grid-auto-columns: calc((100% - 36px) / 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .summary {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .googleButton {
+    width: 100%;
+  }
+
+  .reviewCard,
+  .skeletonCard {
+    min-height: 280px;
+    padding: 20px;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+}

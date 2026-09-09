@@ -9,6 +9,7 @@ import {
   FaClipboard,
   FaWhatsapp,
   FaCheckCircle,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import { RiveLogoFooter } from "./RiveLogo";
 import VanParallax from "./VanParallax";
@@ -262,6 +263,14 @@ const Footer = () => {
           <p className={styles.description}>
             Premium Stone & Glass Protection in Calgary. Authorized TuffSkin® & Solar Gard® Certified Installer.
           </p>
+          <a
+            href="tel:+14034701687"
+            className={styles.phoneLink}
+            aria-label="Call Tint It Pro at 403-470-1687"
+          >
+            <FaPhoneAlt aria-hidden="true" />
+            403-470-1687
+          </a>
         </motion.div>
 
         <motion.div className={styles.mapBlock} {...floatUp}>
@@ -296,6 +305,11 @@ const Footer = () => {
       </div>
 
       <motion.div className={styles.bottomFooter} {...floatUp}>
+        <nav className={styles.footerServiceLinks} aria-label="Tint It Pro services">
+          <Link href="/windowfilm">Residential Window Film</Link>
+          <Link href="/commercial-films">Commercial Window Film</Link>
+          <Link href="/tuffskin">Stone & Glass Protection</Link>
+        </nav>
         <div className={styles.bottomLinks}>
           <Link
             href="https://policies.google.com/privacy"

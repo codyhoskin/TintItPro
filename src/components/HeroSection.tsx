@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState, Suspense } from "react";
-import Script from "next/script";
 import styles from "../styles/Hero.module.css";
 import Link from "next/link";
 import {
@@ -15,6 +14,7 @@ import { GiPartyPopper } from "react-icons/gi";
 import WhatsAppButton from "./WhatsApp";
 import LogoCarousel from "./LogoCarousel";
 import { LogoSkeleton } from "./Skeletons";
+import GoogleReviews from "./GoogleReviews";
 
 const Hero = () => {
   const buttonRef = useRef<HTMLAnchorElement | null>(null);
@@ -90,8 +90,8 @@ const Hero = () => {
             muted
             loop
             playsInline
-            preload="auto"
-            poster="/images/websitefallback.png"
+            preload="metadata"
+            poster="/images/websitefallback.webp"
             onLoadedData={() => {
               videoRef.current?.play().catch(() => {})
             }}
@@ -354,14 +354,7 @@ const Hero = () => {
                   padding: "8px 0",
                 }}
               >
-                <Script
-                  src="https://elfsightcdn.com/platform.js"
-                  strategy="lazyOnload"
-                />
-                <div
-                  className="elfsight-app-a323dd43-baad-4d36-8732-f2b41adf9351"
-                  data-elfsight-app-lazy
-                />
+                <GoogleReviews />
               </div>
             </div>
           </div>

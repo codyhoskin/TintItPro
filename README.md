@@ -97,8 +97,24 @@ const ServiceCard = memo(({ card, index }) => {
 ## Getting Started
 
 1. Install dependencies: `npm install`
-2. Run development server: `npm run dev`
-3. Build for production: `npm run build`
+2. Copy `.env.example` to `.env.local` and add the Google Maps Platform key
+3. Run development server: `npm run dev`
+4. Build for production: `npm run build`
+
+### Google reviews
+
+The custom review components read live rating and review data from Places API
+(New). Set `GOOGLE_MAPS_API_KEY` in Netlify and restrict that key to Places API.
+The verified Tint It Pro place ID is already configured. If the key is missing or
+Google is temporarily unavailable, the website shows a branded fallback that
+shows attributed featured reviews and links directly to the real Google listing.
+
+### Google Search Console
+
+The site supports Google Search Console HTML-tag verification. Add the token
+from the tag's `content` value to `GOOGLE_SITE_VERIFICATION` in Netlify, then
+redeploy. After verification, submit `https://tintitpro.ca/sitemap.xml` and use
+URL Inspection to request indexing for the home and service pages.
 
 ## Technologies Used
 

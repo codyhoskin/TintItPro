@@ -33,7 +33,7 @@
 .parallaxBanner {
   width: 100%;
   height: 200px;
-  background-image: url("/images/websitefallback.png");
+  background-image: url("/images/websitefallback.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

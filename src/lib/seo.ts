@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import {
+  GOOGLE_MAPS_LISTING_URL,
+  GOOGLE_PLACE_ID,
+} from "@/lib/google-business";
 
 export const SITE_URL = "https://tintitpro.ca";
 
@@ -8,6 +12,8 @@ export const socialProfiles = [
   "https://www.tiktok.com/@tintitpro",
   "https://www.youtube.com/channel/UCxJ_WibdI_sia2RZ_wAIOMw",
 ];
+
+const businessProfiles = [...socialProfiles, GOOGLE_MAPS_LISTING_URL];
 
 const defaultSocialImage = {
   url: `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
@@ -23,13 +29,35 @@ export const businessStructuredData = {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": `${SITE_URL}/#business`,
       name: "Tint It Pro",
+      alternateName: "Tint It Pro Calgary",
       url: SITE_URL,
-      logo: `${SITE_URL}/images/logo.png`,
-      image: `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo.png`,
+        contentUrl: `${SITE_URL}/images/logo.png`,
+        width: 1940,
+        height: 1706,
+      },
+      image: [
+        `${SITE_URL}/images/logo.png`,
+        `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
+        `${SITE_URL}/images/window-tinting.webp`,
+      ],
       telephone: "+1-403-470-1687",
       priceRange: "$$",
+      currenciesAccepted: "CAD",
+      slogan: "Premium Stone & Glass Protection in Calgary",
       description:
         "Calgary window film and surface protection specialists for residential and commercial properties, including Solar Gard window films and TuffSkin natural stone protection.",
+      mainEntityOfPage: {
+        "@id": `${SITE_URL}/#webpage`,
+      },
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "Google Place ID",
+        value: GOOGLE_PLACE_ID,
+      },
+      hasMap: GOOGLE_MAPS_LISTING_URL,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Calgary",
@@ -44,7 +72,38 @@ export const businessStructuredData = {
           name: "Alberta",
         },
       },
-      sameAs: socialProfiles,
+      sameAs: businessProfiles,
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "08:00",
+          closes: "20:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "10:00",
+          closes: "18:00",
+        },
+      ],
+      knowsAbout: [
+        "Residential window film",
+        "Commercial window film",
+        "Solar control window film",
+        "Security window film",
+        "Decorative window film",
+        "Anti-graffiti film",
+        "Glass protection",
+        "TuffSkin natural stone protection",
+      ],
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+1-403-470-1687",
@@ -85,6 +144,27 @@ export const businessStructuredData = {
   ],
 };
 
+export const homePageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/#webpage`,
+  url: SITE_URL,
+  name: "Calgary Window Tinting & Surface Protection | Tint It Pro",
+  description:
+    "Premium residential and commercial window film, glass protection, and natural stone protection services in Calgary, Alberta.",
+  isPartOf: {
+    "@id": `${SITE_URL}/#website`,
+  },
+  about: {
+    "@id": `${SITE_URL}/#business`,
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
+  },
+  inLanguage: "en-CA",
+};
+
 type PageMetadataOptions = {
   title: string;
   description: string;
@@ -101,7 +181,10 @@ export function createPageMetadata({
   return {
     title,
     description,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: { "en-CA": canonical },
+    },
     openGraph: {
       title: `${title} | Tint It Pro`,
       description,
@@ -146,6 +229,9 @@ export function createServiceStructuredData({
         provider: {
           "@id": `${SITE_URL}/#business`,
         },
+        mainEntityOfPage: {
+          "@id": `${url}#webpage`,
+        },
         areaServed: {
           "@type": "City",
           name: "Calgary",
@@ -153,6 +239,7 @@ export function createServiceStructuredData({
       },
       {
         "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
@@ -167,6 +254,26 @@ export function createServiceStructuredData({
             item: url,
           },
         ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name,
+        description,
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${SITE_URL}/#business`,
+        },
+        mainEntity: {
+          "@id": `${url}#service`,
+        },
+        breadcrumb: {
+          "@id": `${url}#breadcrumb`,
+        },
+        inLanguage: "en-CA",
       },
     ],
   };

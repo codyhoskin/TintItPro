@@ -6,5 +6,6 @@ export const MovieViewing       = dynamic(() => import("./MovieComponent"),     
 export const ServicesSection    = dynamic(() => import("./ServicesSection"),    { ssr: false });
 export const FAQSection         = dynamic(() => import("./FAQSection"),         { ssr: false });
 export const StreamBackground   = dynamic(() => import("./BackgroundDesign"),   { ssr: false });
-export const ElfsightLazy       = dynamic(() => import("./ElfSlightLazy"),      { ssr: false });
+export const GoogleReviewShowcase = dynamic(() => import("./GoogleReviewShowcase"), { ssr: false });
 export const EstimatorPro       = dynamic(() => import("./EstimatorPro"),       { ssr: false });
+export const SocialCard         = dynamic(() => import("./SocialComponent"),    { ssr: false });

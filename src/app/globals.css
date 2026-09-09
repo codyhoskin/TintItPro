@@ -9,7 +9,7 @@
   --text-muted: #434343;
   --text-button: #121212;
   --text-button2: #ffffff;
-  --hero-bg: url("/images/websitefallback.png");
+  --hero-bg: url("/images/websitefallback.webp");
   --custom-cursor: url("/images/cursor.svg?v=white-blue-tip") 8 8, auto;
 
   /* Sharp “glass” UI: square corners + specular top/right edge */
@@ -56,7 +56,7 @@
   --text-muted: #ebebeb;
   --text-button: #ffffff;
   --text-button2: #ffffff;
-  --hero-bg: url("/images/websitefallback.png");
+  --hero-bg: url("/images/websitefallback.webp");
   --custom-cursor: url("/images/cursor.svg?v=white-blue-tip") 8 8, auto;
 
   --glass-border: 1px solid rgba(255, 255, 255, 0.14);

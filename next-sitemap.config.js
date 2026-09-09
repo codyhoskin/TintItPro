@@ -3,6 +3,7 @@ module.exports = {
   siteUrl: process.env.SITE_URL || 'https://tintitpro.ca',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
+  autoLastmod: false,
   changefreq: 'monthly',
   priority: 0.7,
   robotsTxtOptions: {
@@ -17,6 +18,5 @@ module.exports = {
     loc: path,
     changefreq: path === '/' ? 'weekly' : config.changefreq,
     priority: path === '/' ? 1 : config.priority,
-    lastmod: new Date().toISOString(),
   }),
 };

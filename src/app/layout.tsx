@@ -28,6 +28,7 @@ const interFontThin = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "Tint It Pro",
   title: {
     default: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     template: "%s | Tint It Pro",
@@ -35,13 +36,15 @@ export const metadata: Metadata = {
   description:
     "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
   keywords: [
-    "window tint",
-    "Surface protection",
-    "tuffskin",
-    "decorative film",
-    "car tint",
+    "Calgary window tinting",
+    "residential window film Calgary",
+    "commercial window film Calgary",
+    "natural stone protection Calgary",
+    "TuffSkin Calgary",
+    "glass protection Calgary",
+    "decorative window film Calgary",
+    "security window film Calgary",
     "Tint It Pro",
-    "Calgary",
   ],
   authors: [{ name: "Tint It Pro", url: "https://tintitpro.ca" }],
   creator: "Tint It Pro",
@@ -88,7 +91,17 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://tintitpro.ca",
+    languages: {
+      "en-CA": "https://tintitpro.ca",
+    },
   },
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({

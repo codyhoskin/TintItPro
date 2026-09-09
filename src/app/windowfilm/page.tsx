@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import { FaSun, FaUserShield, FaEyeSlash } from "react-icons/fa";
-import {ElfsightLazy} from "@/components/Heavy";
+import { GoogleReviewShowcase } from "@/components/Heavy";
 import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
@@ -103,7 +103,7 @@ const WindowFilms: React.FC = () => {
           <div key={i} className={styles.imageWrapper}>
             <Image
               src={src}
-              alt={`Project ${i + 1}`}
+              alt={`Residential window film installation in a Calgary home ${i + 1}`}
               width={400}
               height={250}
               className={styles.galleryImage}
@@ -131,7 +131,7 @@ const WindowFilms: React.FC = () => {
 
       {/* Testimonials */}
       <section className={styles.testimonialsSection}>
-        <ElfsightLazy />
+        <GoogleReviewShowcase />
       </section>
 
      
