@@ -171,18 +171,36 @@ type PageMetadataOptions = {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
+  image?: {
+    path: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
 };
 
 export function createPageMetadata({
   title,
   description,
   path,
+  keywords,
+  image,
 }: PageMetadataOptions): Metadata {
   const canonical = `${SITE_URL}${path}`;
+  const socialImage = image
+    ? {
+        url: `${SITE_URL}${image.path}`,
+        width: image.width,
+        height: image.height,
+        alt: image.alt,
+      }
+    : defaultSocialImage;
 
   return {
     title,
     description,
+    keywords,
     alternates: {
       canonical,
       languages: { "en-CA": canonical },
@@ -194,13 +212,13 @@ export function createPageMetadata({
       siteName: "Tint It Pro",
       locale: "en_CA",
       type: "website",
-      images: [defaultSocialImage],
+      images: [socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} | Tint It Pro`,
       description,
-      images: [`${SITE_URL}/images/tint-it-pro-van-parallax.webp`],
+      images: [socialImage.url],
     },
   };
 }
@@ -210,11 +228,17 @@ export function createServiceStructuredData({
   description,
   path,
   serviceType,
+  keywords = [],
+  audience,
+  image,
 }: {
   name: string;
   description: string;
   path: string;
   serviceType: string;
+  keywords?: string[];
+  audience?: string;
+  image?: string;
 }) {
   const url = `${SITE_URL}${path}`;
 
@@ -226,8 +250,19 @@ export function createServiceStructuredData({
         "@id": `${url}#service`,
         name,
         serviceType,
+        category: serviceType,
         description,
         url,
+        ...(keywords.length > 0 ? { keywords } : {}),
+        ...(image ? { image: `${SITE_URL}${image}` } : {}),
+        ...(audience
+          ? {
+              audience: {
+                "@type": "Audience",
+                audienceType: audience,
+              },
+            }
+          : {}),
         provider: {
           "@id": `${SITE_URL}/#business`,
         },
@@ -276,6 +311,69 @@ export function createServiceStructuredData({
           "@id": `${url}#breadcrumb`,
         },
         inLanguage: "en-CA",
+      },
+    ],
+  };
+}
+
+export function createGalleryStructuredData({
+  name,
+  description,
+  path,
+  image,
+  keywords = [],
+}: {
+  name: string;
+  description: string;
+  path: string;
+  image: string;
+  keywords?: string[];
+}) {
+  const url = `${SITE_URL}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["CollectionPage", "ImageGallery"],
+        "@id": `${url}#gallery`,
+        name,
+        description,
+        url,
+        image: `${SITE_URL}${image}`,
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}${image}`,
+        },
+        ...(keywords.length > 0 ? { keywords } : {}),
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${SITE_URL}/#business`,
+        },
+        breadcrumb: {
+          "@id": `${url}#breadcrumb`,
+        },
+        inLanguage: "en-CA",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name,
+            item: url,
+          },
+        ],
       },
     ],
   };

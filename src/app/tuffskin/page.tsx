@@ -103,11 +103,22 @@ const imageSrc =
       >
         <Image src={imageSrc} alt="TuffSkin® Surface Protection" width={300} height={90}   className={styles.themedLogo}/>
 
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>Certified Calgary installer</p>
+          <h1>TuffSkin® Marble &amp; Stone Countertop Protection in Calgary</h1>
+          <p>
+            Preserve luxury marble, onyx, travertine and quartz surfaces with a
+            removable protective film engineered to resist etching, staining,
+            moisture and everyday wear.
+          </p>
+        </div>
+
         <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
           <p style={{ marginBottom: 0, textAlign: "center", color: "black" }}>
-            We are a professional certified TuffSkin® installer. <br></br>TuffSkin® provides professional-grade protection for natural stone surfaces, helping prevent etching,
-            staining, and damage from heat or moisture. Ideal for kitchens, bathrooms, restaurants, and hotels, it
-            maintains the look and feel of luxury countertops without the usual wear and tear.
+            Tint It Pro is a certified TuffSkin® installer serving Calgary homes and
+            businesses. TuffSkin® provides professional-grade protection for natural
+            stone surfaces, helping prevent etching, staining and damage from heat or
+            moisture. It is ideal for kitchens, bathrooms, restaurants and hotels.
           </p>
         </div>
         <Image src="/images/tuffskin-header2.png" alt="TuffSkin® Sample" width={700} height={180}     className={styles.roundedImage}/>
@@ -213,6 +224,19 @@ const imageSrc =
           margin: "50px auto 100px",
         }}
       />
+
+      <section className={styles.relatedServices} aria-labelledby="related-stone-services">
+        <h2 id="related-stone-services">Explore More Calgary Protection Services</h2>
+        <p>
+          Protect your home&apos;s glass with our{" "}
+          <Link href="/windowfilm">residential window tinting services</Link>, or explore
+          energy, privacy and security solutions for businesses through our{" "}
+          <Link href="/commercial-films">commercial window film installation</Link>.
+        </p>
+        <Link href="/tuffskin-image-gallery" className={styles.galleryTextLink}>
+          Browse our Calgary TuffSkin project gallery
+        </Link>
+      </section>
     </main>
   );
 };

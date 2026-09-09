@@ -32,10 +32,10 @@ const WindowFilms: React.FC = () => {
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <h1>Luxury Window Tinting for Calgary Homes</h1>
+          <h1>Residential Window Tinting in Calgary</h1>
           <p>
-            Protect your interiors, reduce heat & glare, and enhance privacy — without
-            sacrificing style.
+            Premium home window film that reduces heat, glare and UV exposure while
+            improving daytime privacy without sacrificing your view.
           </p>
           <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
             Request a Consultation
@@ -46,11 +46,11 @@ const WindowFilms: React.FC = () => {
 
       {/* Service Overview */}
       <section className={styles.serviceOverview}>
-        <h2 style={{padding: "20px"}}>Enhance Comfort & Elegance With Premium Window Film</h2>
+        <h2 style={{padding: "20px"}}>Premium Home Window Film for Calgary&apos;s Climate</h2>
         <p>
-          We specialize in high-end residential window tinting using industry-leading films
-          by Solar Gard®. Whether you want to reduce glare, improve privacy, or enhance your
-          homes look, we tailor solutions to your lifestyle.
+          We install high-performance residential window films from Solar Gard®. Whether
+          you want to reduce summer heat, protect flooring and furnishings from UV damage,
+          control glare or add privacy, we tailor the film to your home and lifestyle.
         </p>
       </section>
 
@@ -93,9 +93,9 @@ const WindowFilms: React.FC = () => {
 
   
       <section className={styles.gallerySection}>
-      <h2>Snap Shots From a Few Projects</h2>
+      <h2>Calgary Residential Window Tinting Projects</h2>
       <a href="/image-gallery" className={styles.imageGallery}>
-        Checkout the Image Gallery
+        View Our Calgary Window Film Gallery
       </a>
 
       <div className={styles.galleryGrid}>
@@ -160,6 +160,17 @@ const WindowFilms: React.FC = () => {
     </div>
   </div>
 </section>
+
+
+      <section className={styles.relatedServices} aria-labelledby="related-residential-services">
+        <h2 id="related-residential-services">More Protection Services in Calgary</h2>
+        <p>
+          Planning a business project? Explore our{" "}
+          <a href="/commercial-films">commercial window film installation</a>. To protect
+          marble and natural stone surfaces, learn about our{" "}
+          <a href="/tuffskin">TuffSkin countertop protection</a>.
+        </p>
+      </section>
 
 
       {/* Final CTA */}

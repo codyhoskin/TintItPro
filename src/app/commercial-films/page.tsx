@@ -30,10 +30,10 @@ const CommercialWindowTinting: React.FC = () => {
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <h1>Professional Window Tinting for Calgary Businesses</h1>
+          <h1>Commercial Window Film Installation in Calgary</h1>
           <p>
-            Improve energy efficiency, increase security, and reduce glare with
-            industry-leading commercial films.
+            Improve comfort, energy performance, privacy and glass security with
+            professional films for Calgary offices, storefronts and commercial properties.
           </p>
           <a href="https://tintitpro.setmore.com/" className={styles.ctaButton}>
             Request an On-Site Consultation
@@ -44,11 +44,12 @@ const CommercialWindowTinting: React.FC = () => {
 
       {/* Overview */}
       <section className={styles.serviceOverview}>
-        <h2 style={{padding: "10px"}}>Smart Solutions for Modern Buildings</h2>
+        <h2 style={{padding: "10px"}}>Window Film Solutions for Calgary Buildings</h2>
         <p>
-          We install high-performance window film for businesses, retail spaces,
-          hotels, and office towers. From energy savings to safety compliance,
-          our commercial film solutions are tailored to your property.
+          We install high-performance commercial window film for offices, retail spaces,
+          hotels, schools and multi-unit properties. From solar heat control and privacy
+          to security and anti-graffiti protection, every solution is tailored to the glass,
+          building and operating needs.
         </p>
       </section>
 
@@ -106,9 +107,9 @@ const CommercialWindowTinting: React.FC = () => {
       </section>
 
       <section className={styles.gallerySection}>
-      <h2>A Few Commerical Projects</h2>
+      <h2>Commercial Window Film Projects in Calgary</h2>
       <a href="/image-gallery" className={styles.imageGallery}>
-        Checkout the Image Gallery
+        View Our Calgary Window Film Gallery
       </a>
 
       <div className={styles.galleryGrid}>
@@ -167,6 +168,16 @@ const CommercialWindowTinting: React.FC = () => {
             <p>Fast, clean install with minimal disruption to your business.</p>
           </div>
         </div>
+      </section>
+
+      <section className={styles.relatedServices} aria-labelledby="related-commercial-services">
+        <h2 id="related-commercial-services">Related Calgary Protection Services</h2>
+        <p>
+          For houses and condominiums, explore our{" "}
+          <a href="/windowfilm">residential window tinting services</a>. Protect marble,
+          quartz and other stone surfaces with our{" "}
+          <a href="/tuffskin">TuffSkin surface protection installation</a>.
+        </p>
       </section>
 
       {/* Final CTA */}

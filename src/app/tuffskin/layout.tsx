@@ -6,12 +6,29 @@ import {
 } from "@/lib/seo";
 
 const description =
-  "Certified TuffSkin installer in Calgary providing removable natural stone protection for marble, onyx, travertine, quartz, and other surfaces.";
+  "Certified TuffSkin installer in Calgary protecting marble, onyx, travertine and quartz countertops from etching, staining, moisture and everyday wear.";
+
+const keywords = [
+  "TuffSkin Calgary",
+  "TuffSkin installer Calgary",
+  "marble countertop protection Calgary",
+  "natural stone protection Calgary",
+  "marble etch protection",
+  "stone surface protection film",
+  "quartz countertop protection Calgary",
+];
 
 export const metadata: Metadata = createPageMetadata({
-  title: "TuffSkin Stone Protection Calgary",
+  title: "TuffSkin Stone & Countertop Protection Calgary",
   description,
   path: "/tuffskin",
+  keywords,
+  image: {
+    path: "/images/tuffskin-header2.png",
+    width: 2454,
+    height: 794,
+    alt: "TuffSkin natural stone and marble countertop protection",
+  },
 });
 
 export default function TuffSkinLayout({
@@ -25,6 +42,9 @@ export default function TuffSkinLayout({
           serviceType: "Natural stone surface protection installation",
           description,
           path: "/tuffskin",
+          keywords,
+          audience: "Calgary homeowners, hotels, restaurants and property managers",
+          image: "/images/tuffskin-header2.png",
         })}
       />
       {children}

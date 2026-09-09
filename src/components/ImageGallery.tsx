@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../styles/ImageGallery.module.css"; // Adjust the path as necessary
-import TitleSection from "./TitleSection";
+import Link from "next/link";
+import styles from "../styles/ImageGallery.module.css";
 
 // Define the type for the image prop
 interface ImageItem {
@@ -11,12 +11,41 @@ interface ImageItem {
 
 interface ImageGalleryProps {
   images: ImageItem[];
+  title: string;
+  description: string;
+  relatedLinks: Array<{
+    href: string;
+    label: string;
+  }>;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
+const ImageGallery: React.FC<ImageGalleryProps> = ({
+  images,
+  title,
+  description,
+  relatedLinks,
+}) => {
   return (
-    <div className={styles.galleryContainer}>
-        <TitleSection title="Image Gallery" subtitle="Completed Jobs For Our Happy Customers." />
+    <main className={styles.galleryContainer}>
+      <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span>{title}</span>
+      </nav>
+
+      <header className={styles.galleryHeader}>
+        <p className={styles.eyebrow}>Completed Calgary projects</p>
+        <h1 className={styles.galleryHeading}>{title}</h1>
+        <p className={styles.galleryIntro}>{description}</p>
+        <nav className={styles.relatedLinks} aria-label="Related services">
+          {relatedLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={styles.relatedLink}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </header>
+
       <div className={styles.gallery}>
         {images.map((image, index) => (
           <div key={index} className={styles.galleryItem}>
@@ -30,7 +59,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 

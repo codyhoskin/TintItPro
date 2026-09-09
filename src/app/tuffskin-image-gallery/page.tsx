@@ -56,5 +56,15 @@ const images = [
   
 
 export default function GalleryPage() {
-  return <ImageGallery images={images} />;
+  return (
+    <ImageGallery
+      images={images}
+      title="TuffSkin Stone Protection Gallery Calgary"
+      description="Browse TuffSkin installations protecting marble and natural stone countertops in Calgary homes, kitchens, hotels and commercial spaces from etching, staining and everyday wear."
+      relatedLinks={[
+        { href: "/tuffskin", label: "TuffSkin stone protection in Calgary" },
+        { href: "/windowfilm", label: "Residential window tinting in Calgary" },
+      ]}
+    />
+  );
 }

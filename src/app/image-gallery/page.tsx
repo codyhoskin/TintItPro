@@ -68,5 +68,15 @@ const images = [
   
 
 export default function GalleryPage() {
-  return <ImageGallery images={images} />;
+  return (
+    <ImageGallery
+      images={images}
+      title="Calgary Window Tinting Project Gallery"
+      description="See residential and commercial window film installations completed by Tint It Pro throughout Calgary. These projects include heat-control, privacy, decorative and security window films for homes and businesses."
+      relatedLinks={[
+        { href: "/windowfilm", label: "Residential window tinting in Calgary" },
+        { href: "/commercial-films", label: "Commercial window film in Calgary" },
+      ]}
+    />
+  );
 }
