@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import StructuredData from "@/components/StructuredData";
+import { businessStructuredData, SITE_URL } from "@/lib/seo";
 
 const interFontBold = localFont({
   src: "./fonts/Satoshi-Black.otf",
@@ -25,7 +27,7 @@ const interFontThin = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tintitpro.ca"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     template: "%s | Tint It Pro",
@@ -42,20 +44,34 @@ export const metadata: Metadata = {
     "Calgary",
   ],
   authors: [{ name: "Tint It Pro", url: "https://tintitpro.ca" }],
+  creator: "Tint It Pro",
+  publisher: "Tint It Pro",
+  category: "Home Services",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     description:
       "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
     url: "https://tintitpro.ca",
     siteName: "Tint It Pro",
-    locale: "en_US",
+    locale: "en_CA",
     type: "website",
     images: [
       {
-        url: "https://tintitpro.ca/images/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Calgarys Experts in Window Films & Surface Protection",
+        url: "https://tintitpro.ca/images/tint-it-pro-van-parallax.webp",
+        width: 2400,
+        height: 1356,
+        alt: "Tint It Pro window film and surface protection service vehicle in Calgary",
       },
     ],
   },
@@ -64,7 +80,7 @@ export const metadata: Metadata = {
     title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
     description:
       "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
-    images: ["https://tintitpro.ca/images/logo.png"],
+    images: ["https://tintitpro.ca/images/tint-it-pro-van-parallax.webp"],
     creator: "@tintitpro",
   },
   icons: {
@@ -87,6 +103,7 @@ export default function RootLayout({
       className={`${interFontBold.variable} ${interFontThin.variable}`}
     >
       <body>
+        <StructuredData data={businessStructuredData} />
         <ThemeProviderWrapper>
           <Header />
           {children}

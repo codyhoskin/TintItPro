@@ -2,7 +2,7 @@ import React from "react";
 import ImageGallery from "@/components/ImageGallery";
 
 const images = [
-    { src: "/images/tint-job/F62CCD86-DE98-46C6-8125-4D4D37CAA383.JPG", alt: "Image 1" },
+    { src: "/images/tint-job/F62CCD86-DE98-46C6-8125-4D4D37CAA383.JPG", alt: "Calgary window film installation project 1" },
     { src: "/images/tint-job/IMG_0143.JPG", alt: "Image 2" },
     { src: "/images/tint-job/IMG_0159.JPG", alt: "Image 3" },
     { src: "/images/tint-job/IMG_0391.JPG", alt: "Image 4" },
@@ -59,7 +59,12 @@ const images = [
     { src: "/images/tint-job/IMG_9769.JPG", alt: "Image 58" },
     { src: "/images/tint-job/IMG_9772.JPG", alt: "Image 59" },
     { src: "/images/tint-job/IMG_9792.JPG", alt: "Image 60" },
-  ];
+  ].map((image, index) => ({
+    ...image,
+    alt: image.alt.startsWith("Image ")
+      ? `Calgary window film installation project ${index + 1}`
+      : image.alt,
+  }));
   
 
 export default function GalleryPage() {

@@ -3,7 +3,7 @@ import FAQItem from "./FAQ";
 import TitleSection from "./TitleSection";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
-const faqItems = [
+export const faqItems = [
   {
     question: "What services do you offer?",
     answer:

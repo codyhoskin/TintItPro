@@ -1,9 +1,14 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://tintitpro.netlify.app/
+User-agent: OAI-SearchBot
+Allow: /
 
-# Sitemaps
-Sitemap: https://tintitpro.netlify.app/sitemap.xml
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Host: https://tintitpro.ca
+Sitemap: https://tintitpro.ca/sitemap.xml

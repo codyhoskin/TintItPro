@@ -2,7 +2,7 @@ import React from "react";
 import ImageGallery from "@/components/ImageGallery";
 
 const images = [
-  { src: "/images/tuffskin/DJI_20250228131733_0121_D.JPG", alt: "TuffSkin® image 1" },
+  { src: "/images/tuffskin/DJI_20250228131733_0121_D.JPG", alt: "Calgary TuffSkin natural stone protection project 1" },
   { src: "/images/tuffskin/DJI_20250228131739_0122_D.JPG", alt: "TuffSkin® image 2" },
   { src: "/images/tuffskin/DJI_20250228131952_0134_D.JPG", alt: "TuffSkin® image 3" },
   { src: "/images/tuffskin/IMG_0279.JPG", alt: "TuffSkin® image 4" },
@@ -47,7 +47,12 @@ const images = [
   { src: "/images/tuffskin/TuffSkinFrank64.jpg", alt: "TuffSkin® image 43" },
   { src: "/images/tuffskin/TuffSkinFrank67.jpg", alt: "TuffSkin® image 44" },
   { src: "/images/tuffskin/TuffSkinFrank82.jpg", alt: "TuffSkin® image 45" },
-];
+].map((image, index) => ({
+  ...image,
+  alt: image.alt.startsWith("TuffSkin® image ")
+    ? `Calgary TuffSkin natural stone protection project ${index + 1}`
+    : image.alt,
+}));
   
 
 export default function GalleryPage() {

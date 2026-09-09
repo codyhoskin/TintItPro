@@ -11,12 +11,31 @@ import { FaShieldAlt, FaWater } from "react-icons/fa";
 import { MdWbSunny } from "react-icons/md";
 import styles from "./page.module.css";
 //import FAQChat from "@/components/FAQChat";
-import FAQSection from "@/components/FAQSection";
+import FAQSection, { faqItems } from "@/components/FAQSection";
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: answer,
+    },
+  })),
+};
 
 // Tailwind container keeps a max-width and side padding.
 export default function Landing() {
   return (
     <main id="main" >
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(faqStructuredData).replace(/</g, "\\u003c"),
+      }}
+    />
     <section id="home" className="relative" style={{ scrollMarginTop: "150px" }}>
 
       <Hero />
