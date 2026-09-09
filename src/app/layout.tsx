@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import ThemeProviderWrapper from "../components/ThemeProviderWrapper";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -86,8 +86,26 @@ export const metadata: Metadata = {
     images: ["https://tintitpro.ca/images/tint-it-pro-van-parallax.webp"],
     creator: "@tintitpro",
   },
+  manifest: "/manifest.webmanifest",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/tint-it-pro-icon-96.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
   },
   alternates: {
     canonical: "https://tintitpro.ca",
@@ -102,6 +120,14 @@ export const metadata: Metadata = {
         },
       }
     : {}),
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#050505" },
+  ],
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
