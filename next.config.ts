@@ -8,11 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "img.youtube.com",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        pathname: "/**",
-      },
     ],
     qualities: [75, 85],
     formats: ["image/webp", "image/avif"],
