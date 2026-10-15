@@ -132,6 +132,28 @@ export const businessStructuredData = {
           },
         })),
       },
+      serviceArea: [
+        {
+          "@type": "City",
+          name: "Calgary",
+        },
+        {
+          "@type": "City",
+          name: "Airdrie",
+        },
+        {
+          "@type": "City",
+          name: "Chestermere",
+        },
+        {
+          "@type": "City",
+          name: "Okotoks",
+        },
+        {
+          "@type": "City",
+          name: "Cochrane",
+        },
+      ],
     },
     {
       "@type": "WebSite",
@@ -151,18 +173,28 @@ export const homePageStructuredData = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/#webpage`,
   url: SITE_URL,
-  name: "Calgary Window Tinting & Surface Protection | Tint It Pro",
+  name: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
   description:
-    "Premium residential and commercial window film, glass protection, and natural stone protection services in Calgary, Alberta.",
+    "Calgary window tinting for residential and commercial properties, including UV control, privacy film, decorative film, and natural stone protection in Alberta.",
   isPartOf: {
     "@id": `${SITE_URL}/#website`,
   },
   about: {
     "@id": `${SITE_URL}/#business`,
   },
+  keywords: [
+    "Calgary window tinting",
+    "residential window film Calgary",
+    "privacy window film Calgary",
+    "window tinting cost Calgary",
+    "solar control window film",
+    "Tint It Pro",
+  ],
   primaryImageOfPage: {
     "@type": "ImageObject",
     url: `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
+    width: 2400,
+    height: 1356,
   },
   inLanguage: "en-CA",
 };

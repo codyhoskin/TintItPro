@@ -12,6 +12,10 @@ module.exports = {
       { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Applebot-Extended', allow: '/' },
     ],
   },
   transform: async (config, path) => ({

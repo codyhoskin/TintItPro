@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { residentialWindowFilmFaqs } from "@/lib/residential-window-film";
 
 const WindowFilms: React.FC = () => {
     const [open, setOpen] = useState(false);
@@ -46,33 +47,80 @@ const WindowFilms: React.FC = () => {
 
       {/* Service Overview */}
       <section className={styles.serviceOverview}>
-        <h2 style={{padding: "20px"}}>Premium Home Window Film for Calgary&apos;s Climate</h2>
+        <p className={styles.eyebrow}>CALGARY HOME WINDOW FILM</p>
+        <h2>Professional Window Tinting for Calgary Homes</h2>
         <p>
-          We install high-performance residential window films from Solar Gard®. Whether
-          you want to reduce summer heat, protect flooring and furnishings from UV damage,
-          control glare or add privacy, we tailor the film to your home and lifestyle.
+          Tint It Pro installs professional Solar Gard® architectural window film on
+          existing residential glass. We match the product to your windows and your goal—
+          cooling a sunny room, reducing screen glare, protecting hardwood and furnishings,
+          adding privacy, or strengthening vulnerable glass.
         </p>
       </section>
 
       {/* Types of Film */}
       <section className={styles.filmTypes}>
-        <h2 style={{textAlign: "center", padding: "25px"}}>Types of Residential Window Film</h2>
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>RESIDENTIAL WINDOW FILM SERVICES</p>
+          <h2>Choose the Right Film for Your Home</h2>
+          <p>
+            Every film solves a different problem. We review the glass, sun exposure,
+            desired appearance and privacy needs before recommending a product.
+          </p>
+        </div>
         <div className={styles.cardGrid}>
           <div className={styles.card}>
-            <FaSun size={40} color="var(--primary)" className={styles.icon} />
-            <h3>Solar Control Film</h3>
-            <p>Blocks heat and UV without darkening views.</p>
+            <FaSun size={40} color="var(--secondary)" className={styles.icon} />
+            <h3>Heat-Control Window Film</h3>
+            <p>Reduces solar heat and glare in hot south- and west-facing rooms while maintaining a comfortable view.</p>
           </div>
           <div className={styles.card}>
-            <FaEyeSlash size={40} color="var(--primary)" className={styles.icon} />
-            <h3>Decorative Film</h3>
-            <p>Adds style and privacy to bathrooms and entryways.</p>
+            <FaEyeSlash size={40} color="var(--secondary)" className={styles.icon} />
+            <h3>Privacy &amp; Frosted Film</h3>
+            <p>Adds daytime privacy or a frosted finish to bathrooms, entry sidelights and street-facing glass.</p>
           </div>
           <div className={styles.card}>
-            <FaUserShield size={40} color="var(--primary)" className={styles.icon} />
-            <h3>Security Film</h3>
-            <p>Holds shattered glass and deters break-ins.</p>
+            <FaUserShield size={40} color="var(--secondary)" className={styles.icon} />
+            <h3>Safety &amp; Security Film</h3>
+            <p>Helps hold shattered glass together after impact for added protection at windows and glass doors.</p>
           </div>
+          <div className={styles.card}>
+            <FaSun size={40} color="var(--secondary)" className={styles.icon} />
+            <h3>UV &amp; Fade Protection Film</h3>
+            <p>Blocks more than 99% of ultraviolet light to help protect floors, furniture, art and fabrics from fading.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.solutionGuide} aria-labelledby="window-film-solution-guide">
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>A SIMPLE SELECTION GUIDE</p>
+          <h2 id="window-film-solution-guide">What Are You Trying to Improve?</h2>
+        </div>
+        <div className={styles.solutionGrid}>
+          <article>
+            <h3>Hot, sunny rooms</h3>
+            <p>Start with solar-control or dual-climate film for large south- and west-facing windows.</p>
+          </article>
+          <article>
+            <h3>Fading interiors</h3>
+            <p>Choose UV-filtering film to help preserve hardwood, artwork, furniture and fabrics.</p>
+          </article>
+          <article>
+            <h3>Daytime privacy</h3>
+            <p>Reflective privacy film screens views from outside while keeping your outward view during daylight.</p>
+          </article>
+          <article>
+            <h3>Privacy day and night</h3>
+            <p>Use frosted or decorative film where permanent privacy matters more than seeing through the glass.</p>
+          </article>
+          <article>
+            <h3>Glare on screens</h3>
+            <p>A neutral solar film can reduce intense glare in living rooms, home offices and media spaces.</p>
+          </article>
+          <article>
+            <h3>Glass safety</h3>
+            <p>Safety and security film helps retain glass fragments after accidental impact or breakage.</p>
+          </article>
         </div>
       </section>
 
@@ -80,14 +128,14 @@ const WindowFilms: React.FC = () => {
       <section className={styles.benefitsSection}>
         <h2 >Why Calgary Homeowners Choose Tint It Pro</h2>
         <ul className={styles.benefitsList}>
-          <li>UV Protection (up to 99%)</li>
-          <li>Energy Efficiency</li>
-          <li>Daytime Privacy</li>
-          <li>Glare Reduction</li>
-          <li>10-Year Warranty</li>
+          <li>More than 99% UV blocked on select films</li>
+          <li>Reduced solar heat gain</li>
+          <li>Daytime privacy options</li>
+          <li>Less glare on TVs and screens</li>
+          <li>Film-specific manufacturer warranties</li>
           <li>Solar Gard® Certified</li>
-          <li>Elegant Installation</li>
-          <li>Fully Insured & Professional</li>
+          <li>Clean, professional installation</li>
+          <li>Film matched to your glass</li>
         </ul>
       </section>
 
@@ -104,8 +152,8 @@ const WindowFilms: React.FC = () => {
             <Image
               src={src}
               alt={`Residential window film installation in a Calgary home ${i + 1}`}
-              width={400}
-              height={250}
+              fill
+              sizes="(max-width: 560px) 100vw, (max-width: 1100px) 50vw, 25vw"
               className={styles.galleryImage}
               onClick={() => {
                 setIndex(i);
@@ -138,28 +186,57 @@ const WindowFilms: React.FC = () => {
 
      {/* How It Works */}
 <section className={styles.processSection}>
-  <h2>Our 3-Step Process</h2>
+  <p className={styles.eyebrow}>FROM GLASS ASSESSMENT TO INSTALLATION</p>
+  <h2>How Residential Window Tinting Works</h2>
   <div className={styles.processFlow}>
     <div className={styles.stepCard}>
       <h3>1. In-Home Consultation</h3>
-      <p>We&apos;ll assess your space and recommend ideal window film options.</p>
+      <p>We assess the glass, sun exposure, access and the result you want.</p>
     </div>
 
     <div className={styles.arrow}>&rarr;</div>
 
     <div className={`${styles.stepCard} ${styles.staggered}`}>
       <h3>2. Tailored Product Selection</h3>
-      <p>You choose from premium films customized to your style and needs.</p>
+      <p>Compare suitable film samples, appearance, performance and warranty coverage.</p>
     </div>
 
     <div className={styles.arrow}>&rarr;</div>
 
     <div className={styles.stepCard}>
       <h3>3. Professional Installation</h3>
-      <p>Clean, elegant install backed by a 10-year warranty.</p>
+      <p>Your selected film is installed precisely, followed by care and warranty guidance.</p>
     </div>
   </div>
 </section>
+
+      <section className={styles.localSection} aria-labelledby="calgary-service-area">
+        <div>
+          <p className={styles.eyebrow}>LOCAL RESIDENTIAL INSTALLATION</p>
+          <h2 id="calgary-service-area">Home Window Tinting Across Calgary and Nearby Communities</h2>
+        </div>
+        <p>
+          Tint It Pro serves homeowners throughout Calgary and surrounding communities.
+          Our mobile consultation and installation service is suited to detached homes,
+          townhomes, condominiums and residential renovation projects. Contact us to confirm
+          availability for your address and window type.
+        </p>
+      </section>
+
+      <section className={styles.faqSection} aria-labelledby="residential-window-film-faq">
+        <div className={styles.sectionHeading}>
+          <p className={styles.eyebrow}>STRAIGHT ANSWERS</p>
+          <h2 id="residential-window-film-faq">Calgary Residential Window Film FAQ</h2>
+        </div>
+        <div className={styles.faqList}>
+          {residentialWindowFilmFaqs.map(({ question, answer }) => (
+            <details key={question}>
+              <summary>{question}</summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
 
 
       <section className={styles.relatedServices} aria-labelledby="related-residential-services">

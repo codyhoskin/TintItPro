@@ -1,6 +1,44 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
+
+  async redirects() {
+    return [
+      { source: "/home", destination: "/", permanent: true },
+      { source: "/index", destination: "/", permanent: true },
+      { source: "/commercial", destination: "/commercial-films", permanent: true },
+      {
+        source: "/commercial-window-film",
+        destination: "/commercial-films",
+        permanent: true,
+      },
+      {
+        source: "/commercial-window-tinting",
+        destination: "/commercial-films",
+        permanent: true,
+      },
+      {
+        source: "/residential-window-tinting",
+        destination: "/windowfilm",
+        permanent: true,
+      },
+      {
+        source: "/residential-window-film",
+        destination: "/windowfilm",
+        permanent: true,
+      },
+      { source: "/window-film", destination: "/windowfilm", permanent: true },
+      { source: "/gallery", destination: "/image-gallery", permanent: true },
+      {
+        source: "/tuffskin-gallery",
+        destination: "/tuffskin-image-gallery",
+        permanent: true,
+      },
+      { source: "/tuff-skin", destination: "/tuffskin", permanent: true },
+    ];
+  },
+
   images: {
     remotePatterns: [
       {

@@ -7,20 +7,22 @@ export const faqItems = [
   {
     question: "What services do you offer?",
     answer:
-      "We offer professional SolarGard® window tinting and Tuffskin® Surface protection services, decorative film, anti-graffiti films & more..",
+      "We provide professional SolarGard® window tinting and Tuffskin® natural stone protection in Calgary, including heat-control film, privacy film, decorative film, and anti-graffiti coating.",
   },
   {
     question: "Where are you located?",
-    answer: "Calgary, Alberta and surroundings.",
+    answer:
+      "We are based in Calgary, Alberta, and serve surrounding communities for home and business projects.",
   },
   {
     question: "Which window film manufacturer do you use?",
     answer:
-      "Our customers deserve the absolute best, so we use Solar Gard® Films by Saint-Gobain, backed by an eight-year warranty. Solar Gard® is a global leader in patent-protected film technologies for solar control and surface protection across the residential and commercial industries as the Specialty Films Division of the worldwide glass and building technology icon Saint-Gobain. Solar Gard® builds upon decades of work to offer proprietary solar control and safety film solutions. The company’s product portfolio delivers unmatched results in enhancing and protecting homes, buildings, and, most importantly, the residents and tenants inside.",
+      "We use Solar Gard® Films by Saint-Gobain for premium residential and commercial window film solutions. Their films are backed by manufacturer warranty and are trusted for solar control, UV reduction, and safety applications.",
   },
   {
     question: "How much does an on-site estimate cost?",
-    answer: "Get a free preliminary estimate using our online estimator. Professional on-site consultations are $75 + GST and are fully credited toward your project if you proceed.",
+    answer:
+      "Use the online estimator for a quick preliminary estimate. Professional on-site consultations are $75 + GST and are fully credited toward your project if you proceed.",
   },
   {
     question: "Do your films provide privacy at night?",
@@ -28,11 +30,23 @@ export const faqItems = [
   },
   {
     question: "Can window film be installed on any type of window?",
-    answer: "Most standard residential glass types are compatible. Well assess during your estimate.",
+    answer:
+      "Most standard residential and commercial glass is compatible. Each window type is assessed during your consultation to recommend the right film.",
   },
   {
     question: "Is window film safe for dual-pane windows?",
-    answer: "Yes — we use films specifically rated for dual-pane and energy-efficient windows.",
+    answer:
+      "Yes. We use films suitable for modern double-pane and energy-efficient windows, and verify compatibility at the estimate.",
+  },
+  {
+    question: "How much does residential tinting cost in Calgary?",
+    answer:
+      "Calgary home tinting starts with a personalized quote because each project differs by window count, size, and film type. Use the estimator to get a fast range and confirm details with an on-site review.",
+  },
+  {
+    question: "Does window tinting make rooms too dark?",
+    answer:
+      "Tinting improves comfort and glare control but should not make rooms dark when selected correctly. Our team recommends the best visible-light transmission for each room orientation.",
   },
 ];
 

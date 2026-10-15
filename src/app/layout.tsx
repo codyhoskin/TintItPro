@@ -30,16 +30,18 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Tint It Pro",
   title: {
-    default: "Calgary Window Tinting & Surface Protection | Tint It Pro",
+    default: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
     template: "%s | Tint It Pro",
   },
   description:
-    "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
+    "Tint It Pro is Calgary's trusted home and business window tinting specialist. Get UV and heat-control film, privacy film, and natural stone protection from licensed Calgary installers.",
   keywords: [
     "Calgary window tinting",
     "residential window film Calgary",
+    "home window tinting Calgary",
     "commercial window film Calgary",
     "natural stone protection Calgary",
+    "privacy window film Calgary",
     "TuffSkin Calgary",
     "glass protection Calgary",
     "decorative window film Calgary",
@@ -62,9 +64,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
+    title: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
     description:
-      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
+      "Tint It Pro is Calgary's trusted window tinting, tint film, and natural stone protection team. Fast estimates and professional on-site consultation ($75 + GST).",
     url: "https://tintitpro.ca",
     siteName: "Tint It Pro",
     locale: "en_CA",
@@ -80,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calgary Window Tinting & Surface Protection | Tint It Pro",
+    title: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
     description:
-      "Protect your home and save on energy with premium residential window films in Calgary. Block UV, reduce glare, and enhance privacy. Estimates available!",
+      "Calgary's trusted window tinting specialist for home and business windows, UV reduction, privacy control, and surface protection.",
     images: ["https://tintitpro.ca/images/tint-it-pro-van-parallax.webp"],
     creator: "@tintitpro",
   },

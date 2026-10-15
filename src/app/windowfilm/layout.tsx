@@ -4,15 +4,19 @@ import {
   createPageMetadata,
   createServiceStructuredData,
 } from "@/lib/seo";
+import { residentialWindowFilmFaqs } from "@/lib/residential-window-film";
 
 const description =
-  "Residential window tinting in Calgary using premium Solar Gard films for heat, glare and UV reduction, daytime privacy, security and decorative glass.";
+  "Professional residential window tinting in Calgary for heat and glare reduction, UV and fade protection, daytime privacy, decorative glass and security.";
 
 const keywords = [
   "residential window tinting Calgary",
+  "home window tinting Calgary",
   "home window film Calgary",
   "heat control window film Calgary",
-  "UV protection window film",
+  "UV protection window film Calgary",
+  "one way privacy window film Calgary",
+  "frosted window film Calgary",
   "privacy window film Calgary",
   "security window film Calgary",
   "Solar Gard window film Calgary",
@@ -46,6 +50,21 @@ export default function WindowFilmLayout({
           audience: "Homeowners and residential property managers in Calgary",
           image: "/images/hero/luxHosue.webp",
         })}
+      />
+      <StructuredData
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": "https://tintitpro.ca/windowfilm#faq",
+          mainEntity: residentialWindowFilmFaqs.map(({ question, answer }) => ({
+            "@type": "Question",
+            name: question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: answer,
+            },
+          })),
+        }}
       />
       {children}
     </>

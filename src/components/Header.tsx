@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           </button>
           {desktopDropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <a href="/windowfilm" aria-label="Navigate to windowfilm page.">Residential Window Films</a>
+              <a href="/windowfilm" aria-label="Navigate to residential window tinting page.">Residential Window Tinting</a>
               <a href="/commercial-films" aria-label="Navigate to commercial-films page.">Commercial Window Films</a>
               <a href="/tuffskin" aria-label="Navigate to tuffskin page.">Stone Protection (TuffSkin®)</a>
               <Link href="/tuffskin" aria-label="Navigate to Tuffskin page.">Glass Protection</Link>
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
             </button>
             {mobileDropdownOpen && (
               <div className={`${styles.dropdownMenu} ${styles.mobileDropdownMenu}`}>
-                <a href="/windowfilm" aria-label="Navigate to window film section." onClick={handleMenuClose}>Residential Window Films</a>
+                <a href="/windowfilm" aria-label="Navigate to residential window tinting page." onClick={handleMenuClose}>Residential Window Tinting</a>
                 <a href="/commercial-films" aria-label="Navigate to commercial films section." onClick={handleMenuClose}>Commercial Window Films</a>
                 <a href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Stone Protection (TuffSkin®)</a>
                 <Link href="/tuffskin" aria-label="Navigate to tuffskin section." onClick={handleMenuClose}>Glass Protection</Link>
