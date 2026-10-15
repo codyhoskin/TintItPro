@@ -9,6 +9,7 @@ import TitleSection from "@/components/TitleSection";
 import MovieViewingComponent from "@/components/MovieComponent2";
 import { MdPhotoLibrary } from "react-icons/md";
 import { useTheme } from "next-themes";
+import { motion, useReducedMotion } from "framer-motion";
 
 const generalFAQ = [
   {
@@ -63,7 +64,7 @@ const generalFAQ = [
         href="https://www.tuffskin.com/care-and-warranty/"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ color: "#0042DD", textDecoration: "underline" }}
+        className={styles.faqLink}
       >
         View Care Instructions and Warranty
       </a>
@@ -72,7 +73,16 @@ const generalFAQ = [
 ];
 
 const TuffSkinPage: React.FC = () => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
+  const reducedMotion = useReducedMotion();
+  const reveal = reducedMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 22 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.16 },
+      };
+  const revealTransition = { duration: 0.6, ease: "easeOut" as const };
 
 const imageSrc =
     theme === "light"
@@ -81,30 +91,13 @@ const imageSrc =
 
     
   return (
-    <main
-      style={{
-        padding: "20px",
-        maxWidth: "1200px",
-        margin: "0 auto",
-        lineHeight: "1.8",
-        position: "relative",
-        marginTop: "150px"
-      }}
-    >
+    <main className={styles.pageWrapper}>
       {/* Hero Images */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "20px",
-          marginBottom: "50px",
-        }}
-      >
-        <Image src={imageSrc} alt="TuffSkin® Surface Protection" width={300} height={90}   className={styles.themedLogo}/>
+      <motion.section className={styles.heroSection} {...reveal}>
+        <Image src={imageSrc} alt="TuffSkin® Surface Protection" width={300} height={90} className={styles.themedLogo}/>
 
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>Certified Calgary installer</p>
+          <p className={styles.eyebrow}>Stone surface protection · Calgary</p>
           <h1>TuffSkin® Marble &amp; Stone Countertop Protection in Calgary</h1>
           <p>
             Preserve luxury marble, onyx, travertine and quartz surfaces with a
@@ -113,37 +106,28 @@ const imageSrc =
           </p>
         </div>
 
-        <div style={{ background: "#f7f7f7", padding: "30px", borderRadius: "12px", maxWidth: "800px", marginBottom: "20px", marginTop: "20px", opacity: 0.8 }}>
-          <p style={{ marginBottom: 0, textAlign: "center", color: "black" }}>
+        <div className={styles.introPanel}>
+          <p>
             Tint It Pro is a certified TuffSkin® installer serving Calgary homes and
             businesses. TuffSkin® provides professional-grade protection for natural
             stone surfaces, helping prevent etching, staining and damage from heat or
             moisture. It is ideal for kitchens, bathrooms, restaurants and hotels.
           </p>
         </div>
-        <Image src="/images/tuffskin-header2.png" alt="TuffSkin® Sample" width={700} height={180}     className={styles.roundedImage}/>
+        <Image src="/images/tuffskin-header2.png" alt="TuffSkin® Sample" width={700} height={180} className={styles.roundedImage}/>
 
         <MovieViewingComponent />
 
-        {["/images/tuffskin-banner.png", "/images/tuffskin-info.png",  "/images/tuffskin-trusted.png"].map((src, idx) => (
-          <Image
-            key={idx}
-            src={src}
-            alt={`TuffSkin® Image ${idx}`}
-            width={600}
-            height={400}
-            style={{
-              width: "90%",
-              maxWidth: "800px",
-              height: "auto",
-              borderRadius: "12px",
-              transition: "width 0.3s ease",
-            }}
-          />
+        <div className={styles.visualStack}>
+        {["/images/tuffskin-banner.png", "/images/tuffskin-info.png", "/images/tuffskin-trusted.png"].map((src, idx) => (
+          <motion.div key={idx} {...reveal} transition={{ ...revealTransition, delay: idx * 0.08 }}>
+            <Image src={src} alt={`TuffSkin® installation detail ${idx + 1}`} width={600} height={400} className={styles.detailImage}/>
+          </motion.div>
         ))}
-      </div>
+        </div>
+      </motion.section>
 
-    <div className={styles.ctaBlock}>
+    <motion.section className={styles.ctaBlock} {...reveal}>
   <div className={styles.ctaContent}>
     <div className={styles.iconWrapper}>
       <MdPhotoLibrary size={85} color="#0042DD" />
@@ -165,7 +149,7 @@ const imageSrc =
       </Link>
     </div>
   </div>
-</div>
+</motion.section>
 
 
 
@@ -173,16 +157,7 @@ const imageSrc =
 
 
     {/* Sticky CTA Button */}
-<div
-  style={{
-    position: "relative",
-    bottom: "20px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    zIndex: 999,
-    padding: "10px",
-  }}
->
+<motion.div className={styles.scheduleSection} {...reveal}>
   <a
     href="https://tintitpro.setmore.com/"
     className={styles.scheduleButton}
@@ -195,37 +170,25 @@ const imageSrc =
       className={styles.wigglePop}
     />
   </a>
-</div>
+</motion.div>
 
 
 
 
       {/* FAQ Section */}
-      <div>
+      <motion.section className={styles.faqSection} {...reveal}>
         <FrequentlyAskedQuestions
           title="Customer Support"
           subtitle="Answers to Common Questions"
           faqItems={generalFAQ}
         />
-      </div>
+      </motion.section>
 
-      <Image
-        src="/images/tuffskin-info2.png"
-        alt="TuffSkin® Info"
-        width={600}
-        height={400}
-        style={{
-          width: "90%",
-          maxWidth: "800px",
-          height: "auto",
-          borderRadius: "12px",
-          transition: "width 0.3s ease",
-          display: "block",
-          margin: "50px auto 100px",
-        }}
-      />
+      <motion.figure className={styles.infoFeature} {...reveal}>
+        <Image src="/images/tuffskin-info2.png" alt="TuffSkin® product information" width={600} height={400} />
+      </motion.figure>
 
-      <section className={styles.relatedServices} aria-labelledby="related-stone-services">
+      <motion.section className={styles.relatedServices} aria-labelledby="related-stone-services" {...reveal}>
         <h2 id="related-stone-services">Explore More Calgary Protection Services</h2>
         <p>
           Protect your home&apos;s glass with our{" "}
@@ -236,7 +199,7 @@ const imageSrc =
         <Link href="/tuffskin-image-gallery" className={styles.galleryTextLink}>
           Browse our Calgary TuffSkin project gallery
         </Link>
-      </section>
+      </motion.section>
     </main>
   );
 };
