@@ -7,43 +7,80 @@
 
 /* Wrapper */
 .pageWrapper {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: var(--font-inter-thin), system-ui, sans-serif;
   color: var(--foreground);
   padding-bottom: 1rem;
   min-height: 100vh;
   background-color: var(--background);
-  margin-top: -10;
+  margin-top: 0;
+  overflow: clip;
 }
 
 .heroSection {
   position: relative;
   width: 100%;
-  height: 800px;
+  min-height: min(82svh, 760px);
+  padding: 120px clamp(24px, 8vw, 120px) 100px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  isolation: isolate;
 }
 
 .heroText {
   position: relative;
   z-index: 2;
   color: white;
-  text-align: center;
-  max-width: 430px;
-  padding-top: 5rem;
+  text-align: left;
+  max-width: 700px;
+  padding-top: 3rem;
+}
+
+.heroKicker {
+  margin: 0 0 1.25rem;
+  color: #9db8ff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
 }
 
 .heroText h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  max-width: 680px;
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  margin: 0 0 1.5rem;
   color: white;
 }
 
 .heroText p {
-  font-size: 1.2rem;
-  margin-bottom: 4rem;
-  color: white;
+  max-width: 49ch;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-top: 2.25rem;
+}
+
+.heroTextLink {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 0.35rem;
+}
+
+.heroTextLink:hover {
+  text-decoration: underline;
 }
 .imageGallery {
   display: block;
@@ -66,10 +103,13 @@
 }
 
 .ctaButton {
-  margin-top: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
   background: var(--primary);
   color: white;
-  padding: 18px 24px;
+  padding: 16px 24px;
   border-radius: var(--radius-ui);
   border: var(--glass-border);
   text-decoration: none;
@@ -98,12 +138,22 @@
   background-image: url('/images/hero/luxHosue.webp'); /* or set with inline style */
   background-size: cover;
   background-position: center;
-  filter: brightness(0.65);
+  filter: saturate(0.82) brightness(0.55);
+}
+
+.heroImagePlaceholder::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.4) 42%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent 45%);
+  pointer-events: none;
 }
 
 /* Sections */
 .serviceOverview {
-  padding: 72px 24px;
+  padding: clamp(90px, 13vw, 150px) 24px clamp(70px, 10vw, 120px);
   color: var(--foreground);
   max-width: 820px;
   margin: 0 auto;
@@ -114,6 +164,7 @@
   margin: 8px 0 16px;
   font-size: clamp(1.8rem, 4vw, 2.7rem);
   line-height: 1.08;
+  text-wrap: balance;
 }
 
 .serviceOverview p:last-child,
@@ -137,29 +188,38 @@
 }
 
 .filmTypes {
-  padding: 60px 20px;
+  padding: clamp(76px, 10vw, 132px) 24px;
 }
 
 .cardGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 .card {
-  background: var(--background);
+  min-height: 240px;
+  background: color-mix(in srgb, var(--background) 90%, var(--foreground));
   border-radius: var(--radius-ui);
-  padding: 30px;
-  width: min(100%, 280px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  text-align: center;
+  padding: clamp(24px, 3.5vw, 40px);
+  text-align: left;
   color: var(--foreground);
   border: 1px solid var(--border-color);
+  transition: transform 280ms ease, border-color 280ms ease, background-color 280ms ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--secondary);
+  background: color-mix(in srgb, var(--background) 84%, var(--secondary));
 }
 
 .card h3 {
-  margin: 18px 0 10px;
+  margin: 24px 0 10px;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
 }
 
 .card p {
@@ -168,24 +228,31 @@
 }
 
 .solutionGuide {
-  padding: 72px 24px;
+  padding: clamp(76px, 10vw, 132px) 24px;
   color: var(--foreground);
   background: var(--tertiary);
 }
 
 .solutionGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .solutionGrid article {
-  padding: 24px;
-  background: var(--background);
+  min-height: 150px;
+  padding: 28px;
+  background: color-mix(in srgb, var(--background) 90%, var(--foreground));
   border: 1px solid var(--border-color);
   border-radius: var(--radius-ui);
+  transition: transform 280ms ease, border-color 280ms ease;
+}
+
+.solutionGrid article:hover {
+  transform: translateY(-4px);
+  border-color: var(--secondary);
 }
 
 .solutionGrid h3 {
@@ -209,7 +276,7 @@
 /* Benefits Section */
 .benefitsSection {
   background-color: var(--background);
-  padding: 60px 40px;
+  padding: clamp(82px, 11vw, 132px) 24px;
   text-align: center;
 }
 
@@ -229,7 +296,8 @@
 
 .benefitsList li {
   background-color: var(--tertiary);
-  padding: 18px 20px;
+  min-height: 76px;
+  padding: 18px 22px;
   border-radius: var(--radius-ui);
   font-size: 1.1rem;
   font-weight: 500;
@@ -237,7 +305,14 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid transparent;
+  transition: transform 260ms ease, border-color 260ms ease, background-color 260ms ease;
+}
+
+.benefitsList li:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--secondary) 48%, transparent);
+  background-color: color-mix(in srgb, var(--tertiary) 86%, var(--secondary));
 }
 
 /* You can add a checkmark icon with CSS or an inline SVG/icon component */
@@ -249,7 +324,7 @@
 
 /* Gallery */
 .gallerySection {
-  padding: 60px 20px;
+  padding: clamp(82px, 11vw, 132px) 24px;
   color: var(--foreground);
 }
 .imageWrapper {
@@ -275,8 +350,9 @@
 .galleryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  max-width: 1120px;
+  margin: 2.5rem auto 0;
 }
 
 .imagePlaceholder {
@@ -294,7 +370,7 @@
 
 /* Process */
 .processSection {
-  padding: 60px 20px;
+  padding: clamp(82px, 11vw, 132px) 24px;
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -314,9 +390,21 @@
 .finalCTA {
   background: var(--primary);
   color: white;
-  padding: 60px 20px;
+  padding: clamp(82px, 11vw, 132px) 24px;
   text-align: center;
+  position: relative;
+  isolation: isolate;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.finalCTA::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: calc(var(--radius-ui) + 4px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .relatedServices {
@@ -401,6 +489,7 @@
 .finalCTA h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
+  text-wrap: balance;
 }
 
 .finalCTA p {
@@ -470,9 +559,32 @@
 }
 
 @media (max-width: 768px) {
+  .heroSection {
+    min-height: min(78svh, 680px);
+    padding: 88px 20px 72px;
+  }
+
+  .heroText {
+    padding-top: 1rem;
+  }
+
   .heroText h1 {
-    font-size: clamp(1.35rem, 4.8vw, 2rem);
-    line-height: 1.12;
+    font-size: clamp(2.75rem, 13vw, 4.8rem);
+    line-height: 0.96;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+  }
+
+  .heroActions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
   }
 
   .finalCTA h2 {
