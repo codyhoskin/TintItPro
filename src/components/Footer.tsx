@@ -306,6 +306,7 @@ const Footer = () => {
 
       <motion.div className={styles.bottomFooter} {...floatUp}>
         <nav className={styles.footerServiceLinks} aria-label="Tint It Pro services">
+          <Link href="/">Home</Link>
           <Link href="/windowfilm">Residential Window Tinting Calgary</Link>
           <Link href="/commercial-films">Commercial Window Film</Link>
           <Link href="/tuffskin">Stone & Glass Protection</Link>
