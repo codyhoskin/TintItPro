@@ -41,7 +41,7 @@ export const resourcePosts: ResourcePost[] = [
       "window tinting estimate Calgary",
     ],
     intro:
-      "The cost of home window tinting in Calgary depends on the total glass area, film performance, number of windows, and how accessible the glass is for installation. A small project with standard ground-level access is priced very differently from a multi-storey home with large panes or specialty film.",
+      "The cost of residential window film in Calgary depends on the total glass area, film performance, number of windows, and how accessible the glass is for installation. A small project with standard ground-level access is priced very differently from a multi-storey home with large panes or specialty film.",
     sections: [
       {
         heading: "What determines the installed price?",
@@ -207,7 +207,7 @@ export const resourcePosts: ResourcePost[] = [
     modifiedTime: "2026-10-14",
     keywords: [
       "commercial security window film Calgary",
-      "commercial window tinting Calgary",
+      "commercial architectural window film Calgary",
       "office privacy window film Calgary",
     ],
     intro:

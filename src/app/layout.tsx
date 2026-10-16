@@ -30,15 +30,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Tint It Pro",
   title: {
-    default: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
+    default: "Tint It Pro | Calgary Home & Commercial Window Film",
     template: "%s | Tint It Pro",
   },
   description:
-    "Tint It Pro is Calgary's trusted home and business window tinting specialist. Get UV and heat-control film, privacy film, and natural stone protection from licensed Calgary installers.",
+    "Tint It Pro installs architectural window film for Calgary homes and businesses, plus TuffSkin® stone protection. We do not install automotive window tint.",
   keywords: [
-    "Calgary window tinting",
+    "architectural window film Calgary",
     "residential window film Calgary",
-    "home window tinting Calgary",
+    "home window film Calgary",
     "commercial window film Calgary",
     "natural stone protection Calgary",
     "privacy window film Calgary",
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
+    title: "Tint It Pro | Calgary Home & Commercial Window Film",
     description:
-      "Tint It Pro is Calgary's trusted window tinting, tint film, and natural stone protection team. Fast estimates and professional on-site consultation ($75 + GST).",
+      "Architectural window film for Calgary homes and businesses, plus natural stone protection. Tint It Pro does not install automotive window tint.",
     url: "https://tintitpro.ca",
     siteName: "Tint It Pro",
     locale: "en_CA",
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
+    title: "Tint It Pro | Calgary Home & Commercial Window Film",
     description:
-      "Calgary's trusted window tinting specialist for home and business windows, UV reduction, privacy control, and surface protection.",
+      "Calgary architectural window film for residential and commercial glass, with UV reduction, privacy control, solar comfort, and surface protection.",
     images: ["https://tintitpro.ca/images/tint-it-pro-van-parallax.webp"],
     creator: "@tintitpro",
   },

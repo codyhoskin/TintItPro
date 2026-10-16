@@ -15,6 +15,11 @@ export const faqItems = [
       "We are based in Calgary, Alberta, and serve surrounding communities for home and business projects.",
   },
   {
+    question: "Do you install automotive or car window tint?",
+    answer:
+      "No. Tint It Pro specializes in architectural window film for homes and businesses, plus TuffSkin® stone protection. We do not install automotive or vehicle window tint.",
+  },
+  {
     question: "Which window film manufacturer do you use?",
     answer:
       "We use Solar Gard® Films by Saint-Gobain for premium residential and commercial window film solutions. Their films are backed by manufacturer warranty and are trusted for solar control, UV reduction, and safety applications.",

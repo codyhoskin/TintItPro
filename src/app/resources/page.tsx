@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Helpful guides from Tint It Pro about Calgary residential window tinting, commercial window film, privacy glass, heat control, and TuffSkin® stone protection.",
   keywords: [
-    "Calgary window tinting guide",
+    "Calgary architectural window film guide",
     "residential window film Calgary",
     "commercial window film Calgary",
     "TuffSkin Calgary",

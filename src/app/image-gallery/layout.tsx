@@ -6,10 +6,10 @@ import {
 } from "@/lib/seo";
 
 const description =
-  "Explore completed residential and commercial window tinting projects by Tint It Pro across Calgary, including privacy, solar control and decorative films.";
+  "Explore completed residential and commercial architectural window film projects by Tint It Pro across Calgary, including privacy, solar control and decorative films.";
 
 const keywords = [
-  "Calgary window tinting gallery",
+  "Calgary architectural window film gallery",
   "residential window tinting projects Calgary",
   "commercial window film projects Calgary",
   "privacy window film Calgary",
@@ -17,7 +17,7 @@ const keywords = [
 ];
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Calgary Window Tinting Project Gallery",
+  title: "Calgary Architectural Window Film Project Gallery",
   description,
   path: "/image-gallery",
   keywords,
@@ -36,7 +36,7 @@ export default function ImageGalleryLayout({
     <>
       <StructuredData
         data={createGalleryStructuredData({
-          name: "Calgary Window Tinting Project Gallery",
+          name: "Calgary Architectural Window Film Project Gallery",
           description,
           path: "/image-gallery",
           image: "/images/tint-job/F62CCD86-DE98-46C6-8125-4D4D37CAA383.JPG",

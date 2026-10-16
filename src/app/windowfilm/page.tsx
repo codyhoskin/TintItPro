@@ -229,7 +229,7 @@ const WindowFilms: React.FC = () => {
       <motion.section className={styles.localSection} aria-labelledby="calgary-service-area" {...reveal}>
         <div>
           <p className={styles.eyebrow}>LOCAL RESIDENTIAL INSTALLATION</p>
-          <h2 id="calgary-service-area">Home Window Tinting Across Calgary and Nearby Communities</h2>
+          <h2 id="calgary-service-area">Home Window Film Across Calgary and Nearby Communities</h2>
         </div>
         <p>
           Tint It Pro serves homeowners throughout Calgary and surrounding communities.

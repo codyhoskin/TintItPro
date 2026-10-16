@@ -10,8 +10,8 @@ const description =
 
 const keywords = [
   "commercial window film Calgary",
-  "commercial window tinting Calgary",
-  "office window tinting Calgary",
+  "commercial architectural window film Calgary",
+  "office window film Calgary",
   "security window film Calgary",
   "anti-graffiti film Calgary",
   "decorative privacy film Calgary",

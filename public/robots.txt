@@ -14,16 +14,19 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
-# Other AI search crawlers
+# Google-Extended
 User-agent: Google-Extended
 Allow: /
 
+# ClaudeBot
 User-agent: ClaudeBot
 Allow: /
 
+# PerplexityBot
 User-agent: PerplexityBot
 Allow: /
 
+# Applebot-Extended
 User-agent: Applebot-Extended
 Allow: /
 

@@ -50,7 +50,7 @@ export const businessStructuredData = {
       currenciesAccepted: "CAD",
       slogan: "Premium Stone & Glass Protection in Calgary",
       description:
-        "Calgary window film and surface protection specialists for residential and commercial properties, including Solar Gard window films and TuffSkin natural stone protection.",
+        "Calgary architectural window film and surface protection specialists for residential and commercial properties, including Solar Gard window films and TuffSkin natural stone protection. Automotive window tint is not offered.",
       mainEntityOfPage: {
         "@id": `${SITE_URL}/#webpage`,
       },
@@ -173,9 +173,9 @@ export const homePageStructuredData = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/#webpage`,
   url: SITE_URL,
-  name: "Tint It Pro | Calgary Window Tinting, Window Film & Surface Protection",
+  name: "Tint It Pro | Calgary Home & Commercial Window Film",
   description:
-    "Calgary window tinting for residential and commercial properties, including UV control, privacy film, decorative film, and natural stone protection in Alberta.",
+    "Calgary architectural window film for residential and commercial properties, including UV control, privacy film, decorative film, and natural stone protection in Alberta. Automotive window tint is not offered.",
   isPartOf: {
     "@id": `${SITE_URL}/#website`,
   },
@@ -183,10 +183,10 @@ export const homePageStructuredData = {
     "@id": `${SITE_URL}/#business`,
   },
   keywords: [
-    "Calgary window tinting",
+    "architectural window film Calgary",
     "residential window film Calgary",
-    "privacy window film Calgary",
-    "window tinting cost Calgary",
+    "home window film Calgary",
+    "commercial window film Calgary",
     "solar control window film",
     "Tint It Pro",
   ],

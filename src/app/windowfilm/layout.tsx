@@ -11,7 +11,7 @@ const description =
 
 const keywords = [
   "residential window tinting Calgary",
-  "home window tinting Calgary",
+  "architectural home window film Calgary",
   "home window film Calgary",
   "heat control window film Calgary",
   "UV protection window film Calgary",
