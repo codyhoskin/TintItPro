@@ -90,7 +90,14 @@ export default async function ResourceArticlePage({ params }: ResourcePageProps)
         </Link>
         <p className={styles.eyebrow}>{post.category}</p>
         <h1>{post.title}</h1>
-        <p className={styles.articleMeta}>{post.readTime} · Updated October 14, 2026</p>
+        <p className={styles.articleMeta}>
+          {post.readTime} · Updated {new Intl.DateTimeFormat("en-CA", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          }).format(new Date(`${post.modifiedTime}T00:00:00Z`))}
+        </p>
         <p className={styles.articleIntro}>{post.intro}</p>
 
         {post.sections.map((section) => (
