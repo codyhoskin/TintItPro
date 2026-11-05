@@ -266,8 +266,13 @@ export const resourcePosts: ResourcePost[] = [
     modifiedTime: "2026-10-14",
     keywords: [
       "TuffSkin Calgary",
-      "marble countertop protection Calgary",
+      "TuffSkin countertop protection Calgary",
       "natural stone protection film Calgary",
+      "countertop protection film Calgary",
+      "marble countertop protection Calgary",
+      "onyx countertop protection Calgary",
+      "travertine countertop protection Calgary",
+      "quartz countertop protection Calgary",
     ],
     intro:
       "Marble, onyx, travertine, and other calcium-based stones can etch and stain from everyday kitchen and bathroom use. TuffSkin® is a removable surface-protection film designed to create a replaceable barrier over vulnerable stone.",
@@ -383,7 +388,13 @@ export const resourcePosts: ResourcePost[] = [
     modifiedTime: "2026-10-15",
     keywords: [
       "marble countertop protection Calgary",
+      "natural stone protection film Calgary",
+      "countertop protection film Calgary",
+      "TuffSkin countertop protection Calgary",
       "protect marble kitchen Calgary",
+      "onyx countertop protection Calgary",
+      "travertine countertop protection Calgary",
+      "quartz countertop protection Calgary",
       "luxury kitchen stone protection",
     ],
     intro:
@@ -442,6 +453,9 @@ export const resourcePosts: ResourcePost[] = [
       "hotel countertop protection Calgary",
       "restaurant marble protection Calgary",
       "spa surface protection Calgary",
+      "commercial countertop protection film Calgary",
+      "natural stone protection film Calgary",
+      "TuffSkin commercial protection Calgary",
     ],
     intro:
       "Hotels, restaurants, bars, and spas need surfaces that look polished while standing up to spills, cleaning, heat, and constant contact. TuffSkin® adds a replaceable protective layer to suitable flat stone and other surfaces without requiring a full replacement when normal wear appears.",

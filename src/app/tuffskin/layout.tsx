@@ -6,16 +6,22 @@ import {
 } from "@/lib/seo";
 
 const description =
-  "Certified TuffSkin installer in Calgary protecting marble, onyx, travertine and quartz countertops from etching, staining, moisture and everyday wear.";
+  "Certified TuffSkin installer in Calgary providing natural stone protection film for marble, onyx, travertine and quartz countertops. Protect against etching, staining, moisture and everyday wear.";
 
 const keywords = [
   "TuffSkin Calgary",
   "TuffSkin installer Calgary",
+  "TuffSkin countertop protection Calgary",
+  "natural stone protection film Calgary",
+  "countertop protection film Calgary",
   "marble countertop protection Calgary",
-  "natural stone protection Calgary",
-  "marble etch protection",
-  "stone surface protection film",
+  "onyx countertop protection Calgary",
+  "travertine countertop protection Calgary",
   "quartz countertop protection Calgary",
+  "natural stone protection Calgary",
+  "marble etch protection Calgary",
+  "stone surface protection film",
+  "countertop film installation Calgary",
 ];
 
 export const metadata: Metadata = createPageMetadata({

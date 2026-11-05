@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Tint It Pro",
   },
   description:
-    "Tint It Pro installs architectural window film for Calgary homes and businesses, plus TuffSkin® stone protection. We do not install automotive window tint.",
+    "Tint It Pro installs architectural window film for Calgary homes and businesses, plus TuffSkin® natural stone protection film for marble, onyx, travertine, quartz and other countertops. We do not install automotive window tint.",
   keywords: [
     "architectural window film Calgary",
     "residential window film Calgary",
@@ -43,6 +43,13 @@ export const metadata: Metadata = {
     "natural stone protection Calgary",
     "privacy window film Calgary",
     "TuffSkin Calgary",
+    "TuffSkin countertop protection Calgary",
+    "natural stone protection film Calgary",
+    "countertop protection film Calgary",
+    "marble countertop protection Calgary",
+    "onyx countertop protection Calgary",
+    "travertine countertop protection Calgary",
+    "quartz countertop protection Calgary",
     "glass protection Calgary",
     "decorative window film Calgary",
     "security window film Calgary",

@@ -6,12 +6,16 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Calgary Window Film & Stone Protection Resources",
   description:
-    "Helpful guides from Tint It Pro about Calgary residential window tinting, commercial window film, privacy glass, heat control, and TuffSkin® stone protection.",
+    "Helpful guides from Tint It Pro about Calgary residential window film, commercial glass protection, privacy and heat control, and TuffSkin® natural stone protection film for marble and countertops.",
   keywords: [
     "Calgary architectural window film guide",
     "residential window film Calgary",
     "commercial window film Calgary",
     "TuffSkin Calgary",
+    "natural stone protection film Calgary",
+    "countertop protection film Calgary",
+    "marble countertop protection Calgary",
+    "TuffSkin countertop protection Calgary",
   ],
   alternates: {
     canonical: "https://tintitpro.ca/resources",

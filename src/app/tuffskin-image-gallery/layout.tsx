@@ -10,8 +10,13 @@ const description =
 
 const keywords = [
   "TuffSkin gallery Calgary",
+  "TuffSkin countertop protection Calgary",
+  "natural stone protection film Calgary",
+  "countertop protection film Calgary",
   "marble countertop protection projects",
-  "natural stone protection Calgary",
+  "onyx countertop protection Calgary",
+  "travertine countertop protection Calgary",
+  "quartz countertop protection Calgary",
   "TuffSkin installation Calgary",
   "marble etch protection Calgary",
 ];

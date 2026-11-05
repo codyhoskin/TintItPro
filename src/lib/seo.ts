@@ -50,7 +50,7 @@ export const businessStructuredData = {
       currenciesAccepted: "CAD",
       slogan: "Premium Stone & Glass Protection in Calgary",
       description:
-        "Calgary architectural window film and surface protection specialists for residential and commercial properties, including Solar Gard window films and TuffSkin natural stone protection. Automotive window tint is not offered.",
+        "Calgary architectural window film and natural stone protection film specialists for residential and commercial properties, including Solar Gard window films and TuffSkin countertop protection for marble, onyx, travertine and quartz. Automotive window tint is not offered.",
       mainEntityOfPage: {
         "@id": `${SITE_URL}/#webpage`,
       },
@@ -123,7 +123,13 @@ export const businessStructuredData = {
           "Security window film",
           "Decorative window film",
           "Anti-graffiti film",
-          "TuffSkin natural stone surface protection",
+      "TuffSkin natural stone surface protection",
+      "Natural stone protection film",
+      "Countertop protection film",
+      "Marble countertop protection",
+      "Onyx countertop protection",
+      "Travertine countertop protection",
+      "Quartz countertop protection",
         ].map((name) => ({
           "@type": "Offer",
           itemOffered: {
@@ -175,7 +181,7 @@ export const homePageStructuredData = {
   url: SITE_URL,
   name: "Tint It Pro | Calgary Home & Commercial Window Film",
   description:
-    "Calgary architectural window film for residential and commercial properties, including UV control, privacy film, decorative film, and natural stone protection in Alberta. Automotive window tint is not offered.",
+    "Calgary architectural window film and natural stone protection film for residential and commercial properties, including TuffSkin countertop protection for marble, onyx, travertine and quartz. Automotive window tint is not offered.",
   isPartOf: {
     "@id": `${SITE_URL}/#website`,
   },
@@ -188,6 +194,13 @@ export const homePageStructuredData = {
     "home window film Calgary",
     "commercial window film Calgary",
     "solar control window film",
+    "natural stone protection film Calgary",
+    "countertop protection film Calgary",
+    "TuffSkin countertop protection Calgary",
+    "marble countertop protection Calgary",
+    "onyx countertop protection Calgary",
+    "travertine countertop protection Calgary",
+    "quartz countertop protection Calgary",
     "Tint It Pro",
   ],
   primaryImageOfPage: {
