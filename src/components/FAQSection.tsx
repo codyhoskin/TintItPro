@@ -15,9 +15,9 @@ export const faqItems = [
       "We are based in Calgary, Alberta, and serve surrounding communities for home and business projects.",
   },
   {
-    question: "Do you install automotive or car window tint?",
+    question: "What types of projects do you take on?",
     answer:
-      "No. Tint It Pro specializes in architectural window film for homes and businesses, plus TuffSkin® stone protection. We do not install automotive or vehicle window tint.",
+      "We take on residential homes, commercial buildings, and natural stone countertop projects. Our services include architectural window film and TuffSkin® stone protection.",
   },
   {
     question: "Which window film manufacturer do you use?",

@@ -22,9 +22,9 @@ const faqs: FAQItem[] = [
     answer: "Calgary, Alberta and surroundings.",
   },
   {
-    question: "Do you install automotive or car window tint?",
+    question: "What types of projects do you take on?",
     answer:
-      "No. We install architectural window film for homes and businesses, not automotive or vehicle window tint.",
+      "We work on residential homes, commercial buildings, and natural stone countertop projects using architectural window film and TuffSkin® protection.",
   },
   {
     question: "Which window film manufacturer do you use?",
