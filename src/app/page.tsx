@@ -56,7 +56,7 @@ export default function Landing() {
    
 
     {/* 5️⃣ Benefits strip */}
-    <TitleSection title="Why Choose Tint It Pro" subtitle="Premium protection for your glass, windows, and natural stone" />
+    <TitleSection title="Why Choose Tint It Pro" subtitle="Calgary window film and TuffSkin® natural stone protection film for homes, businesses, marble, quartz and other countertops" />
 
     <InfoCard.Wrapper>
     <InfoCard

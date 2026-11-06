@@ -108,10 +108,11 @@ const imageSrc =
 
         <div className={styles.introPanel}>
           <p>
-            Tint It Pro is a certified TuffSkin® installer serving Calgary homes and
-            businesses. TuffSkin® provides professional-grade protection for natural
-            stone surfaces, helping prevent etching, staining and damage from heat or
-            moisture. It is ideal for kitchens, bathrooms, restaurants and hotels.
+            <strong>What is TuffSkin® countertop protection?</strong> Tint It Pro is
+            a certified Calgary installer of natural stone protection film for marble,
+            onyx, travertine, quartz and other flat surfaces. TuffSkin® creates a
+            removable, replaceable barrier against etching, staining, heat and
+            moisture for kitchens, bathrooms, restaurants and hotels.
           </p>
         </div>
         <Image src="/images/tuffskin-header2.png" alt="TuffSkin® Sample" width={700} height={180} className={styles.roundedImage}/>
