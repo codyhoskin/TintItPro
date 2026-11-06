@@ -19,7 +19,7 @@ const defaultSocialImage = {
   url: `${SITE_URL}/images/tint-it-pro-van-parallax.webp`,
   width: 2400,
   height: 1356,
-  alt: "Tint It Pro window film and surface protection service vehicle in Calgary",
+  alt: "Tint It Pro architectural window film and surface protection service in Calgary",
 };
 
 export const businessStructuredData = {
@@ -50,7 +50,7 @@ export const businessStructuredData = {
       currenciesAccepted: "CAD",
       slogan: "Premium Stone & Glass Protection in Calgary",
       description:
-        "Calgary architectural window film and natural stone protection film specialists for residential and commercial properties, including Solar Gard window films and TuffSkin countertop protection for marble, onyx, travertine and quartz. Automotive window tint is not offered.",
+        "Calgary architectural window film and natural stone protection film specialists for homes, commercial buildings, and countertops, including Solar Gard window films and TuffSkin protection for marble, onyx, travertine and quartz.",
       mainEntityOfPage: {
         "@id": `${SITE_URL}/#webpage`,
       },
@@ -181,7 +181,7 @@ export const homePageStructuredData = {
   url: SITE_URL,
   name: "Tint It Pro | Calgary Home & Commercial Window Film",
   description:
-    "Calgary architectural window film and natural stone protection film for residential and commercial properties, including TuffSkin countertop protection for marble, onyx, travertine and quartz. Automotive window tint is not offered.",
+    "Calgary architectural window film for homes and commercial buildings, plus TuffSkin natural stone protection film for marble, onyx, travertine and quartz countertops.",
   isPartOf: {
     "@id": `${SITE_URL}/#website`,
   },
