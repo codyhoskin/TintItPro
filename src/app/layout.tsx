@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import ThemeProviderWrapper from "../components/ThemeProviderWrapper";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -7,6 +8,9 @@ import localFont from "next/font/local";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import StructuredData from "@/components/StructuredData";
 import { businessStructuredData, SITE_URL } from "@/lib/seo";
+
+const GOOGLE_ANALYTICS_ID =
+  process.env.NEXT_PUBLIC_GA_ID ?? "G-PE6L4Z98LP";
 
 const interFontBold = localFont({
   src: "./fonts/Satoshi-Black.otf",
@@ -151,6 +155,16 @@ export default function RootLayout({
       className={`${interFontBold.variable} ${interFontThin.variable}`}
     >
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ANALYTICS_ID}');`}
+        </Script>
         <StructuredData data={businessStructuredData} />
         <ThemeProviderWrapper>
           <Header />
